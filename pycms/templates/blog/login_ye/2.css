@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+body {background-color:#CCC;padding-top:60px;margin:0 auto; text-align:center;}
+#container{width:600px;margin-left:auto; margin-right:auto;}
+#header{background-image:url(7.jpg);height:80px;width:600px}
+#menu{background-color:#EBEBEB;width:600px;height:350px;}
+h1{margin-bottom:0;font-size:50px;}
+.text1 { background:url(./1.jpg);border:1px solid #CCC; width:451px; height:66px; font-size:18px; font-weight:bold; line-height:1.6;text-align:middle;text-indent:5em;}
+.text2 { background:url(./2.jpg);border:1px solid #CCC; width:451px; height:66px; font-size:18px; font-weight:bold; line-height:1.6;text-align:middle;text-indent:5em;}
+.text3 { background:url(./5.jpg);border:1px solid #CCC; width:224px; height:66px; font-size:18px; font-weight:bold; line-height:1.6;text-align:middle;}
+.text4 { background:url(./6.jpg);border:1px solid #CCC; width:220px; height:66px; font-size:18px; font-weight:bold; line-height:1.6;text-align:middle;}
+h4{text-align:right;font-size:15px}
