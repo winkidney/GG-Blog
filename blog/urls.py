@@ -13,6 +13,9 @@ urlpatterns = patterns('',
     url(r'^about/$',views.about),
     url(r'^contactme/$',views.contact),
     url(r'^test/$',views.test),
-    url(r'^logout/$',views.logout_view)
+    url(r'^logout/$',views.logout_view),
+    url(r'^manage/', include('manage.urls')),
     #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'blog/login/login.html'}),
+    #tiny mce
+    #url(r'^tinymce/',include('tinymce.urls')),
 )

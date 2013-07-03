@@ -1,6 +1,7 @@
 #coding:utf-8
 #blog models
 from django.db import models
+#from tinymce.models import HTMLField
 
 # Create your models here.
 #基础设置
@@ -49,15 +50,14 @@ class Comments(models.Model):
     class Meta:
         ordering = ['id']
 class Links(models.Model):
-    link_url = models.URLField(verbose_name=u'链接地址')
     link_name = models.CharField(max_length=20,verbose_name=u'链接名称')
-    link_image_url = models.URLField(verbose_name=u'链接图片名')
+    link_image_url = models.URLField(blank=True,verbose_name=u'链接图片名')
     link_target_url = models.URLField(verbose_name=u'链接目标地址')
-    link_description = models.TextField(verbose_name=u'链接描述')
+    link_description = models.TextField(blank=True,verbose_name=u'链接描述')
     link_visible = models.BooleanField(verbose_name=u'链接可见')
     link_owner = models.IntegerField(verbose_name=u'链接所有者id') #链接添加者的用户id
-    link_rating = models.IntegerField(verbose_name=u'链接受欢迎度')
-    link_rss = models.URLField(verbose_name=u'rss链接')
+    link_rating = models.IntegerField(blank=True,verbose_name=u'链接受欢迎度')
+    link_rss = models.URLField(blank=True,verbose_name=u'rss链接')
     def __unicode__(self):
         return u"%s" % self.link_owner
     class Meta:
@@ -79,11 +79,14 @@ class Posts(models.Model):
     post_tagid = models.ManyToManyField(Tags,verbose_name=u'标签')
     post_threadtypeid = models.ForeignKey(ThreadTypes,verbose_name=u'分类')
     post_comment_conut = models.IntegerField(verbose_name=u'评论数量')
-    post_comments = models.ManyToManyField(Comments,verbose_name=u'评论')
+    post_comments = models.ManyToManyField(Comments,blank=True,verbose_name=u'评论')
     def __unicode__(self):
         return u"%s" % (self.post_date)
     class Meta:
         ordering = ['post_date']
+#class Attachments(models.Modle):
+#class TestModel(models.Model):
+#    content = HTMLField()
 
 #class Author(models.Model):
 #    first_name = models.CharField(max_length=30)

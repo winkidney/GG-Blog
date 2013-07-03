@@ -42,17 +42,18 @@
 
 
 <div id="content-main">
-<form action="" method="post" id="login-form"><input name="csrfmiddlewaretoken" value="6dMolGzXfmsJLY5FbaiKx5tdDeJ32B5f" type="hidden">
-  <div class="form-row">
+<form action="" method="post" id="login-form">
+	{% csrf_token %}
+	<div class="form-row">
     
-    <label for="id_username" class="required">用户名:</label> <input value="winkidney" id="id_username" maxlength="254" name="username" type="text">
-  </div>
-  <div class="form-row">
+		<label for="id_username" class="required">用户名:</label> <input value="winkidney" id="id_username" maxlength="254" name="username" type="text">
+	</div>
+	<div class="form-row">
     
-    <label for="id_password" class="required">密码：</label> <input id="id_password" name="password" type="password">
-    <input name="this_is_the_login_form" value="1" type="hidden">
-    <input name="next" value="" type="hidden"><!--暂时没有用到-->
-  </div>
+		<label for="id_password" class="required">密码：</label> <input id="id_password" name="password" type="password">
+		<input name="this_is_the_login_form" value="1" type="hidden">
+		<input name="next" value="" type="hidden"><!--暂时没有用到-->
+	</div>
   
   
   <div class="submit-row">

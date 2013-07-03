@@ -1,3 +1,5 @@
+#coding:utf-8
+#seetings of pycms
 # Django settings for pycms project.
 import os
 DEBUG = True
@@ -50,18 +52,19 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/home/www/static/upload'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/static/upload/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/www/'
+#STATIC_ROOT = '/home/www/static/'
+STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -69,6 +72,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+                    '/home/www/static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -125,7 +129,10 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    #my own
     'blog',
+    #the 富文本编辑器
+    #'tinymce',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -156,6 +163,12 @@ LOGGING = {
         },
     }
 }
-
-
-#blog_seetings
+#全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
+MY_STATIC_ROOT = '/home/www/static/'
+MY_MEDIA_ROOT = '/home/www/static/upload/'
+MY_MEDIA_URL = '/static/upload/'
+#blog_seetings（blog所用到的固定设置，安装相关）
+BLOG_ROOT_URL = '/blog/'
+GLOBA_STATIC_URL = '/static/'
+BLOG_STATIC_URL = GLOBA_STATIC_URL
+BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'share/myadmin/'

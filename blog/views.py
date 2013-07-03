@@ -9,8 +9,11 @@ from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import (authenticate, login ,logout)
 from django.template import RequestContext
 from blog.models import BasicSettings
+#own import 
+from pycms.settings import BLOG_ROOT_URL,BLOG_AMDMIN_STATIC_URL
 
-blog_login_url = '/blog/login/'
+blog_login_url = BLOG_ROOT_URL+'login/'
+login_html = 'blog/login/login_django.html'
 def home(request):
     
     #login检测包装
@@ -24,14 +27,18 @@ def home(request):
     from django.contrib.auth import authenticate, login
 def login_view(request):
     site_name = BasicSettings.objects.get(variable='site_name').value
+    remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
     if request.user.is_authenticated():
-        return render_to_response('blog/login/logout_first.html',locals())
+        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':BLOG_ROOT+'logout/'}
+        return render_to_response('blog/login/remind.html',locals())
+    #用户未登陆，转入登陆页面
     else:
         if request.method == 'GET':
                 #这里不这么写居然无法登陆，记下来作为教训吧= =
             return render_to_response(login_html,{'site_name':site_name},context_instance=RequestContext(request)) 
+        #用同一个url处理用户的登陆表单
         elif request.method == 'POST':
             username = request.POST['username']
             password = request.POST['password']
@@ -39,7 +46,8 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse("login successful!")
+                    remind = {'info':'登陆成功，正在为您跳转到主页','url_to':'../'}
+                    return render_to_response('blog/login/auto_jump.html',locals())
                     #return HttpResponseRedirect("/account/loggedin/")
                     # Redirect to a success page.
                 else:
@@ -51,10 +59,11 @@ def login_view(request):
             return render_to_response(login_html,{'errors':errors,'site_name':site_name},context_instance=RequestContext(request)) 
 @login_required(login_url=blog_login_url)
 def logout_view(request):
+    site_name = u'玻璃齿轮工作室'
     logout(request)
     # Redirect to a success page.
-    return HttpResponse("successful logout!")
-
+    remind = {'info':u'注销成功，正在为您跳转到主页','url_to':'../'}
+    return render_to_response('blog/login/auto_jump.html',locals())
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
