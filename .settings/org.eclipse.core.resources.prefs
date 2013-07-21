@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//blog/models.py=utf-8
+encoding//blog/urls.py=utf-8
+encoding//blog/views.py=utf-8
+encoding//manage/forms.py=utf-8
+encoding//manage/urls.py=utf-8
+encoding//manage/views.py=utf-8
+encoding//pycms/settings.py=utf-8
+encoding//pycms/urls.py=utf-8
+encoding//pycms/views.py=utf-8

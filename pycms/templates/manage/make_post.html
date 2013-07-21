@@ -1,0 +1,72 @@
+{% extends "manage/base.html" %}
+{% block title %}发表文章{% endblock %}
+{% block specified_head %}
+	<script type="text/javascript" charset="utf-8">
+        window.UEDITOR_HOME_URL = "{{ static_root }}share/ueditor/";
+    </script>
+    <script type="text/javascript" charset="utf-8" src="{{ static_root }}share/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ static_root }}share/ueditor/ueditor.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ static_root }}share/ueditor/themes/default/css/ueditor.css"/>    
+{% endblock %}
+{% block right_content %}
+    <h2>发表文章</h2>
+    <div class="form">
+		<form action="" method="post" >
+		{% csrf_token %}
+		<dl>
+			<label for="comments">文章标题</label>
+			<input type="text" name="title" id="" size="54" />
+		</dl>
+		<dl>
+		<label for="comments">文章别名</label>
+			<input type="text" name="short_title" id="" size="54" />
+		</dl>
+		<dl>
+		<label for="comments">文章封面图片url</label>
+			<input type="text" name="cover_url" id="" size="54" />
+		<dl>	
+			<label for="upload">上传</label>
+			<input type="file" name="upload" id="upload" />
+		</dl>
+		<dl>
+			<label for="comments">文章简介</label>
+			<input type="text" name="summarise" id="" size="54" />
+		</dl>
+		<dl>
+			<label for="comments">文章内容</label>
+			<textarea id="content" name="content" style="width:575px;line-height:18px;"></textarea>
+           
+        </dl>
+        <dl>
+			<label for="comments">是否显示评论</label>
+			<input type="checkbox" name="interests[]" id="" value="" />
+        </dl>
+        <dl>
+              <label for="comments">文章标签</label>
+              <label class="check_label">网页设计</label><input type="checkbox" name="interests[]" id="" value="" />
+              <label class="check_label">python编程</label><input type="checkbox" name="interests[]" id="" value="" />
+              <label class="check_label">游戏</label><input type="checkbox" name="interests[]" id="" value="" />
+              <label class="check_label">无分类</label><input type="checkbox" name="interests[]" id="" value="" />
+        </dl>
+		<dl>
+			<label for="comments">文章分类</label>
+                            <select size="1" name="gender" id="">
+                                <option value="">分类1</option>
+                                <option value="">分类2</option>
+                                <option value="">分类3</option>
+                                <option value="">分类4</option>
+                                <option value="">分类5</option>
+                            </select>
+		</dl>
+		<dl>
+				<dt><input type="submit" name="submit"  value="发表文章" ></dt>
+        </dl>
+        </form>
+	</div>  
+{% endblock %}
+{% block add_on %}
+	<script>
+		var ue=new UE.ui.Editor();
+		ue.render('content');
+	</script>
+{% endblock %}
