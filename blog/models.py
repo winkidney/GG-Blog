@@ -16,6 +16,10 @@ class BasicSettings(models.Model):
 class Status(models.Model):
     status_id = models.IntegerField(primary_key=True,verbose_name=u'状态id')
     status_name = models.CharField(max_length=20,verbose_name=u'状态')
+    def __unicode__(self):
+        return u"%s %s" % (self.status_id,self.status_name)
+    class Meta:
+        ordering = ['status_id']
 #标签
 class Tags(models.Model):
     tagname = models.CharField(max_length=20,verbose_name=u'标签名称')

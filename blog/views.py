@@ -10,9 +10,9 @@ from django.contrib.auth import (authenticate, login ,logout)
 from django.template import RequestContext
 from blog.models import BasicSettings
 #own import 
-from pycms.settings import BLOG_ROOT_URL,BLOG_AMDMIN_STATIC_URL
+from pycms import settings
 
-blog_login_url = BLOG_ROOT_URL+'login/'
+blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
 def home(request):
     
@@ -24,7 +24,7 @@ def home(request):
     except :
         return HttpResponse("error,check it")
     return render_to_response('blog/index.html',{'basic_info':basic_info})
-    from django.contrib.auth import authenticate, login
+    
 def login_view(request):
     site_name = BasicSettings.objects.get(variable='site_name').value
     remind = {} #提示信息存储字典

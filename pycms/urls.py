@@ -18,9 +18,16 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #my own
     url(r'^blog/', include('blog.urls')),
-    #上传文件处理
+    #上传文件处理(ueditor)
     url(r'^ueditor_imgup/$','pycms.views.ueditor_img_up'),
     url(r'^ueditor_fileup/$','pycms.views.ueditor_file_up'),
-    
+    url(r'^ueditor_scrawlup/$','pycms.views.ueditor_scraw_up'),
+        #modifiedurl
+    url(r'^ueditor_getRemoteImage/$','pycms.views.ueditor_getRemoteImage'),
+    url(r'^ueditor_getMovie/$','pycms.views.ueditor_getMovie'),
+    url(r'^ueditor_imageManager/$','pycms.views.ueditor_imageManager'),
+        #url(r'^ueditor_getremoteimg/$','pycms.views.ueditor_img_manager'),
+        #url(r'^ueditor_getmovie/$','pycms.views.ueditor_get_movie'),
+        #url(r'^ueditor_imagemanager/$','pycms.views.ue_get_remote_img')
 )
 urlpatterns += staticfiles_urlpatterns()
