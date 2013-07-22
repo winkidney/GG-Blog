@@ -39,23 +39,21 @@
         </dl>
         <dl>
 			<label for="comments">是否显示评论</label>
-			<input type="checkbox" name="interests[]" id="" value="" />
+			<input type="checkbox" name="commentshow" id="" value="" />
         </dl>
         <dl>
+				
               <label for="comments">文章标签</label>
-              <label class="check_label">网页设计</label><input type="checkbox" name="interests[]" id="" value="" />
-              <label class="check_label">python编程</label><input type="checkbox" name="interests[]" id="" value="" />
-              <label class="check_label">游戏</label><input type="checkbox" name="interests[]" id="" value="" />
-              <label class="check_label">无分类</label><input type="checkbox" name="interests[]" id="" value="" />
+         {% for tag in tags %}
+              <label class="check_label">{{ tag.tagname }}</label><input type="checkbox" name="tag{{ tag.id }}" id="" value="" />
+			{% endfor %}
         </dl>
 		<dl>
 			<label for="comments">文章分类</label>
-                            <select size="1" name="gender" id="">
-                                <option value="">分类1</option>
-                                <option value="">分类2</option>
-                                <option value="">分类3</option>
-                                <option value="">分类4</option>
-                                <option value="">分类5</option>
+                            <select size="1" name="threadtype" id="">
+								{% for threadtype in threadtypes %}
+                                <option value="{{ threadtype.id }}">{{ threadtype.name }}</option>
+                        {% endfor %}
                             </select>
 		</dl>
 		<dl>
