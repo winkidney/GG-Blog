@@ -26,4 +26,5 @@ def make_post(request):
         threadtypes = ThreadTypes.objects.all()
         return render_to_response('manage/make_post.html',{'static_root':static_root,'tags':tags,'threadtypes':threadtypes},context_instance=RequestContext(request))
     if request.method == 'POST':
+        apple = request.POST.getlist('tag')
         return HttpResponse('all done')

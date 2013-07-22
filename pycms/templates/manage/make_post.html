@@ -45,7 +45,7 @@
 				
               <label for="comments">文章标签</label>
          {% for tag in tags %}
-              <label class="check_label">{{ tag.tagname }}</label><input type="checkbox" name="tag{{ tag.id }}" id="" value="" />
+              <label class="check_label">{{ tag.tagname }}</label><input type="checkbox" name="tag"  value="{{ tag.id }}" />
 			{% endfor %}
         </dl>
 		<dl>
