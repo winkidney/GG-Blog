@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^test/$',views.test),
     url(r'^logout/$',views.logout_view),
     url(r'^manage/', include('manage.urls')),
+    #阅读文章url，文章数量限制为1000,000,000。
+    url(r'^articles/(\d{1,10})/$',views.articles),
     #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'blog/login/login.html'}),
     #tiny mce
     #url(r'^tinymce/',include('tinymce.urls')),

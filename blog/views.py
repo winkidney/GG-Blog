@@ -1,5 +1,5 @@
 #coding:utf-8
-#blog views
+#views of blog
 #from django.shortcuts import redirect
 #from django.contrib.auth.decorators import user_passes_test
 #from django.contrib.auth.decorators import permission_required
@@ -8,30 +8,36 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import (authenticate, login ,logout)
 from django.template import RequestContext
-from blog.models import BasicSettings
+from blog.models import BasicSettings,Posts
 #own import 
 from pycms import settings
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
-def home(request):
-    
-    #login检测包装
+#获取站点基本信息
+def get_basic_info():
     basic_info = {}
     try :
         for key in BasicSettings.objects.all():
             basic_info[key.variable] = key.value
+        return basic_info
     except :
-        return HttpResponse("error,check it")
-    return render_to_response('blog/index.html',{'basic_info':basic_info})
+        return None
     
+def home(request):
+    #login检测包装
+    if get_basic_info != None:
+        basic_info = get_basic_info()
+        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info})
+    else:
+        return HttpResponse("error,check basic_info")
 def login_view(request):
     site_name = BasicSettings.objects.get(variable='site_name').value
     remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
     if request.user.is_authenticated():
-        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':BLOG_ROOT+'logout/'}
+        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':BLOG_ROOT_URL+'logout/'}
         return render_to_response('blog/login/remind.html',locals())
     #用户未登陆，转入登陆页面
     else:
@@ -64,6 +70,26 @@ def logout_view(request):
     # Redirect to a success page.
     remind = {'info':u'注销成功，正在为您跳转到主页','url_to':'../'}
     return render_to_response('blog/login/auto_jump.html',locals())
+
+
+
+#阅读文章的函数
+def articles(request,article_id):
+    #检查文章id是否存在
+    try :
+        post = Posts.objects.get(id=int(article_id))
+    except:
+        return HttpResponse('article does exist')
+    #获取基本信息
+    basic_info = get_basic_info()
+    #检查文章状态是否为已发布
+    if post.post_status.id == 2:
+        article_name = post.post_title
+        return render_to_response('blog/read.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,'article_name':article_name})
+    else:
+        return HttpResponse('article does exist')
+    
+    
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
@@ -92,4 +118,4 @@ def about(request):
 def auth(request):
     return HttpResponse("developing!")
 def test(request):
-    return render_to_response("blog/login/login.html")
+    return render_to_response("blog/read.html")
