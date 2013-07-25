@@ -24,10 +24,12 @@
 		<dl>
 		<label for="comments">文章封面图片url</label>
 			<input type="text" name="cover_url" id="" size="54" />
+		{% comment %}
 		<dl>	
 			<label for="upload">上传</label>
 			<input type="file" name="upload" id="upload" />
 		</dl>
+		{% endcomment %}
 		<dl>
 			<label for="comments">文章简介</label>
 			<input type="text" name="summarise" id="" size="54" />
@@ -38,8 +40,8 @@
            
         </dl>
         <dl>
-			<label for="comments">是否显示评论</label>
-			<input type="checkbox" name="commentshow" id="" value="" />
+			<label for="comments">不显示评论</label>
+			<input type="checkbox" name="commentnotshow" id="" value="" />
         </dl>
         <dl>
 				
@@ -57,7 +59,7 @@
                             </select>
 		</dl>
 		<dl>
-				<dt><input type="submit" name="submit"  value="发表文章" ></dt>
+				<dt><input type="submit" name="postall"  value="发表文章" ></dt>
         </dl>
         </form>
 	</div>  

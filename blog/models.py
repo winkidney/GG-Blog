@@ -14,12 +14,11 @@ class BasicSettings(models.Model):
         ordering = ['variable']
 #文章状态
 class Status(models.Model):
-    status_id = models.IntegerField(primary_key=True,verbose_name=u'状态id')
     status_name = models.CharField(max_length=20,verbose_name=u'状态')
     def __unicode__(self):
-        return u"%s %s" % (self.status_id,self.status_name)
+        return u"%s %s" % (self.id,self.status_name)
     class Meta:
-        ordering = ['status_id']
+        ordering = ['id']
 #标签
 class Tags(models.Model):
     tagname = models.CharField(max_length=20,verbose_name=u'标签名称')
@@ -69,23 +68,33 @@ class Links(models.Model):
     
 #文章
 class Posts(models.Model):
+    #多对多，外键字段全部设置为可以为空。
     post_authorid = models.IntegerField(verbose_name=u'文章作者id')
     post_date = models.DateTimeField(auto_now_add=True,verbose_name=u'发表日期')
     post_date_modified = models.DateTimeField(auto_now=True,verbose_name=u'最后修改日期')
     post_content = models.TextField(verbose_name=u'文章内容')
-    post_titile = models.CharField(max_length=50,verbose_name=u'文章标题')
-    post_name = models.CharField(max_length=50,blank=True,verbose_name=u'文章缩略名')     #文章缩略名
+    post_title = models.CharField(max_length=50,verbose_name=u'文章标题')
+    post_name = models.CharField(max_length=50,blank=True,verbose_name=u'文章别名')     #文章缩略名
     post_cover = models.CharField(max_length=200,verbose_name=u'文章封面图片地址')      #封面图片地址
     post_introduction = models.CharField(max_length=500,blank=True,verbose_name=u'文章简介')     #文章介绍，将会出现在首页
-    post_status = models.ForeignKey(Status,verbose_name=u'文章状态')
-    comment_status = models.BooleanField(verbose_name=u'显示评论')
+    post_status = models.ForeignKey(Status,blank=True,verbose_name=u'文章状态')
+    comment_status = models.BooleanField(blank=True,verbose_name=u'不显示评论')
     post_password = models.CharField(max_length=20,blank=True,verbose_name=u'文章密码')
-    post_tagid = models.ManyToManyField(Tags,verbose_name=u'标签')
-    post_threadtypeid = models.ForeignKey(ThreadTypes,verbose_name=u'分类')
-    post_comment_conut = models.IntegerField(verbose_name=u'评论数量')
+    post_tagid = models.ManyToManyField(Tags,blank=True,verbose_name=u'标签')
+    post_threadtypeid = models.ForeignKey(ThreadTypes,blank=True,verbose_name=u'分类')
+    post_comment_count = models.IntegerField(verbose_name=u'评论数量')
     post_comments = models.ManyToManyField(Comments,blank=True,verbose_name=u'评论')
+    def init(self):
+        self.post_threadtypeid_id = 1
+        self.post_authorid = 1
+        self.post_status_id = 1
+        self.post_content = ''
+        self.post_title = ''
+        self.post_cover = ''
+        self.post_comment_count = 0
+        self.save()
     def __unicode__(self):
-        return u"%s" % (self.post_date)
+        return u"%s %s %s" % (self.id,self.post_title,self.post_date)
     class Meta:
         ordering = ['post_date']
 #class Attachments(models.Modle):

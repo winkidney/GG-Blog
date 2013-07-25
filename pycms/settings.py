@@ -135,6 +135,16 @@ INSTALLED_APPS = (
     #'tinymce',
 )
 
+#全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
+MY_STATIC_ROOT = '/home/www/static/'
+MY_MEDIA_ROOT = '/home/www/static/upload/'
+MY_MEDIA_URL = '/static/upload/'
+#blog_seetings（blog所用到的固定设置，安装相关）
+BLOG_ROOT_URL = '/blog/'
+GLOBA_STATIC_URL = '/static/'
+BLOG_STATIC_URL = GLOBA_STATIC_URL
+BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'share/myadmin/'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -153,9 +163,29 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+                 #my logger settings
+        'default': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(MY_STATIC_ROOT+'/logs/','all.log'), #或者直接写路径
+            'maxBytes': 1024*1024*5, # 5 MB
+            'backupCount': 5,
+            #'formatter':'standard',
+        },
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            #'formatter': 'standard'
+        },
+                 #my logger ending
     },
     'loggers': {
+        'django': {
+            'handlers': ['default','console'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
@@ -163,12 +193,3 @@ LOGGING = {
         },
     }
 }
-#全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
-MY_STATIC_ROOT = '/home/www/static/'
-MY_MEDIA_ROOT = '/home/www/static/upload/'
-MY_MEDIA_URL = '/static/upload/'
-#blog_seetings（blog所用到的固定设置，安装相关）
-BLOG_ROOT_URL = '/blog/'
-GLOBA_STATIC_URL = '/static/'
-BLOG_STATIC_URL = GLOBA_STATIC_URL
-BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'share/myadmin/'

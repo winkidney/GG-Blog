@@ -40,8 +40,8 @@ def login_view(request):
             return render_to_response(login_html,{'site_name':site_name},context_instance=RequestContext(request)) 
         #用同一个url处理用户的登陆表单
         elif request.method == 'POST':
-            username = request.POST['username']
-            password = request.POST['password']
+            username = request.POST.get('username')
+            password = request.POST.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
