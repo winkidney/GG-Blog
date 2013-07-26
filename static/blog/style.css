@@ -44,6 +44,7 @@ a.rm, a.com { margin-left:8px; padding:9px 12px; background:url(images/a_bg.gif)
 .content .mainbar { margin:0; float:left;}
 .content .mainbar img { float:left; padding:4px; margin:0 10px 0 0; border:1px solid #eaecec; background-color:#fff;}
 .content .mainbar .article { margin:0 0 20px 0;  padding:30px 20px;  width:610px; border:1px solid #d8d6d6; background:#fefefe url(images/post_bg.gif) top repeat-x;}
+/*.content .mainbar .article .img{}*/
 .content .mainbar .article span.butons a { margin:0 5px 0 0; float:right; color:#9a9a9a; padding:1px 10px; text-decoration:none;  border:1px solid #ebe8e8; background:#fbfbfc;}
 .content .mainbar .article span.butons a:hover { border:1px solid #d9f0ff; background:#40b5ff; color:#fff; text-decoration:none;}
 .content .mainbar .article span.butons a.active {  border:1px solid #ebe8e8;  background:#40b5ff; color:#fff; text-decoration:none;}

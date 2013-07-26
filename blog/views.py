@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth import (authenticate, login ,logout)
 from django.template import RequestContext
-from blog.models import BasicSettings,Posts
+from django.contrib.auth.models import User
+from blog.models import *
 #own import 
 from pycms import settings
 
@@ -81,11 +82,16 @@ def articles(request,article_id):
     except:
         return HttpResponse('article does exist')
     #获取基本信息
+    
     basic_info = get_basic_info()
+    static_root = settings.BLOG_STATIC_URL
+    blog_root_url = settings.BLOG_ROOT_URL
     #检查文章状态是否为已发布
     if post.post_status.id == 2:
-        article_name = post.post_title
-        return render_to_response('blog/read.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,'article_name':article_name})
+        author_name = User.objects.get(id=post.post_authorid)
+        threadtype = post.post_threadtypeid
+        tags = post.post_tagid.all()
+        return render_to_response('blog/read.html',locals())
     else:
         return HttpResponse('article does exist')
     

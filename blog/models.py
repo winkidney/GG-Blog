@@ -37,6 +37,7 @@ class ThreadTypes(models.Model):
     class Meta:
         ordering = ['name']
 class Comments(models.Model):
+    #整型字段好像不能为空，所以将blank=True去掉。
     comment_post_id = models.BigIntegerField(verbose_name=u'评论对应文章id')
     comment_author = models.CharField(max_length=20,verbose_name=u'评论作者')
     comment_author_email = models.EmailField(blank=True,verbose_name=u'评论者电子邮件')
@@ -46,8 +47,8 @@ class Comments(models.Model):
     comment_content = models.TextField(verbose_name=u'评论内容')
     comment_approved = models.BooleanField(blank=True,verbose_name=u'评论打开')
     comment_agent = models.CharField(max_length=30,blank=True,verbose_name=u'评论者浏览器')
-    comment_parent_id = models.BigIntegerField(blank=True,verbose_name=u'父评论id')
-    user_id = models.BigIntegerField(blank=True,verbose_name=u'评论者uid')
+    comment_parent_id = models.BigIntegerField(verbose_name=u'父评论id')
+    user_id = models.BigIntegerField(verbose_name=u'评论者uid')
     def __unicode__(self):
         return u"%s" % self.comment_date
     class Meta:
