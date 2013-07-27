@@ -1,5 +1,6 @@
 #coding:utf-8
 #views of manage
+import re
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
@@ -12,6 +13,12 @@ from pycms import settings
 static_root = settings.GLOBA_STATIC_URL
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 
+#公用的添加一个图片自动等比例缩放的js的函数，适合于字符串
+def js_resize_img(text):
+    """返回一串在<img />标签中被添加了一段自动调整显示大小的js引用"""
+    bold = re.compile(r'(<img.+?)/>')
+    return bold.sub(r'\1 onload="javascript:DrawImage(this,600,600)" />',text)
+    
 @login_required(login_url=blog_login_url)
 def home(request):
     #static_root = settings.GLOBA_STATIC_URL
@@ -44,7 +51,7 @@ def make_post(request):
             newpost.post_name = request.POST.get('short_title')     #缩略名
             newpost.post_cover = request.POST.get('cover_url')
             newpost.post_introduction = request.POST.get('summarise')
-            newpost.post_content = request.POST.get('content')
+            newpost.post_content = js_resize_img(request.POST.get('content'))
             newpost.post_status = Status.objects.get(id='2')        #id为2是已发布的文章，默认为已发布，后面再改
             tagids = request.POST.getlist('tag')
             if tagids != '':
