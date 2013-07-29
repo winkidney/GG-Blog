@@ -25,48 +25,49 @@
 			  <a href="{{ blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
 			  {% endif %}
 		  </p>
-		  
+        </div>
+      
+        <div class="article">
+          <h2><span> 回复</span>&nbsp;{{ post.post_comment_count }}</h2><div class="clr"></div>
+		 {% if post.post_comments.all %}
+			{% for comment in post.post_comments.all %}
+				<div class="comment">
+					<a href="#"><img src="{{ static_root }}blog/images/userpic.gif" width="40" height="40" alt="user" class="userpic" /></a>
+					<p><a href="#">{{ comment.comment_author }}</a> 发表于：<br />{{ comment.comment_date }}</p>
+					<p>{{ post.comment_content }}</p>
+				</div>
+			{% endfor %}
+       {% endif %}
         </div>
         
         <div class="article">
-          <h2><span>3</span> Responses</h2><div class="clr"></div>
-          <div class="comment">
-            <a href="#"><img src="{{ static_root }}blog/images/userpic.gif" width="40" height="40" alt="user" class="userpic" /></a>
-            <p><a href="#">admin</a> Says:<br />April 20th, 2009 at 2:17 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
-          </div>
-          <div class="comment">
-            <a href="#"><img src="{{ static_root }}blog/images/userpic.gif" width="40" height="40" alt="user" class="userpic" /></a>
-            <p><a href="#">Owner</a> Says:<br />April 20th, 2009 at 3:21 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo.</p>
-          </div>
-          <div class="comment">
-            <a href="#"><img src="{{ static_root }}blog/images/userpic.gif" width="40" height="40" alt="user" class="userpic" /></a>
-            <p><a href="#">admin</a> Says:<br />April 20th, 2009 at 2:17 pm</p>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.</p>
-          </div>
-        </div>
-        <div class="article">
-          <h2><span>Leave a</span> Reply</h2><div class="clr"></div>
-          <form action="#" method="post" id="leavereply">
-          <ol><li>
-            <label for="name">Name (required)</label>
-            <input id="name" name="name" class="text" />
-          </li><li>
-            <label for="email">Email Address (required)</label>
-            <input id="email" name="email" class="text" />
-          </li><li>
-            <label for="website">Website</label>
-            <input id="website" name="website" class="text" />
-          </li><li>
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="8" cols="50"></textarea>
-          </li><li>
-            <input type="image" name="imageField" id="imageField" src="{{ static_root }}blog/images/submit.gif" class="send" />
-            <div class="clr"></div>
-          </li></ol>
+          <h2><span>留言板</span></h2><div class="clr"></div>
+          
+          <form action="" method="post" id="leavereply">
+			  {% csrf_token %}
+			  {% if notlogin %}
+				<ol><li>
+					label for="name">大名（必填）</label>
+					{{ comment_from.comment_author }}
+				</li><li>
+					<label for="email">电子邮件（必填）</label>
+					{{ comment_form.comment_author_email }}
+				</li><li>
+					<label for="website">个人主页</label>
+					{{ comment_form.comment_author_url }}
+			  {% endif %}
+				</li><li>
+					<label for="message">留言</label>
+					{{ comment_form.comment_content }}
+				</li><li>
+					<input type="submit" name="post_comment"  value="发布留言" >
+					<div class="clr"></div>
+				</li></ol>
           </form>
+          
         </div>
+        
+        
       </div>
 {% endblock %}
      

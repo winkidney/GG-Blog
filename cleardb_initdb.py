@@ -1,7 +1,16 @@
 #coding:utf-8
 import MySQLdb
 import sys,os
+from datetime import *
+#设置系统环境以便在登记昂哦shell外部引用models功能
+sys.path.append(os.path.join(os.path.dirname(__file__),'').replace('\\','/'),)
+os.environ['DJANGO_SETTINGS_MODULE'] ='pycms.settings'
+from django.core.management import setup_environ
+from pycms import settings
 from blog.models import *
+setup_environ(settings)
+#系统环境设置完毕
+
 dbname = 'pycms'
 rootusername = 'root'
 root_passwd = '19921226'
@@ -13,6 +22,11 @@ tables_to_delete = 'blog_comments,blog_links,blog_posts,blog_posts_post_tagid,bl
 #	sys.exit()
 #db_name = str(sys.argv[1])
 #passwd = str(sys.argv[2])
+
+
+
+
+
 try:
 	conn=MySQLdb.Connect(host='localhost',user=rootusername,passwd=root_passwd)
 	cursor =conn.cursor()

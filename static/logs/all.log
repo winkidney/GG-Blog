@@ -4422,3 +4422,1042 @@ TypeError: 'ManyRelatedManager' object is not iterable
 (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
 (0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
 (0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:31' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:31')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_threadtypes`; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC, `blog_threadtypes`.`id` DESC; args=()
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:31' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:31')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:33' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:33')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'threadtypes'  AND `django_content_type`.`app_label` = 'blog' ); args=('threadtypes', u'blog')
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:33' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:33')
+(0.004) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:49' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:49')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:57' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:57')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.047) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:59' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:59')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.113) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group`; args=()
+(0.040) SELECT COUNT(DISTINCT `auth_user`.`id`) FROM `auth_user`; args=()
+(0.000) SELECT DISTINCT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC, `auth_user`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:34:59' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:34:59')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:01' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:01')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.031) SELECT `auth_group`.`id` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 1 ; args=(1,)
+(0.013) SELECT `auth_permission`.`id` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 1  ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', u'auth')
+(0.000) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group`; args=()
+(0.001) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:01' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:01')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:47' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:47')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:47' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:47')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:50' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:50')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `auth_group`.`id` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 1 ; args=(1,)
+(0.000) SELECT `auth_permission`.`id` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 1  ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.000) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group`; args=()
+(0.002) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:50' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:50')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:53' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:53')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group`; args=()
+(0.000) SELECT COUNT(DISTINCT `auth_user`.`id`) FROM `auth_user`; args=()
+(0.000) SELECT DISTINCT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC, `auth_user`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:53' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:53')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:55' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:55')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:57' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:57')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `auth_group`; args=()
+(0.000) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC, `auth_group`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:57' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:57')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:35:59' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:35:59')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:36:00' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:36:00')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.062) SELECT COUNT(*) FROM `django_site`; args=()
+(0.020) SELECT `django_site`.`id`, `django_site`.`domain`, `django_site`.`name` FROM `django_site` ORDER BY `django_site`.`domain` ASC, `django_site`.`id` DESC; args=()
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:36:00' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:36:00')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:36:02' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:36:02')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_site`.`id`, `django_site`.`domain`, `django_site`.`name` FROM `django_site` WHERE `django_site`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'site'  AND `django_content_type`.`app_label` = 'sites' ); args=('site', u'sites')
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:36:02' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:36:02')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:36:07' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:36:07')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.002) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.001) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.001) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:44:22' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:44:22')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:07' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:07')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) INSERT INTO `blog_posts` (`post_authorid`, `post_date`, `post_date_modified`, `post_content`, `post_title`, `post_name`, `post_cover`, `post_introduction`, `post_status_id`, `comment_status`, `post_password`, `post_threadtypeid_id`, `post_comment_count`) VALUES (1, '2013-07-27 05:45:07', '2013-07-27 05:45:07', '', '', '', '', '', 1, 0, '', 1, 0); args=[1, u'2013-07-27 05:45:07', u'2013-07-27 05:45:07', '', '', u'', '', u'', 1, False, u'', 1, 0]
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT (1) AS `a` FROM `blog_posts` WHERE `blog_posts`.`id` = 9  LIMIT 1; args=(9,)
+(0.000) UPDATE `blog_posts` SET `post_authorid` = 1, `post_date` = '2013-07-27 05:45:07', `post_date_modified` = '2013-07-27 05:45:07', `post_content` = '<p><img src=\"/static/upload/201307/51386274-f5c0-11e2-9596-e06995534698.jpg\" onload=\"javascript:DrawImage(this,600,600)\" /></p>', `post_title` = '测试没有选中标签的时候', `post_name` = '标签测试', `post_cover` = '/static/upload/cover.jpg', `post_introduction` = '文章简介', `post_status_id` = 2, `comment_status` = 0, `post_password` = '', `post_threadtypeid_id` = 1, `post_comment_count` = 0 WHERE `blog_posts`.`id` = 9 ; args=(1, u'2013-07-27 05:45:07', u'2013-07-27 05:45:07', u'<p><img src="/static/upload/201307/51386274-f5c0-11e2-9596-e06995534698.jpg" onload="javascript:DrawImage(this,600,600)" /></p>', u'\u6d4b\u8bd5\u6ca1\u6709\u9009\u4e2d\u6807\u7b7e\u7684\u65f6\u5019', u'\u6807\u7b7e\u6d4b\u8bd5', u'/static/upload/cover.jpg', u'\u6587\u7ae0\u7b80\u4ecb', 2, False, u'', 1, 0, 9)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:13' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:13')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:13' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:13')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_posts`; args=()
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` ORDER BY `blog_posts`.`post_date` ASC, `blog_posts`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:14' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:14')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:15' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:15')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.000) SELECT `blog_tags`.`id` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` ORDER BY `blog_comments`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:15' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:15')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:29' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:29')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:38' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:38')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.000) SELECT `blog_tags`.`id` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` ORDER BY `blog_comments`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 05:45:38' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 05:45:38')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) INSERT INTO `blog_posts` (`post_authorid`, `post_date`, `post_date_modified`, `post_content`, `post_title`, `post_name`, `post_cover`, `post_introduction`, `post_status_id`, `comment_status`, `post_password`, `post_threadtypeid_id`, `post_comment_count`) VALUES (1, '2013-07-27 05:47:16', '2013-07-27 05:47:16', '', '', '', '', '', 1, 0, '', 1, 0); args=[1, u'2013-07-27 05:47:16', u'2013-07-27 05:47:16', '', '', u'', '', u'', 1, False, u'', 1, 0]
+(0.001) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 10  ORDER BY `blog_comments`.`id` ASC LIMIT 21; args=(10,)
+(0.001) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 10  ORDER BY `blog_comments`.`id` ASC; args=(10,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 8  ORDER BY `blog_comments`.`id` ASC; args=(8,)
+(0.102) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.029) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.014) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.013) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.016) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.014) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 8  ORDER BY `blog_comments`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 8  ORDER BY `blog_comments`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+Internal Server Error: /blog/articles/8/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 115, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/win7/app/django/pycms/blog/views.py", line 94, in articles
+    return render_to_response('blog/read.html',locals())
+  File "/usr/lib/python2.7/site-packages/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 170, in render_to_string
+    t = get_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 146, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 135, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/lib/python2.7/site-packages/django/template/loader.py", line 157, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 274, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 274, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/lib/python2.7/site-packages/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 272, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/lib/python2.7/site-packages/django/template/base.py", line 327, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'csrftoken', expected 'endblock'
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC LIMIT 21; args=(8,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 8 ; args=(8,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 8  ORDER BY `blog_tags`.`id` ASC; args=(8,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 8  ORDER BY `blog_comments`.`id` ASC; args=(8,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.001) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.047) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 07:30:35' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 07:30:35')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.001) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 4, in ReplyFrom
+    comment_author = forms.CharField(maxlength=20,requierd=True)
+  File "/usr/lib/python2.7/site-packages/django/forms/fields.py", line 188, in __init__
+    super(CharField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'requierd'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 4, in ReplyFrom
+    comment_author = forms.CharField(maxlength=20,required=True)
+  File "/usr/lib/python2.7/site-packages/django/forms/fields.py", line 188, in __init__
+    super(CharField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'maxlength'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 4, in ReplyFrom
+    comment_author = forms.CharField(maxlength=20,required=True)
+  File "/usr/lib/python2.7/site-packages/django/forms/fields.py", line 188, in __init__
+    super(CharField, self).__init__(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'maxlength'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7, in ReplyFrom
+    comment_content = forms.Textarea(required=False)
+TypeError: __init__() got an unexpected keyword argument 'required'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7, in ReplyFrom
+    comment_content = forms.Textarea(required=False)
+TypeError: __init__() got an unexpected keyword argument 'required'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7, in ReplyFrom
+    comment_content = forms.Textarea(required=False)
+TypeError: __init__() got an unexpected keyword argument 'required'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7, in ReplyFrom
+    comment_content = forms.Textarea(required=False)
+TypeError: __init__() got an unexpected keyword argument 'required'
+Internal Server Error: /blog/articles/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 3, in <module>
+    class ReplyFrom(forms.Form):
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7, in ReplyFrom
+    comment_content = forms.Textarea(required=False)
+TypeError: __init__() got an unexpected keyword argument 'required'
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-27 09:43:47' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-27 09:43:47')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+Internal Server Error: /admin/blog/posts/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7
+SyntaxError: Non-ASCII character '\xe6' in file /home/win7/app/django/pycms/blog/forms.py on line 7, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 92, in get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 69, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 551, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 440, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7
+SyntaxError: Non-ASCII character '\xe6' in file /home/win7/app/django/pycms/blog/forms.py on line 7, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 92, in get_response
+    response = middleware_method(request)
+  File "/usr/lib/python2.7/site-packages/django/middleware/common.py", line 69, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 551, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 440, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 7
+SyntaxError: Non-ASCII character '\xe6' in file /home/win7/app/django/pycms/blog/forms.py on line 7, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+Internal Server Error: /admin/blog/posts/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+  File "/home/win7/app/django/pycms/blog/forms.py", line 1
+SyntaxError: encoding problem: with BOM
+Internal Server Error: /admin/blog/posts/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+ImportError: cannot import name ReplyFrom
+Internal Server Error: /admin/blog/posts/9/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 103, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/pycms/urls.py", line 20, in <module>
+    url(r'^blog/', include('blog.urls')),
+  File "/usr/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/win7/app/django/pycms/blog/urls.py", line 5, in <module>
+    import views
+  File "/home/win7/app/django/pycms/blog/views.py", line 6, in <module>
+    from blog.forms import ReplyFrom
+ImportError: cannot import name ReplyFrom
+(0.035) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:50:51' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:50:51')
+(0.027) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.034) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.039) SELECT `blog_tags`.`id` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.015) SELECT `blog_comments`.`id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.014) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.032) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.018) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.038) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` ORDER BY `blog_comments`.`id` ASC; args=()
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:50:53' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:50:53')
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:51:09' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:51:09')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'comments'  AND `django_content_type`.`app_label` = 'blog' ); args=('comments', u'blog')
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:51:10' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:51:10')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:54:34' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:54:34')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'comments'  AND `django_content_type`.`app_label` = 'blog' ); args=('comments', u'blog')
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:54:35' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:54:35')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:54:57' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:54:57')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) INSERT INTO `blog_comments` (`comment_post_id`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_ip`, `comment_date`, `comment_content`, `comment_approved`, `comment_agent`, `comment_parent_id`, `user_id`) VALUES (9, '阿毛', 'winkidney@gmail.com', 'http://ggworkshop.com/', '192.168.0.1', '2013-07-29 13:52:07', '我的第一个评论', 0, '', 1, 0); args=[9, u'\u963f\u6bdb', u'winkidney@gmail.com', u'http://ggworkshop.com/', u'192.168.0.1', u'2013-07-29 13:52:07', u'\u6211\u7684\u7b2c\u4e00\u4e2a\u8bc4\u8bba', False, u'', 1, 0]
+(0.070) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2013-07-29 00:54:57', 1, 12, '1', '2013-07-29 08:52:07-05:00', 1, ''); args=[u'2013-07-29 00:54:57', 1, 12, u'1', u'2013-07-29 08:52:07-05:00', 1, u'']
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:03' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:03')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.000) SELECT `blog_tags`.`id` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` WHERE `blog_comments`.`id` IN (1) ORDER BY `blog_comments`.`id` ASC; args=(1,)
+(0.000) SELECT (1) AS `a` FROM `blog_status` WHERE `blog_status`.`id` = 2  LIMIT 1; args=(2,)
+(0.000) SELECT (1) AS `a` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1  LIMIT 1; args=(1,)
+(0.000) SELECT (1) AS `a` FROM `blog_posts` WHERE `blog_posts`.`id` = 9  LIMIT 1; args=(9,)
+(0.000) UPDATE `blog_posts` SET `post_authorid` = 1, `post_date` = '2013-07-27 05:45:07', `post_date_modified` = '2013-07-29 00:55:03', `post_content` = '<p><img src=\"/static/upload/201307/51386274-f5c0-11e2-9596-e06995534698.jpg\" onload=\"javascript:DrawImage(this,600,600)\" /></p>', `post_title` = '测试没有选中标签的时候', `post_name` = '标签测试', `post_cover` = '/static/upload/cover.jpg', `post_introduction` = '文章简介', `post_status_id` = 2, `comment_status` = 0, `post_password` = '', `post_threadtypeid_id` = 1, `post_comment_count` = 0 WHERE `blog_posts`.`id` = 9 ; args=(1, u'2013-07-27 05:45:07', u'2013-07-29 00:55:03', u'<p><img src="/static/upload/201307/51386274-f5c0-11e2-9596-e06995534698.jpg" onload="javascript:DrawImage(this,600,600)" /></p>', u'\u6d4b\u8bd5\u6ca1\u6709\u9009\u4e2d\u6807\u7b7e\u7684\u65f6\u5019', u'\u6807\u7b7e\u6d4b\u8bd5', u'/static/upload/cover.jpg', u'\u6587\u7ae0\u7b80\u4ecb', 2, False, u'', 1, 0, 9)
+(0.000) DELETE FROM `blog_posts_post_tagid` WHERE `blog_posts_post_tagid`.`posts_id` = 9 ; args=(9,)
+(0.000) DELETE FROM `blog_posts_post_comments` WHERE `blog_posts_post_comments`.`posts_id` = 9 ; args=(9,)
+(0.000) SELECT `blog_posts_post_comments`.`comments_id` FROM `blog_posts_post_comments` WHERE (`blog_posts_post_comments`.`comments_id` IN (1) AND `blog_posts_post_comments`.`posts_id` = 9 ); args=(1, 9)
+(0.000) INSERT INTO `blog_posts_post_comments` (`posts_id`, `comments_id`) VALUES (9, 1); args=(9, 1)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.000) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2013-07-29 00:55:03', 1, 11, '9', '9 测试没有选中标签的时候 2013-07-27 05:45:07+00:00', 2, '已修改 post_comments 。'); args=[u'2013-07-29 00:55:03', 1, 11, u'9', u'9 \u6d4b\u8bd5\u6ca1\u6709\u9009\u4e2d\u6807\u7b7e\u7684\u65f6\u5019 2013-07-27 05:45:07+00:00', 2, u'\u5df2\u4fee\u6539 post_comments \u3002']
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:03' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:03')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT COUNT(*) FROM `blog_posts`; args=()
+(0.015) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` ORDER BY `blog_posts`.`post_date` ASC, `blog_posts`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:03' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:03')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:06' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:06')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 10 ; args=(10,)
+(0.001) SELECT `blog_tags`.`id` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 10  ORDER BY `blog_tags`.`id` ASC; args=(10,)
+(0.001) SELECT `blog_comments`.`id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 10  ORDER BY `blog_comments`.`id` ASC; args=(10,)
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` ORDER BY `blog_comments`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:06' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:06')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:14' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:14')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_posts`; args=()
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` ORDER BY `blog_posts`.`post_date` ASC, `blog_posts`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:25' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:25')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 00:55:33' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 00:55:33')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 9 ; args=(9,)
+(0.044) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` WHERE `blog_status`.`id` = 2 ; args=(2,)
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` INNER JOIN `blog_posts_post_tagid` ON (`blog_tags`.`id` = `blog_posts_post_tagid`.`tags_id`) WHERE `blog_posts_post_tagid`.`posts_id` = 9  ORDER BY `blog_tags`.`id` ASC; args=(9,)
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.001) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` INNER JOIN `blog_posts_post_comments` ON (`blog_comments`.`id` = `blog_posts_post_comments`.`comments_id`) WHERE `blog_posts_post_comments`.`posts_id` = 9  ORDER BY `blog_comments`.`id` ASC; args=(9,)
+(0.052) SHOW TABLES; args=()
+(0.101) CREATE TABLE `blog_status` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `status_name` varchar(20) NOT NULL
+)
+;; args=()
+(0.098) CREATE TABLE `blog_tags` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `tagname` varchar(20) NOT NULL
+)
+;; args=()
+(0.087) CREATE TABLE `blog_threadtypes` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `display_order` integer NOT NULL,
+    `name` varchar(40) NOT NULL,
+    `description` varchar(100) NOT NULL,
+    `status` varchar(20) NOT NULL
+)
+;; args=()
+(0.100) CREATE TABLE `blog_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `comment_post_id` bigint NOT NULL,
+    `comment_author` varchar(20) NOT NULL,
+    `comment_author_email` varchar(75) NOT NULL,
+    `comment_author_url` varchar(200) NOT NULL,
+    `comment_author_ip` char(15) NOT NULL,
+    `comment_date` datetime NOT NULL,
+    `comment_content` longtext NOT NULL,
+    `comment_approved` bool NOT NULL,
+    `comment_agent` varchar(30) NOT NULL,
+    `comment_parent_id` bigint NOT NULL,
+    `user_id` bigint NOT NULL
+)
+;; args=()
+(0.109) CREATE TABLE `blog_links` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `link_name` varchar(20) NOT NULL,
+    `link_image_url` varchar(200) NOT NULL,
+    `link_target_url` varchar(200) NOT NULL,
+    `link_description` longtext NOT NULL,
+    `link_visible` bool NOT NULL,
+    `link_owner` integer NOT NULL,
+    `link_rating` integer NOT NULL,
+    `link_rss` varchar(200) NOT NULL
+)
+;; args=()
+(0.086) CREATE TABLE `blog_posts_post_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `comments_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `comments_id`)
+)
+;; args=()
+(0.100) ALTER TABLE `blog_posts_post_comments` ADD CONSTRAINT `comments_id_refs_id_34fcabfd` FOREIGN KEY (`comments_id`) REFERENCES `blog_comments` (`id`);; args=()
+(0.108) CREATE TABLE `blog_posts_post_tagid` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `tags_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `tags_id`)
+)
+;; args=()
+(0.099) ALTER TABLE `blog_posts_post_tagid` ADD CONSTRAINT `tags_id_refs_id_fcbb3aa4` FOREIGN KEY (`tags_id`) REFERENCES `blog_tags` (`id`);; args=()
+(0.108) CREATE TABLE `blog_posts` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `post_authorid` integer NOT NULL,
+    `post_date` datetime NOT NULL,
+    `post_date_modified` datetime NOT NULL,
+    `post_content` longtext NOT NULL,
+    `post_title` varchar(50) NOT NULL,
+    `post_name` varchar(50) NOT NULL,
+    `post_cover` varchar(200) NOT NULL,
+    `post_introduction` varchar(500) NOT NULL,
+    `post_status_id` integer NOT NULL,
+    `comment_status` bool NOT NULL,
+    `post_password` varchar(20) NOT NULL,
+    `post_threadtypeid_id` integer NOT NULL,
+    `post_comment_count` integer NOT NULL
+)
+;; args=()
+(0.122) ALTER TABLE `blog_posts` ADD CONSTRAINT `post_status_id_refs_id_edfd3c65` FOREIGN KEY (`post_status_id`) REFERENCES `blog_status` (`id`);; args=()
+(0.099) ALTER TABLE `blog_posts` ADD CONSTRAINT `post_threadtypeid_id_refs_id_cd372d23` FOREIGN KEY (`post_threadtypeid_id`) REFERENCES `blog_threadtypes` (`id`);; args=()
+(0.099) ALTER TABLE `blog_posts_post_comments` ADD CONSTRAINT `posts_id_refs_id_1c90cae2` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.099) ALTER TABLE `blog_posts_post_tagid` ADD CONSTRAINT `posts_id_refs_id_281a9398` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', u'auth')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', u'auth')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', u'auth')
+(0.015) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2, 3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2, 3)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=(u'auth',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', u'contenttypes')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=(u'contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', u'sessions')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=(u'sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'site'  AND `django_content_type`.`app_label` = 'sites' ); args=('site', u'sites')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sites'  ORDER BY `django_content_type`.`name` ASC; args=(u'sites',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', u'admin')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=(u'admin',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'basicsettings'  AND `django_content_type`.`app_label` = 'blog' ); args=('basicsettings', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'status'  AND `django_content_type`.`app_label` = 'blog' ); args=('status', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'tags'  AND `django_content_type`.`app_label` = 'blog' ); args=('tags', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'threadtypes'  AND `django_content_type`.`app_label` = 'blog' ); args=('threadtypes', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'comments'  AND `django_content_type`.`app_label` = 'blog' ); args=('comments', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'links'  AND `django_content_type`.`app_label` = 'blog' ); args=('links', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 9, 10, 11, 12, 13, 14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 9, 10, 11, 12, 13, 14)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'blog'  ORDER BY `django_content_type`.`name` ASC; args=(u'blog',)
+(0.089) CREATE INDEX `blog_posts_post_comments_183b57f5` ON `blog_posts_post_comments` (`posts_id`);; args=()
+(0.100) CREATE INDEX `blog_posts_post_comments_4668d0a7` ON `blog_posts_post_comments` (`comments_id`);; args=()
+(0.099) CREATE INDEX `blog_posts_post_tagid_183b57f5` ON `blog_posts_post_tagid` (`posts_id`);; args=()
+(0.111) CREATE INDEX `blog_posts_post_tagid_d03bd400` ON `blog_posts_post_tagid` (`tags_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_bcdf06c9` ON `blog_posts` (`post_status_id`);; args=()
+(0.099) CREATE INDEX `blog_posts_b0ad2e5c` ON `blog_posts` (`post_threadtypeid_id`);; args=()
+(0.000) SET foreign_key_checks=0; args=()
+(0.000) SET foreign_key_checks=1; args=()
+(0.001) INSERT INTO `blog_status` (`status_name`) VALUES ('草稿'); args=[u'\u8349\u7a3f']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已发布'); args=[u'\u5df2\u53d1\u5e03']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已删除'); args=[u'\u5df2\u5220\u9664']
+(0.000) INSERT INTO `blog_threadtypes` (`display_order`, `name`, `description`, `status`) VALUES (0, '未分类', '', ''); args=[0, u'\u672a\u5206\u7c7b', u'', u'']
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:25:59' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:25:59')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT COUNT(*) FROM `blog_posts`; args=()
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` ORDER BY `blog_posts`.`post_date` ASC, `blog_posts`.`id` DESC; args=()
+(0.004) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:25:59' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:25:59')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:01' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:01')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:05' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:05')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_status`; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.000) SELECT DISTINCT `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`status_name` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:05' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:05')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:11' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:11')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:12' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:12')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT COUNT(*) FROM `blog_tags`; args=()
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:12' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:12')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:14' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:14')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:17' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:17')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_tags`; args=()
+(0.000) SELECT `blog_tags`.`id`, `blog_tags`.`tagname` FROM `blog_tags` ORDER BY `blog_tags`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:17' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:17')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:18' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:18')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:19' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:19')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_status`; args=()
+(0.000) SELECT `blog_status`.`id`, `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`id` ASC; args=()
+(0.000) SELECT DISTINCT `blog_status`.`status_name` FROM `blog_status` ORDER BY `blog_status`.`status_name` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:20' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:20')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:26:22' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:26:22')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:09' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:09')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_threadtypes`; args=()
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` ORDER BY `blog_threadtypes`.`name` ASC, `blog_threadtypes`.`id` DESC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:09' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:09')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:11' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:11')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_threadtypes`.`id`, `blog_threadtypes`.`display_order`, `blog_threadtypes`.`name`, `blog_threadtypes`.`description`, `blog_threadtypes`.`status` FROM `blog_threadtypes` WHERE `blog_threadtypes`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'threadtypes'  AND `django_content_type`.`app_label` = 'blog' ); args=('threadtypes', u'blog')
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:11' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:11')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:14' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:14')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:28' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:28')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT COUNT(*) FROM `blog_comments`; args=()
+(0.000) SELECT `blog_comments`.`id`, `blog_comments`.`comment_post_id`, `blog_comments`.`comment_author`, `blog_comments`.`comment_author_email`, `blog_comments`.`comment_author_url`, `blog_comments`.`comment_author_ip`, `blog_comments`.`comment_date`, `blog_comments`.`comment_content`, `blog_comments`.`comment_approved`, `blog_comments`.`comment_agent`, `blog_comments`.`comment_parent_id`, `blog_comments`.`user_id` FROM `blog_comments` ORDER BY `blog_comments`.`id` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:29' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:29')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:31' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:31')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'mk3mflppec53and2wxt02duu30756tc0'  AND `django_session`.`expire_date` > '2013-07-29 01:28:31' ); args=('mk3mflppec53and2wxt02duu30756tc0', u'2013-07-29 01:28:31')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SHOW TABLES; args=()
+(0.163) CREATE TABLE `blog_status` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `status_name` varchar(20) NOT NULL
+)
+;; args=()
+(0.165) CREATE TABLE `blog_tags` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `tagname` varchar(20) NOT NULL
+)
+;; args=()
+(0.142) CREATE TABLE `blog_threadtypes` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `display_order` integer NOT NULL,
+    `name` varchar(40) NOT NULL,
+    `description` varchar(100) NOT NULL,
+    `status` varchar(20) NOT NULL
+)
+;; args=()
+(0.188) CREATE TABLE `blog_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `comment_post_id` bigint NOT NULL,
+    `comment_author` varchar(20) NOT NULL,
+    `comment_author_email` varchar(75) NOT NULL,
+    `comment_author_url` varchar(200) NOT NULL,
+    `comment_author_ip` char(15) NOT NULL,
+    `comment_date` datetime NOT NULL,
+    `comment_content` longtext NOT NULL,
+    `comment_approved` bool NOT NULL,
+    `comment_agent` varchar(30) NOT NULL,
+    `comment_parent_id` bigint NOT NULL,
+    `user_id` bigint NOT NULL
+)
+;; args=()
+(0.131) CREATE TABLE `blog_links` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `link_name` varchar(20) NOT NULL,
+    `link_image_url` varchar(200) NOT NULL,
+    `link_target_url` varchar(200) NOT NULL,
+    `link_description` longtext NOT NULL,
+    `link_visible` bool NOT NULL,
+    `link_owner` integer NOT NULL,
+    `link_rating` integer NOT NULL,
+    `link_rss` varchar(200) NOT NULL
+)
+;; args=()
+(0.129) CREATE TABLE `blog_posts_post_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `comments_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `comments_id`)
+)
+;; args=()
+(0.133) ALTER TABLE `blog_posts_post_comments` ADD CONSTRAINT `comments_id_refs_id_34fcabfd` FOREIGN KEY (`comments_id`) REFERENCES `blog_comments` (`id`);; args=()
+(0.131) CREATE TABLE `blog_posts_post_tagid` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `tags_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `tags_id`)
+)
+;; args=()
+(0.089) ALTER TABLE `blog_posts_post_tagid` ADD CONSTRAINT `tags_id_refs_id_fcbb3aa4` FOREIGN KEY (`tags_id`) REFERENCES `blog_tags` (`id`);; args=()
+(0.098) CREATE TABLE `blog_posts` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `post_authorid` integer NOT NULL,
+    `post_date` datetime NOT NULL,
+    `post_date_modified` datetime NOT NULL,
+    `post_content` longtext NOT NULL,
+    `post_title` varchar(50) NOT NULL,
+    `post_name` varchar(50) NOT NULL,
+    `post_cover` varchar(200) NOT NULL,
+    `post_introduction` varchar(500) NOT NULL,
+    `post_status_id` integer NOT NULL,
+    `comment_status` bool NOT NULL,
+    `post_password` varchar(20) NOT NULL,
+    `post_threadtypeid_id` integer NOT NULL,
+    `post_comment_count` integer NOT NULL
+)
+;; args=()
+(0.111) ALTER TABLE `blog_posts` ADD CONSTRAINT `post_status_id_refs_id_edfd3c65` FOREIGN KEY (`post_status_id`) REFERENCES `blog_status` (`id`);; args=()
+(0.088) ALTER TABLE `blog_posts` ADD CONSTRAINT `post_threadtypeid_id_refs_id_cd372d23` FOREIGN KEY (`post_threadtypeid_id`) REFERENCES `blog_threadtypes` (`id`);; args=()
+(0.110) ALTER TABLE `blog_posts_post_comments` ADD CONSTRAINT `posts_id_refs_id_1c90cae2` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.087) ALTER TABLE `blog_posts_post_tagid` ADD CONSTRAINT `posts_id_refs_id_281a9398` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', u'auth')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', u'auth')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', u'auth')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2, 3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2, 3)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=(u'auth',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', u'contenttypes')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=(u'contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', u'sessions')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=(u'sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'site'  AND `django_content_type`.`app_label` = 'sites' ); args=('site', u'sites')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sites'  ORDER BY `django_content_type`.`name` ASC; args=(u'sites',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', u'admin')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=(u'admin',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'basicsettings'  AND `django_content_type`.`app_label` = 'blog' ); args=('basicsettings', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'status'  AND `django_content_type`.`app_label` = 'blog' ); args=('status', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'tags'  AND `django_content_type`.`app_label` = 'blog' ); args=('tags', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'threadtypes'  AND `django_content_type`.`app_label` = 'blog' ); args=('threadtypes', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'comments'  AND `django_content_type`.`app_label` = 'blog' ); args=('comments', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'links'  AND `django_content_type`.`app_label` = 'blog' ); args=('links', u'blog')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 9, 10, 11, 12, 13, 14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 9, 10, 11, 12, 13, 14)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'blog'  ORDER BY `django_content_type`.`name` ASC; args=(u'blog',)
+(0.094) CREATE INDEX `blog_posts_post_comments_183b57f5` ON `blog_posts_post_comments` (`posts_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_post_comments_4668d0a7` ON `blog_posts_post_comments` (`comments_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_post_tagid_183b57f5` ON `blog_posts_post_tagid` (`posts_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_post_tagid_d03bd400` ON `blog_posts_post_tagid` (`tags_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_bcdf06c9` ON `blog_posts` (`post_status_id`);; args=()
+(0.088) CREATE INDEX `blog_posts_b0ad2e5c` ON `blog_posts` (`post_threadtypeid_id`);; args=()
+(0.000) SET foreign_key_checks=0; args=()
+(0.000) SET foreign_key_checks=1; args=()
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('草稿'); args=[u'\u8349\u7a3f']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已发布'); args=[u'\u5df2\u53d1\u5e03']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已删除'); args=[u'\u5df2\u5220\u9664']
+(0.000) INSERT INTO `blog_threadtypes` (`display_order`, `name`, `description`, `status`) VALUES (0, '未分类', '', ''); args=[0, u'\u672a\u5206\u7c7b', u'', u'']

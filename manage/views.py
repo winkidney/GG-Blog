@@ -15,7 +15,7 @@ blog_login_url = settings.BLOG_ROOT_URL+'login/'
 
 #公用的添加一个图片自动等比例缩放的js的函数，适合于字符串
 def js_resize_img(text):
-    """返回一串在<img />标签中被添加了一段自动调整显示大小的js引用"""
+    """返回一串在<img />标签中被添加了一段自动调整显示大小的js引用的文本对象"""
     bold = re.compile(r'(<img.+?)/>')
     return bold.sub(r'\1 onload="javascript:DrawImage(this,600,600)" />',text)
     
@@ -93,6 +93,7 @@ def modify_post(request):
         checklist.append(request.POST.get('summarise'))
         checklist.append(request.POST.get('content'))
         if '' not in checklist:
+            #如果数据没有错误，则调用init（）方法初始化数据库（其中包含一个写入数据库的过程）
             newpost.init()
             newpost.post_authorid = int(request.user.id)
             newpost.post_title = request.POST.get('title')
@@ -116,8 +117,7 @@ def modify_post(request):
             newpost.save()
             return HttpResponse('all done')
         else:
-            #清理之前生成的newpost对象，因为init方法将newpost写入了数据库
-            newpost.delete()
+            #newpost.delete()
             return HttpResponse('fail')
             
         

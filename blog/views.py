@@ -3,6 +3,7 @@
 #from django.shortcuts import redirect
 #from django.contrib.auth.decorators import user_passes_test
 #from django.contrib.auth.decorators import permission_required
+from blog.forms import ReplyForm
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect,HttpResponse
@@ -76,24 +77,31 @@ def logout_view(request):
 
 #阅读文章的函数
 def articles(request,article_id):
-    #检查文章id是否存在
-    try :
-        post = Posts.objects.get(id=int(article_id))
-    except:
-        return HttpResponse('article does exist')
-    #获取基本信息
+    comment_form = ReplyForm()
+    if request.method == 'GET':
+        if request.user.is_authenticated():
+            notlogin = False
+    # 检查文章id是否存在
+        try :
+            post = Posts.objects.get(id=int(article_id))
+        except:
+            return HttpResponse('article does exist')
+    # 获取基本信息
     
-    basic_info = get_basic_info()
-    static_root = settings.BLOG_STATIC_URL
-    blog_root_url = settings.BLOG_ROOT_URL
-    #检查文章状态是否为已发布
-    if post.post_status.id == 2:
-        author_name = User.objects.get(id=post.post_authorid)
-        threadtype = post.post_threadtypeid
-        tags = post.post_tagid.all()
-        return render_to_response('blog/read.html',locals())
-    else:
-        return HttpResponse('article does exist')
+        basic_info = get_basic_info()
+        static_root = settings.BLOG_STATIC_URL
+        blog_root_url = settings.BLOG_ROOT_URL
+    
+    # 检查文章状态是否为已发布
+        if post.post_status.id == 2:
+            author_name = User.objects.get(id=post.post_authorid)
+            threadtype = post.post_threadtypeid
+            tags = post.post_tagid.all()
+            return render_to_response('blog/read.html', locals())
+        else:
+            return HttpResponse('article does exist')
+    elif request.method == 'POST':
+        comment_form = ReplyFrom()
     
     
 #登陆要求的包装函数
