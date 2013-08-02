@@ -45,24 +45,31 @@
           
           <form action="" method="post" id="leavereply">
 			  {% csrf_token %}
+			  <ol>
 			  {% if notlogin %}
-				<ol><li>
-					label for="name">大名（必填）</label>
-					{{ comment_from.comment_author }}
+				<li>
+					<label for="name">大名（必填）</label>
+					{{ comment_form.comment_author.errors }}
+					{{ comment_form.comment_author }}
 				</li><li>
 					<label for="email">电子邮件（必填）</label>
+					{{ comment_form.comment_auhtor_email.errors }}
 					{{ comment_form.comment_author_email }}
 				</li><li>
 					<label for="website">个人主页</label>
+					{{ comment_form.comment_author_url.errors }}
 					{{ comment_form.comment_author_url }}
-			  {% endif %}
-				</li><li>
+				</li>
+				{% endif %}
+				<li>
 					<label for="message">留言</label>
+					<span style="color:red">{{ comment_form.comment_content.errors }}</span>
 					{{ comment_form.comment_content }}
 				</li><li>
 					<input type="submit" name="post_comment"  value="发布留言" >
 					<div class="clr"></div>
-				</li></ol>
+				</li>
+				</ol>
           </form>
           
         </div>

@@ -23,10 +23,6 @@ tables_to_delete = 'blog_comments,blog_links,blog_posts,blog_posts_post_tagid,bl
 #db_name = str(sys.argv[1])
 #passwd = str(sys.argv[2])
 
-
-
-
-
 try:
 	conn=MySQLdb.Connect(host='localhost',user=rootusername,passwd=root_passwd)
 	cursor =conn.cursor()
@@ -40,12 +36,12 @@ finally:
 	print 'clear done,start syncdb'
 	os.system('python manage.py syncdb')
 	print "syncdb done"
-print "start init db"
-for status_name in (u'草稿',u'已发布',u'已删除'):
-	apple = Status()
-	apple.status_name = status_name
-	apple.save()
-threadtype = ThreadTypes()
-threadtype.display_order = 0
-threadtype.name = u'未分类'
-threadtype.save()
+	print "start init db"
+	for status_name in (u'草稿',u'已发布',u'已删除'):
+		apple = Status()
+		apple.status_name = status_name
+		apple.save()
+	threadtype = ThreadTypes()
+	threadtype.display_order = 0
+	threadtype.name = u'未分类'
+	threadtype.save()
