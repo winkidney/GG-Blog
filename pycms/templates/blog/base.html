@@ -6,6 +6,13 @@
 </title>
 {% block js %}
 {% endblock %}
+<!--代码高亮部分-->
+<script type="text/javascript" src="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
+<link rel="stylesheet" href="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+<script>   
+SyntaxHighlighter.all() //执行代码高亮   
+</script>
+<!--代码高亮结束-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="{{ static_root }}blog/style.css" rel="stylesheet" type="text/css" />
 <!--

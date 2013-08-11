@@ -39,7 +39,7 @@ def login_view(request):
     errors = ''
      #若用户已登陆，则跳转到登出页面
     if request.user.is_authenticated():
-        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':BLOG_ROOT_URL+'logout/'}
+        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':settings.BLOG_ROOT_URL+'logout/'}
         return render_to_response('blog/login/remind.html',locals())
     #用户未登陆，转入登陆页面
     else:
@@ -105,7 +105,7 @@ def articles(request,article_id):
     elif request.method == 'POST':
         #决定验证用表单对象
         if notlogin:
-            comment_form = ReplyFrom(request.POST)
+            comment_form = ReplyForm(request.POST)
         else:
             comment_form = ReplyFormLogined(request.POST)
             
