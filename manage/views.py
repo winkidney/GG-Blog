@@ -69,7 +69,7 @@ def make_post(request):
             return HttpResponse('all done')
         else:
             #清理之前生成的newpost对象，因为init方法将newpost写入了数据库
-            newpost.delete()
+            #newpost.delete()
             return HttpResponse('fail')
 #修改文章
 @login_required(login_url=blog_login_url)        
