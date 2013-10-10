@@ -30,7 +30,7 @@ def home(request):
     #login检测包装
     if get_basic_info != None:
         basic_info = get_basic_info()
-        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info})
+        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,blog_login_url:'blog_login_url'})
     else:
         return HttpResponse("error,check basic_info")
 def login_view(request):

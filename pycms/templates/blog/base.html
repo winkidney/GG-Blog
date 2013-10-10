@@ -1,153 +1,504 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html  lang="zh-CN">
 <head>
-<title>
-	{% block title %}{% endblock %}{{ basic_info.page_title }}
-</title>
-{% block js %}
-{% endblock %}
-<!--代码高亮部分-->
-<script type="text/javascript" src="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
-<link rel="stylesheet" href="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
-<script>   
-SyntaxHighlighter.all() //执行代码高亮   
-</script>
-<!--代码高亮结束-->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="{{ static_root }}blog/style.css" rel="stylesheet" type="text/css" />
-<!--
-<script type="text/javascript" src="{{ static_root }}blog/js/cufon-yui.js"></script>
-<script type="text/javascript" src="{{ static_root }}blog/js/arial.js"></script>
-<script type="text/javascript" src="{{ static_root }}blog/js/cuf_run.js"></script>
--->
-<!-- CuFon ends -->
+	<title>
+		{% block title %}{% endblock %}{{ basic_info.page_title }}
+	</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	
+	<!--jquery-ui-->
+		<link href="{{ static_root }}/blog/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script-->
+		<script src="{{ static_root }}/blog/jquery/js/jquery-1.9.1.js"></script>
+		<script src="{{ static_root }}/blog/jquery/js/jquery-ui-1.10.3.custom.js"></script>
+	<!--juery-ui end-->
+	<!--img box start-->
+		<link rel="stylesheet" href="{{ static_root }}/blog/jquery/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="{{ static_root }}/blog/jquery/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+	<!--img box end-->
+	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/nav.css">
+	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/style.css">
 </head>
+
 <body>
-<div class="main">
-  <div class="header">
-    <div class="header_resize">
-      <div class="logo">
-        <h1><a href="{{ basic_info.homepage_url }}">{{ basic_info.logo_txt1 }}<span> {{ basic_info.logo_txt2 }}<span></a><small>{{ basic_info.title_txt }}</small></h1>
-      </div>
-      <div class="clr"></div>
-      <div class="menu_nav">
-        <ul>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="about/">About Us</a></li>
-          <li><a href="#">Blog</a></li>
-          <li class="last"><a href="contactme/">Contact Us</a></li>
-        </ul>
-       <div class="search">
-        <form id="form" name="form" method="post" action="">
-          <span>
-          <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
-           </span>
-          <input name="b" type="image" src="{{ static_root }}blog/images/search.gif" class="button" />
-         
-        </form>
-      </div>
-      <!--/search -->
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
-  <div class="clr"></div>
-  <div class="content">
-    <div class="content_resize">
-{% block mainbar %}
-      <div class="mainbar">
-        <div class="article">
-          <h2><span>Template License</span></h2>
-          <div class="clr"></div>
-          <p>Posted on 18. Sep, 2015 by Sara in Filed under templates, internet,  with  Comments 18</p>
-          <img src="{{ static_root }}blog/images/img_1.jpg" width="613" height="193" alt="image" />
-          <div class="clr"></div>
-          <p>This is a free CSS website template by CoolWebTemplates. This 
-work is distributed under the Creative Commons Attribution 3.0 License, 
-which means that you are free to use it for any personal or commercial purpose provided you credit me in the form of a link back to <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a>.</p>
-          <p>Maecenas dignissim mauris in arcu congue tincidunt. Vestibulum elit  nunc, accumsan vitae faucibus vel, scelerisque a quam. Aenean at metus id elit bibendum faucibus. Curabitur ultrices ante nec neque consectetur a aliquet libero lobortis. Ut nibh sem, pellentesque in dictum eu, convallis blandit erat. Cras vehicula tellus nec purus sagittis id scelerisque risus congue. Quisque sed semper massa. Donec id lacus mauris, vitae pretium risus. Fusce sed tempor erat. </p>
-          <p><a href="#">Read more </a></p>
-        </div>
-        <div class="article">
-          <h2><span>Aliquam Risus</span> Justo</h2>
-          <div class="clr"></div>
-          <p>Posted on 18. Sep, 2015 by Sara in Filed under templates, internet,  with  Comments 18</p>
-          <img src="{{ static_root }}blog/images/img_1.jpg" width="613" height="193" alt="image" />
-          <div class="clr"></div>
-          <p>This is a free CSS website template by CoolWebTemplates. This 
-work is distributed under the Creative Commons Attribution 3.0 License, 
-which means that you are free to use it for any personal or commercial purpose provided you credit me in the form of a link back to <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a>.</p>
-          <p>Maecenas dignissim mauris in arcu congue tincidunt. Vestibulum elit  nunc, accumsan vitae faucibus vel, scelerisque a quam. Aenean at metus id elit bibendum faucibus. Curabitur ultrices ante nec neque consectetur a aliquet libero lobortis. Ut nibh sem, pellentesque in dictum eu, convallis blandit erat. Cras vehicula tellus nec purus sagittis id scelerisque risus congue. Quisque sed semper massa. Donec id lacus mauris, vitae pretium risus. Fusce sed tempor erat. </p>
-          <p><a href="#">Read more </a></p>
-        </div>
-        <div class="article" style="padding:5px 20px 2px 20px; background:none; border:0;">
-          <p>Page 1 of 2 <span class="butons"><a href="#">3</a><a href="#">2</a> <a href="#" class="active">1</a></span></p>
-        </div>
-      </div>
-{% endblock %}
-      <div class="sidebar">
-        <div class="gadget">
-          <h2>Sidebar Menu</h2>
-          <div class="clr"></div>
-          <ul class="sb_menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">TemplateInfo</a></li>
-            <li><a href="#">Style Demo</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Archives</a></li>
-            <li><a href="#" title="Website Templates">Web Templates</a></li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2><span>Sponsors</span></h2>
-          <div class="clr"></div>
-          <ul class="ex_menu">
-            <li><a href="#" title="Website Templates">DreamTemplate</a><br />
-              Over 6,000+ Premium Web Templates</li>
-            <li><a href="#" title="WordPress Themes">TemplateSOLD</a><br />
-              Premium WordPress &amp; Joomla Themes</li>
-            <li><a href="#" title="Affordable Hosting">ImHosted.com</a><br />
-              Affordable Web Hosting Provider</li>
-            <li><a href="#" title="Stock Icons">MyVectorStore</a><br />
-              Royalty Free Stock Icons</li>
-            <li><a href="#" title="Website Builder">Evrsoft</a><br />
-              Website Builder Software &amp; Tools</li>
-            <li><a href="#" title="CSS Templates">CSS Hub</a><br />
-              Premium CSS Templates</li>
-          </ul>
-        </div>
-        <div class="gadget">
-          <h2>Wise Words</h2>
-          <div class="clr"></div>
-          <p>   <img src="{{ static_root }}blog/images/test_1.gif" alt="image" width="18" height="17" /> <em>We can let circumstances rule us, or we can take charge and rule our lives from within </em>.<img src="{{ static_root }}blog/images/test_2.gif" alt="image" width="18" height="17" /></p>
-          <p style="float:right;"><strong>Earl Nightingale</strong></p>
-          </div>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
-  <div class="fbg">
-    <div class="fbg_resize">
-      <div class="col c1">
-        <h2><span>Image Gallery</span></h2>
-        <a href="#"><img src="{{ static_root }}blog/images/gallery_1.jpg" width="58" height="58" alt="pix" /></a> <a href="#"><img src="{{ static_root }}blog/images/gallery_2.jpg" width="58" height="58" alt="pix" /></a> <a href="#"><img src="{{ static_root }}blog/images/gallery_3.jpg" width="58" height="58" alt="pix" /></a> <a href="#"><img src="{{ static_root }}blog/images/gallery_4.jpg" width="58" height="58" alt="pix" /></a> <a href="#"><img src="{{ static_root }}blog/images/gallery_5.jpg" width="58" height="58" alt="pix" /></a> <a href="#"><img src="{{ static_root }}blog/images/gallery_6.jpg" width="58" height="58" alt="pix" /></a> </div>
-      <div class="col c2">
-        <h2><span>Lorem Ipsum</span></h2>
-        <p>Lorem ipsum dolor<br />
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam.</p>
-      </div>
-      <div class="col c3">
-        <h2><span>Contact</span></h2>
-        <p>Nullam quam lorem, tristique non vestibulum nec, consectetur in risus. Aliquam a quam vel leo gravida gravida eu porttitor dui. Nulla pharetra, mauris vitae interdum dignissim, justo nunc suscipit ipsum. <a href="#">mail@example.com</a><br />
-          <a href="#">+1 (123) 444-5677</a></p>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="footer">
-      <div class="clr"></div>
-    </div>
-  </div>
-</div>
+<div id="boxed">
+	
+	<div id="topBar">
+		<div class="container">
+			<div class="contactMsg">
+				<p>
+					<a><img class="icon" src="{{ static_root }}/blog/img/main/icon/qq_white.png"/>QQ：584532559</a>
+					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ static_root }}/blog/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
+				</p>
+			</div>
+			<div class="topSocial">
+				<p>
+					<a title="Rss尚未开通" href="#" class="socialIcon" id="rssIcon"></a>
+					<a title="Google+" href="https://plus.google.com/107141107603449735107/posts" target="_blank" class="socialIcon" id="googlePlusIcon"></a>
+					<a title="QQ空间" href="http://user.qzone.qq.com/584532559" target="_blank" class="socialIcon" id="qZoneIcon"></a>
+					<a title="My Github" href="https://github.com/winkidney"  target="_blank" class="socialIcon" id="githubIcon"></a>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div><!--endcontainer-->
+
+	</div><!--end topBar-->
+	
+	<div id="headerSection">
+		
+		<div class="container">
+			<div id="logo">
+				<a href="{{ basic_info.homepage_url }}"><p>{{ basic_info.logo_txt1 }}{{ basic_info.logo_txt2 }}</p></a>
+			</div>
+            <div id="navBar">
+                    <ul>
+                        <li class="link"><a  class="main_menu" href="#">主页</a></li>
+                        <li>
+                            <span class="Darrow"></span>
+                            <a class="main_menu" href="#">技术</a>
+                            <ul>
+                                <li class="submenu"><a href="#">子菜单一</a></li>
+                                <li class="submenu"><a href="#">子菜单二</a></li>
+                                <li class="submenu"><a href="#">子菜单三</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Darrow"></span>
+                            <a class="main_menu" href="#">生活</a>
+                            <ul>
+                                <li class="submenu"><a href="#">子菜单一</a></li>
+                                <li class="submenu"><a href="#">子菜单二</a></li>
+                                <li class="submenu"><a href="#">子菜单三</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Darrow"></span>
+                            <a class="main_menu" href="#">娱乐</a>
+                            <ul>
+                                <li class="submenu"><a href="#">子菜单一</a></li>
+                                <li class="submenu"><a href="#">子菜单二</a></li>
+                                <li class="submenu"><a href="#">子菜单三</a></li>
+                            </ul>
+                        </li>
+                        <li class="link"><a  class="main_menu" href="contactme/">给我留言</a></li>
+                        <li class="link"><a  class="main_menu" href="#">关于</a></li>
+                    </ul>
+            </div><!--end navBar-->
+			
+			
+			<div class="clear"></div>
+		</div><!--end container-->
+	</div><!--end headerSection-->
+
+	<div id="mainContent">
+		<div class="cotainer">
+			<div id="emptyPageTitle"></div>
+			<div id="leftContent">
+				{% block left_content %}
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">aug</span>
+							<span class="postDay">06</span>
+							<span class="postYear">2013</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">果粉那啥原来并不是这几年的事……</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>winkidney</li>
+							<li class="postTags"><span class="icon postTags"></span>杂谈,网志</li>
+							<li class="commentCount"><span class="icon postComments"></span>0次吐槽</li>
+						</ul>
+						<div class="mainPostContents">
+								<p>史蒂夫.乔布斯早年把苹果的系统设计成封闭式的时候，苹果粉丝们说他有性格，酷，后来他为了迁就市场开始有所妥协的时候，他们说他成熟稳健，牛13。
+PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖茨朝右的时候，他们说他龟儿子，比尔.盖茨把他几乎所有的财产都捐出来做慈善事业的时候，他们翘起了大拇指。</p>
+								</br>
+								<p>ipod</p>
+								<p>最为人诟病的是它光洁的镜面外壳很容易弄上手印或是划花，消费者对此做出负面评价的时候，凶悍忠诚型的苹果粉丝的反应是“你爱买不买！谁逼你买了？”温顺</p>
+								<a class="readMore" href="#"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">aug</span>
+							<span class="postDay">06</span>
+							<span class="postYear">2013</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">果粉那啥原来并不是这几年的事……</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>winkidney</li>
+							<li class="postTags"><span class="icon postTags"></span>杂谈,网志</li>
+							<li class="commentCount"><span class="icon postComments"></span>0次吐槽</li>
+						</ul>
+						<div class="mainPostContents">
+								<p>史蒂夫.乔布斯早年把苹果的系统设计成封闭式的时候，苹果粉丝们说他有性格，酷，后来他为了迁就市场开始有所妥协的时候，他们说他成熟稳健，牛13。
+PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖茨朝右的时候，他们说他龟儿子，比尔.盖茨把他几乎所有的财产都捐出来做慈善事业的时候，他们翘起了大拇指。</p>
+								</br>
+								<p>ipod</p>
+								<p>最为人诟病的是它光洁的镜面外壳很容易弄上手印或是划花，消费者对此做出负面评价的时候，凶悍忠诚型的苹果粉丝的反应是“你爱买不买！谁逼你买了？”温顺</p>
+								<a class="readMore" href="#"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">aug</span>
+							<span class="postDay">06</span>
+							<span class="postYear">2013</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">果粉那啥原来并不是这几年的事……</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>winkidney</li>
+							<li class="postTags"><span class="icon postTags"></span>杂谈,网志</li>
+							<li class="commentCount"><span class="icon postComments"></span>0次吐槽</li>
+						</ul>
+						<div class="mainPostContents">
+								<p>史蒂夫.乔布斯早年把苹果的系统设计成封闭式的时候，苹果粉丝们说他有性格，酷，后来他为了迁就市场开始有所妥协的时候，他们说他成熟稳健，牛13。
+PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖茨朝右的时候，他们说他龟儿子，比尔.盖茨把他几乎所有的财产都捐出来做慈善事业的时候，他们翘起了大拇指。</p>
+								</br>
+								<p>ipod</p>
+								<p>最为人诟病的是它光洁的镜面外壳很容易弄上手印或是划花，消费者对此做出负面评价的时候，凶悍忠诚型的苹果粉丝的反应是“你爱买不买！谁逼你买了？”温顺</p>
+								<a class="readMore" href="#"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				{% endblock %}
+				{% block main_pagination %}
+				<div class="mainPagination">
+					<div class="pagesNambers">
+						<div class="pagination">
+							<span class="current_page ">1</span>
+							<a href="" class="pageBtn">2</a>
+							<a href="#" class="pageBtn">3</a>
+						</div>
+					</div><!--end pagesNumbers-->
+					<div class="paginationLinks">
+						<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
+					</div><!--end PaginationLinks-->
+				</div><!--end mainPagination-->
+				{% endblock %}
+			</div><!--end maintContainer  leftContent-->
+			
+			
+			<div id="rightContent">
+				<div id="user_login_div">
+					<form id="login_form" method="post" action="{{ blog_login_url }}">
+						{% csrf_token %}
+						<input type="text" id="username" placeholder="用户名"></input>
+						<input type="password" id="pwd" placeholder="密码"  ></input>
+						<button class="loginBtn lightBtn btn buttonShadow" name="submit" type="submit">登陆</button>
+						<label id="remeberme" for="remeberme">
+							<input  type="checkbox" value="forever" checked="" name="remeberme">记住我</input>                                                                                                                                                                                                                                                              
+						</label>
+					</form><!--end form-->
+					<ul id="login-links">
+						<li><a href="#" >忘记密码？</a></li>
+						<li><a href="#" >注册</a></li>
+						<li class="clear"></li>
+					</ul>
+				</div><!--end user_login_div-->
+				{% block last_recent_post %}
+				<h4 class="widget">最新作品</h4>
+				<div id="lastRecentPost">
+					<article class="recentPost">
+						<div class="projectItem">
+							<img title="文学少女" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+							<div class="projectInfo">
+								<div class="projectInfoData">
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="prjectMore lightBtn btn buttonShadow" href="#" >察看详细</a>
+								</div>
+							</div>
+						</div>
+						<div class="projectDetails">
+							<h5 class="projectTitle">
+								<a href="#">文学少女图片示例</a>
+							</h5><!--end projectTitle-->
+							<div class="projectMeta">
+								<span class="projectDate">7月，07,2013</span>
+								<span class="projectLike"></span>
+							</div><!--end projectMeta-->
+						</div>
+					</article><!--end an recentPost article-->
+					
+					<article class="recentPost">
+						<div class="projectItem">
+							<img title="文学少女" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+							<div class="projectInfo">
+								<div class="projectInfoData">
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="prjectMore lightBtn btn buttonShadow" href="#">察看详细</a>
+								</div>
+							</div>
+						</div>
+						<div class="projectDetails">
+							<h5 class="projectTitle">
+								<a href="#">文学少女图片示例</a>
+							</h5><!--end projectTitle-->
+							<div class="projectMeta">
+								<span class="projectDate">7月，07,2013</span>
+								<span class="projectLike"></span>
+							</div><!--end projectMeta-->
+						</div>
+					</article><!--end an recentPost article-->
+					
+				</div><!--end lastRecentPost-->
+				{% endblock %}
+				{% block nav_tabs %}
+				<div id="navTabs">
+					<ul>
+						<li><a href="#navTabs-1">最热</a></li>
+						<li><a href="#navTabs-2">最新</a></li>
+						<li><a href="#navTabs-3">评论</a></li>
+						<li><a href="#navTabs-4">标签</a></li>
+					</ul>
+					<div id="navTabs-1" class="navTabsClass tabsPosts">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`图片示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+						
+					</div><!--end navTabs-1-->
+					<div id="navTabs-2" class="navTabsClass tabsPosts">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+					</div><!--end navTabs-2-->
+					<div id="navTabs-3" class="navTabsClass tabsComments">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+					</div><!--end navTabs-3-->
+					<div id="navTabs-4" class="navTabsClass tabsTags">
+						<ul> 
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+						</ul>
+					</div><!--end navTabs-4-->
+					
+				</div><!--end div navTabs-->
+				{% endblock %}
+			</div><!--end maintContainer  rightContent-->
+			<div class="clear"></div>
+		</div>
+	</div><!--end mainContainer-->
+	<div id="footer">
+		<div id="infoCollection">
+			<div id="tellMe">
+				<p>给我留言</p>
+				<form method="post" action="#" id="postComments">
+					<input type="text" id="fname" name="fname" class="text" placeholder="尊姓大名（必填）"/>
+					<input type="email" id="femail" name="femail" class="text" placeholder="Email(方便回复通知)"/>
+					<input type="text" id="fwebsite" name="fwebsite" class="text" placeholder="你的主页（选填）"/>
+					<textarea type="text" id="fmessage" name="fmessage" placeholder="留言内容" rows="8" cols="50"></textarea>
+					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="发表留言" />
+				</form><!--end form comments-->
+			</div>
+			<div id="footerSideBar">
+				<div class="aboutMe">
+					<p>关于阿毛</p>
+					<p>阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发</p>
+				</div>
+				<div class="friendsLinks">
+					<p>友情链接</p>
+					<ul>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>						
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div><!--end div infoCollection-->
+		<div class="clear"></div>
+		<div id="copyright">
+			<p>GG-Blog Powered by Python&amp;Django &copy;winkidney 2013</p>
+		</div>
+	</div><!--end div footer-->
+</div><!--end div boxed-->
+
+
+<script type="text/javascript" charset="utf-8">
+//img box start
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto(
+		{
+			allow_resize:true,
+			social_tools:false
+		}
+    );
+  });
+//img box end
+$(function() {
+$( "#navTabs" ).tabs();
+});
+SyntaxHighlighter.all(); //执行代码高亮   
+
+</script>
 </body>
 </html>
