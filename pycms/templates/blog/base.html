@@ -227,8 +227,8 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 				<div id="user_login_div">
 					<form id="login_form" method="post" action="{{ blog_login_url }}">
 						{% csrf_token %}
-						<input type="text" id="username" placeholder="用户名"></input>
-						<input type="password" id="pwd" placeholder="密码"  ></input>
+						<input type="text" name="username" id="username" placeholder="用户名"></input>
+						<input type="password" name="password" id="pwd" placeholder="密码"  ></input>
 						<button class="loginBtn lightBtn btn buttonShadow" name="submit" type="submit">登陆</button>
 						<label id="remeberme" for="remeberme">
 							<input  type="checkbox" value="forever" checked="" name="remeberme">记住我</input>                                                                                                                                                                                                                                                              

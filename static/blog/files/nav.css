@@ -1,0 +1,84 @@
+div#navBar {
+	vertical-align: baseline;
+	width:870px;
+    font-size:14px;
+    line-height:21px;
+    margin:0;
+	padding:0;
+    text-decoration:none;
+    color:black;
+    float:right;
+}
+div#navBar>ul{
+	text-shadow: #CCCCCC 0 1px 0;
+	padding:0px;
+	margin:0px;
+	float:right;
+	display:block;
+}
+div#navBar a.main_menu{
+    text-decoration:none;
+    color: rgb(198, 198, 198);
+}
+div#navBar li.link a{
+    color:#447C57;
+}
+
+div#navBar>ul>li{
+	text-decoration:none;
+	margin-right:20px;
+	display:block;
+	float:left;
+}
+div#navBar ul li ul{
+	visibility: hidden;
+	display:none;
+	opacity: 0.1;
+	transition: opacity  0.5s ease 0.2s;
+	-moz-transition: opacity 0.5s ease 0.2s;
+}
+div#navBar ul li:hover ul{
+	list-style-type: none;/*去掉项目符号显示*/
+	display:block;
+	visibility: visible;
+	opacity:1;
+	position:absolute;
+	margin-left:-50px;
+	padding-top:20px;
+}
+/*渐变*/
+div#navBar>ul>li>ul>li{
+    transition: all 0.2s ease 0s;
+    }
+/*样式*/		
+div#navBar .Darrow{
+	float:right;
+	margin:7px 10px 0 20px;
+	border-width:5px;
+	border-color:#000000 transparent transparent transparent;
+	border-style:solid;
+	width:0;
+	height:0;
+	line-height:0;
+	overflow:hidden;
+	cursor:pointer;
+	text-shadow: 0px -1px 0px #000;
+}
+div#navBar li.submenu{
+    width:200px;
+    background-color:#303030;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    
+}
+div#navBar li.submenu a{
+	text-shadow:none;
+	display:block;
+	padding:14px;
+    text-decoration:none;
+    width:200px;
+    color:rgb(204, 204, 204);
+}
+div#navBar li.submenu:hover{
+    background-color:#2e2e2e; 
+}

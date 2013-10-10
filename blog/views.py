@@ -30,7 +30,7 @@ def home(request):
     #login检测包装
     if get_basic_info != None:
         basic_info = get_basic_info()
-        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,blog_login_url:'blog_login_url'})
+        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,'blog_login_url':blog_login_url},context_instance=RequestContext(request))
     else:
         return HttpResponse("error,check basic_info")
 def login_view(request):
@@ -44,7 +44,7 @@ def login_view(request):
     #用户未登陆，转入登陆页面
     else:
         if request.method == 'GET':
-                #这里不这么写居然无法登陆，记下来作为教训吧= =
+                #这里不这么写居然无法登陆，记下来作为教训吧= =(后来查明原因，是因为不使用RequestContext的话，csrf标签不会被正确处理
             return render_to_response(login_html,{'site_name':site_name},context_instance=RequestContext(request)) 
         #用同一个url处理用户的登陆表单
         elif request.method == 'POST':
