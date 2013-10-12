@@ -28,18 +28,30 @@ def get_basic_info():
     
 def home(request):
     #login检测包装
+    logined = False
     if get_basic_info != None:
         basic_info = get_basic_info()
-        return render_to_response('blog/base.html',{'static_root':settings.BLOG_STATIC_URL,'basic_info':basic_info,'blog_login_url':blog_login_url},context_instance=RequestContext(request))
+        if request.user.is_authenticated():
+            logined = True
+        return render_to_response('blog/base.html',
+                                      {'static_root':settings.BLOG_STATIC_URL,
+                                       'basic_info':basic_info,
+                                       'blog_login_url':blog_login_url,
+                                       'logined':logined},
+                                      context_instance=RequestContext(request))
     else:
         return HttpResponse("error,check basic_info")
+
+    
 def login_view(request):
     site_name = BasicSettings.objects.get(variable='site_name').value
     remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
     if request.user.is_authenticated():
-        remind = {'info':'您必须先退出登陆 ^_^','button_name':'退出登陆','url_to':settings.BLOG_ROOT_URL+'logout/'}
+        remind = {'info':'您必须先退出登陆 ^_^',
+                  'button_name':'退出登陆',
+                  'url_to':settings.BLOG_ROOT_URL+'logout/'}
         return render_to_response('blog/login/remind.html',locals())
     #用户未登陆，转入登陆页面
     else:

@@ -103,8 +103,8 @@ h5{
 /*文章图标部分*/
 .formatIcon {
     background-position: 0px 0px;
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
     display: block;
     position: relative;
     left: 50%;
@@ -116,6 +116,10 @@ h5{
     background: url("../img/main/posticon/webblog.gif") no-repeat;
     background-size: 20px 20px;
     }
+.formatIcon.comments {
+    background: url("../img/main/posticon/comment.png") no-repeat;
+	background-size: 20px 20px;
+}
 span.icon.heart{
     background: url("../img/main/icon/heart.gif") no-repeat;
     }
@@ -248,6 +252,9 @@ article{
     margin-bottom: 30px;
     display: block;
     }
+article p{
+	line-height: 23px;
+}
 article aside.postSide{
     float: left;
     width: 70px;
@@ -635,6 +642,10 @@ div#footer{
 div#infoCollection{
 	margin:30px 30px;
 }
+div#infoCollection h2{
+	font-weight:bold;
+	color:#969696;
+}
 div#tellMe>p{
 	padding:5px;
 }
@@ -681,20 +692,94 @@ div#footerSideBar div{
 	background-color:rgb(40, 40, 40);
 }
 div#footerSideBar{
-	height:350px;
+	height:360px;
 }
 div#footerSideBar div{
 	height:50%;
 	overflow:hidden;
 	}
+div.friendsLinks ul{
+	display:block;
+	padding:0;
+}
+div.friendsLinks li{
+	padding:1px 0;
+	}
+
+.aboutMe h1,
 .aboutMe p{
 	display:block;
 	padding:2px;
 }
 div#copyright p{
+	padding: 10px 0px;
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
 }
 /*footer部分结束*/
+/*read页面样式定义*/
+ul.commentsList {
+	padding:0 0px;
+	
+}
+ul.commentsList li{
+	width:100%;
+	float:left;
+	display:block;
+	border-top: 1px solid rgba(220, 220, 220, 0.7);
+}
+.comment-avatar {
+	margin: 10px 0px;
+	float:left;
+}
+div.comment-content {
+	margin: 5px 0px;
+	padding-left: 60px;
+}
+.comment-avatar img{
+	width:50px;
+	height:50px;
+}
+div.comment-header a{
+	color:rgb(49, 110, 70);
+	margin:0.5em 0;
+}
+div.comment-body p{
+	color:#1A1A1A;
+	margin:0.5em 0;
+}
+.replyIcon {
+	display:block;
+	float:left;
+	width:17px;
+	height:14px;
+	background-image:url("../img/main/posticon/reply.png");
+	
+}
+div.comment-function a,
+div.comment-function span{
+	float:left;
+	font-size:12px;
+	margin:0.3em 0;
+
+} 
+div.comment-function a{
+	margin-left:1em;
+	margin-right:1em;
+	}
+div.comment-function a:hover {
+    color: rgb(85, 85, 85);
+}
+.comment-of-comment .comment-avatar img{
+	margin-left:20px;
+	width:30px;
+	height:30px;
+}
+/*read页面样式定义结束*/
+/*修正ueditor代码现实不换行bug*/
+.syntaxhighlighter td.code {
+    word-break: break-all;
+}
+/*修正ueditor代码现实不换行bug*/

@@ -2,7 +2,7 @@
 <html  lang="zh-CN">
 <head>
 	<title>
-		{% block title %}{% endblock %}{{ basic_info.page_title }}
+		{% block title %}{{ basic_info.page_title }}{% endblock %}
 	</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	
@@ -18,6 +18,11 @@
 	<!--img box end-->
 	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/nav.css">
 	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/style.css">
+	<!--ueditor synatx highlight-->
+	<script type="text/javascript" src="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
+	<link rel="stylesheet" href="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+	<!--ueditor synatx highlight end-->
+	
 </head>
 
 <body>
@@ -224,6 +229,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			
 			
 			<div id="rightContent">
+				{% if not logined %}
 				<div id="user_login_div">
 					<form id="login_form" method="post" action="{{ blog_login_url }}">
 						{% csrf_token %}
@@ -240,6 +246,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 						<li class="clear"></li>
 					</ul>
 				</div><!--end user_login_div-->
+				{% endif %}
 				{% block last_recent_post %}
 				<h4 class="widget">最新作品</h4>
 				<div id="lastRecentPost">
@@ -444,6 +451,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			<div class="clear"></div>
 		</div>
 	</div><!--end mainContainer-->
+	{% block footer %}
 	<div id="footer">
 		<div id="infoCollection">
 			<div id="tellMe">
@@ -480,6 +488,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			<p>GG-Blog Powered by Python&amp;Django &copy;winkidney 2013</p>
 		</div>
 	</div><!--end div footer-->
+	{% endblock %}
 </div><!--end div boxed-->
 
 
