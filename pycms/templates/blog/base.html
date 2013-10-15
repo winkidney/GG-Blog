@@ -451,10 +451,11 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			<div class="clear"></div>
 		</div>
 	</div><!--end mainContainer-->
-	{% block footer %}
+	
 	<div id="footer">
 		<div id="infoCollection">
 			<div id="tellMe">
+				{% block tell_me %}
 				<p>给我留言</p>
 				<form method="post" action="#" id="postComments">
 					<input type="text" id="fname" name="fname" class="text" placeholder="尊姓大名（必填）"/>
@@ -463,6 +464,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 					<textarea type="text" id="fmessage" name="fmessage" placeholder="留言内容" rows="8" cols="50"></textarea>
 					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="发表留言" />
 				</form><!--end form comments-->
+				{% endblock %}
 			</div>
 			<div id="footerSideBar">
 				<div class="aboutMe">
@@ -488,7 +490,6 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			<p>GG-Blog Powered by Python&amp;Django &copy;winkidney 2013</p>
 		</div>
 	</div><!--end div footer-->
-	{% endblock %}
 </div><!--end div boxed-->
 
 

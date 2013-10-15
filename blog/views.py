@@ -25,7 +25,13 @@ def get_basic_info():
         return basic_info
     except :
         return None
-    
+def get_header_info():
+    pass
+def logined(request):
+    if request.user.is_authenticated():
+            return False
+    else:
+            return True    
 def home(request):
     #login检测包装
     logined = False
@@ -90,9 +96,9 @@ def logout_view(request):
 #阅读文章的函数
 def articles(request,article_id):
     if request.user.is_authenticated():
-            notlogin = False
+            logined = False
     else:
-            notlogin = True
+            logined = True
      # 获取基本信息
     
     basic_info = get_basic_info()

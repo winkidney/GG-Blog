@@ -27,8 +27,17 @@
 						</h1>
 						<ul class="postMeta">
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ author_name }}</li>
-							<li class="postTags"><span class="icon postTags"></span>杂谈,网志</li>
-							<li class="commentCount"><span class="icon postComments"></span>0次吐槽</li>
+							<li class="postTags"><span class="icon postTags"></span>
+								{% for tag in tags %}
+									<a href="{{ blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+								{% endfor %}
+							</li>
+							<li class="commentCount"><span class="icon postComments"></span>{{ post.post_comment_count }}次吐槽</li>
+							<li class="edit">
+								{% if show_edit %}
+									<a href="{{ blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
+								{% endif %}
+							</li>
 						</ul>
 						<div class="mainPostContents">
 							{% autoescape off %} 
@@ -37,6 +46,8 @@
 						</div><!--end mainPostContents-->
 					</div><!--end  postContent-->
 				</article><!--end article-->
+				
+				
 				<article class="commentsBlock">
 					<aside class="postSide">
 						<div class="postFormat">
@@ -51,7 +62,7 @@
 						<div class="mainPostContents">
 							<ul class="commentsList">
 								<li>
-									<div class="comment-avatar" ><img src="{{ static_root }}blog/img/main/posticon/glassgear.png"></div>
+									<div class="comment-avatar" ><img src="img/main/posticon/glassgear.png"></div>
 									<div class="comment-content">
 										<div class="comment-header">
 											<a href="#">阿毛</a>
@@ -67,7 +78,7 @@
 								</li>
 								
 								<li class="comment-of-comment">
-									<div class="comment-avatar" ><img src="{{ static_root }}blog/img/main/posticon/glassgear.png"></div>
+									<div class="comment-avatar" ><img src="img/main/posticon/glassgear.png"></div>
 									<div class="comment-content">
 										<div class="comment-header">
 											<a href="#">阿毛</a>
@@ -80,17 +91,20 @@
 											<a href="#"><span class="replyIcon"></span>回复</a>
 										</div>
 									</div>
-								</li>
+								</li><!--end comment-of comment li-->
 							</ul><!--end ul commentList-->
 						</div><!--end mainPostContents-->
+						
 					</div><!--end  postContent-->
-				</article><!--end article-->
+				</article><!--end article postCommentlist-->
+				
+				<div class="mainPagination paginationArticle">
+						<a href="#" class="previousPage blackToWhiteBtn" >&lt;</a>
+						<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
+				</div><!--end mainPagination-->
 {% endblock %}
 {% block main_pagination %}{% endblock %}
-{% block footer %}
-	<div id="footer">
-		<div id="infoCollection">
-			<div id="tellMe">
+{% block tell_me %}
 				<h2>发表评论</h2>
 				<form method="post" action="#" id="postComments">
 					<input type="text" id="fname" name="fname" class="text" placeholder="尊姓大名（必填）"/>
@@ -99,30 +113,6 @@
 					<textarea type="text" id="fmessage" name="fmessage" placeholder="留言内容" rows="8" cols="50"></textarea>
 					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="教练，我要吐槽！" />
 				</form><!--end form comments-->
-			</div>
-			<div id="footerSideBar">
-				<div class="aboutMe">
-					<h2>关于阿毛</h2>
-					<p>阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发</p>
-				</div>
-				<div class="friendsLinks">
-					<h2>友情链接</h2>
-					<ul>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>						
-					</ul>
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div><!--end div infoCollection-->
-		<div class="clear"></div>
-		<div id="copyright">
-			<p>GG-Blog Powered by Python&amp;Django &copy;winkidney 2013</p>
-		</div>
-	</div><!--end div footer-->
+
 {% endblock %}
 
