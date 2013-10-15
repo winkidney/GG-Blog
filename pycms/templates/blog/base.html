@@ -2,25 +2,25 @@
 <html  lang="zh-CN">
 <head>
 	<title>
-		{% block title %}{{ basic_info.page_title }}{% endblock %}
+		{% block title %}{{ basic_info.blog_settings.page_title }}{% endblock %}
 	</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	
 	<!--jquery-ui-->
-		<link href="{{ static_root }}/blog/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<link href="{{ basic_info.static_root }}/blog/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script-->
-		<script src="{{ static_root }}/blog/jquery/js/jquery-1.9.1.js"></script>
-		<script src="{{ static_root }}/blog/jquery/js/jquery-ui-1.10.3.custom.js"></script>
+		<script src="{{ basic_info.static_root }}/blog/jquery/js/jquery-1.9.1.js"></script>
+		<script src="{{ basic_info.static_root }}/blog/jquery/js/jquery-ui-1.10.3.custom.js"></script>
 	<!--juery-ui end-->
 	<!--img box start-->
-		<link rel="stylesheet" href="{{ static_root }}/blog/jquery/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-		<script src="{{ static_root }}/blog/jquery/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="{{ basic_info.static_root }}/blog/jquery/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="{{ basic_info.static_root }}/blog/jquery/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 	<!--img box end-->
-	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/nav.css">
-	<link rel="stylesheet" type="text/css" href="{{ static_root }}/blog/files/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}/blog/files/nav.css">
+	<link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}/blog/files/style.css">
 	<!--ueditor synatx highlight-->
-	<script type="text/javascript" src="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
-	<link rel="stylesheet" href="{{ static_root }}share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+	<script type="text/javascript" src="{{ basic_info.static_root }}share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
+	<link rel="stylesheet" href="{{ basic_info.static_root }}share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
 	<!--ueditor synatx highlight end-->
 	
 </head>
@@ -32,8 +32,8 @@
 		<div class="container">
 			<div class="contactMsg">
 				<p>
-					<a><img class="icon" src="{{ static_root }}/blog/img/main/icon/qq_white.png"/>QQ：584532559</a>
-					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ static_root }}/blog/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
+					<a><img class="icon" src="{{ basic_info.static_root }}/blog/img/main/icon/qq_white.png"/>QQ：584532559</a>
+					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ basic_info.static_root }}/blog/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
 				</p>
 			</div>
 			<div class="topSocial">
@@ -53,7 +53,7 @@
 		
 		<div class="container">
 			<div id="logo">
-				<a href="{{ basic_info.homepage_url }}"><p>{{ basic_info.logo_txt1 }}{{ basic_info.logo_txt2 }}</p></a>
+				<a href="{{ basic_info.blog_settings.homepage_url }}"><p>{{ basic_info.blog_settings.logo_txt1 }}{{ basic_info.blog_settings.logo_txt2 }}</p></a>
 			</div>
             <div id="navBar">
                     <ul>
@@ -229,9 +229,9 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 			
 			
 			<div id="rightContent">
-				{% if not logined %}
+				{% if not user_info.logined %}
 				<div id="user_login_div">
-					<form id="login_form" method="post" action="{{ blog_login_url }}">
+					<form id="login_form" method="post" action="{{ basic_info.login_url }}">
 						{% csrf_token %}
 						<input type="text" name="username" id="username" placeholder="用户名"></input>
 						<input type="password" name="password" id="pwd" placeholder="密码"  ></input>
@@ -252,10 +252,10 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 				<div id="lastRecentPost">
 					<article class="recentPost">
 						<div class="projectItem">
-							<img title="文学少女" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+							<img title="文学少女" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 							<div class="projectInfo">
 								<div class="projectInfoData">
-									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
 									<a class="prjectMore lightBtn btn buttonShadow" href="#" >察看详细</a>
 								</div>
 							</div>
@@ -273,10 +273,10 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 					
 					<article class="recentPost">
 						<div class="projectItem">
-							<img title="文学少女" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+							<img title="文学少女" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 							<div class="projectInfo">
 								<div class="projectInfoData">
-									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
 									<a class="prjectMore lightBtn btn buttonShadow" href="#">察看详细</a>
 								</div>
 							</div>
@@ -306,7 +306,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 						<ul>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最热`示例文章</a>
@@ -315,7 +315,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 							</li>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最热`示例文章</a>
@@ -323,7 +323,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最热`图片示例文章</a>
@@ -331,7 +331,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最热`示例文章</a>
@@ -346,7 +346,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 						<ul>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -355,7 +355,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 							</li>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -363,7 +363,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -371,7 +371,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -385,7 +385,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 						<ul>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -394,7 +394,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 							</li>
 							<li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -402,7 +402,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -410,7 +410,7 @@ PC用户呢？比尔.盖茨朝左的时候，他们说他王八蛋，比尔盖�
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.static_root }}/blog/img/main/example/wenxueshaonv.jpg" />
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>

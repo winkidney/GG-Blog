@@ -131,9 +131,14 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     #my own
     'blog',
+    #多说评论组件
+    #'duoshuo',
     #the 富文本编辑器
     #'tinymce',
 )
+#多说评论设置
+#DUOSHUO_SECRET = '你的多说secret'
+#DUOSHUO_SHORT_NAME = '你的多说short name'
 
 #全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
 MY_STATIC_ROOT = '/home/www/static/'

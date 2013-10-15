@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
+from blog.data import UserInfo,BasicInfo
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
@@ -33,20 +34,12 @@ def logined(request):
     else:
             return True    
 def home(request):
-    #login检测包装
-    logined = False
-    if get_basic_info != None:
-        basic_info = get_basic_info()
-        if request.user.is_authenticated():
-            logined = True
-        return render_to_response('blog/base.html',
-                                      {'static_root':settings.BLOG_STATIC_URL,
-                                       'basic_info':basic_info,
-                                       'blog_login_url':blog_login_url,
-                                       'logined':logined},
-                                      context_instance=RequestContext(request))
-    else:
-        return HttpResponse("error,check basic_info")
+    user_info = UserInfo(request)
+    basic_info = BasicInfo()
+    return render_to_response('blog/base.html',
+                                    locals(),
+                                    context_instance=RequestContext(request))
+    #return HttpResponse("error,check basic_info")
 
     
 def login_view(request):
@@ -95,12 +88,8 @@ def logout_view(request):
 
 #阅读文章的函数
 def articles(request,article_id):
-    if request.user.is_authenticated():
-            logined = False
-    else:
-            logined = True
-     # 获取基本信息
-    
+    user_info = UserInfo(request)
+     # 获取基本信息    
     basic_info = get_basic_info()
     static_root = settings.BLOG_STATIC_URL
     blog_root_url = settings.BLOG_ROOT_URL
@@ -122,7 +111,7 @@ def articles(request,article_id):
             return HttpResponse(u'文章已被删除')
     elif request.method == 'POST':
         #决定验证用表单对象
-        if notlogin:
+        if logined:
             comment_form = ReplyForm(request.POST)
         else:
             comment_form = ReplyFormLogined(request.POST)
