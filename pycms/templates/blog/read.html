@@ -29,13 +29,13 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ a_post.post.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in a_post.post.tags %}
-									<a href="{{ blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ basci_info.blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
 							<li class="edit">
 								{% if show_edit %}
-									<a href="{{ blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
+									<a href="{{ basci_info.blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
 								{% endif %}
 							</li>
 						</ul>
@@ -61,22 +61,26 @@
 						
 						<div class="mainPostContents">
 							<ul class="commentsList">
+							{% if a_post.post.comments %}
+								{% for comment in a_post.post.comments %}
 								<li>
 									<div class="comment-avatar" ><img src="{{ basic_info.static_root }}/blog/img/main/posticon/glassgear.png"></div>
 									<div class="comment-content">
 										<div class="comment-header">
-											<a href="#">阿毛</a>
+											<a href="#">{{ comment.author }}</a>
 										</div>
 										<div class="comment-body">
-											<p>评论内容，这就是评论内容啊</p>
+											<p>{{ comment.content }}</p>
 										</div>
 										<div class="comment-function">
-											<span class="comment-date">10月7日 2013</span>
+											<span class="comment-date">{{ comment.date.month }}月{{ comment.date.day }}日 {{ comment.date.year }}</span>
 											<a href="#"><span class="replyIcon"></span>回复</a>
 										</div>
 									</div>
 								</li>
-								
+								{% endfor %}
+							{% endif %}
+							{% comment %}
 								<li class="comment-of-comment">
 									<div class="comment-avatar" >
 										<img src="{{ basic_info.static_root }}/blog/img/main/posticon/glassgear.png">
@@ -94,6 +98,7 @@
 										</div>
 									</div>
 								</li><!--end comment-of comment li-->
+							{% endcomment %}
 							</ul><!--end ul commentList-->
 						</div><!--end mainPostContents-->
 						
@@ -110,6 +115,7 @@
 				<h2>发表评论</h2>
 				<form method="post" action="" id="postComments">
 				{% csrf_token %}
+					<input type="hidden" name="next" value="{{ basic_info.path }}" ></input>
 					{% if comment_form.r_username.errors %}{{ comment_form.r_username.errors }}{% endif %}
 					<input type="text" id="fname" name="r_username" class="text" placeholder="尊姓大名（必填）"/>
 					{% if comment_form.r_email.errors %}{{comment_form.r_email.errors }}{% endif %}

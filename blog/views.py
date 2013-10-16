@@ -89,10 +89,10 @@ def logout_view(request):
 #阅读文章的函数
 def articles(request,article_id):
     user_info = UserInfo(request)
-    basic_info = BasicInfo()
+    basic_info = BasicInfo(request)
     a_post = APost(int(article_id))
     if request.method == 'GET':
-        if not a_post:
+        if not a_post.exist:
             return HttpResponse(u'文章不存在')
         # 检查文章状态是否为已发布
         if a_post.post['status'].id == 2:

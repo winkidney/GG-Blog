@@ -23,7 +23,7 @@ class UserInfo(object):
             
 class BasicInfo(object):
     """include basic_settings in database and some other basic settings"""
-    def __init__(self):
+    def __init__(self,request):
         self.blog_settings = {}
         try :
             for key in BasicSettings.objects.all():
@@ -33,6 +33,7 @@ class BasicInfo(object):
         self.login_url = settings.BLOG_ROOT_URL+'login/'
         self.static_root = settings.BLOG_STATIC_URL
         self.blog_root_url = settings.BLOG_ROOT_URL
+        self.path = request.path
 class APost(object):
     """Get article info(include its content)"""
     def __init__(self,article_id):
@@ -41,7 +42,6 @@ class APost(object):
             self.init_data()
         else:
             self.exist = False
-            return False
     def exist(self,article_id):
         try:
             self.article = Posts.objects.get(id=int(article_id))
@@ -69,7 +69,7 @@ class APost(object):
         self.post['tags'] = self.article.tags.all()
         self.post['threadtypeid'] = self.article.threadtypeid
         self.post['comment_count'] = self.article.comment_count
-        self.post['comments'] = self.article.comments
+        self.post['comments'] = self.article.comments.all()
 class CommentForm(object):
     def __init__(self,request):
         pass
