@@ -6,7 +6,7 @@
 from blog.forms import ReplyForm,ReplyFormLogined
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect,HttpResponse,Http404
 from django.contrib.auth import (authenticate, login ,logout)
 from django.template import RequestContext
 from django.contrib.auth.models import User
@@ -17,17 +17,7 @@ from blog.data import UserInfo,BasicInfo,APost
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
-#获取站点基本信息
-def get_basic_info():
-    basic_info = {}
-    try :
-        for key in BasicSettings.objects.all():
-            basic_info[key.variable] = key.value
-        return basic_info
-    except :
-        return None
-def get_header_info():
-    pass
+
 def logined(request):
     if request.user.is_authenticated():
             return False
@@ -35,7 +25,7 @@ def logined(request):
             return True    
 def home(request):
     user_info = UserInfo(request)
-    basic_info = BasicInfo()
+    basic_info = BasicInfo(request)
     return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))
@@ -93,7 +83,7 @@ def articles(request,article_id):
     a_post = APost(int(article_id))
     if request.method == 'GET':
         if not a_post.exist:
-            return HttpResponse(u'文章不存在')
+            raise Http404
         # 检查文章状态是否为已发布
         if a_post.post['status'].id == 2:
             return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
