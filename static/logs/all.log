@@ -1201,3 +1201,306 @@ TypeError: __init__() takes exactly 1 argument (2 given)
 (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'z8ut0lr5i3nk68ja6uccs7fzolctlgx0'  AND `django_session`.`expire_date` > '2013-10-15 12:17:34' ); args=('z8ut0lr5i3nk68ja6uccs7fzolctlgx0', u'2013-10-15 12:17:34')
 (0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
 (0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'z8ut0lr5i3nk68ja6uccs7fzolctlgx0'  AND `django_session`.`expire_date` > '2013-10-15 13:40:57' ); args=('z8ut0lr5i3nk68ja6uccs7fzolctlgx0', u'2013-10-15 13:40:57')
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.001) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 1 ; args=(1,)
+(0.002) SELECT `blog_posts`.`id`, `blog_posts`.`post_authorid`, `blog_posts`.`post_date`, `blog_posts`.`post_date_modified`, `blog_posts`.`post_content`, `blog_posts`.`post_title`, `blog_posts`.`post_name`, `blog_posts`.`post_cover`, `blog_posts`.`post_introduction`, `blog_posts`.`post_status_id`, `blog_posts`.`comment_status`, `blog_posts`.`post_password`, `blog_posts`.`post_threadtypeid_id`, `blog_posts`.`post_comment_count` FROM `blog_posts` WHERE `blog_posts`.`id` = 3 ; args=(3,)
+(0.000) SHOW TABLES; args=()
+(0.132) CREATE TABLE `auth_permission` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(50) NOT NULL,
+    `content_type_id` integer NOT NULL,
+    `codename` varchar(100) NOT NULL,
+    UNIQUE (`content_type_id`, `codename`)
+)
+;; args=()
+(0.076) CREATE TABLE `auth_group_permissions` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `group_id` integer NOT NULL,
+    `permission_id` integer NOT NULL,
+    UNIQUE (`group_id`, `permission_id`)
+)
+;; args=()
+(0.278) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `permission_id_refs_id_6ba0f519` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);; args=()
+(0.099) CREATE TABLE `auth_group` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(80) NOT NULL UNIQUE
+)
+;; args=()
+(0.200) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `group_id_refs_id_f4b32aac` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);; args=()
+(0.088) CREATE TABLE `auth_user_groups` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` integer NOT NULL,
+    `group_id` integer NOT NULL,
+    UNIQUE (`user_id`, `group_id`)
+)
+;; args=()
+(0.189) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `group_id_refs_id_274b862c` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);; args=()
+(0.076) CREATE TABLE `auth_user_user_permissions` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `user_id` integer NOT NULL,
+    `permission_id` integer NOT NULL,
+    UNIQUE (`user_id`, `permission_id`)
+)
+;; args=()
+(0.201) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `permission_id_refs_id_35d9ac25` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);; args=()
+(0.086) CREATE TABLE `auth_user` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `password` varchar(128) NOT NULL,
+    `last_login` datetime NOT NULL,
+    `is_superuser` bool NOT NULL,
+    `username` varchar(30) NOT NULL UNIQUE,
+    `first_name` varchar(30) NOT NULL,
+    `last_name` varchar(30) NOT NULL,
+    `email` varchar(75) NOT NULL,
+    `is_staff` bool NOT NULL,
+    `is_active` bool NOT NULL,
+    `date_joined` datetime NOT NULL
+)
+;; args=()
+(0.245) ALTER TABLE `auth_user_groups` ADD CONSTRAINT `user_id_refs_id_40c41112` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=()
+(0.191) ALTER TABLE `auth_user_user_permissions` ADD CONSTRAINT `user_id_refs_id_4dc23c39` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=()
+(0.077) CREATE TABLE `django_content_type` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(100) NOT NULL,
+    `app_label` varchar(100) NOT NULL,
+    `model` varchar(100) NOT NULL,
+    UNIQUE (`app_label`, `model`)
+)
+;; args=()
+(0.200) ALTER TABLE `auth_permission` ADD CONSTRAINT `content_type_id_refs_id_d043b34a` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=()
+(0.089) CREATE TABLE `django_session` (
+    `session_key` varchar(40) NOT NULL PRIMARY KEY,
+    `session_data` longtext NOT NULL,
+    `expire_date` datetime NOT NULL
+)
+;; args=()
+(0.100) CREATE TABLE `django_site` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `domain` varchar(100) NOT NULL,
+    `name` varchar(50) NOT NULL
+)
+;; args=()
+(0.087) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=()
+(0.201) ALTER TABLE `django_admin_log` ADD CONSTRAINT `content_type_id_refs_id_93d2d1f8` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=()
+(0.200) ALTER TABLE `django_admin_log` ADD CONSTRAINT `user_id_refs_id_c0d12874` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);; args=()
+(0.088) CREATE TABLE `blog_basicsettings` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `variable` varchar(30) NOT NULL,
+    `value` varchar(100) NOT NULL
+)
+;; args=()
+(0.088) CREATE TABLE `blog_status` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `status_name` varchar(20) NOT NULL
+)
+;; args=()
+(0.166) CREATE TABLE `blog_tags` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `tagname` varchar(20) NOT NULL
+)
+;; args=()
+(0.088) CREATE TABLE `blog_threadtypes` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `display_order` integer NOT NULL,
+    `name` varchar(40) NOT NULL,
+    `description` varchar(100) NOT NULL,
+    `status` varchar(20) NOT NULL
+)
+;; args=()
+(0.089) CREATE TABLE `blog_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `post_id` bigint NOT NULL,
+    `author` varchar(20) NOT NULL,
+    `author_email` varchar(75) NOT NULL,
+    `author_url` varchar(200) NOT NULL,
+    `author_ip` char(15) NOT NULL,
+    `date` datetime NOT NULL,
+    `content` longtext NOT NULL,
+    `approved` bool NOT NULL,
+    `agent` varchar(30) NOT NULL,
+    `parent_id` bigint NOT NULL,
+    `user_id` bigint NOT NULL
+)
+;; args=()
+(0.089) CREATE TABLE `blog_links` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(20) NOT NULL,
+    `image_url` varchar(200) NOT NULL,
+    `target_url` varchar(200) NOT NULL,
+    `description` longtext NOT NULL,
+    `visible` bool NOT NULL,
+    `owner` integer NOT NULL,
+    `rating` integer NOT NULL,
+    `rss` varchar(200) NOT NULL
+)
+;; args=()
+(0.076) CREATE TABLE `blog_posts_tagid` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `tags_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `tags_id`)
+)
+;; args=()
+(0.179) ALTER TABLE `blog_posts_tagid` ADD CONSTRAINT `tags_id_refs_id_e37fcb23` FOREIGN KEY (`tags_id`) REFERENCES `blog_tags` (`id`);; args=()
+(0.165) CREATE TABLE `blog_posts_comments` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `posts_id` integer NOT NULL,
+    `comments_id` integer NOT NULL,
+    UNIQUE (`posts_id`, `comments_id`)
+)
+;; args=()
+(0.191) ALTER TABLE `blog_posts_comments` ADD CONSTRAINT `comments_id_refs_id_164645a7` FOREIGN KEY (`comments_id`) REFERENCES `blog_comments` (`id`);; args=()
+(0.088) CREATE TABLE `blog_posts` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `authorid` integer NOT NULL,
+    `publish_date` datetime NOT NULL,
+    `modified_date` datetime NOT NULL,
+    `content` longtext NOT NULL,
+    `title` varchar(50) NOT NULL,
+    `short_title` varchar(50) NOT NULL,
+    `cover` varchar(200) NOT NULL,
+    `introduction` varchar(500) NOT NULL,
+    `status_id` integer NOT NULL,
+    `comment_status` bool NOT NULL,
+    `password` varchar(20) NOT NULL,
+    `threadtypeid_id` integer NOT NULL,
+    `comment_count` integer NOT NULL
+)
+;; args=()
+(0.211) ALTER TABLE `blog_posts` ADD CONSTRAINT `threadtypeid_id_refs_id_cd372d23` FOREIGN KEY (`threadtypeid_id`) REFERENCES `blog_threadtypes` (`id`);; args=()
+(0.200) ALTER TABLE `blog_posts` ADD CONSTRAINT `status_id_refs_id_edfd3c65` FOREIGN KEY (`status_id`) REFERENCES `blog_status` (`id`);; args=()
+(0.201) ALTER TABLE `blog_posts_tagid` ADD CONSTRAINT `posts_id_refs_id_ff679609` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.200) ALTER TABLE `blog_posts_comments` ADD CONSTRAINT `posts_id_refs_id_e2423559` FOREIGN KEY (`posts_id`) REFERENCES `blog_posts` (`id`);; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', u'auth')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.001) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('permission', 'auth', 'permission'); args=[u'permission', u'auth', 'permission']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', u'auth')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('group', 'auth', 'group'); args=[u'group', u'auth', 'group']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', u'auth')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('user', 'auth', 'user'); args=[u'user', u'auth', 'user']
+(0.023) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2, 3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2, 3)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add permission', 1, 'add_permission'), ('Can change permission', 1, 'change_permission'), ('Can delete permission', 1, 'delete_permission'), ('Can add group', 2, 'add_group'), ('Can change group', 2, 'change_group'), ('Can delete group', 2, 'delete_group'), ('Can add user', 3, 'add_user'), ('Can change user', 3, 'change_user'), ('Can delete user', 3, 'delete_user'); args=(u'Can add permission', 1, u'add_permission', u'Can change permission', 1, u'change_permission', u'Can delete permission', 1, u'delete_permission', u'Can add group', 2, u'add_group', u'Can change group', 2, u'change_group', u'Can delete group', 2, u'delete_group', u'Can add user', 3, u'add_user', u'Can change user', 3, u'change_user', u'Can delete user', 3, u'delete_user')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=(u'auth',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', u'contenttypes')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('content type', 'contenttypes', 'contenttype'); args=[u'content type', u'contenttypes', 'contenttype']
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4,)
+(0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add content type', 4, 'add_contenttype'), ('Can change content type', 4, 'change_contenttype'), ('Can delete content type', 4, 'delete_contenttype'); args=(u'Can add content type', 4, u'add_contenttype', u'Can change content type', 4, u'change_contenttype', u'Can delete content type', 4, u'delete_contenttype')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=(u'contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', u'sessions')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('session', 'sessions', 'session'); args=[u'session', u'sessions', 'session']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add session', 5, 'add_session'), ('Can change session', 5, 'change_session'), ('Can delete session', 5, 'delete_session'); args=(u'Can add session', 5, u'add_session', u'Can change session', 5, u'change_session', u'Can delete session', 5, u'delete_session')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=(u'sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'site'  AND `django_content_type`.`app_label` = 'sites' ); args=('site', u'sites')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('site', 'sites', 'site'); args=[u'site', u'sites', 'site']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add site', 6, 'add_site'), ('Can change site', 6, 'change_site'), ('Can delete site', 6, 'delete_site'); args=(u'Can add site', 6, u'add_site', u'Can change site', 6, u'change_site', u'Can delete site', 6, u'delete_site')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sites'  ORDER BY `django_content_type`.`name` ASC; args=(u'sites',)
+(0.001) SELECT (1) AS `a` FROM `django_site` WHERE `django_site`.`id` = 1  LIMIT 1; args=(1,)
+(0.000) INSERT INTO `django_site` (`id`, `domain`, `name`) VALUES (1, 'example.com', 'example.com'); args=(1, 'example.com', 'example.com')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', u'admin')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('log entry', 'admin', 'logentry'); args=[u'log entry', u'admin', 'logentry']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7,)
+(0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add log entry', 7, 'add_logentry'), ('Can change log entry', 7, 'change_logentry'), ('Can delete log entry', 7, 'delete_logentry'); args=(u'Can add log entry', 7, u'add_logentry', u'Can change log entry', 7, u'change_logentry', u'Can delete log entry', 7, u'delete_logentry')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=(u'admin',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'basicsettings'  AND `django_content_type`.`app_label` = 'blog' ); args=('basicsettings', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('basic settings', 'blog', 'basicsettings'); args=[u'basic settings', u'blog', 'basicsettings']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'status'  AND `django_content_type`.`app_label` = 'blog' ); args=('status', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('status', 'blog', 'status'); args=[u'status', u'blog', 'status']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'tags'  AND `django_content_type`.`app_label` = 'blog' ); args=('tags', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('tags', 'blog', 'tags'); args=[u'tags', u'blog', 'tags']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'threadtypes'  AND `django_content_type`.`app_label` = 'blog' ); args=('threadtypes', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('thread types', 'blog', 'threadtypes'); args=[u'thread types', u'blog', 'threadtypes']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'comments'  AND `django_content_type`.`app_label` = 'blog' ); args=('comments', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('comments', 'blog', 'comments'); args=[u'comments', u'blog', 'comments']
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'links'  AND `django_content_type`.`app_label` = 'blog' ); args=('links', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('links', 'blog', 'links'); args=[u'links', u'blog', 'links']
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'posts'  AND `django_content_type`.`app_label` = 'blog' ); args=('posts', u'blog')
+(0.000) SAVEPOINT s139899984197376_x1; args=()
+(0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('posts', 'blog', 'posts'); args=[u'posts', u'blog', 'posts']
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 9, 10, 11, 12, 13, 14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 9, 10, 11, 12, 13, 14)
+(0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add basic settings', 8, 'add_basicsettings'), ('Can change basic settings', 8, 'change_basicsettings'), ('Can delete basic settings', 8, 'delete_basicsettings'), ('Can add status', 9, 'add_status'), ('Can change status', 9, 'change_status'), ('Can delete status', 9, 'delete_status'), ('Can add tags', 10, 'add_tags'), ('Can change tags', 10, 'change_tags'), ('Can delete tags', 10, 'delete_tags'), ('Can add thread types', 11, 'add_threadtypes'), ('Can change thread types', 11, 'change_threadtypes'), ('Can delete thread types', 11, 'delete_threadtypes'), ('Can add comments', 12, 'add_comments'), ('Can change comments', 12, 'change_comments'), ('Can delete comments', 12, 'delete_comments'), ('Can add links', 13, 'add_links'), ('Can change links', 13, 'change_links'), ('Can delete links', 13, 'delete_links'), ('Can add posts', 14, 'add_posts'), ('Can change posts', 14, 'change_posts'), ('Can delete posts', 14, 'delete_posts'); args=(u'Can add basic settings', 8, u'add_basicsettings', u'Can change basic settings', 8, u'change_basicsettings', u'Can delete basic settings', 8, u'delete_basicsettings', u'Can add status', 9, u'add_status', u'Can change status', 9, u'change_status', u'Can delete status', 9, u'delete_status', u'Can add tags', 10, u'add_tags', u'Can change tags', 10, u'change_tags', u'Can delete tags', 10, u'delete_tags', u'Can add thread types', 11, u'add_threadtypes', u'Can change thread types', 11, u'change_threadtypes', u'Can delete thread types', 11, u'delete_threadtypes', u'Can add comments', 12, u'add_comments', u'Can change comments', 12, u'change_comments', u'Can delete comments', 12, u'delete_comments', u'Can add links', 13, u'add_links', u'Can change links', 13, u'change_links', u'Can delete links', 13, u'delete_links', u'Can add posts', 14, u'add_posts', u'Can change posts', 14, u'change_posts', u'Can delete posts', 14, u'delete_posts')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'blog'  ORDER BY `django_content_type`.`name` ASC; args=(u'blog',)
+(0.170) CREATE INDEX `auth_permission_37ef4eb4` ON `auth_permission` (`content_type_id`);; args=()
+(0.189) CREATE INDEX `auth_group_permissions_5f412f9a` ON `auth_group_permissions` (`group_id`);; args=()
+(0.211) CREATE INDEX `auth_group_permissions_83d7f98b` ON `auth_group_permissions` (`permission_id`);; args=()
+(0.212) CREATE INDEX `auth_user_groups_6340c63c` ON `auth_user_groups` (`user_id`);; args=()
+(0.278) CREATE INDEX `auth_user_groups_5f412f9a` ON `auth_user_groups` (`group_id`);; args=()
+(0.145) CREATE INDEX `auth_user_user_permissions_6340c63c` ON `auth_user_user_permissions` (`user_id`);; args=()
+(0.222) CREATE INDEX `auth_user_user_permissions_83d7f98b` ON `auth_user_user_permissions` (`permission_id`);; args=()
+(0.144) CREATE INDEX `django_session_b7b81f0c` ON `django_session` (`expire_date`);; args=()
+(0.222) CREATE INDEX `django_admin_log_6340c63c` ON `django_admin_log` (`user_id`);; args=()
+(0.278) CREATE INDEX `django_admin_log_37ef4eb4` ON `django_admin_log` (`content_type_id`);; args=()
+(0.132) CREATE INDEX `blog_posts_tagid_183b57f5` ON `blog_posts_tagid` (`posts_id`);; args=()
+(0.256) CREATE INDEX `blog_posts_tagid_d03bd400` ON `blog_posts_tagid` (`tags_id`);; args=()
+(0.133) CREATE INDEX `blog_posts_comments_183b57f5` ON `blog_posts_comments` (`posts_id`);; args=()
+(0.211) CREATE INDEX `blog_posts_comments_4668d0a7` ON `blog_posts_comments` (`comments_id`);; args=()
+(0.222) CREATE INDEX `blog_posts_48fb58bb` ON `blog_posts` (`status_id`);; args=()
+(0.224) CREATE INDEX `blog_posts_068fe5ee` ON `blog_posts` (`threadtypeid_id`);; args=()
+(0.000) SET foreign_key_checks=0; args=()
+(0.000) SET foreign_key_checks=1; args=()
+(0.001) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', '2013-10-15 14:21:18', 0, 'winkidney', '', '', 'winkidney@gmail.com', 0, 1, '2013-10-15 14:21:18'); args=[u'pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', u'2013-10-15 14:21:18', False, 'winkidney', u'', u'', u'winkidney@gmail.com', False, True, u'2013-10-15 14:21:18']
+(0.000) SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`id` = 1  LIMIT 1; args=(1,)
+(0.000) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', `last_login` = '2013-10-15 14:21:18', `is_superuser` = 1, `username` = 'winkidney', `first_name` = '', `last_name` = '', `email` = 'winkidney@gmail.com', `is_staff` = 1, `is_active` = 1, `date_joined` = '2013-10-15 14:21:18' WHERE `auth_user`.`id` = 1 ; args=(u'pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', u'2013-10-15 14:21:18', True, 'winkidney', u'', u'', u'winkidney@gmail.com', True, True, u'2013-10-15 14:21:18', 1)
+(0.001) SELECT (1) AS `a` FROM `auth_user` WHERE `auth_user`.`id` = 1  LIMIT 1; args=(1,)
+(0.000) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', `last_login` = '2013-10-15 14:21:18', `is_superuser` = 1, `username` = 'winkidney', `first_name` = '', `last_name` = '', `email` = 'winkidney@gmail.com', `is_staff` = 1, `is_active` = 1, `date_joined` = '2013-10-15 14:21:18' WHERE `auth_user`.`id` = 1 ; args=(u'pbkdf2_sha256$10000$Ef563IjoHJ0L$FsOW49/ElHcOVak/fb8J3FvvFTYnRDK9De55y0VIFAM=', u'2013-10-15 14:21:18', True, 'winkidney', u'', u'', u'winkidney@gmail.com', True, True, u'2013-10-15 14:21:18', 1)
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('domain', ''); args=['domain', u'']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('logo_url', ''); args=['logo_url', u'']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('page_title', '玻璃齿轮'); args=['page_title', u'\u73bb\u7483\u9f7f\u8f6e']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('comment_on', 'True'); args=['comment_on', u'True']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('logo_txt1', 'Glass'); args=['logo_txt1', u'Glass']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('site_name', '一个新的玻璃齿轮'); args=['site_name', '\xe4\xb8\x80\xe4\xb8\xaa\xe6\x96\xb0\xe7\x9a\x84\xe7\x8e\xbb\xe7\x92\x83\xe9\xbd\xbf\xe8\xbd\xae']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('logo_txt2', 'Gear'); args=['logo_txt2', u'Gear']
+(0.000) INSERT INTO `blog_basicsettings` (`variable`, `value`) VALUES ('signin_on', 'False'); args=['signin_on', u'False']
+(0.001) INSERT INTO `blog_status` (`status_name`) VALUES ('草稿'); args=[u'\u8349\u7a3f']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已发布'); args=[u'\u5df2\u53d1\u5e03']
+(0.000) INSERT INTO `blog_status` (`status_name`) VALUES ('已删除'); args=[u'\u5df2\u5220\u9664']
+(0.001) INSERT INTO `blog_threadtypes` (`display_order`, `name`, `description`, `status`) VALUES (0, '未分类', '', ''); args=[0, u'\u672a\u5206\u7c7b', u'', u'']
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'z8ut0lr5i3nk68ja6uccs7fzolctlgx0'  AND `django_session`.`expire_date` > '2013-10-15 14:25:30' ); args=('z8ut0lr5i3nk68ja6uccs7fzolctlgx0', u'2013-10-15 14:25:30')
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '65kd6lnvj62q7gb30v15csubc77he65y'  LIMIT 1; args=(u'65kd6lnvj62q7gb30v15csubc77he65y',)
+(0.000) SAVEPOINT s139949726721792_x1; args=()
+(0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('65kd6lnvj62q7gb30v15csubc77he65y', 'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', '2013-10-29 14:25:30'); args=(u'65kd6lnvj62q7gb30v15csubc77he65y', u'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', u'2013-10-29 14:25:30')
+(0.001) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.000) SAVEPOINT s139949726721792_x1; args=()
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '65kd6lnvj62q7gb30v15csubc77he65y'  LIMIT 1; args=(u'65kd6lnvj62q7gb30v15csubc77he65y',)
+(0.000) UPDATE `django_session` SET `session_data` = 'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', `expire_date` = '2013-10-29 14:25:30' WHERE `django_session`.`session_key` = '65kd6lnvj62q7gb30v15csubc77he65y' ; args=(u'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', u'2013-10-29 14:25:30', u'65kd6lnvj62q7gb30v15csubc77he65y')
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` WHERE `blog_basicsettings`.`variable` = 'site_name' ; args=('site_name',)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '65kd6lnvj62q7gb30v15csubc77he65y'  AND `django_session`.`expire_date` > '2013-10-15 14:25:37' ); args=('65kd6lnvj62q7gb30v15csubc77he65y', u'2013-10-15 14:25:37')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'winkidney' ; args=(u'winkidney',)
+(0.001) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n'  LIMIT 1; args=(u'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n',)
+(0.000) SAVEPOINT s139949709936384_x1; args=()
+(0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('bbfj4gw3c40wjpnpsnckz6h2itwb0j6n', 'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', '2013-10-29 14:25:37'); args=(u'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n', u'NmUyY2U1YmQ5MmY5NTYyMWNkYmIwMmMyMWNjOWE5ODQzY2I4ZTg2MDqAAn1xAS4=', u'2013-10-29 14:25:37')
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '65kd6lnvj62q7gb30v15csubc77he65y' ; args=('65kd6lnvj62q7gb30v15csubc77he65y',)
+(0.000) DELETE FROM `django_session` WHERE `session_key` IN ('65kd6lnvj62q7gb30v15csubc77he65y'); args=(u'65kd6lnvj62q7gb30v15csubc77he65y',)
+(0.000) UPDATE `auth_user` SET `last_login` = '2013-10-15 14:25:37' WHERE `auth_user`.`id` = 1 ; args=(u'2013-10-15 14:25:37', 1)
+(0.000) SAVEPOINT s139949709936384_x1; args=()
+(0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n'  LIMIT 1; args=(u'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n',)
+(0.000) UPDATE `django_session` SET `session_data` = 'ZThiZmMzMzA5ZmZjMWY2YWE1NTU4OWYxZTM3YjQwNzg5OTIxZWQ3ZDqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==', `expire_date` = '2013-10-29 14:25:37' WHERE `django_session`.`session_key` = 'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n' ; args=(u'ZThiZmMzMzA5ZmZjMWY2YWE1NTU4OWYxZTM3YjQwNzg5OTIxZWQ3ZDqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==', u'2013-10-29 14:25:37', u'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n')
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n'  AND `django_session`.`expire_date` > '2013-10-15 14:25:41' ); args=('bbfj4gw3c40wjpnpsnckz6h2itwb0j6n', u'2013-10-15 14:25:41')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)
+(0.000) SELECT `blog_basicsettings`.`id`, `blog_basicsettings`.`variable`, `blog_basicsettings`.`value` FROM `blog_basicsettings` ORDER BY `blog_basicsettings`.`variable` ASC; args=()
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'bbfj4gw3c40wjpnpsnckz6h2itwb0j6n'  AND `django_session`.`expire_date` > '2013-10-15 14:26:09' ); args=('bbfj4gw3c40wjpnpsnckz6h2itwb0j6n', u'2013-10-15 14:26:09')
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 ; args=(1,)

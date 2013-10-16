@@ -1,6 +1,6 @@
 #coding:utf8
 #classes used in views
-from blog.models import BasicSettings
+from blog.models import BasicSettings,Posts
 from pycms import settings
 
 class UserInfo(object):
@@ -31,9 +31,30 @@ class BasicInfo(object):
         self.login_url = settings.BLOG_ROOT_URL+'login/'
         self.static_root = settings.BLOG_STATIC_URL
     
-class Article(object):
-    pass
-    
-    
+class APost(object):
+    """Get article info(include its content)"""
+    def __init__(self,article_id):
+        if exist(article_id):
+            self.exist = True
+        else:
+            self.exist = False
+    def exist(self,article_id):
+        try:
+            self.article = Posts.objects.get(id=int(article_id))
+            return False
+        except:
+            return True
+    def init_data(self):
+        self.post[id] = self.article.id
+        self.post[author_id] = self.authorid
+        self.post[post_date] = self.article.publish_date
+        self.post[modified_date] = self.article.modified_date
+        self.post[content] = self.article.content
+        self.post[title] = self.article.title
+        self.post[short_title] = self.article.short_title
+        self.post[cover] = self.article.cover
+        self.post[introduction] = self.article.introduction
+        self.post[status] = self.article.status
+        self.post[comment_status] = self.article.comment_status
         
         

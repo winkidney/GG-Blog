@@ -96,8 +96,8 @@ def articles(request,article_id):
     
     if request.method == 'GET':
         comment_form = ReplyForm()
-            # 检查文章id是否存在
-        try :
+            
+        try :# 检查文章id是否存在
             post = Posts.objects.get(id=int(article_id))
         except:
             return HttpResponse(u'文章不存在')
