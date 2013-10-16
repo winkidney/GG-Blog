@@ -794,3 +794,16 @@ div.comment-function a:hover {
     word-break: break-all;
 }
 /*修正ueditor代码现实不换行bug*/
+/*修正django错误列表现实问题*/
+ul.errorlist {
+	margin: 0;
+	padding: 0;
+}
+.errorlist li {
+	color: red;
+	display: block;
+	font-size: 10px;
+	margin: 0;
+	padding: 0px 0px;
+}
+/*修正django错误列表显示问题  结束*/

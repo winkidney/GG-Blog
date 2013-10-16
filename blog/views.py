@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import UserInfo,BasicInfo
+from blog.data import UserInfo,BasicInfo,APost
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
@@ -89,47 +89,27 @@ def logout_view(request):
 #阅读文章的函数
 def articles(request,article_id):
     user_info = UserInfo(request)
-     # 获取基本信息    
-    basic_info = get_basic_info()
-    static_root = settings.BLOG_STATIC_URL
-    blog_root_url = settings.BLOG_ROOT_URL
-    
+    basic_info = BasicInfo()
+    a_post = APost(int(article_id))
     if request.method == 'GET':
-        comment_form = ReplyForm()
-            
-        try :# 检查文章id是否存在
-            post = Posts.objects.get(id=int(article_id))
-        except:
+        if not a_post:
             return HttpResponse(u'文章不存在')
         # 检查文章状态是否为已发布
-        if post.post_status.id == 2:
-            author_name = User.objects.get(id=post.post_authorid)
-            threadtype = post.post_threadtypeid
-            tags = post.post_tagid.all()
+        if a_post.post['status'].id == 2:
             return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
         else:
             return HttpResponse(u'文章已被删除')
     elif request.method == 'POST':
         #决定验证用表单对象
-        if logined:
+        if user_info.logined:
+            return HttpResponse(u'你是作者，评论个毛！')
+        else:
             comment_form = ReplyForm(request.POST)
-        else:
-            comment_form = ReplyFormLogined(request.POST)
-            
          #根据提交的数据是否合法重新渲染页面或者返回错误信息   
-        if comment_form.is_valid():
-            return  HttpResponseRedirect('')
+        if not comment_form.is_valid():
+            return  render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
         else:
-            try:
-                post = Posts.objects.get(id=int(article_id))
-            except:
-                return HttpResponse(u'文章不存在')
-            if post.post_status.id == 2:
-                author_name = User.objects.get(id=post.post_authorid)
-                threadtype = post.post_threadtypeid
-                tags = post.post_tagid.all()
-                return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
-    
+            return HttpResponseRedirect(request.path)
     
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')

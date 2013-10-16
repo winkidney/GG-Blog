@@ -47,8 +47,8 @@ class Comments(models.Model):
     content = models.TextField(verbose_name=u'评论内容')
     approved = models.BooleanField(blank=True,verbose_name=u'评论打开')
     agent = models.CharField(max_length=30,blank=True,verbose_name=u'评论者浏览器')
-    parent_id = models.BigIntegerField(blank=True,verbose_name=u'父评论id')
-    user_id = models.BigIntegerField(blank=True,verbose_name=u'评论者uid')
+    parent_id = models.BigIntegerField(verbose_name=u'父评论id')
+    user_id = models.BigIntegerField(verbose_name=u'评论者uid')
     def __unicode__(self):
         return u"%s" % self.date
     class Meta:
@@ -81,7 +81,7 @@ class Posts(models.Model):
     status = models.ForeignKey(Status,blank=True,verbose_name=u'文章状态')
     comment_status = models.BooleanField(blank=True,verbose_name=u'不显示评论')
     password = models.CharField(max_length=20,blank=True,verbose_name=u'文章密码')
-    tagid = models.ManyToManyField(Tags,blank=True,verbose_name=u'标签')
+    tags = models.ManyToManyField(Tags,blank=True,verbose_name=u'标签')
     threadtypeid = models.ForeignKey(ThreadTypes,blank=True,verbose_name=u'分类')
     comment_count = models.IntegerField(verbose_name=u'评论数量')
     comments = models.ManyToManyField(Comments,blank=True,verbose_name=u'评论')
