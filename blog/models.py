@@ -32,6 +32,7 @@ class ThreadTypes(models.Model):
     name = models.CharField(max_length=40,verbose_name=u'分类名')
     description = models.CharField(max_length=100,blank=True,verbose_name=u'描述')
     status = models.CharField(max_length=20,blank=True,verbose_name=u'分类状态')
+    parent_id = models.IntegerField(verbose_name=u"父分类id")
     def __unicode__(self):
         return u"%s %s" % (self.id,self.name)
     class Meta:

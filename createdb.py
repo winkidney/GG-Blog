@@ -64,16 +64,48 @@ def add_info():
         apple = Status()
         apple.status_name = status_name
         apple.save()
+
+
     threadtype = ThreadTypes()
-    threadtype.display_order = 0
+    threadtype.display_order = 0 #display order为0首页不显示
     threadtype.name = u'未分类'
+    threadtype.parent_id = 0
     threadtype.save()
+    
     print "info added"
-
-
+def add_private_info(): #放在add_info之前，否则分类顺序无法正常显示
+    from blog.models import *
+    pthreadtypes = (
+                    (u'技术',u'娱乐',u'生活'),
+                    (
+                     (u'Python Web',u'Linux桌面',u'服务器技术',u'前端设计',u'ACG&图形',u'Mysql&Shell',),
+                     (u'文摘',u'杂谈',u'艺术（伪）'),
+                     (u'影视',u'音乐&视频存档',u'渣文',)
+                    )
+                   )
+    i = 1
+    for name in threadtypes[0]:  #创建一个父分类，id为1234
+        threadtype = ThreadTypes()
+        threadtype.display_order = i
+        threadtype.name = name
+        threadtype.parent_id = 0
+        threadtype.save()
+        i+=1
+    i = 1
+    j = 1
+    for child in threadtypes[1]:
+        for threadtype in child:
+            threadtype = ThreadTypes()
+            threadtype.display_order = i
+            threadtype.name = name
+            threadtype.parent_id = j
+            threadtype.save()
+            i+=1
+        j+=1
 if __name__ == "__main__":
     create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
+    add_private_info()
     add_info()
 
 
