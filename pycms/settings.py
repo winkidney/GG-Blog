@@ -53,7 +53,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 #MEDIA_ROOT = '/home/www/static/upload/'
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '../').replace('\\','/')
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload/').replace('\\','/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -73,7 +73,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-                    '/home/www/static',
+                    os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -142,8 +142,8 @@ INSTALLED_APPS = (
 #DUOSHUO_SHORT_NAME = '你的多说short name'
 
 #全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
-MY_STATIC_ROOT = '/home/www/static/'
-MY_MEDIA_ROOT = '/home/www/static/upload/'
+MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/')
+MY_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload/').replace('\\','/')
 MY_MEDIA_URL = '/static/upload/'
 #blog_seetings（blog所用到的固定设置，安装相关）
 BLOG_ROOT_URL = '/blog/'

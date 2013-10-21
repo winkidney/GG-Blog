@@ -75,7 +75,7 @@ def add_info():
     print "info added"
 def add_private_info(): #放在add_info之前，否则分类顺序无法正常显示
     from blog.models import *
-    pthreadtypes = (
+    threadtypes = (
                     (u'技术',u'娱乐',u'生活'),
                     (
                      (u'Python Web',u'Linux桌面',u'服务器技术',u'前端设计',u'ACG&图形',u'Mysql&Shell',),
@@ -91,10 +91,11 @@ def add_private_info(): #放在add_info之前，否则分类顺序无法正常�
         threadtype.parent_id = 0
         threadtype.save()
         i+=1
-    i = 1
+    
     j = 1
     for child in threadtypes[1]:
-        for threadtype in child:
+        i = 1
+        for name in child:
             threadtype = ThreadTypes()
             threadtype.display_order = i
             threadtype.name = name

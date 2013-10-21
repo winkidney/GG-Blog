@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import UserInfo,BasicInfo,APost
+from blog.data import UserInfo,BasicInfo,APost,HeaderMenu
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
@@ -26,6 +26,7 @@ def logined(request):
 def home(request):
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
+    header_menu = HeaderMenu()
     return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))
@@ -90,7 +91,6 @@ def articles(request,article_id):
         else:
             return HttpResponse(u'文章已被删除')
     elif request.method == 'POST':
-        #决定验证用表单对象
         if user_info.logined:
             return HttpResponse(u'你是作者，评论个毛！')
         else:

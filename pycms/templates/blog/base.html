@@ -57,36 +57,20 @@
 			</div>
             <div id="navBar">
                     <ul>
-                        <li class="link"><a  class="main_menu" href="#">主页</a></li>
+                        <li class="link"><a  class="main_menu" href="{{ basic_info.blog.homepage_url }}">主页</a></li>
+                        {% for menu in header_menu.ttypes_display %}
                         <li>
                             <span class="Darrow"></span>
-                            <a class="main_menu" href="#">技术</a>
+                            <a class="main_menu" href="{{ menu.link }}">{{ menu.parent.name }}</a>
                             <ul>
-                                <li class="submenu"><a href="#">子菜单一</a></li>
-                                <li class="submenu"><a href="#">子菜单二</a></li>
-                                <li class="submenu"><a href="#">子菜单三</a></li>
+                                {% for child in menu.children %}
+                                <li class="submenu"><a href="{{ child.link }}">{{ child.name }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li>
-                            <span class="Darrow"></span>
-                            <a class="main_menu" href="#">生活</a>
-                            <ul>
-                                <li class="submenu"><a href="#">子菜单一</a></li>
-                                <li class="submenu"><a href="#">子菜单二</a></li>
-                                <li class="submenu"><a href="#">子菜单三</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <span class="Darrow"></span>
-                            <a class="main_menu" href="#">娱乐</a>
-                            <ul>
-                                <li class="submenu"><a href="#">子菜单一</a></li>
-                                <li class="submenu"><a href="#">子菜单二</a></li>
-                                <li class="submenu"><a href="#">子菜单三</a></li>
-                            </ul>
-                        </li>
+                        {% endfor %}
                         <li class="link"><a  class="main_menu" href="contactme/">给我留言</a></li>
-                        <li class="link"><a  class="main_menu" href="#">关于</a></li>
+                        <li class="link"><a  class="main_menu" href="about/">关于</a></li>
                     </ul>
             </div><!--end navBar-->
 			

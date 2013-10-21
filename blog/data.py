@@ -1,6 +1,6 @@
 #coding:utf8
 #classes used in views
-from blog.models import BasicSettings,Posts
+from blog.models import BasicSettings,Posts,ThreadTypes
 from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
@@ -29,7 +29,7 @@ class BasicInfo(object):
             for key in BasicSettings.objects.all():
                 self.blog_settings[key.variable] = key.value
         except :
-            raise False
+            print ('read '+str(BasicSettings)+'error')
         self.login_url = settings.BLOG_ROOT_URL+'login/'
         self.static_root = settings.BLOG_STATIC_URL
         self.blog_root_url = settings.BLOG_ROOT_URL
@@ -70,6 +70,23 @@ class APost(object):
         self.post['threadtypeid'] = self.article.threadtypeid
         self.post['comment_count'] = self.article.comment_count
         self.post['comments'] = self.article.comments.all()
+#menu class in headers
+class HeaderMenu(object):
+    """header info in every page"""
+    def __init__(self):
+        self.ttypes_display = []
+        pthread_types = ThreadTypes.objects.filter(parent_id=0).order_by("display_order")
+        for pthread_type in pthread_types:
+            if pthread_type.name != u'未分类':
+                link = settings.BLOG_ROOT_URL+'threadtypes/'+pthread_type.name+'/'
+                thread_type = {'parent':pthread_type,'link':link,'children':[]}
+                cthread_types = ThreadTypes.objects.filter(parent_id=pthread_type.id).order_by("display_order")
+                for cthread_type in cthread_types:
+                    clink = link+cthread_type.name+'/'
+                    cttype = {'name':cthread_type.name,'link':clink}
+                    thread_type['children'].append(cttype)
+                self.ttypes_display.append(thread_type)
+
 class CommentForm(object):
     def __init__(self,request):
         pass

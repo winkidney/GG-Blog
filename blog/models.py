@@ -28,6 +28,7 @@ class Tags(models.Model):
         ordering = ['id']
 #分类    
 class ThreadTypes(models.Model):
+    """If parent_id is 0 ,it's a parent thread type.If not ,it's a child thread type."""
     display_order = models.IntegerField(verbose_name=u'显示顺序')
     name = models.CharField(max_length=40,verbose_name=u'分类名')
     description = models.CharField(max_length=100,blank=True,verbose_name=u'描述')
