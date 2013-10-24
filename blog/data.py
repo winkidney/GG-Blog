@@ -72,7 +72,7 @@ class APost(object):
         self.post['comments'] = self.article.comments.all()
 #menu class in headers
 class HeaderMenu(object):
-    """header info in every page"""
+    """header info in every page,it display the """
     def __init__(self):
         self.ttypes_display = []
         pthread_types = ThreadTypes.objects.filter(parent_id=0).order_by("display_order")

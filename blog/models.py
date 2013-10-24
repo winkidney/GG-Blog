@@ -35,9 +35,9 @@ class ThreadTypes(models.Model):
     status = models.CharField(max_length=20,blank=True,verbose_name=u'分类状态')
     parent_id = models.IntegerField(verbose_name=u"父分类id")
     def __unicode__(self):
-        return u"%s %s" % (self.id,self.name)
+        return u"pid:%s ,id:%s,%s" % (self.parent_id,self.id,self.name)
     class Meta:
-        ordering = ['name']
+        ordering = ['parent_id','id','name']
 class Comments(models.Model):
     #整型字段好像不能为空，所以将blank=True去掉。
     post_id = models.BigIntegerField(verbose_name=u'评论对应文章id')

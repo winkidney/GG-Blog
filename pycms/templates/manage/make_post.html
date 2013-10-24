@@ -2,65 +2,71 @@
 {% block title %}发表文章{% endblock %}
 {% block specified_head %}
 	<script type="text/javascript" charset="utf-8">
-        window.UEDITOR_HOME_URL = "{{ static_root }}share/ueditor/";
+        window.UEDITOR_HOME_URL = "{{ basic_info.static_root }}share/ueditor/";
     </script>
-    <script type="text/javascript" charset="utf-8" src="{{ static_root }}share/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ static_root }}share/ueditor/ueditor.all.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{ static_root }}share/ueditor/themes/default/css/ueditor.css"/>    
+    <script type="text/javascript" charset="utf-8" src="{{ basic_info.static_root }}share/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ basic_info.static_root }}share/ueditor/ueditor.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}share/ueditor/themes/default/css/ueditor.css"/>    
 {% endblock %}
 {% block right_content %}
     <h2>发表文章</h2>
     <div class="form">
 		<form action="" method="post" >
 		{% csrf_token %}
-		<dl>
-			<label for="comments">文章标题</label>
-			<input type="text" name="title" id="" size="54" />
-		</dl>
-		<dl>
-		<label for="comments">文章别名</label>
-			<input type="text" name="short_title" id="" size="54" />
-		</dl>
-		<dl>
-		<label for="comments">文章封面图片url</label>
-			<input type="text" name="cover_url" id="" size="54" />
+		<ul>
+			<li>
+				{% if mkp_form.title.errors %}{{ mkp_form.title.errors }}{% endif %}
+				<input value="{% if mkp_form.title.value %}{{ mkp_form.title.value }}{% endif %}" type="text" name="title" id="" size="54" placeholder="文章标题"/>
+			</li>	
+			<li>
+				{% if mkp_form.short_title.errors %}{{ mkp_form.short_title.errors }}{% endif %}
+				<input value="{% if mkp_form.short_title.value %}{{ mkp_form.short_title.value }}{% endif %}" type="text" name="short_title" id="" size="54" placeholder="副标题"/>
+			</li>
+			<li>
+				{% if mkp_form.cover_url.errors %}{{ mkp_form.cover_url.errors }}{% endif %}
+				<input value="{% if mkp_form.cover_url.value %}{{ mkp_form.cover_url.value }}{% endif %}" type="text" name="cover_url" id="" size="54" placeholder="封面url"/>
+			</li>
 		{% comment %}
-		<dl>	
-			<label for="upload">上传</label>
+			<li>
+			<label for="upload">上传封面</label>
 			<input type="file" name="upload" id="upload" />
-		</dl>
+			</li>
 		{% endcomment %}
-		<dl>
-			<label for="comments">文章简介</label>
-			<input type="text" name="summarise" id="" size="54" />
-		</dl>
-		<dl>
-			<label for="comments">文章内容</label>
-			<textarea id="content" name="content" style="width:575px;line-height:18px;"></textarea>
-           
-        </dl>
-        <dl>
-			<label for="comments">不显示评论</label>
-			<input type="checkbox" name="commentnotshow" id="" value="" />
-        </dl>
-        <dl>
-				
-              <label for="comments">文章标签</label>
-         {% for tag in tags %}
-              <label class="check_label">{{ tag.tagname }}</label><input type="checkbox" name="tag"  value="{{ tag.id }}" />
-			{% endfor %}
-        </dl>
-		<dl>
-			<label for="comments">文章分类</label>
-                            <select size="1" name="threadtype" id="">
-								{% for threadtype in threadtypes %}
-                                <option value="{{ threadtype.id }}">{{ threadtype.name }}</option>
-                        {% endfor %}
-                            </select>
-		</dl>
-		<dl>
-				<dt><input type="submit" name="postall"  value="发表文章" ></dt>
-        </dl>
+			<li>
+				{% if mkp_form.introduction.errors %}{{ mkp_form.introduction.errors }}{% endif %}
+				<input value="{% if mkp_form.introduction.value %}{{ mkp_form.introduction.value }}{% endif %}" type="text" name="introduction" id="" placeholder="文章简介" size="54" />
+			</li>
+			<li>
+				{% if mkp_form.content.errors %}{{ mkp_form.content.errors }}{% endif %}
+				<label for="post">文章内容</label>
+				<textarea value="{% if mkp_form.content.value %}{{ mkp_form.content.value }}{% endif %}" id="content" name="content" style="width:575px;line-height:18px;"></textarea>
+			   
+			</li>
+			<li>
+				<label for="post">不显示评论</label>
+				<input type="checkbox" name="commentnotshow" id="" />
+			<li>				
+				<label for="post">文章标签</label>
+				<ul>
+				{% for id,tagname in mkp_form.fields.tags.choices %}
+					<li><label class="check_label">{{ tagname }}</label><input type="checkbox" name="tags"  value="{{ id }}" /></li>
+				{% endfor %}
+				<a href="/admin/blog/tags/add/" target="_blank">添加标签</a>
+				</ul>
+			</li>
+			<li>
+				<label for="post">文章分类</label>
+								<select size="1" name="threadtypeid" id=""  >
+								{% for id,ttype_name in mkp_form.fields.threadtypeid.choices %}
+									<option value="{{ id }}">{{ ttype_name }}</option>
+								{% endfor %}
+								</select>
+			</li>
+			<li>
+				<input type="submit" name="postall"  value="发表文章" >
+			</li>
+
+        </ul>
         </form>
 	</div>  
 {% endblock %}

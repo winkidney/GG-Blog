@@ -79,6 +79,8 @@ def logout_view(request):
 
 #阅读文章的函数
 def articles(request,article_id):
+    """read articles inclued articles reader and 
+    comment post function,if articles not found ,it raise a 404 error"""
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     a_post = APost(int(article_id))

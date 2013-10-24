@@ -31,3 +31,4 @@ urlpatterns = patterns('',
         #url(r'^ueditor_imagemanager/$','pycms.views.ue_get_remote_img')
 )
 urlpatterns += staticfiles_urlpatterns()
+#handler404 = 'mysite.views.my_custom_404_view'
