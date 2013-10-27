@@ -3,6 +3,7 @@ from django import forms
 from blog.models import Tags,ThreadTypes
 
 class MakePostForm(forms.Form):
+    """all varialbes in this form return unicode object"""
     title = forms.CharField(max_length=50,required=True)
     short_title = forms.CharField(max_length=50,required=False)
     cover_url = forms.URLField(max_length=200,required=False)
@@ -17,12 +18,13 @@ class MakePostForm(forms.Form):
         thtid_choices = []  #分类
         for threadtype in ThreadTypes.objects.all():
             if threadtype.name == u'未分类' or threadtype.parent_id != 0:
-                thtid_choices.append((threadtype.id,threadtype.name))
+                thtid_choices.append((unicode(threadtype.id),threadtype.name))
         self.fields['threadtypeid'].choices = thtid_choices
-        
         tags_choices = []
         for tag in Tags.objects.all():
-            tags_choices.append((tag.id,tag.tagname))
+            tags_choices.append((unicode(tag.id),tag.tagname))
         self.fields['tags'].choices = tags_choices
 class ModifyPostForm(MakePostForm):
-    id = forms.CharField(widget=forms.HiddenInput,required=False)
+    id = forms.CharField(widget=forms.HiddenInput,required=True)
+
+        

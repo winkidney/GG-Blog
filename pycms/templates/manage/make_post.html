@@ -39,7 +39,9 @@
 			<li>
 				{% if mkp_form.content.errors %}{{ mkp_form.content.errors }}{% endif %}
 				<label for="post">文章内容</label>
-				<textarea value="{% if mkp_form.content.value %}{{ mkp_form.content.value }}{% endif %}" id="content" name="content" style="width:575px;line-height:18px;"></textarea>
+				<textarea  id="content" name="content"  style="width:575px;line-height:18px;">
+					{% if mkp_form.content.value %}{{ mkp_form.content.value }}{% endif %}
+				</textarea>
 			   
 			</li>
 			<li>
@@ -49,7 +51,14 @@
 				<label for="post">文章标签</label>
 				<ul>
 				{% for id,tagname in mkp_form.fields.tags.choices %}
-					<li><label class="check_label">{{ tagname }}</label><input type="checkbox" name="tags"  value="{{ id }}" /></li>
+					<li>
+						<label class="check_label">{{ tagname }}</label>
+						<input 
+							{% if id in mkp_form.cleaned_data.tags %}
+								checked="checked" 
+							{% endif %}
+							type="checkbox" name="tags"  value="{{ id }}" />
+					</li>
 				{% endfor %}
 				<a href="/admin/blog/tags/add/" target="_blank">添加标签</a>
 				</ul>
@@ -58,7 +67,7 @@
 				<label for="post">文章分类</label>
 								<select size="1" name="threadtypeid" id=""  >
 								{% for id,ttype_name in mkp_form.fields.threadtypeid.choices %}
-									<option value="{{ id }}">{{ ttype_name }}</option>
+									<option {% if id == mkp_form.cleaned_data.threadtypeid %}selected="selected" {% endif %}value="{{ id }}">{{ ttype_name }}</option>
 								{% endfor %}
 								</select>
 			</li>

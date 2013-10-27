@@ -1,5 +1,5 @@
 {% extends "manage/base.html" %}
-{% block title %}发表文章{% endblock %}
+{% block title %}修改文章{% endblock %}
 {% block specified_head %}
 	<script type="text/javascript" charset="utf-8">
         window.UEDITOR_HOME_URL = "{{ basic_info.static_root }}share/ueditor/";
@@ -15,16 +15,34 @@
 		{% csrf_token %}
 		<ul>
 			<li>
-				{% if mkp_form.title.errors %}{{ mkp_form.title.errors }}{% endif %}
-				<input value="{% if mkp_form.title.value %}{{ mkp_form.title.value }}{% endif %}" type="text" name="title" id="" size="54" placeholder="文章标题"/>
+				{% if mfp_form.title.errors %}{{ mfp_form.title.errors }}{% endif %}
+				<input 
+				{% if mfp_form.title.value %}
+					value="{{ mfp_form.title.value }}"
+				{% elif a_post.post.title %}
+					value="{{ a_post.post.title }}"
+				{% endif %}
+				 type="text" name="title" id="" size="54" placeholder="文章标题"/>
 			</li>	
 			<li>
-				{% if mkp_form.short_title.errors %}{{ mkp_form.short_title.errors }}{% endif %}
-				<input value="{% if mkp_form.short_title.value %}{{ mkp_form.short_title.value }}{% endif %}" type="text" name="short_title" id="" size="54" placeholder="副标题"/>
+				{% if mfp_form.short_title.errors %}{{ mfp_form.short_title.errors }}{% endif %}
+				<input 
+				{% if mfp_form.short_title.value %}
+					value="{{ mfp_form.short_title.value }}"
+				{% elif a_post.post.short_title %}
+					value="{{ a_post.post.short_title }}"
+				{% endif %}
+				 type="text" name="short_title" id="" size="54" placeholder="副标题"/>
 			</li>
 			<li>
-				{% if mkp_form.cover_url.errors %}{{ mkp_form.cover_url.errors }}{% endif %}
-				<input value="{% if mkp_form.cover_url.value %}{{ mkp_form.cover_url.value }}{% endif %}" type="text" name="cover_url" id="" size="54" placeholder="封面url"/>
+				{% if mfp_form.cover_url.errors %}{{ mfp_form.cover_url.errors }}{% endif %}
+				<input 
+				{% if mfp_form.cover_url.value %}
+					value="{{ mfp_form.cover_url.value }}"
+				{% elif a_post.post.cover_url %}
+					value="{{ a_post.post.cover_url }}"
+				{% endif %}
+				 type="text" name="cover_url" id="" size="54" placeholder="封面url"/>
 			</li>
 		{% comment %}
 			<li>
@@ -33,13 +51,25 @@
 			</li>
 		{% endcomment %}
 			<li>
-				{% if mkp_form.introduction.errors %}{{ mkp_form.introduction.errors }}{% endif %}
-				<input value="{% if mkp_form.introduction.value %}{{ mkp_form.introduction.value }}{% endif %}" type="text" name="introduction" id="" placeholder="文章简介" size="54" />
+				{% if mfp_form.introduction.errors %}{{ mfp_form.introduction.errors }}{% endif %}
+				<input 
+				{% if mfp_form.introduction.value %}
+					value="{{ mfp_form.introduction.value }}"
+				{% elif a_post.post.introduction %}
+					value="{{ a_post.post.introduction }}"
+				{% endif %}
+				type="text" name="introduction" placeholder="文章简介" size="54" />
 			</li>
 			<li>
-				{% if mkp_form.content.errors %}{{ mkp_form.content.errors }}{% endif %}
+				{% if mfp_form.content.errors %}{{ mfp_form.content.errors }}{% endif %}
 				<label for="post">文章内容</label>
-				<textarea value="{% if mkp_form.content.value %}{{ mkp_form.content.value }}{% endif %}" id="content" name="content" style="width:575px;line-height:18px;"></textarea>
+				<textarea  id="content" name="content" style="width:575px;">
+					{% if mfp_form.content.value %}
+						{{ mfp_form.content.value }}
+					{% elif a_post.post.content %}
+						{{ a_post.post.content }}
+					{% endif %}
+				</textarea>
 			   
 			</li>
 			<li>
@@ -48,8 +78,17 @@
 			<li>				
 				<label for="post">文章标签</label>
 				<ul>
-				{% for id,tagname in mkp_form.fields.tags.choices %}
-					<li><label class="check_label">{{ tagname }}</label><input type="checkbox" name="tags"  value="{{ id }}" /></li>
+				{% for id,tagname in mfp_form.fields.tags.choices %}
+					<li>
+						<label class="check_label">{{ tagname }}</label>
+						<input 
+							{% if id in mfp_form.cleaned_data.tags %}
+								checked="checked" 
+							{% elif id  in a_post.post.tagidlist_u %}
+								checked="checked" 
+							{% endif %}
+							type="checkbox" name="tags"  value="{{ id }}" />
+					</li>
 				{% endfor %}
 				<a href="/admin/blog/tags/add/" target="_blank">添加标签</a>
 				</ul>
@@ -57,15 +96,23 @@
 			<li>
 				<label for="post">文章分类</label>
 								<select size="1" name="threadtypeid" id=""  >
-								{% for id,ttype_name in mkp_form.fields.threadtypeid.choices %}
-									<option value="{{ id }}">{{ ttype_name }}</option>
+								{% for id,ttype_name in mfp_form.fields.threadtypeid.choices %}
+									<option 
+										{% if id == mfp_form.cleaned_data.threadtypeid %}
+											selected="selected" 
+										{% elif id == a_post.post.threadtypeid_u %}
+											selected="selected" 
+										{% endif %}
+										value="{{ id }}">
+										{{ ttype_name }}
+									</option>
 								{% endfor %}
 								</select>
 			</li>
 			<li>
 				<input type="submit" name="postall"  value="发表文章" />
 			</li>
-			<li><input type="hidden" name="id" value="{{mkp_form.}}"/></li>
+			<li><input type="hidden" name="id" value="{{ a_post.post.id }}"/></li>
 
         </ul>
         </form>

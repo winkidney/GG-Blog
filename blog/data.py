@@ -35,7 +35,7 @@ class BasicInfo(object):
         self.blog_root_url = settings.BLOG_ROOT_URL
         self.path = request.path
 class APost(object):
-    """Get article info(include its content)"""
+    """Get article info(include its content) from its id."""
     def __init__(self,article_id):
         if self.exist(article_id):
             self.exist = True
@@ -61,13 +61,16 @@ class APost(object):
         self.post['content'] = self.article.content
         self.post['title'] = self.article.title
         self.post['short_title'] = self.article.short_title
-        self.post['cover'] = self.article.cover
+        self.post['cover_url'] = self.article.cover
         self.post['introduction'] = self.article.introduction
         self.post['status'] = self.article.status
         self.post['comment_status'] = self.article.comment_status
         self.post['password'] = self.article.password
-        self.post['tags'] = self.article.tags.all()
+        self.post['tags'] = self.article.tags.all() #use all get all many-to-many ojbects,in foreign key relatives.
+                                                    #don't need to call all() function,just access it(for example threadtypeid) .
+        self.post['tagidlist_u'] = [unicode(e.id) for e in self.post['tags']]
         self.post['threadtypeid'] = self.article.threadtypeid
+        self.post['threadtypeid_u'] = unicode(self.article.threadtypeid.id)
         self.post['comment_count'] = self.article.comment_count
         self.post['comments'] = self.article.comments.all()
 #menu class in headers
