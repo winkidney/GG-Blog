@@ -8,10 +8,10 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'pycms.views.home', name='home'),
     # url(r'^pycms/', include('pycms.foo.urls')),
-    url(r'^$',views.home),
+    url(r'^$',views.home_view),
     url(r'^login/$',views.login_view),
-    url(r'^about/$',views.about),
-    url(r'^contactme/$',views.contact),
+    url(r'^about/$',views.about_view),
+    url(r'^contactme/$',views.contact_view),
     url(r'^logout/$',views.logout_view),
     url(r'^manage/', include('manage.urls')),
     #阅读文章url，文章数量限制为1000,000,000。

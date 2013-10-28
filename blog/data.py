@@ -91,7 +91,7 @@ class HeaderMenu(object):
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
-class post_summary(object):
+class PostSummary(object):
     """Get a post summary by given post,if not exist,return False."""
     def __init__(self,post):
         self.title = post.title
@@ -101,6 +101,21 @@ class post_summary(object):
                                         'month':str(self.article.publish_date.strftime("%b"))}
         self.tags = self.article.tags.all()
         self.comment_count = post.comment_count
+        self.summary = self.get_post_summary(post.content)
+    def get_post_summary(html=''):
+        """利用html返回一串纯文本"""
+        from HTMLParser import HTMLParser
+        html = html.strip()
+        html = html.strip("\n")
+        result = []
+        parser = HTMLParser()
+        parser.handle_data = result.append
+        parser.feed(html)
+        parser.close()
+        result = "".join(result)
+        if len(result) > 300:
+            result = result[0:300]
+        return result
 class ArchivesByDetailDate(object):
     """archives by publish date,"""
     def __init__(self,year,month):

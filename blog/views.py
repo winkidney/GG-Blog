@@ -18,12 +18,14 @@ from blog.data import UserInfo,BasicInfo,APost,HeaderMenu
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
 
+
+
 def logined(request):
     if request.user.is_authenticated():
             return False
     else:
             return True    
-def home(request):
+def home_view(request):
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
@@ -105,7 +107,7 @@ def articles_view(request,article_id):
             return HttpResponseRedirect(request.path)
         
 def archives_view(request,year,month):
-    return HttpResponse('fuck')
+    pass
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
@@ -127,10 +129,10 @@ def archives_view(request,year,month):
 #@permission_required('polls.can_vote', login_url='/loginpage/')
 #def my_view(request):
 #    ...
-def contact(request):
+def contact_view(request):
     return render_to_response('blog/contact.html')
-def about(request):
+def about_view(request):
     return render_to_response('blog/about.html')
-def auth(request):
+def auth_view(request):
     return HttpResponse("developing!")
 
