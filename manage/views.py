@@ -17,8 +17,10 @@ from blog.data import APost as APost
 static_root = settings.GLOBA_STATIC_URL
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 
+
+
 #公用的添加一个图片自动等比例缩放的js的函数，适合于字符串
-def new_post(mkp_form, request, id=None,):
+def new_post(mkp_form, request):
     """make a new post form a makepost form in web page,return a Posts object."""
     newpost = Posts()
     newpost.init()
@@ -41,9 +43,34 @@ def new_post(mkp_form, request, id=None,):
         newpost.comment_status = False
     else:
         newpost.comment_status = True
-    return newpost
-def change_post(a_post,request,article_id):
-    pass    
+    return newpost 
+
+def change_post(mfp_form, request):
+    """change a exist post form a modifypost form in web page,return a Posts object."""
+    article_id = int(mfp_form.cleaned_data['id'])
+    newpost = APost(article_id)
+    if newpost.exist:
+        newpost.article.title = mfp_form.cleaned_data['title']
+        newpost.article.short_title = mfp_form.cleaned_data['short_title']     #缩略名
+        newpost.article.cover = mfp_form.cleaned_data['cover_url']
+        newpost.article.introduction = mfp_form.cleaned_data['introduction']
+        newpost.article.content = js_resize_img(mfp_form.cleaned_data['content'])
+        newpost.article.status = Status.objects.get(id=2)        #id为2是已发布的文章，默认为已发布，后面再改
+        tagids = mfp_form.cleaned_data['tags']
+        if len(tagids) != 0:
+            for tagid in tagids:
+                tagid = int(tagid)
+                tag = Tags.objects.get(id=tagid)
+                newpost.article.tags.add(tag)
+        threadtypeid = int(mfp_form.cleaned_data['threadtypeid'])
+        newpost.article.threadtypeid = ThreadTypes.objects.get(id=threadtypeid)
+        if mfp_form.cleaned_data['commentnotshow'] != '':
+            newpost.article.comment_status = False
+        else:
+            newpost.article.comment_status = True
+        return newpost.article
+    else:
+        return False
     
 def js_resize_img(text):
     """返回一串在<img />标签中被添加了一段自动调整显示大小的js引用的文本对象"""
@@ -76,7 +103,8 @@ def make_post(request):
         else:
             return render_to_response('manage/make_post.html',locals(),context_instance=RequestContext(request))
 #修改文章
-@login_required(login_url=blog_login_url)        
+@login_required(login_url=blog_login_url) 
+@transaction.commit_on_success       
 def modify_post(request,article_id):
     basic_info = BasicInfo(request)
     #get方法，显示表单页面
@@ -91,8 +119,12 @@ def modify_post(request,article_id):
     elif request.method == 'POST':
         mfp_form = ModifyPostForm(request.POST)
         if mfp_form.is_valid():
-            change_post(mfp_form,request,article_id)
-            return HttpResponse('all done')
+            newpost = change_post(mfp_form,request)
+            if newpost:
+                newpost.save()
+                return HttpResponseRedirect(request.path)
+            else:
+                return "Post does not exist"
         else:
             return render_to_response('manage/modify_post.html',locals(),context_instance=RequestContext(request))
             

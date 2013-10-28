@@ -78,11 +78,12 @@ def logout_view(request):
 
 
 #阅读文章的函数
-def articles(request,article_id):
+def articles_view(request,article_id):
     """read articles inclued articles reader and 
     comment post function,if articles not found ,it raise a 404 error"""
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
+    header_menu = HeaderMenu()
     a_post = APost(int(article_id))
     if request.method == 'GET':
         if not a_post.exist:
@@ -102,7 +103,9 @@ def articles(request,article_id):
             return  render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
         else:
             return HttpResponseRedirect(request.path)
-    
+        
+def archives_view(request,year,month):
+    return HttpResponse('fuck')
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
@@ -130,5 +133,4 @@ def about(request):
     return render_to_response('blog/about.html')
 def auth(request):
     return HttpResponse("developing!")
-def test(request):
-    return render_to_response("blog/read.html")
+

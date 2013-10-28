@@ -29,13 +29,13 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ a_post.post.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in a_post.post.tags %}
-									<a href="{{ basci_info.blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ basic_info.blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
 							<li class="edit">
-								{% if show_edit %}
-									<a href="{{ basci_info.blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
+								{% if basic_info.show_edit %}
+									<a href="{{ basic_info.blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
 								{% endif %}
 							</li>
 						</ul>

@@ -25,6 +25,6 @@ class MakePostForm(forms.Form):
             tags_choices.append((unicode(tag.id),tag.tagname))
         self.fields['tags'].choices = tags_choices
 class ModifyPostForm(MakePostForm):
-    id = forms.CharField(widget=forms.HiddenInput,required=True)
+    id = forms.IntegerField(widget=forms.HiddenInput,required=True)
 
         

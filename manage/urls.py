@@ -9,6 +9,6 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^$',views.home),
     url(r'^makepost/$',views.make_post),
-    url(r'^modifypost/(\d{1,10})/$',views.modify_post),
+    url(r'^edit/(\d{1,10})/$',views.modify_post),
     
 )

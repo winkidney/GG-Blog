@@ -34,6 +34,8 @@ class BasicInfo(object):
         self.static_root = settings.BLOG_STATIC_URL
         self.blog_root_url = settings.BLOG_ROOT_URL
         self.path = request.path
+        if settings.DEBUG:
+            self.show_edit = True
 class APost(object):
     """Get article info(include its content) from its id."""
     def __init__(self,article_id):
@@ -89,7 +91,10 @@ class HeaderMenu(object):
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
-
+class ArchivesByDetailDate(object):
+    """archives by publish date,"""
+    def __init__(self,year,month):
+        pass
 class CommentForm(object):
     def __init__(self,request):
         pass
