@@ -91,10 +91,20 @@ class HeaderMenu(object):
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
+class post_summary(object):
+    """Get a post summary by given post,if not exist,return False."""
+    def __init__(self,post):
+        self.title = post.title
+        self.pub_date = post.publish_date
+        self.pub_date_mixed = {'year':(str(self.article.publish_date.year)),
+                                        'day':str(self.article.publish_date.day),
+                                        'month':str(self.article.publish_date.strftime("%b"))}
+        self.tags = self.article.tags.all()
+        self.comment_count = post.comment_count
 class ArchivesByDetailDate(object):
     """archives by publish date,"""
     def __init__(self,year,month):
-        pass
+       pass
 class CommentForm(object):
     def __init__(self,request):
         pass
