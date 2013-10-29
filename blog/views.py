@@ -19,13 +19,33 @@ blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
 
 def get_page_summarys(page_num):
+    """get summarys list by page number.porvide to home page to display 
+    articles summary,every page include 10 articles"""
     page_num = int(page_num)
     post_summarys = []
-    for post in Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]:
-        post_summarys.append(PostSummary(post))
-    return post_summarys
+    posts = Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]
+    if posts:
+        for post in posts:
+            post_summarys.append(PostSummary(post))
+        return post_summarys
+    else:
+        return False
 def get_time_summarys(year,month):
-    pass
+    """get articles summarys group by year_month.
+    return a list of PostSummary object.if not exist ,return False"""
+    if year and month:
+        year = int(year)
+        month = int(month)
+        year_month_archives = [] 
+        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month)
+        if posts:
+            for post in posts:
+                year_month_archives.append(PostSummary(post))
+            return year_month_archives
+        else:
+            return False
+    else:
+        return False
 def logined(request):
     if request.user.is_authenticated():
             return False
@@ -113,14 +133,18 @@ def articles_view(request,article_id):
         else:
             return HttpResponseRedirect(request.path)
         
-def archives_view(request,year,month):
+def archives_view(request,year=None,month=None):
+    """generate acchives by year_month or archives index by year or year_month"""
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
-    post_summarys = get_time_summarys(year,mounth)
-    return render_to_response('blog/base.html',
-                                    locals(),
-                                    context_instance=RequestContext(request))
+    post_summarys = get_time_summarys(year,month)
+    if post_summarys:
+        return render_to_response('blog/archives.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
+    else:
+        raise Http404
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):

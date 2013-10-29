@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^manage/', include('manage.urls')),
     #阅读文章url，文章数量限制为1000,000,000。
     url(r'^articles/(\d{1,10})/$',views.articles_view),
+    url(r'^archives/$',views.archives_view),
     url(r'^archives/(\d{4})/(\d{1,2})/',views.archives_view)
     #url(r'^test/$',views.TagsCreate),
     #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'blog/login/login.html'}),
