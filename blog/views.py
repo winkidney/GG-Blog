@@ -24,7 +24,8 @@ def get_page_summarys(page_num):
     for post in Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]:
         post_summarys.append(PostSummary(post))
     return post_summarys
-
+def get_time_summarys(year,month):
+    pass
 def logined(request):
     if request.user.is_authenticated():
             return False
@@ -34,7 +35,7 @@ def home_view(request,page=1):
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
-    post_symmarys = get_page_summarys(page)
+    post_summarys = get_page_summarys(page)
     return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))
@@ -113,7 +114,13 @@ def articles_view(request,article_id):
             return HttpResponseRedirect(request.path)
         
 def archives_view(request,year,month):
-    pass
+    user_info = UserInfo(request)
+    basic_info = BasicInfo(request)
+    header_menu = HeaderMenu()
+    post_summarys = get_time_summarys(year,mounth)
+    return render_to_response('blog/base.html',
+                                    locals(),
+                                    context_instance=RequestContext(request))
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):

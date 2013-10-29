@@ -342,7 +342,7 @@ a.readMore{
     /*翻页按钮开始*/
 .mainPagination {
 	position:relative;
-	bottom:-100px;
+	/*bottom:-100px;*/
     overflow: hidden;
     width:770px;
 }

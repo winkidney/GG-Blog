@@ -55,10 +55,10 @@ class APost(object):
         self.post['id'] = self.article.id
         self.post['author_id'] = self.article.authorid
         self.post['authorname'] = User.objects.get(id=self.article.authorid)
-        self.post['post_date_mixed'] = {'year':(str(self.article.publish_date.year)),
+        self.post['pub_date_mixed'] = {'year':(str(self.article.publish_date.year)),
                                                 'day':str(self.article.publish_date.day),
                                                 'month':str(self.article.publish_date.strftime("%b"))}
-        self.post['post_date'] = self.article.publish_date
+        self.post['pub_date'] = self.article.publish_date
         self.post['modified_date'] = self.article.modified_date
         self.post['content'] = self.article.content
         self.post['title'] = self.article.title
@@ -95,6 +95,8 @@ class PostSummary(object):
     """Get a post summary by given post,if not exist,return False."""
     def __init__(self,post):
         self.title = post.title
+        self.article_id = post.id
+        self.authorname = User.objects.get(id=post.authorid)
         self.pub_date = post.publish_date
         self.pub_date_mixed = {'year':(str(post.publish_date.year)),
                                         'day':str(post.publish_date.day),
@@ -116,10 +118,25 @@ class PostSummary(object):
         if len(result) > 300:
             result = result[0:300]
         return result
-class ArchivesByDetailDate(object):
-    """archives by publish date,"""
-    def __init__(self,year,month):
-       pass
+class ArchivesIndex(object):
+    """archives group by publish date"""
+    def __init__(self,type="bymonth"):
+        if type == "bymonth":
+            self.by_month()
+    def by_month(self):
+        self.bymonth_dict = {}
+        months = Posts.objects.dates("publish_date","month")    #return a year_mounth list order by month
+        years = Posts.objects.dates("publish_date","month")    #return a year list(datetime object) order by year
+        for year in years:
+            self.bymonth_dict[str(year.year)] = []
+            for date in months:
+                if date.year == year.year:
+                    self.bymonth_dict[str(year.year)].append(str(date.month))
+    def by_year(self):
+        pass
+    def by_day(self):
+        pass
+        
 class CommentForm(object):
     def __init__(self,request):
         pass

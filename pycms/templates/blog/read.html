@@ -10,9 +10,9 @@
 							<i class="formatIcon webBlog"></i>
 						</div>
 						<div class="postDate">
-							<span class="postMonth">{{ a_post.post.post_date_mixed.month }}</span>
-							<span class="postDay">{{ a_post.post.post_date_mixed.day }}</span>
-							<span class="postYear">{{ a_post.post.post_date_mixed.year }}</span>
+							<span class="postMonth">{{ a_post.post.pub_date_mixed.month }}</span>
+							<span class="postDay">{{ a_post.post.pub_date_mixed.day }}</span>
+							<span class="postYear">{{ a_post.post.pub_date_mixed.year }}</span>
 						</div>
 						<div class="like_it">
 							<a id="like-0000" class="likeThis" href="#">
@@ -35,7 +35,7 @@
 							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
 							<li class="edit">
 								{% if basic_info.show_edit %}
-									<a href="{{ basic_info.blog_root_url }}manage/edit/{{ article_id }}/"><strong>编辑</strong></a>
+									<a href="{{ basic_info.blog_root_url }}manage/edit/{{ article_id }}/">编辑</a>
 								{% endif %}
 							</li>
 						</ul>

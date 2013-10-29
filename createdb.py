@@ -53,7 +53,7 @@ def add_info():
                       'logo_url':u'',
                       'comment_on':True,
                       'signin_on':False,
-                      'site_name':'一个新的玻璃齿轮'
+                      'site_name':'一个新的玻璃齿轮',
                       }
     for key in basic_settings:
         bs = BasicSettings()
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     while 1:
         new_post()
         i += 1
-        if i>100:
+        if i>=100:
             break
     print 'post added'
 
