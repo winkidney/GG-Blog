@@ -78,13 +78,13 @@ def js_resize_img(text):
     return bold.sub(r'\1 onload="javascript:DrawImage(this,600,600)" />',text)
     
 @login_required(login_url=blog_login_url)
-def home(request):
+def home_view(request):
     #static_root = settings.GLOBA_STATIC_URL
     return render_to_response('manage/base.html',{'static_root':static_root})
 
 @login_required(login_url=blog_login_url)
 @transaction.commit_on_success
-def make_post(request):
+def make_post_view(request):
     """make post page.It generate the make_post page and receive 
     data form the page then store them into database."""
     basic_info = BasicInfo(request)
@@ -105,7 +105,7 @@ def make_post(request):
 #修改文章
 @login_required(login_url=blog_login_url) 
 @transaction.commit_on_success       
-def modify_post(request,article_id):
+def modify_post_view(request,article_id):
     basic_info = BasicInfo(request)
     #get方法，显示表单页面
     if request.method == 'GET':

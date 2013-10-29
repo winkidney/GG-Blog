@@ -7,8 +7,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'pycms.views.home', name='home'),
     # url(r'^pycms/', include('pycms.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^$',views.home),
-    url(r'^makepost/$',views.make_post),
-    url(r'^edit/(\d{1,10})/$',views.modify_post),
+    url(r'^$',views.home_view),
+    url(r'^makepost/$',views.make_post_view),
+    url(r'^edit/(\d{1,10})/$',views.modify_post_view),
     
 )

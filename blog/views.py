@@ -13,22 +13,28 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import UserInfo,BasicInfo,APost,HeaderMenu
+from blog.data import UserInfo,BasicInfo,APost,HeaderMenu,PostSummary
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
 
-
+def get_page_summarys(page_num):
+    page_num = int(page_num)
+    post_summarys = []
+    for post in Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]:
+        post_summarys.append(PostSummary(post))
+    return post_summarys
 
 def logined(request):
     if request.user.is_authenticated():
             return False
     else:
             return True    
-def home_view(request):
+def home_view(request,page=1):
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
+    post_symmarys = get_page_summarys(page)
     return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))

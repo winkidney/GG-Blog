@@ -96,13 +96,13 @@ class PostSummary(object):
     def __init__(self,post):
         self.title = post.title
         self.pub_date = post.publish_date
-        self.pub_date_mixed = {'year':(str(self.article.publish_date.year)),
-                                        'day':str(self.article.publish_date.day),
-                                        'month':str(self.article.publish_date.strftime("%b"))}
-        self.tags = self.article.tags.all()
+        self.pub_date_mixed = {'year':(str(post.publish_date.year)),
+                                        'day':str(post.publish_date.day),
+                                        'month':str(post.publish_date.strftime("%b"))}
+        self.tags = post.tags.all()
         self.comment_count = post.comment_count
         self.summary = self.get_post_summary(post.content)
-    def get_post_summary(html=''):
+    def get_post_summary(self,html=''):
         """利用html返回一串纯文本"""
         from HTMLParser import HTMLParser
         html = html.strip()

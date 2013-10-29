@@ -9,6 +9,7 @@ from pycms import settings
 from django.contrib.auth.models import User
 from django.core import management
 #系统环境设置完毕
+
 #db create settings
 dbname = 'pycms'
 root_username = 'root'
@@ -103,11 +104,46 @@ def add_private_info(): #放在add_info之前，否则分类顺序无法正常�
             threadtype.save()
             i+=1
         j+=1
+    #add tags
+    tags = [u'杂谈',u'文摘']
+    for tag in tags:
+        newtag = Tags(tagname=tag)
+        newtag.save()
+    
+def new_post():
+    """make a new post form a makepost form in web page,return a Posts object."""
+    from blog.models import *
+    from testdata import test_content
+    newpost = Posts()
+    newpost.init()
+    newpost.authorid = 1
+    newpost.title = u'果粉那啥不是这些年的事'
+    newpost.name = u'副标题'  #缩略名
+    newpost.cover = u'http://www.baidu.com'
+    newpost.introduction = u'文章简介范例'
+    newpost.content = test_content
+    newpost.status = Status.objects.get(id=2)        #id为2是已发布的文章，默认为已发布，后面再改
+    tagids = [1,2]
+    if len(tagids) != 0:
+        for tagid in tagids:
+            tagid = int(tagid)
+            tag = Tags.objects.get(id=tagid)
+            newpost.tags.add(tag)
+    newpost.threadtypeid = ThreadTypes.objects.get(id=8)
+    newpost.comment_status = False
+    newpost.save()
 if __name__ == "__main__":
     create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
     add_info()
+    i = 0
+    while 1:
+        new_post()
+        i += 1
+        if i>100:
+            break
+    print 'post added'
 
 
 
