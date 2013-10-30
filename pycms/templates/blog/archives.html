@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
-{% block archive_nav %}{% endblock %}
+{% block archive_nav %}
+<div id="archive_nav">
+</div>
+{% endblock %}
 {% block left_content %}
 				{% for post_summary in post_summarys %}
 				<article>
@@ -46,16 +49,8 @@
 				{% endfor %}
 				{% endblock %}
 				{% block main_pagination %}
-				<div class="mainPagination">
-					<div class="pagesNambers">
-						<div class="pagination">
-							<span class="current_page ">1</span>
-							<a href="" class="pageBtn">2</a>
-							<a href="#" class="pageBtn">3</a>
-						</div>
-					</div><!--end pagesNumbers-->
-					<div class="paginationLinks">
-						<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
-					</div><!--end PaginationLinks-->
+				<div class="mainPagination paginationArticle">
+					<a href="#" class="previousPage blackToWhiteBtn" >&lt;</a>
+					<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
 				</div><!--end mainPagination-->
 				{% endblock %}

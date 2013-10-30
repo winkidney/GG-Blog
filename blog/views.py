@@ -14,13 +14,15 @@ from blog.models import *
 #own import 
 from pycms import settings
 from blog.data import UserInfo,BasicInfo,APost,HeaderMenu,PostSummary
+from tools.tools import timeit
 
 blog_login_url = settings.BLOG_ROOT_URL+'login/'
 login_html = 'blog/login/login_django.html'
 
+@timeit
 def get_page_summarys(page_num):
     """get summarys list by page number.porvide to home page to display 
-    articles summary,every page include 10 articles"""
+    articles summary,every page include 10 articles.costs 0.02s."""
     page_num = int(page_num)
     post_summarys = []
     posts = Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]
@@ -30,6 +32,19 @@ def get_page_summarys(page_num):
         return post_summarys
     else:
         return False
+    
+@timeit
+def get_page_summarysV2(page_num,num_per_page=10):
+    """costs 0.03s"""
+    from django.core.paginator import Paginator
+    page_num = int(page_num)
+    num_per_page = int(num_per_page)
+    post_summarys = []
+    posts = Posts.objects.all()
+    pages = Paginator(posts,num_per_page)
+    for post in pages.page(page_num):
+            post_summarys.append(PostSummary(post))
+    return post_summarys
 def get_time_summarys(year,month):
     """get articles summarys group by year_month.
     return a list of PostSummary object.if not exist ,return False"""
@@ -56,9 +71,12 @@ def home_view(request,page=1):
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
     post_summarys = get_page_summarys(page)
-    return render_to_response('blog/base.html',
+    if post_summarys:
+        return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))
+    else:
+        raise Http404
     #return HttpResponse("error,check basic_info")
 
     
@@ -145,6 +163,9 @@ def archives_view(request,year=None,month=None):
                                   context_instance=RequestContext(request))
     else:
         raise Http404
+def test_view(request):
+    p = Posts.objects.all()[0:10]
+    return HttpResponse('nothing')
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):

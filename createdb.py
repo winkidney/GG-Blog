@@ -132,7 +132,7 @@ def new_post():
     newpost.threadtypeid = ThreadTypes.objects.get(id=8)
     newpost.comment_status = False
     newpost.save()
-if __name__ == "__main__":
+def create_db():
     create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
@@ -144,6 +144,16 @@ if __name__ == "__main__":
         if i>=100:
             break
     print 'post added'
+def add_posts(num):
+    i = 0
+    while 1:
+        new_post()
+        i += 1
+        if i>=num:
+            break
+    print 'post added'
+if __name__ == "__main__":
+    create_db()
 
 
 
