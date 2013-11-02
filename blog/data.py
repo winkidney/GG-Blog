@@ -126,12 +126,69 @@ class ArchivesIndex(object):
     def by_month(self):
         self.bymonth_dict = {}
         months = Posts.objects.dates("publish_date","month")    #return a year_mounth list order by month
-        years = Posts.objects.dates("publish_date","month")    #return a year list(datetime object) order by year
+        years = Posts.objects.dates("publish_date","year")    #return a year list(datetime object) order by year
         for year in years:
             self.bymonth_dict[str(year.year)] = []
             for date in months:
                 if date.year == year.year:
                     self.bymonth_dict[str(year.year)].append(str(date.month))
+    def has_nextyear(self,year):
+        yearlist = [ykey for ykey in self.bymonth_dict]
+        ylen = len(yearlist)
+        if year in yearlist and ylen > yearlist.index(year)+1:
+            return True
+        else:
+            return False
+    def has_preyear(self,year):
+        yearlist = [ykey for ykey in self.bymonth_dict]
+        if year in yearlist and yearlist.index(year) > 0:
+            return True
+        else:
+            return False
+    def has_nextmonth(self,year,month):
+        monthlist = self.bymonth_dict.get(year)
+        mlen = len(monthlist)
+        if month in monthlist and monthlist.index(month)+1 < mlen:
+            return True
+        else:
+            return False
+    def has_premonth(self,year,month):
+        monthlist = self.bymonth_dict.get(year)
+        mlen = len(yearlist)
+        if month in monthlist and mlen > monthlist.index(month):
+            return True
+        else:
+            return False
+    def has_next(self,year,month):
+        if self.has_nextmonth(year,month):
+           return True
+        else:
+            if self.has_nextyear(year):
+                return True
+            else:
+                return False
+    def has_pre(self,year,month):
+        if self.has_premonth(year, month):
+            return True
+        else:
+            if self.has_preyear(year):
+                return True
+            else:
+                return False
+    def next(self,year,month):
+        """get next archive index (year,month) and return it to page and 
+        generate a link to next arvhive"""
+        months_in_year = self.bymonth_dict.get(year)
+        if months_in_year:
+            mlen = len(months_in_year)
+            mindex = months_in_year.index(month)
+            if mlen > 1:
+                if mindex+1 < mlen:
+                    n_year = year
+                    n_month = months_in_year[mindex+1]
+            return (n_year,)
+        
+            
     def by_year(self):
         pass
     def by_day(self):

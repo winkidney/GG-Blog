@@ -25,7 +25,7 @@ def get_page_summarys(page_num):
     articles summary,every page include 10 articles.costs 0.02s."""
     page_num = int(page_num)
     post_summarys = []
-    posts = Posts.objects.all()[((page_num-1)*10):((page_num-1)*10+9)]
+    posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
     if posts:
         for post in posts:
             post_summarys.append(PostSummary(post))

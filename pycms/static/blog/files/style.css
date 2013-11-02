@@ -207,7 +207,7 @@ div#headerSection{
     background-color:white;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.33);
     position: relative;
-    z-index:99999;
+    z-index:999;
     overflow:visible !important;
     }
 div#logo{

@@ -110,12 +110,15 @@ def add_private_info(): #放在add_info之前，否则分类顺序无法正常�
         newtag = Tags(tagname=tag)
         newtag.save()
     
-def new_post():
+def new_post(year=None,month=None,day=None):
     """make a new post form a makepost form in web page,return a Posts object."""
     from blog.models import *
     from testdata import test_content
+    import datetime
     newpost = Posts()
     newpost.init()
+    if year and month and day:
+        newpost.publish_date = datetime.date(year,month,day)
     newpost.authorid = 1
     newpost.title = u'果粉那啥不是这些年的事'
     newpost.name = u'副标题'  #缩略名
@@ -132,18 +135,19 @@ def new_post():
     newpost.threadtypeid = ThreadTypes.objects.get(id=8)
     newpost.comment_status = False
     newpost.save()
+def add_posts_bydate():
+    for year in xrange(2009,2013):
+        for month in xrange(1,11):
+            for day in xrange(1,3):
+                new_post(year,month,day)
+                
 def create_db():
     create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
     add_info()
-    i = 0
-    while 1:
-        new_post()
-        i += 1
-        if i>=100:
-            break
-    print 'post added'
+    add_posts_bydate()
+
 def add_posts(num):
     i = 0
     while 1:

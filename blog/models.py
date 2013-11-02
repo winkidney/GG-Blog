@@ -99,7 +99,8 @@ class Posts(models.Model):
     def __unicode__(self):
         return u"%s %s %s" % (self.id,self.title,self.publish_date)
     class Meta:
-        ordering = ['publish_date']
+        ordering = ['-publish_date']
+        
 #class Attachments(models.Modle):
 #class TestModel(models.Model):
 #    content = HTMLField()
