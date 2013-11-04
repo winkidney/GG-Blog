@@ -172,14 +172,14 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
                  #my logger settings
-        'default': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(MY_STATIC_ROOT+'/logs/','all.log'), #或者直接写路径
-            'maxBytes': 1024*1024*5, # 5 MB
-            'backupCount': 5,
-            #'formatter':'standard',
-        },
+#         'default': {
+#             'level':'DEBUG',
+#             'class':'logging.handlers.RotatingFileHandler',
+#             'filename': os.path.join(MY_STATIC_ROOT+'/logs/','all.log'), #或者直接写路径
+#             'maxBytes': 1024*1024*5, # 5 MB
+#             'backupCount': 5,
+#             #'formatter':'standard',
+#         },
         'console':{
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -189,7 +189,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['default','console'],
+            'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': False
         },
