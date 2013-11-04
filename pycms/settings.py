@@ -143,14 +143,19 @@ INSTALLED_APPS = (
 #DUOSHUO_SHORT_NAME = '你的多说short name'
 
 #全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
+#统一了url风格为"/****"，前面有'/'后面不带'/'，和django默认url风格相反
 MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/')
 MY_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload/').replace('\\','/')
-MY_MEDIA_URL = '/static/upload/'
+MY_MEDIA_URL = '/static/upload'
 #blog_seetings（blog所用到的固定设置，安装相关）
-BLOG_ROOT_URL = '/blog/'
-GLOBA_STATIC_URL = '/static/'
+BLOG_ROOT_URL = '/blog'
+GLOBA_STATIC_URL = '/static'
 BLOG_STATIC_URL = GLOBA_STATIC_URL
-BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'share/myadmin/'
+BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'/share/myadmin'
+BLOG_LOGIN_URL = BLOG_ROOT_URL+'/login'
+BLOG_ARTICLES_URL = BLOG_ROOT_URL+'/articles'
+#模板相关
+LOGIN_TEMPLATE = 'blog/login/login_django.html'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

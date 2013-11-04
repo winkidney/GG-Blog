@@ -4,6 +4,7 @@ from blog.models import BasicSettings,Posts,ThreadTypes
 from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
+from django.core.exceptions import ObjectDoesNotExist
 
 class UserInfo(object):
     """
@@ -31,9 +32,10 @@ class BasicInfo(object):
         except :
             print ('read '+str(BasicSettings)+'error')
         self.login_url = settings.BLOG_ROOT_URL+'login/'
-        self.static_root = settings.BLOG_STATIC_URL
-        self.blog_root_url = settings.BLOG_ROOT_URL
+        self.static_root = settings.BLOG_STATIC_URL+'/'
+        self.blog_root_url = settings.BLOG_ROOT_URL+'/'
         self.path = request.path
+        self.articles_url = settings.BLOG_ARTICLES_URL+'/'
         if settings.DEBUG:
             self.show_edit = True
 class APost(object):
@@ -50,7 +52,19 @@ class APost(object):
             return True
         except:
             return False
+    def get_next(self):
+        try:
+            self.next_post = self.article.get_next_by_publish_date()
+        except ObjectDoesNotExist:
+            self.next_post = None
+    def get_pre(self):
+        try:
+            self.pre_post = self.article.get_previous_by_publish_date()
+        except ObjectDoesNotExist:
+            self.pre_post = None
     def init_data(self):
+        self.get_next()
+        self.get_pre()
         self.post = {}
         self.post['id'] = self.article.id
         self.post['author_id'] = self.article.authorid
@@ -75,6 +89,7 @@ class APost(object):
         self.post['threadtypeid_u'] = unicode(self.article.threadtypeid.id)
         self.post['comment_count'] = self.article.comment_count
         self.post['comments'] = self.article.comments.all()
+    
 #menu class in headers
 class HeaderMenu(object):
     """header info in every page,it display the """

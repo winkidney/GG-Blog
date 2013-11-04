@@ -15,7 +15,7 @@ from blog.data import UserInfo,BasicInfo
 from blog.data import APost as APost
 
 static_root = settings.GLOBA_STATIC_URL
-blog_login_url = settings.BLOG_ROOT_URL+'login/'
+blog_login_url = settings.BLOG_LOGIN_URL
 
 
 

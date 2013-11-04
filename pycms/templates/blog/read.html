@@ -80,25 +80,6 @@
 								</li>
 								{% endfor %}
 							{% endif %}
-							{% comment %}
-								<li class="comment-of-comment">
-									<div class="comment-avatar" >
-										<img src="{{ basic_info.static_root }}/blog/img/main/posticon/glassgear.png">
-									</div>
-									<div class="comment-content">
-										<div class="comment-header">
-											<a href="#">阿毛</a>
-										</div>
-										<div class="comment-body">
-											<p>评论内容，这个是子评论内容</p>
-										</div>
-										<div class="comment-function">
-											<span class="comment-date">10月7日 2013</span>
-											<a href="#"><span class="replyIcon"></span>回复</a>
-										</div>
-									</div>
-								</li><!--end comment-of comment li-->
-							{% endcomment %}
 							</ul><!--end ul commentList-->
 						</div><!--end mainPostContents-->
 						
@@ -106,8 +87,12 @@
 				</article><!--end article postCommentlist-->
 				
 				<div class="mainPagination paginationArticle">
-						<a href="#" class="previousPage blackToWhiteBtn" >&lt;</a>
-						<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
+					{% if a_post.pre_post %}
+						<a href="{{ basic_info.articles_url }}{{ a_post.pre_post.id }}" class="previousPage blackToWhiteBtn" >&lt;</a>
+					{% endif %}
+					{% if a_post.next_post %}
+						<a href="{{ basic_info.articles_url }}{{ a_post.next_post.id }}" class="nextPage blackToWhiteBtn" >&gt;</a>
+					{% endif %}
 				</div><!--end mainPagination-->
 {% endblock %}
 {% block main_pagination %}{% endblock %}

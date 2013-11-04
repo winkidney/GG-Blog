@@ -16,10 +16,10 @@ from pycms import settings
 from blog.data import UserInfo,BasicInfo,APost,HeaderMenu,PostSummary
 from tools.tools import timeit
 
-blog_login_url = settings.BLOG_ROOT_URL+'login/'
-login_html = 'blog/login/login_django.html'
+blog_login_url = settings.BLOG_LOGIN_URL
+login_html = settings.LOGIN_TEMPLATE
 
-@timeit
+
 def get_page_summarys(page_num):
     """get summarys list by page number.porvide to home page to display 
     articles summary,every page include 10 articles.costs 0.02s."""
@@ -45,6 +45,7 @@ def get_page_summarysV2(page_num,num_per_page=10):
     for post in pages.page(page_num):
             post_summarys.append(PostSummary(post))
     return post_summarys
+
 def get_time_summarys(year,month):
     """get articles summarys group by year_month.
     return a list of PostSummary object.if not exist ,return False"""
