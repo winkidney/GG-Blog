@@ -147,6 +147,8 @@ class ArchivesIndex(object):
         self.year,self.month = year,month
         if type == "bymonth":
             self.by_month()
+        self.has_next()
+        self.has_pre()
     def by_month(self):
         self.bymonth_dict = {}
         months = Posts.objects.dates("publish_date","month")    #return a year_mounth list order by month
@@ -192,14 +194,14 @@ class ArchivesIndex(object):
             next_month = self.has_nextmonth(year,month)
             if next_month:
                 self.next = {'year':year,'month':next_month}
-                return True
             else:
                 next_year = self.has_nextyear(year)
                 if next_year:
                     self.next = {'year':next_year,'month':self.bymonth_dict.get(next_year)[0]}
-                    return True
                 else:
-                    return False
+                    self.next = None
+        else:
+            self.next = None
     def has_pre(self):
         """get previous archive index {'year':year,'month':month) and return it to page for 
         generating a link to previous arvhive"""
@@ -208,14 +210,14 @@ class ArchivesIndex(object):
             pre_month = self.has_premonth(year, month)
             if pre_month:
                 self.pre = {'year':year,'month':pre_month}
-                return True
             else:
                 pre_year = self.has_preyear(year)
                 if pre_year:
                     self.pre = {'year':pre_year,'month':self.bymonth_dict.get(pre_year)[-1]}
-                    return True
                 else:
-                    return False
+                    self.pre = None
+        else:
+            self.next = None
 
     def by_year(self):
         pass
