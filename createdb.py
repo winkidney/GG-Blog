@@ -148,7 +148,7 @@ def create_db():
     add_info()
     add_posts_bydate()
 
-def add_posts(num):
+def add_posts_bynumber(num):
     i = 0
     while 1:
         new_post()
@@ -157,7 +157,7 @@ def add_posts(num):
             break
     print 'post added'
 if __name__ == "__main__":
-    create_db()
+    add_posts_bynumber(200)
 
 
 

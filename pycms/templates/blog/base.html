@@ -133,14 +133,20 @@
 				<div class="mainPagination">
 					<div class="pagesNambers">
 						<div class="pagination">
-							<span class="current_page ">1</span>
-							<a href="" class="pageBtn">2</a>
-							<a href="#" class="pageBtn">3</a>
+						{% for btn in pagination.cur_btns %}
+							{% if btn == pagination.cur_btn %}
+							<span class="current_page ">{{ btn }}</span>
+							{% else %}
+							<a href="{{ basic_info.blog_page_url }}{{ btn }}" class="pageBtn">{{ btn }}</a>
+							{% endif %}
+						{% endfor %}
 						</div>
 					</div><!--end pagesNumbers-->
+					{% if pagination.next %}
 					<div class="paginationLinks">
-						<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
+						<a href="{{ basic_info.blog_page_url }}{{ pagination.next }}" class="nextPage blackToWhiteBtn" >&gt;</a>
 					</div><!--end PaginationLinks-->
+					{% endif %}
 				</div><!--end mainPagination-->
 				{% endblock %}
 			</div><!--end maintContainer  leftContent-->
