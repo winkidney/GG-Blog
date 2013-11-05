@@ -37,6 +37,8 @@ class BasicInfo(object):
         self.blog_page_url = settings.BLOG_PAGE_URL
         self.template_root = settings.CUR_TEMPLATE_URL
         self.blog_archives_url = settings.BLOG_ARCHIVES_URL
+        self.blog_edit_url = settings.BLOG_EDIT_URL
+        self.blog_tags_url = settings.BLOG_TAGS_URL
         self.path = request.path
         self.articles_url = settings.BLOG_ARTICLES_URL
         if settings.DEBUG:

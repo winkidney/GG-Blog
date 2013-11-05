@@ -81,7 +81,10 @@
 
 	<div id="mainContent">
 		<div class="cotainer">
-			{% block archive_nav %}{% endblock %}
+			<div id="archive_nav">
+			{% block archive_nav %}
+			{% endblock %}
+			</div>
 			<div id="emptyPageTitle"></div>
 			<div id="leftContent">
 				{% block left_content %}
@@ -111,13 +114,13 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ post_summary.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in post_summary.tags %}
-									<a href="{{ basic_info.blog_root_url }}/tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ post_summary.comment_count }}次吐槽</li>
 							<li class="edit">
 								{% if basic_info.show_edit %}
-									<a href="{{ basic_info.blog_root_url }}/manage/edit/{{ post_summary.article_id }}/">编辑</a>
+									<a href="{{ basic_info.blog_edit_url }}/{{ post_summary.article_id }}/">编辑</a>
 								{% endif %}
 							</li>
 						</ul>

@@ -808,3 +808,14 @@ ul.errorlist {
 }
 /*修正django错误列表显示问题  结束*/
 /*补充的archives导航*/
+#archive_nav {
+	padding:5px 30px;
+}
+#archive_nav a,
+#archive_nav p{
+	padding:0 3px;
+	float:left;
+}
+#archive_nav a{
+	color:rgb(68, 124, 87);
+}

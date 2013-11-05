@@ -29,13 +29,13 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ a_post.post.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in a_post.post.tags %}
-									<a href="{{ basic_info.blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
 							<li class="edit">
 								{% if basic_info.show_edit %}
-									<a href="{{ basic_info.blog_root_url }}manage/edit/{{ article_id }}/">编辑</a>
+									<a href="{{ basic_info.blog_edit_url }}/{{ article_id }}/">编辑</a>
 								{% endif %}
 							</li>
 						</ul>
@@ -64,7 +64,7 @@
 							{% if a_post.post.comments %}
 								{% for comment in a_post.post.comments %}
 								<li>
-									<div class="comment-avatar" ><img src="{{ basic_info.static_root }}/blog/img/main/posticon/glassgear.png"></div>
+									<div class="comment-avatar" ><img src="{{ basic_info.template_url }}/blog/img/main/posticon/glassgear.png"></div>
 									<div class="comment-content">
 										<div class="comment-header">
 											<a href="#">{{ comment.author }}</a>
