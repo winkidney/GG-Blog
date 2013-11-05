@@ -148,7 +148,9 @@ def articles_view(request,article_id):
             comment_form = ReplyForm(request.POST)
          #根据提交的数据是否合法重新渲染页面或者返回错误信息   
         if not comment_form.is_valid():
-            return  render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
+            return  render_to_response('blog/read.html',
+                                       locals(),
+                                       context_instance=RequestContext(request))
         else:
             return HttpResponseRedirect(request.path)
         
@@ -158,6 +160,7 @@ def archives_view(request,year=None,month=None):
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
     post_summarys = get_time_summarys(year,month)
+    archives_index = ArchivesIndex(year,month)
     if post_summarys:
         return render_to_response('blog/archives.html',
                                   locals(),

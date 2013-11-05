@@ -137,14 +137,14 @@
 							{% if btn == pagination.cur_btn %}
 							<span class="current_page ">{{ btn }}</span>
 							{% else %}
-							<a href="{{ basic_info.blog_page_url }}/{{ btn }}" class="pageBtn">{{ btn }}</a>
+							<a href="{{ basic_info.blog_page_url }}/{{ btn }}/" class="pageBtn">{{ btn }}</a>
 							{% endif %}
 						{% endfor %}
 						</div>
 					</div><!--end pagesNumbers-->
 					{% if pagination.next %}
 					<div class="paginationLinks">
-						<a href="{{ basic_info.blog_page_url }}/{{ pagination.next }}" class="nextPage blackToWhiteBtn" >&gt;</a>
+						<a href="{{ basic_info.blog_page_url }}/{{ pagination.next }}/" class="nextPage blackToWhiteBtn" >&gt;</a>
 					</div><!--end PaginationLinks-->
 					{% endif %}
 				</div><!--end mainPagination-->

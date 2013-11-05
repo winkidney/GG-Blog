@@ -50,7 +50,11 @@
 				{% endblock %}
 				{% block main_pagination %}
 				<div class="mainPagination paginationArticle">
-					<a href="#" class="previousPage blackToWhiteBtn" >&lt;</a>
-					<a href="#" class="nextPage blackToWhiteBtn" >&gt;</a>
+					{% if archives_index.has_pre %}
+					<a href="{{ basic_info.blog_archives_url }}/{{ archives_index.pre.year }}/{{ archives_index.pre.month }}/" class="previousPage blackToWhiteBtn" >&lt;</a>
+					{% endif %}
+					{% if archives_index.has_next %}
+					<a href="{{ basic_info.blog_archives_url }}/{{ archives_index.next.year }}/{{ archives_index.next.month }}/" class="nextPage blackToWhiteBtn" >&gt;</a>
+					{% endif %}
 				</div><!--end mainPagination-->
 				{% endblock %}

@@ -36,6 +36,7 @@ class BasicInfo(object):
         self.blog_root_url = settings.BLOG_ROOT_URL
         self.blog_page_url = settings.BLOG_PAGE_URL
         self.template_root = settings.CUR_TEMPLATE_URL
+        self.blog_archives_url = settings.BLOG_ARCHIVES_URL
         self.path = request.path
         self.articles_url = settings.BLOG_ARTICLES_URL
         if settings.DEBUG:
@@ -100,7 +101,7 @@ class HeaderMenu(object):
         pthread_types = ThreadTypes.objects.filter(parent_id=0).order_by("display_order")
         for pthread_type in pthread_types:
             if pthread_type.name != u'未分类':
-                link = settings.BLOG_ROOT_URL+'threadtypes/'+pthread_type.name+'/'
+                link = settings.BLOG_THREADTYPE_URL+'/'+pthread_type.name+'/'
                 thread_type = {'parent':pthread_type,'link':link,'children':[]}
                 cthread_types = ThreadTypes.objects.filter(parent_id=pthread_type.id).order_by("display_order")
                 for cthread_type in cthread_types:
@@ -157,6 +158,7 @@ class ArchivesIndex(object):
                     self.bymonth_dict[str(year.year)].append(str(date.month))
     def has_nextyear(self,year):
         yearlist = [ykey for ykey in self.bymonth_dict]
+        yearlist.sort()
         ylen = len(yearlist)
         if year in yearlist and ylen > yearlist.index(year)+1:
             return yearlist[yearlist.index(year)+1]
@@ -164,6 +166,7 @@ class ArchivesIndex(object):
             return False
     def has_preyear(self,year):
         yearlist = [ykey for ykey in self.bymonth_dict]
+        yearlist.sort()
         if year in yearlist and yearlist.index(year) > 0:
             return yearlist[yearlist.index(year)-1]
         else:
@@ -177,8 +180,7 @@ class ArchivesIndex(object):
             return False
     def has_premonth(self,year,month):
         monthlist = self.bymonth_dict.get(year)
-        mlen = len(yearlist)
-        if month in monthlist and mlen > monthlist.index(month):
+        if month in monthlist and monthlist.index(month) > 0:
             return monthlist[monthlist.index(month)-1]
         else:
             return False
@@ -210,7 +212,7 @@ class ArchivesIndex(object):
             else:
                 pre_year = self.has_preyear(year)
                 if pre_year:
-                    self.pre = {'year':next_year,'month':self.bymonth_dict.get(next_year)[-1]}
+                    self.pre = {'year':pre_year,'month':self.bymonth_dict.get(pre_year)[-1]}
                     return True
                 else:
                     return False
