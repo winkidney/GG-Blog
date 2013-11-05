@@ -134,6 +134,8 @@ class PostSummary(object):
         if len(result) > 300:
             result = result[0:300]
         return result
+    def get_first_img(self):
+        pass
 class ArchivesIndex(object):
     """Get a index of archives group by publish date.
     use  __init__(self,year=None, month=None,type="bymonth").
@@ -218,6 +220,7 @@ class ArchivesIndex(object):
         pass
         
 class PageBtnGenerator(object):
+    """generate page buttons from the given current page number"""
     def __init__(self,current_page):
         self.cur_btn = int(current_page)
         self.cur_btns = []
@@ -242,9 +245,12 @@ class PageBtnGenerator(object):
             self.next = cur_page+1
         else:
             self.next = None
-                
             
-            
+class FivePosts(object):                
+    def __init__(self):
+        pass
+    def lasted(self):
+        pass
             
                       
         

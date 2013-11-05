@@ -167,10 +167,7 @@ def archives_view(request,year=None,month=None):
     else:
         raise Http404
 def test_view(request):
-    a = ArchivesIndex()
-    if a.has_next(2012,3):
-        result = a.next['year'] + '' +a.next['month']
-    return HttpResponse(result)
+    return HttpResponse('test')
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
