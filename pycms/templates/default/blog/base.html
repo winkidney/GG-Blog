@@ -1,0 +1,441 @@
+<!doctype html>
+<html  lang="zh-CN">
+<head>
+	<title>
+		{% block title %}{{ basic_info.blog_settings.page_title }}{% endblock %}
+	</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<!--jquery-ui-->
+		<link href="{{ basic_info.static_root }}/blog/share/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script-->
+		<script src="{{ basic_info.static_root }}/blog/share/jquery/js/jquery-1.9.1.js"></script>
+		<script src="{{ basic_info.static_root }}/blog/share/jquery/js/jquery-ui-1.10.3.custom.js"></script>
+	<!--juery-ui end-->
+	<!--img box start-->
+		<link rel="stylesheet" href="{{ basic_info.static_root }}/blog/share/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="{{ basic_info.static_root }}/blog/share/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+	<!--img box end-->
+	<!--ueditor synatx highlight-->
+	<script type="text/javascript" src="{{ basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
+	<link rel="stylesheet" href="{{ basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+	<!--ueditor synatx highlight end-->
+	<!--template own-->
+	<link rel="stylesheet" type="text/css" href="{{ basic_info.template_root }}/files/nav.css">
+	<link rel="stylesheet" type="text/css" href="{{ basic_info.template_root }}/files/style.css">
+	<!--template own end-->	
+</head>
+
+<body>
+<div id="boxed">
+	
+	<div id="topBar">
+		<div class="container">
+			<div class="contactMsg">
+				<p>
+					<a><img class="icon" src="{{ basic_info.template_root }}/img/main/icon/qq_white.png"/>QQ：584532559</a>
+					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ basic_info.template_root }}/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
+				</p>
+			</div>
+			<div class="topSocial">
+				<p>
+					<a title="Rss尚未开通" href="#" class="socialIcon" id="rssIcon"></a>
+					<a title="Google+" href="https://plus.google.com/107141107603449735107/posts" target="_blank" class="socialIcon" id="googlePlusIcon"></a>
+					<a title="QQ空间" href="http://user.qzone.qq.com/584532559" target="_blank" class="socialIcon" id="qZoneIcon"></a>
+					<a title="My Github" href="https://github.com/winkidney"  target="_blank" class="socialIcon" id="githubIcon"></a>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div><!--endcontainer-->
+
+	</div><!--end topBar-->
+	
+	<div id="headerSection">
+		
+		<div class="container">
+			<div id="logo">
+				<a href="{{ basic_info.blog_settings.homepage_url }}"><p>{{ basic_info.blog_settings.logo_txt1 }}{{ basic_info.blog_settings.logo_txt2 }}</p></a>
+			</div>
+            <div id="navBar">
+                    <ul>
+                        <li class="link"><a  class="main_menu" href="{{ basic_info.blog.homepage_url }}">主页</a></li>
+                        {% for menu in header_menu.ttypes_display %}
+                        <li>
+                            <span class="Darrow"></span>
+                            <a class="main_menu" href="{{ menu.link }}">{{ menu.parent.name }}</a>
+                            <ul>
+                                {% for child in menu.children %}
+                                <li class="submenu"><a href="{{ child.link }}">{{ child.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        <li class="link"><a  class="main_menu" href="#postComments">给我留言</a></li>
+                        <li class="link"><a  class="main_menu" href="about/">关于</a></li>
+                    </ul>
+            </div><!--end navBar-->
+			
+			
+			<div class="clear"></div>
+		</div><!--end container-->
+	</div><!--end headerSection-->
+
+	<div id="mainContent">
+		<div class="cotainer">
+			{% block archive_nav %}{% endblock %}
+			<div id="emptyPageTitle"></div>
+			<div id="leftContent">
+				{% block left_content %}
+				{% for post_summary in post_summarys %}
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">{{ post_summary.pub_date_mixed.month }}</span>
+							<span class="postDay">{{ post_summary.pub_date_mixed.day }}</span>
+							<span class="postYear">{{ post_summary.pub_date_mixed.year }}</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">{{ post_summary.title }}{% if post_summary.short_title %}--{{ post_summary.short_title }}{% endif %}</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>{{ post_summary.authorname }}</li>
+							<li class="postTags"><span class="icon postTags"></span>
+								{% for tag in post_summary.tags %}
+									<a href="{{ basic_info.blog_root_url }}/tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+								{% endfor %}
+							</li>
+							<li class="commentCount"><span class="icon postComments"></span>{{ post_summary.comment_count }}次吐槽</li>
+							<li class="edit">
+								{% if basic_info.show_edit %}
+									<a href="{{ basic_info.blog_root_url }}/manage/edit/{{ post_summary.article_id }}/">编辑</a>
+								{% endif %}
+							</li>
+						</ul>
+						<div class="mainPostContents">
+								<p>{{ post_summary.summary }}</p>
+								<a class="readMore" href="{{ basic_info.blog_root_url }}/articles/{{ post_summary.article_id }}/"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				{% endfor %}
+				{% endblock %}
+				{% block main_pagination %}
+				<div class="mainPagination">
+					<div class="pagesNambers">
+						<div class="pagination">
+						{% for btn in pagination.cur_btns %}
+							{% if btn == pagination.cur_btn %}
+							<span class="current_page ">{{ btn }}</span>
+							{% else %}
+							<a href="{{ basic_info.blog_page_url }}/{{ btn }}" class="pageBtn">{{ btn }}</a>
+							{% endif %}
+						{% endfor %}
+						</div>
+					</div><!--end pagesNumbers-->
+					{% if pagination.next %}
+					<div class="paginationLinks">
+						<a href="{{ basic_info.blog_page_url }}/{{ pagination.next }}" class="nextPage blackToWhiteBtn" >&gt;</a>
+					</div><!--end PaginationLinks-->
+					{% endif %}
+				</div><!--end mainPagination-->
+				{% endblock %}
+			</div><!--end maintContainer  leftContent-->
+			
+			
+			<div id="rightContent">
+				{% if not user_info.logined %}
+				<div id="user_login_div">
+					<form id="login_form" method="post" action="{{ basic_info.login_url }}/">
+						{% csrf_token %}
+						<input type="text" name="username" id="username" placeholder="用户名"></input>
+						<input type="password" name="password" id="pwd" placeholder="密码"  ></input>
+						<button class="loginBtn lightBtn btn buttonShadow" name="submit" type="submit">登陆</button>
+						<label id="remeberme" for="remeberme">
+							<input  type="checkbox" value="forever" checked="" name="remeberme">记住我</input>                                                                                                                                                                                                                                                              
+						</label>
+					</form><!--end form-->
+					<ul id="login-links">
+						<li><a href="#" >忘记密码？</a></li>
+						<li><a href="#" >注册</a></li>
+						<li class="clear"></li>
+					</ul>
+				</div><!--end user_login_div-->
+				{% endif %}
+				{% block last_recent_post %}
+				<h4 class="widget">最新作品</h4>
+				<div id="lastRecentPost">
+					<article class="recentPost">
+						<div class="projectItem">
+							<img title="文学少女" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+							<div class="projectInfo">
+								<div class="projectInfoData">
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="prjectMore lightBtn btn buttonShadow" href="#" >察看详细</a>
+								</div>
+							</div>
+						</div>
+						<div class="projectDetails">
+							<h5 class="projectTitle">
+								<a href="#">文学少女图片示例</a>
+							</h5><!--end projectTitle-->
+							<div class="projectMeta">
+								<span class="projectDate">7月，07,2013</span>
+								<span class="projectLike"></span>
+							</div><!--end projectMeta-->
+						</div>
+					</article><!--end an recentPost article-->
+					
+					<article class="recentPost">
+						<div class="projectItem">
+							<img title="文学少女" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+							<div class="projectInfo">
+								<div class="projectInfoData">
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="prjectMore lightBtn btn buttonShadow" href="#">察看详细</a>
+								</div>
+							</div>
+						</div>
+						<div class="projectDetails">
+							<h5 class="projectTitle">
+								<a href="#">文学少女图片示例</a>
+							</h5><!--end projectTitle-->
+							<div class="projectMeta">
+								<span class="projectDate">7月，07,2013</span>
+								<span class="projectLike"></span>
+							</div><!--end projectMeta-->
+						</div>
+					</article><!--end an recentPost article-->
+					
+				</div><!--end lastRecentPost-->
+				{% endblock %}
+				{% block nav_tabs %}
+				<div id="navTabs">
+					<ul>
+						<li><a href="#navTabs-1">最热</a></li>
+						<li><a href="#navTabs-2">最新</a></li>
+						<li><a href="#navTabs-3">评论</a></li>
+						<li><a href="#navTabs-4">标签</a></li>
+					</ul>
+					<div id="navTabs-1" class="navTabsClass tabsPosts">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`图片示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最热`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+						
+					</div><!--end navTabs-1-->
+					<div id="navTabs-2" class="navTabsClass tabsPosts">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">最新`示例文章</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+					</div><!--end navTabs-2-->
+					<div id="navTabs-3" class="navTabsClass tabsComments">
+						<ul>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li><li>
+								<div class="tabsPostThumb">
+									<img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
+								</div>
+								<div class="tabsPostDetail">
+									<a href="#">评论`示例</a>
+									<p>2013年08月31日</p>
+								</div>
+							</li>
+							<li class="clear"></li>
+						</ul>
+					</div><!--end navTabs-3-->
+					<div id="navTabs-4" class="navTabsClass tabsTags">
+						<ul> 
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+							<li><a href="#">生活</a></li>
+							<li><a href="#">娱乐</a></li>
+							<li><a href="#">python</a></li>
+							<li><a href="#">web开发的长标签</a></li>
+							<li><a href="#">散文随笔</a></li>
+						</ul>
+					</div><!--end navTabs-4-->
+					
+				</div><!--end div navTabs-->
+				{% endblock %}
+			</div><!--end maintContainer  rightContent-->
+			<div class="clear"></div>
+		</div>
+	</div><!--end mainContainer-->
+	
+	<div id="footer">
+		<div id="infoCollection">
+			<div id="tellMe">
+				{% block tell_me %}
+				<p>给我留言</p>
+				<form method="post" action="#" id="postComments">
+					<input type="text" id="fname" name="fname" class="text" placeholder="尊姓大名（必填）"/>
+					<input type="email" id="femail" name="femail" class="text" placeholder="Email(方便回复通知)"/>
+					<input type="text" id="fwebsite" name="fwebsite" class="text" placeholder="你的主页（选填）"/>
+					<textarea type="text" id="fmessage" name="fmessage" placeholder="留言内容" rows="8" cols="50"></textarea>
+					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="发表留言" />
+				</form><!--end form comments-->
+				{% endblock %}
+			</div>
+			<div id="footerSideBar">
+				<div class="aboutMe">
+					<p>关于阿毛</p>
+					<p>阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发</p>
+				</div>
+				<div class="friendsLinks">
+					<p>友情链接</p>
+					<ul>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
+						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>						
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div><!--end div infoCollection-->
+		<div class="clear"></div>
+		<div id="copyright">
+			<p>GG-Blog Powered by 
+			<a href="http://www.python.org"><img alt="Python" src="{{ basic_info.template_root }}/img/main/icon/logo_python_white.png"></a>
+			&amp;
+			<a href="http://www.djangoproject.com"><img alt="Django" src="{{ basic_info.template_root }}/img/main/icon/logo_django_white.png"></a> winkidney 2013&copy;</p>
+		</div>
+	</div><!--end div footer-->
+</div><!--end div boxed-->
+
+
+<script type="text/javascript" charset="utf-8">
+//img box start
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto(
+		{
+			allow_resize:true,
+			social_tools:false
+		}
+    );
+  });
+//img box end
+$(function() {
+$( "#navTabs" ).tabs();
+});
+SyntaxHighlighter.all(); //执行代码高亮   
+
+</script>
+</body>
+</html>

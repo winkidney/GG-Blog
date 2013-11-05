@@ -1,0 +1,116 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ a_post.post.title }} | 阅读页面 | {{ basic_info.blog_settings.site_name }}{% endblock %}
+{% block js %}
+<script type="text/javascript" charset="utf-8" src="{{ basic_info.template_root }}/js/resize-img.js"></script>
+{% endblock %}
+{% block left_content %}
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">{{ a_post.post.pub_date_mixed.month }}</span>
+							<span class="postDay">{{ a_post.post.pub_date_mixed.day }}</span>
+							<span class="postYear">{{ a_post.post.pub_date_mixed.year }}</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">{{ a_post.post.title }}{% if a_post.post.short_title %}--{{ a_post.post.short_title }}{% endif %}</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>{{ a_post.post.authorname }}</li>
+							<li class="postTags"><span class="icon postTags"></span>
+								{% for tag in a_post.post.tags %}
+									<a href="{{ basic_info.blog_root_url }}tags/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+								{% endfor %}
+							</li>
+							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
+							<li class="edit">
+								{% if basic_info.show_edit %}
+									<a href="{{ basic_info.blog_root_url }}manage/edit/{{ article_id }}/">编辑</a>
+								{% endif %}
+							</li>
+						</ul>
+						<div class="mainPostContents">
+							{% autoescape off %} 
+								{{ a_post.post.content }}
+							{% endautoescape %}
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				
+				
+				<article class="commentsBlock">
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon comments"></i>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">评论列表 | 玻璃齿轮</a>
+						</h1>
+						
+						<div class="mainPostContents">
+							<ul class="commentsList">
+							{% if a_post.post.comments %}
+								{% for comment in a_post.post.comments %}
+								<li>
+									<div class="comment-avatar" ><img src="{{ basic_info.static_root }}/blog/img/main/posticon/glassgear.png"></div>
+									<div class="comment-content">
+										<div class="comment-header">
+											<a href="#">{{ comment.author }}</a>
+										</div>
+										<div class="comment-body">
+											<p>{{ comment.content }}</p>
+										</div>
+										<div class="comment-function">
+											<span class="comment-date">{{ comment.date.month }}月{{ comment.date.day }}日 {{ comment.date.year }}</span>
+											<a href="#"><span class="replyIcon"></span>回复</a>
+										</div>
+									</div>
+								</li>
+								{% endfor %}
+							{% endif %}
+							</ul><!--end ul commentList-->
+						</div><!--end mainPostContents-->
+						
+					</div><!--end  postContent-->
+				</article><!--end article postCommentlist-->
+				
+				<div class="mainPagination paginationArticle">
+					{% if a_post.pre_post %}
+						<a href="{{ basic_info.articles_url }}{{ a_post.pre_post.id }}" class="previousPage blackToWhiteBtn" >&lt;</a>
+					{% endif %}
+					{% if a_post.next_post %}
+						<a href="{{ basic_info.articles_url }}{{ a_post.next_post.id }}" class="nextPage blackToWhiteBtn" >&gt;</a>
+					{% endif %}
+				</div><!--end mainPagination-->
+{% endblock %}
+{% block main_pagination %}{% endblock %}
+{% block tell_me %}
+				<h2>发表评论</h2>
+				<form method="post" action="" id="postComments">
+				{% csrf_token %}
+					<input type="hidden" name="next" value="{{ basic_info.path }}" ></input>
+					{% if comment_form.r_username.errors %}{{ comment_form.r_username.errors }}{% endif %}
+					<input type="text" id="fname" name="r_username" class="text" placeholder="尊姓大名（必填）"/>
+					{% if comment_form.r_email.errors %}{{comment_form.r_email.errors }}{% endif %}
+					<input type="email" id="femail" name="r_email" class="text" placeholder="Email(必填，方便回复通知)"/>
+					{% if comment_form.r_website.errors %}{{ comment_form.r_website.errors }}{% endif %}
+					<input type="text" id="fwebsite" name="r_website" class="text" placeholder="你的主页（选填）"/>
+					{% if comment_form.r_message.errors %}{{ comment_form.r_message.errors }}{% endif %}
+					<textarea type="text" id="fmessage" name="r_message" placeholder="留言内容" rows="8" cols="50"></textarea>
+					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="教练，我要吐槽！" />
+				</form><!--end form comments-->
+
+{% endblock %}
+

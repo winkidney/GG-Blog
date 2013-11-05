@@ -31,12 +31,13 @@ class BasicInfo(object):
                 self.blog_settings[key.variable] = key.value
         except :
             print ('read '+str(BasicSettings)+'error')
-        self.login_url = settings.BLOG_ROOT_URL+'login/'
-        self.static_root = settings.BLOG_STATIC_URL+'/'
-        self.blog_root_url = settings.BLOG_ROOT_URL+'/'
-        self.blog_page_url = self.blog_root_url+'page/'
+        self.login_url = settings.BLOG_LOGIN_URL
+        self.static_root = settings.BLOG_STATIC_URL
+        self.blog_root_url = settings.BLOG_ROOT_URL
+        self.blog_page_url = settings.BLOG_PAGE_URL
+        self.template_root = settings.CUR_TEMPLATE_URL
         self.path = request.path
-        self.articles_url = settings.BLOG_ARTICLES_URL+'/'
+        self.articles_url = settings.BLOG_ARTICLES_URL
         if settings.DEBUG:
             self.show_edit = True
 class APost(object):

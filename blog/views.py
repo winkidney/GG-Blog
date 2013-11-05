@@ -16,7 +16,7 @@ from pycms import settings
 from blog.data import UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex
 from tools.tools import timeit
 
-blog_login_url = settings.BLOG_LOGIN_URL
+blog_login_url = settings.BLOG_LOGIN_URL+'/'
 login_html = settings.LOGIN_TEMPLATE
 
 
@@ -67,6 +67,8 @@ def logined(request):
             return False
     else:
             return True    
+        
+        
 def home_view(request,page=1):
     from blog.data import PageBtnGenerator
     user_info = UserInfo(request)
@@ -84,11 +86,11 @@ def home_view(request,page=1):
 
     
 def login_view(request):
-    site_name = BasicSettings.objects.get(variable='site_name').value
+    basic_info = BasicInfo(request)
     remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
-    if request.user.is_authenticated():
+    if logined(request):
         remind = {'info':'您必须先退出登陆 ^_^',
                   'button_name':'退出登陆',
                   'url_to':settings.BLOG_ROOT_URL+'logout/'}
@@ -108,18 +110,14 @@ def login_view(request):
                     login(request, user)
                     remind = {'info':'登陆成功，正在为您跳转到主页','url_to':'../'}
                     return render_to_response('blog/login/auto_jump.html',locals())
-                    #return HttpResponseRedirect("/account/loggedin/")
-                    # Redirect to a success page.
                 else:
-                    # Return a 'disabled account' error message
                     errors = 'user is inactive '    
             else:
-                # Return an 'invalid login' error message.
                 errors = "Your username and password didn't match. Please try again."
-            return render_to_response(login_html,{'errors':errors,'site_name':site_name},context_instance=RequestContext(request)) 
+            return render_to_response(login_html,locals(),context_instance=RequestContext(request)) 
 @login_required(login_url=blog_login_url)
 def logout_view(request):
-    site_name = u'玻璃齿轮工作室'
+    basic_info = BasicInfo(request)
     logout(request)
     # Redirect to a success page.
     remind = {'info':u'注销成功，正在为您跳转到主页','url_to':'../'}

@@ -2,6 +2,37 @@
 #seetings of pycms
 # Django settings for pycms project.
 import os
+################全局静态设置by kidney######################
+
+#多说评论设置
+#DUOSHUO_SECRET = '你的多说secret'
+#DUOSHUO_SHORT_NAME = '你的多说short name'
+
+#全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
+#统一了路径和url风格为"/****"，前面有'/'后面不带'/'，和django默认url风格相反
+MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static').replace('\\','/')
+MY_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload').replace('\\','/')
+MY_MEDIA_URL = '/static/upload'
+#blog_seetings（blog所用到的固定设置，安装相关）
+BLOG_ROOT_URL = '/blog'
+GLOBA_STATIC_URL = '/static'
+BLOG_STATIC_URL = GLOBA_STATIC_URL
+BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'/share/myadmin'
+BLOG_LOGIN_URL = BLOG_ROOT_URL+'/login'
+BLOG_ARTICLES_URL = BLOG_ROOT_URL+'/articles'
+ARCHIVES_PER_PAGE = 10
+BLOG_PAGE_URL = BLOG_ROOT_URL+'/page'
+#模板相关
+TEMPLATE_ROOT_URL = BLOG_STATIC_URL+'/blog/front-template'
+CUR_TEMPLATE_NAME = 'default'
+CUR_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/')+'/'+CUR_TEMPLATE_NAME
+CUR_TEMPLATE_URL = TEMPLATE_ROOT_URL+'/'+CUR_TEMPLATE_NAME
+#稍微有点问题的模板路径设置，后面改
+LOGIN_TEMPLATE = 'blog/login/login_django.html'
+
+###################全局静态设置完毕##########################
+
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -53,7 +84,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 #MEDIA_ROOT = '/home/www/static/upload/'
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload/').replace('\\','/')
+MEDIA_ROOT = MY_STATIC_ROOT+'/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -69,11 +100,11 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = GLOBA_STATIC_URL+'/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-                    os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/'),
+                    MY_STATIC_ROOT+'/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -114,7 +145,7 @@ ROOT_URLCONF = 'pycms.urls'
 WSGI_APPLICATION = 'pycms.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+    CUR_TEMPLATE_DIR,
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -138,25 +169,7 @@ INSTALLED_APPS = (
     #the 富文本编辑器
     #'tinymce',
 )
-#多说评论设置
-#DUOSHUO_SECRET = '你的多说secret'
-#DUOSHUO_SHORT_NAME = '你的多说short name'
 
-#全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
-#统一了url风格为"/****"，前面有'/'后面不带'/'，和django默认url风格相反
-MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/')
-MY_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload/').replace('\\','/')
-MY_MEDIA_URL = '/static/upload'
-#blog_seetings（blog所用到的固定设置，安装相关）
-BLOG_ROOT_URL = '/blog'
-GLOBA_STATIC_URL = '/static'
-BLOG_STATIC_URL = GLOBA_STATIC_URL
-BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'/share/myadmin'
-BLOG_LOGIN_URL = BLOG_ROOT_URL+'/login'
-BLOG_ARTICLES_URL = BLOG_ROOT_URL+'/articles'
-ARCHIVES_PER_PAGE = 10
-#模板相关
-LOGIN_TEMPLATE = 'blog/login/login_django.html'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
