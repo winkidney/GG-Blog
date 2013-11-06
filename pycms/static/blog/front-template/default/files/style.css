@@ -815,7 +815,28 @@ ul.errorlist {
 #archive_nav p{
 	padding:0 3px;
 	float:left;
+	font-size:13px;
 }
 #archive_nav a{
+	color:rgb(68, 124, 87);
+}
+/*导航栏补充完毕*/
+/*补充的archives_index归档style*/
+.archive-year p{
+	position:absolute;
+	top: 30%;
+	text-align:center;
+	width: 100%;
+	color:#FFFFFF;
+}
+.archive-index ul{
+	padding:0 0 0 80px;
+	margin:0;
+}
+.archive-index li{
+	width:25%;
+	float:left;
+}
+.archive-index li a{
 	color:rgb(68, 124, 87);
 }

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from blog.forms import ReplyForm
 from django.core.exceptions import ObjectDoesNotExist
 
+
 class UserInfo(object):
     """
     Usage: userinfo(HttpRequest)
@@ -140,6 +141,11 @@ class PostSummary(object):
         return result
     def get_first_img(self):
         pass
+    
+class Year(object):
+    def __init__(self,year,months):
+        self.name = year
+        self.moths = months
 class ArchivesIndex(object):
     """Get a index of archives group by publish date.
     use  __init__(self,year=None, month=None,type="bymonth").
@@ -155,11 +161,16 @@ class ArchivesIndex(object):
         self.bymonth_dict = {}
         months = Posts.objects.dates("publish_date","month")    #return a year_mounth list order by month
         years = Posts.objects.dates("publish_date","year")    #return a year list(datetime object) order by year
+        self.yearlist = []
+        
         for year in years:
+            self.yearlist.append(str(year.year))
             self.bymonth_dict[str(year.year)] = []
             for date in months:
                 if date.year == year.year:
                     self.bymonth_dict[str(year.year)].append(str(date.month))
+        self.yearlist.reverse()
+
     def has_nextyear(self,year):
         yearlist = [ykey for ykey in self.bymonth_dict]
         yearlist.sort()

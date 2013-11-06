@@ -20,12 +20,15 @@ blog_login_url = settings.BLOG_LOGIN_URL+'/'
 login_html = settings.LOGIN_TEMPLATE
 
 
-def get_page_summarys(page_num):
+def get_page_summarys(page_num,displayall):
     """get summarys list by page number.porvide to home page to display 
     articles summary,every page include 10 articles.costs 0.02s whth 10,000 record"""
     page_num = int(page_num)
     post_summarys = []
-    posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
+    if displayall:
+        posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
+    else:
+        posts = Posts.objects.filter(status=2).order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
     if posts:
         for post in posts:
             post_summarys.append(PostSummary(post))
@@ -53,7 +56,7 @@ def get_time_summarys(year,month):
         year = int(year)
         month = int(month)
         year_month_archives = [] 
-        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month)
+        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month,)
         if posts:
             for post in posts:
                 year_month_archives.append(PostSummary(post))
@@ -64,9 +67,9 @@ def get_time_summarys(year,month):
         return False
 def logined(request):
     if request.user.is_authenticated():
-            return False
+            return True
     else:
-            return True    
+            return False    
         
         
 def home_view(request,page=1):
@@ -74,7 +77,10 @@ def home_view(request,page=1):
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()
-    post_summarys = get_page_summarys(page)
+    if logined(request):
+        post_summarys = get_page_summarys(page,True)
+    else:
+        post_summarys = get_page_summarys(page,False)
     pagination = PageBtnGenerator(page)
     if post_summarys:
         return render_to_response('blog/base.html',
@@ -93,13 +99,15 @@ def login_view(request):
     if logined(request):
         remind = {'info':'您必须先退出登陆 ^_^',
                   'button_name':'退出登陆',
-                  'url_to':settings.BLOG_ROOT_URL+'logout/'}
+                  'url_to':settings.BLOG_ROOT_URL+'/logout'}
         return render_to_response('blog/login/remind.html',locals())
     #用户未登陆，转入登陆页面
     else:
         if request.method == 'GET':
                 #这里不这么写居然无法登陆，记下来作为教训吧= =(后来查明原因，是因为不使用RequestContext的话，csrf标签不会被正确处理
-            return render_to_response(login_html,{'site_name':site_name},context_instance=RequestContext(request)) 
+            return render_to_response(login_html,
+                                      locals()
+                                      ,context_instance=RequestContext(request)) 
         #用同一个url处理用户的登陆表单
         elif request.method == 'POST':
             username = request.POST.get('username')
@@ -139,8 +147,10 @@ def articles_view(request,article_id):
         # 检查文章状态是否为已发布
         if a_post.post['status'].id == 2:
             return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
+        elif a_post.post['status'].id == 3 and logined(request):
+            return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
         else:
-            return HttpResponse(u'文章已被删除')
+            raise Http404
     elif request.method == 'POST':
         if user_info.logined:
             return HttpResponse(u'你是作者，评论个毛！')
@@ -167,6 +177,14 @@ def archives_view(request,year=None,month=None):
                                   context_instance=RequestContext(request))
     else:
         raise Http404
+def archives_index_view(request):
+    user_info = UserInfo(request)
+    basic_info = BasicInfo(request)
+    header_menu = HeaderMenu()
+    archives_index = ArchivesIndex()
+    return render_to_response('blog/archives_index.html',
+                              locals(),
+                              context_instance=RequestContext(request))
 def test_view(request):
     return HttpResponse('test')
 #登陆要求的包装函数

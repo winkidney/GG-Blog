@@ -1,8 +1,8 @@
 {% extends "blog/base.html" %}
+{% block title %}{{ archives_index.year }}年{{ archives_index.month }}月 | 博文归档 | {{ basic_info.blog_settings.page_title }}{% endblock %}
 {% block archive_nav %}
 	<p>您目前的位置</p><a class="main_menu" href="{{ basic_info.blog_archives_url }}">&gt;归档</a>
-	<a class="main_menu" href="" >&gt;{{ archives_index.year }}</a>
-	<a class="main_meun" href="" >&gt;{{ archives_index.month }}</a>
+	<a class="main_menu" href="{{ basic_info.blog_archives_url }}/{{ archives_index.year }}/{{ archives_index.month }}/" >&gt;{{ archives_index.year }}.{{ archives_index.month }}</a>
 {% endblock %}
 {% block left_content %}
 				{% for post_summary in post_summarys %}

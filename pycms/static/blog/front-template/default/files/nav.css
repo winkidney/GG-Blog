@@ -74,9 +74,9 @@ div#navBar li.submenu{
 div#navBar li.submenu a{
 	text-shadow:none;
 	display:block;
-	padding:14px;
+	padding:5px 20px;
     text-decoration:none;
-    width:200px;
+    width:150px;
     color:rgb(204, 204, 204);
 }
 div#navBar li.submenu:hover{

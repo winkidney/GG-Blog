@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-cn"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>提示 | {{ site_name }} </title>
-<link rel="stylesheet" type="text/css" href="/static/blog/login/css/base.css">
-<link rel="stylesheet" type="text/css" href="/static/blog/login/css/login.css">
-<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/static/admin/css/ie.css" /><![endif]-->
+<title>提示 | {{ basic_info.blog_settings.site_name }} </title>
+<link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}/blog/login/css/base.css">
+<link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}/blog/login/css/login.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{{ basic_info.static_root }}/admin/css/ie.css" /><![endif]-->
 <meta name="robots" content="NONE,NOARCHIVE">
 </head>
 
@@ -18,7 +18,7 @@
     <div id="header">
         <div id="branding">
         
-<h1 id="site-name">{{ site_name }}-提示</h1>
+<h1 id="site-name">{{ basic_info.blog_settings.site_name }} 提示</h1>
 
         </div>
         
