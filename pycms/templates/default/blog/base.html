@@ -423,32 +423,7 @@
 	</div><!--end div footer-->
 </div><!--end div boxed-->
 
-
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function(){
-    $("article img").wrap('<a class="contentPhoto" rel="prettyPhoto"></a>')
-    //$("article a.contentPhoto").attr("href",appendLink);
-    var len = $('article a.contentPhoto img').length
-    for (var i=0; i < len ; i++){
-        $('article a.contentPhoto')[i].href = $('article a.contentPhoto img')[i].src
-    }
-
-});
-
-$(document).ready(function(){
-    //img box start
-    $("a[rel^='prettyPhoto']").prettyPhoto(
-		{
-			allow_resize:true,
-			social_tools:false
-		}
-    );
-    //img box end
-    $( "#navTabs" ).tabs();
-    //执行代码高亮   
-    SyntaxHighlighter.all();
-  });
-
+<script type="text/javascript" charset="utf-8" src="{{ basic_info.template_root }}/js/image-better.js"/>
 </script>
 </body>
 </html>
