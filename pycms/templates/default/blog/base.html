@@ -425,20 +425,29 @@
 
 
 <script type="text/javascript" charset="utf-8">
-//img box start
-  $(document).ready(function(){
+$(document).ready(function(){
+    $("article img").wrap('<a class="contentPhoto" rel="prettyPhoto"></a>')
+    //$("article a.contentPhoto").attr("href",appendLink);
+    var len = $('article a.contentPhoto img').length
+    for (var i=0; i < len ; i++){
+        $('article a.contentPhoto')[i].href = $('article a.contentPhoto img')[i].src
+    }
+
+});
+
+$(document).ready(function(){
+    //img box start
     $("a[rel^='prettyPhoto']").prettyPhoto(
 		{
 			allow_resize:true,
 			social_tools:false
 		}
     );
+    //img box end
+    $( "#navTabs" ).tabs();
+    //执行代码高亮   
+    SyntaxHighlighter.all();
   });
-//img box end
-$(function() {
-$( "#navTabs" ).tabs();
-});
-SyntaxHighlighter.all(); //执行代码高亮   
 
 </script>
 </body>

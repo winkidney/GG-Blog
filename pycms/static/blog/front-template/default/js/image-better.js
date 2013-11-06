@@ -22,3 +22,10 @@ function DrawImage(ImgD,iwidth,iheight){
       }    
     }    
 }   
+$("article img").wrap('<a class="contentPhoto" rel="prettyPhoto"></a>')
+//$("article a.contentPhoto").attr("href",appendLink);
+var len = $('article a.contentPhoto img').length
+for (var i=0;i<len;i++){
+    $('article a.contentPhoto')[i].href = $('article a.contentPhoto img')[i].src
+}
+

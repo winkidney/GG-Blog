@@ -35,7 +35,7 @@ class ThreadTypes(models.Model):
     status = models.CharField(max_length=20,blank=True,verbose_name=u'分类状态')
     parent_id = models.IntegerField(verbose_name=u"父分类id")
     def __unicode__(self):
-        return u"pid:%s ,id:%s,%s" % (self.parent_id,self.id,self.name)
+        return u"%s ,pid:%s,id:%s" % (self.name,self.parent_id,self.id)
     class Meta:
         ordering = ['parent_id','id','name']
 class Comments(models.Model):

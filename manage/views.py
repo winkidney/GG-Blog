@@ -54,7 +54,7 @@ def change_post(mfp_form, request):
         newpost.article.short_title = mfp_form.cleaned_data['short_title']     #缩略名
         newpost.article.cover = mfp_form.cleaned_data['cover_url']
         newpost.article.introduction = mfp_form.cleaned_data['introduction']
-        newpost.article.content = js_resize_img(mfp_form.cleaned_data['content'])
+        newpost.article.content = mfp_form.cleaned_data['content']
         newpost.article.status = Status.objects.get(id=2)        #id为2是已发布的文章，默认为已发布，后面再改
         tagids = mfp_form.cleaned_data['tags']
         if len(tagids) != 0:

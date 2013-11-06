@@ -147,7 +147,7 @@ def articles_view(request,article_id):
         # 检查文章状态是否为已发布
         if a_post.post['status'].id == 2:
             return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
-        elif a_post.post['status'].id == 3 and logined(request):
+        elif a_post.post['status'].id == 1 and logined(request):
             return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
         else:
             raise Http404
