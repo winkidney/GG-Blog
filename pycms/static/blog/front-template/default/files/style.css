@@ -475,7 +475,8 @@ h4.widget{
 	overflow:hidden;
 }
 
-.projectItem img{
+.projectItem img,
+div.lastRecentImg{
 	width: 370px;
 	height: 240px;
 }
@@ -580,6 +581,11 @@ div.navTabsClass>ul{
 		/*最热最新文章部分开始*/
 div.tabsPostThumb{
 	float:left;
+}
+div.ntabImg,
+div.ntabImg img{
+ width:75px;
+ height:65px;
 }
 div.navTabsClass li{
 	padding:1px 0;

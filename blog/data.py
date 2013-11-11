@@ -1,12 +1,12 @@
 #coding:utf8
 #classes used in views
-from blog.models import BasicSettings,Posts,ThreadTypes
+from blog.models import (BasicSettings,Posts,ThreadTypes,Comments)
 from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
 from django.core.exceptions import ObjectDoesNotExist
 import datetime
-
+import pyquery
 
 class UserInfo(object):
     """
@@ -113,9 +113,11 @@ class HeaderMenu(object):
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
+                
 class PostSummary(object):
     """Get a post summary by given post,if not exist,return False."""
     def __init__(self,post):
+        self.cover_link = self.get_first_img(post.content)
         self.title = post.title
         self.article_id = post.id
         self.link = settings.BLOG_ARTICLES_URL+'/'+str(self.article_id)
@@ -141,8 +143,13 @@ class PostSummary(object):
         if len(result) > 300:
             result = result[0:300]
         return result
-    def get_first_img(self):
-        pass
+    def get_first_img(self,post_content):
+        p = pyquery.PyQuery(post_content)
+        src = p("img").attr("src")
+        if src:
+            return src
+        else:
+            return None
     
 
 class ArchivesIndex(object):
@@ -324,7 +331,14 @@ class PostsGetter(object):
                 post_summarys.append(PostSummary(post))
             self.hotest = post_summarys
 
-class GetComments():      
+class CommentsGetter(object):
+    num = 5
+    lastest = []      
     def __init__(self):
-        pass                
+        pass
+    def get_lastest(self,num=None):
+        if not num:
+            num = self.num
+        self.lastest = Comments.objects.order_by("-date")[:num]
+        
         
