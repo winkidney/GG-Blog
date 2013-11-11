@@ -5,6 +5,7 @@ from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
 from django.core.exceptions import ObjectDoesNotExist
+import datetime
 
 
 class UserInfo(object):
@@ -117,6 +118,7 @@ class PostSummary(object):
     def __init__(self,post):
         self.title = post.title
         self.article_id = post.id
+        self.link = settings.BLOG_ARTICLES_URL+'/'+str(self.article_id)
         self.authorname = User.objects.get(id=post.authorid)
         self.pub_date = post.publish_date
         self.pub_date_mixed = {'year':(str(post.publish_date.year)),
@@ -142,10 +144,7 @@ class PostSummary(object):
     def get_first_img(self):
         pass
     
-class Year(object):
-    def __init__(self,year,months):
-        self.name = year
-        self.moths = months
+
 class ArchivesIndex(object):
     """Get a index of archives group by publish date.
     use  __init__(self,year=None, month=None,type="bymonth").
@@ -236,7 +235,24 @@ class ArchivesIndex(object):
         pass
     def by_day(self):
         pass
-        
+    
+def get_time_summarys(year,month):
+    """get articles summarys group by year_month.
+    return a list of PostSummary object.if not exist ,return False"""
+    if year and month:
+        year = int(year)
+        month = int(month)
+        year_month_archives = [] 
+        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month,)
+        if posts:
+            for post in posts:
+                year_month_archives.append(PostSummary(post))
+            return year_month_archives
+        else:
+            return False
+    else:
+        return False 
+           
 class PageBtnGenerator(object):
     """generate page buttons from the given current page number"""
     def __init__(self,current_page):
@@ -264,11 +280,51 @@ class PageBtnGenerator(object):
         else:
             self.next = None
             
-class FivePosts(object):                
+class PostsGetter(object):
+    days = 30
+    default_num = 5
+    default_days = 30
+    lastest = []
+    hotest = []              
     def __init__(self):
-        pass
-    def lasted(self):
-        pass
-            
-                      
+        self.get_hotest()
+        self.get_lastest()
+    def get_lastest(self,num=None,displayall=False):
+        from exceptions import ValueError
+        if not num:
+            num = self.default_num
+        """get summarys list by last.porvide to home page to display 
+        articles summary."""
+        post_summarys = []
+        if not displayall:
+            posts = Posts.objects.filter(status=2).order_by("-publish_date")[:num]
+        else:
+            posts = Posts.objects.order_by("-publish_date")[:num]
+        if posts:
+            for post in posts:
+                post_summarys.append(PostSummary(post))
+            self.lastest = post_summarys
+
+    def get_hotest(self, num=None, default_days=None, displayall=False):
+        """get summarys list by last.porvide to home page to display 
+        articles summary."""
+        if not num:
+            num = self.default_num
+        if not default_days:
+            default_days =  self.default_days
+        post_summarys = []
+        date_to = datetime.date.today()
+        date_from = date_to - datetime.timedelta(days=default_days)
+        if not displayall:
+            posts = Posts.objects.filter(publish_date__range=(date_from, date_to),status=2,).order_by("-comment_count")[:num]
+        else:
+            posts = Posts.objects.filter(publish_date__range=(date_from, date_to)).order_by("-comment_count")[:num]
+        if posts:
+            for post in posts:
+                post_summarys.append(PostSummary(post))
+            self.hotest = post_summarys
+
+class GetComments():      
+    def __init__(self):
+        pass                
         

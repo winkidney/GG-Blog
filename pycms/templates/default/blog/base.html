@@ -175,53 +175,37 @@
 					</ul>
 				</div><!--end user_login_div-->
 				{% endif %}
-				{% block last_recent_post %}
+			{% block last_recent_post %}
+				
 				<h4 class="widget">最新作品</h4>
 				<div id="lastRecentPost">
+				{% for post in posts_getter.lastest %}
+					{% if forloop.counter < 3 %}
 					<article class="recentPost">
 						<div class="projectItem">
 							<img title="文学少女" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
 							<div class="projectInfo">
 								<div class="projectInfoData">
 									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
-									<a class="prjectMore lightBtn btn buttonShadow" href="#" >察看详细</a>
+									<a class="prjectMore lightBtn btn buttonShadow" href="{{ post.link }}" >察看详细</a>
 								</div>
 							</div>
 						</div>
 						<div class="projectDetails">
 							<h5 class="projectTitle">
-								<a href="#">文学少女图片示例</a>
+								<a href="{{ post.link }}">{{ post.title }}</a>
 							</h5><!--end projectTitle-->
 							<div class="projectMeta">
-								<span class="projectDate">7月，07,2013</span>
+								<span class="projectDate">{{ post.pub_date.month }}月 {{ post.pub_date.day }} 日,{{ post.pub_date.year }}</span>
 								<span class="projectLike"></span>
 							</div><!--end projectMeta-->
 						</div>
 					</article><!--end an recentPost article-->
-					
-					<article class="recentPost">
-						<div class="projectItem">
-							<img title="文学少女" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" />
-							<div class="projectInfo">
-								<div class="projectInfoData">
-									<a class="ProjectZoom lightBtn btn buttonShadow" href="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
-									<a class="prjectMore lightBtn btn buttonShadow" href="#">察看详细</a>
-								</div>
-							</div>
-						</div>
-						<div class="projectDetails">
-							<h5 class="projectTitle">
-								<a href="#">文学少女图片示例</a>
-							</h5><!--end projectTitle-->
-							<div class="projectMeta">
-								<span class="projectDate">7月，07,2013</span>
-								<span class="projectLike"></span>
-							</div><!--end projectMeta-->
-						</div>
-					</article><!--end an recentPost article-->
+					{% endif %}
+				{% endfor %}
 					
 				</div><!--end lastRecentPost-->
-				{% endblock %}
+			{% endblock %}
 				{% block nav_tabs %}
 				<div id="navTabs">
 					<ul>

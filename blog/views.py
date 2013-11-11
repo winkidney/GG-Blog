@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex
+from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_time_summarys,PostsGetter)
 from tools.tools import timeit
 
 blog_login_url = settings.BLOG_LOGIN_URL+'/'
@@ -49,22 +49,7 @@ def get_page_summarysV2(page_num,num_per_page=10):
             post_summarys.append(PostSummary(post))
     return post_summarys
 
-def get_time_summarys(year,month):
-    """get articles summarys group by year_month.
-    return a list of PostSummary object.if not exist ,return False"""
-    if year and month:
-        year = int(year)
-        month = int(month)
-        year_month_archives = [] 
-        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month,)
-        if posts:
-            for post in posts:
-                year_month_archives.append(PostSummary(post))
-            return year_month_archives
-        else:
-            return False
-    else:
-        return False
+
 def logined(request):
     if request.user.is_authenticated():
             return True
@@ -74,6 +59,7 @@ def logined(request):
         
 def home_view(request,page=1):
     from blog.data import PageBtnGenerator
+    posts_getter = PostsGetter()
     user_info = UserInfo(request)
     basic_info = BasicInfo(request)
     header_menu = HeaderMenu()

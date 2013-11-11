@@ -13,7 +13,7 @@ $(document).ready(function(){
 				$(this).css("height", height);  // 设定等比例缩放后的高度
 			}
 		});
-		$("article img").wrap('<a class="contentPhoto" rel="prettyPhoto"></a>');
+		$("div#leftContent article img").wrap('<a class="contentPhoto" rel="prettyPhoto"></a>');
 		$("article a.contentPhoto img").each(function(){
 			$(this).parent().attr('href',$(this).attr('src'));
 		});
