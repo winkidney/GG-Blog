@@ -1,7 +1,7 @@
 {% extends "blog/base.html" %}
-{% block title %}{{ a_post.post.title }} | 阅读页面 | {{ basic_info.blog_settings.site_name }}{% endblock %}
+{% block title %}{{ a_post.post.title }} | 阅读页面 | {{ data.basic_info.blog_settings.site_name }}{% endblock %}
 {% block js %}
-<script type="text/javascript" charset="utf-8" src="{{ basic_info.template_root }}/js/resize-img.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/resize-img.js"></script>
 {% endblock %}
 {% block left_content %}
 				<article>
@@ -29,13 +29,13 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ a_post.post.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in a_post.post.tags %}
-									<a href="{{ basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ data.basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ a_post.post.comment_count }}次吐槽</li>
 							<li class="edit">
-								{% if basic_info.show_edit %}
-									<a href="{{ basic_info.blog_edit_url }}/{{ article_id }}/">编辑</a>
+								{% if data.basic_info.show_edit %}
+									<a href="{{ data.basic_info.blog_edit_url }}/{{ article_id }}/">编辑</a>
 								{% endif %}
 							</li>
 						</ul>
@@ -64,7 +64,7 @@
 							{% if a_post.post.comments %}
 								{% for comment in a_post.post.comments %}
 								<li>
-									<div class="comment-avatar" ><img src="{{ basic_info.template_url }}/blog/img/main/posticon/glassgear.png"></div>
+									<div class="comment-avatar" ><img src="{{ data.basic_info.template_url }}/blog/img/main/posticon/glassgear.png"></div>
 									<div class="comment-content">
 										<div class="comment-header">
 											<a href="#">{{ comment.author }}</a>
@@ -88,10 +88,10 @@
 				
 				<div class="mainPagination paginationArticle">
 					{% if a_post.pre_post %}
-						<a href="{{ basic_info.articles_url }}{{ a_post.pre_post.id }}" class="previousPage blackToWhiteBtn" >&lt;</a>
+						<a href="{{ data.basic_info.articles_url }}/{{ a_post.pre_post.id }}" class="previousPage blackToWhiteBtn" >&lt;</a>
 					{% endif %}
 					{% if a_post.next_post %}
-						<a href="{{ basic_info.articles_url }}{{ a_post.next_post.id }}" class="nextPage blackToWhiteBtn" >&gt;</a>
+						<a href="{{ data.basic_info.articles_url }}/{{ a_post.next_post.id }}" class="nextPage blackToWhiteBtn" >&gt;</a>
 					{% endif %}
 				</div><!--end mainPagination-->
 {% endblock %}
@@ -100,7 +100,7 @@
 				<h2>发表评论</h2>
 				<form method="post" action="" id="postComments">
 				{% csrf_token %}
-					<input type="hidden" name="next" value="{{ basic_info.path }}" ></input>
+					<input type="hidden" name="next" value="{{ data.basic_info.path }}" ></input>
 					{% if comment_form.r_username.errors %}{{ comment_form.r_username.errors }}{% endif %}
 					<input type="text" id="fname" name="r_username" class="text" placeholder="尊姓大名（必填）"/>
 					{% if comment_form.r_email.errors %}{{comment_form.r_email.errors }}{% endif %}

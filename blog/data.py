@@ -17,7 +17,7 @@ class UserInfo(object):
     """
     def __init__(self,request):
         if not request:
-            return False
+            return None
         if request.user.is_authenticated():
             self.logined = True
             self.name = request.user.username
@@ -261,7 +261,7 @@ def get_time_summarys(year,month):
         return False 
            
 class PageBtnGenerator(object):
-    """generate page buttons from the given current page number"""
+    """generate page buttons from the given current page number for home page"""
     def __init__(self,current_page):
         self.cur_btn = int(current_page)
         self.cur_btns = []

@@ -57,12 +57,13 @@ def logined(request):
             return False    
         
         
-def home_view(request,page=1):
+def home_view(request, args, data):
+    page = data.get('pagenum',1)
     from blog.data import PageBtnGenerator
-    posts_getter = PostsGetter()
-    user_info = UserInfo(request)
-    basic_info = BasicInfo(request)
-    header_menu = HeaderMenu()
+#     posts_getter = PostsGetter()
+#     user_info = UserInfo(request)
+#     basic_info = BasicInfo(request)
+#     header_menu = HeaderMenu()
     if logined(request):
         post_summarys = get_page_summarys(page,True)
     else:
@@ -77,8 +78,7 @@ def home_view(request,page=1):
     #return HttpResponse("error,check basic_info")
 
     
-def login_view(request):
-    basic_info = BasicInfo(request)
+def login_view(request, args, data):
     remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
@@ -110,8 +110,7 @@ def login_view(request):
                 errors = "Your username and password didn't match. Please try again."
             return render_to_response(login_html,locals(),context_instance=RequestContext(request)) 
 @login_required(login_url=blog_login_url)
-def logout_view(request):
-    basic_info = BasicInfo(request)
+def logout_view(request, args, data):
     logout(request)
     # Redirect to a success page.
     remind = {'info':u'注销成功，正在为您跳转到主页','url_to':'../'}
@@ -120,13 +119,10 @@ def logout_view(request):
 
 
 #阅读文章的函数
-def articles_view(request,article_id):
+def articles_view(request, args, data):
     """read articles inclued articles reader and 
     comment post function,if articles not found ,it raise a 404 error"""
-    user_info = UserInfo(request)
-    basic_info = BasicInfo(request)
-    header_menu = HeaderMenu()
-    a_post = APost(int(article_id))
+    a_post = APost(int(data.get('article_id',0)))
     if request.method == 'GET':
         if not a_post.exist:
             raise Http404

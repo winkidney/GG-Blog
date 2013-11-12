@@ -2,26 +2,26 @@
 <html  lang="zh-CN">
 <head>
 	<title>
-		{% block title %}{{ basic_info.blog_settings.page_title }}{% endblock %}
+		{% block title %}{{ data.basic_info.blog_settings.page_title }}{% endblock %}
 	</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<!--jquery-ui-->
-		<link href="{{ basic_info.static_root }}/blog/share/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+		<link href="{{ data.basic_info.static_root }}/blog/share/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
 		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script-->
-		<script src="{{ basic_info.static_root }}/blog/share/jquery/js/jquery-1.9.1.js"></script>
-		<script src="{{ basic_info.static_root }}/blog/share/jquery/js/jquery-ui-1.10.3.custom.js"></script>
+		<script src="{{ data.basic_info.static_root }}/blog/share/jquery/js/jquery-1.9.1.js"></script>
+		<script src="{{ data.basic_info.static_root }}/blog/share/jquery/js/jquery-ui-1.10.3.custom.js"></script>
 	<!--juery-ui end-->
 	<!--img box start-->
-		<link rel="stylesheet" href="{{ basic_info.static_root }}/blog/share/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-		<script src="{{ basic_info.static_root }}/blog/share/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="{{ data.basic_info.static_root }}/blog/share/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+		<script src="{{ data.basic_info.static_root }}/blog/share/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 	<!--img box end-->
 	<!--ueditor synatx highlight-->
-	<script type="text/javascript" src="{{ basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
-	<link rel="stylesheet" href="{{ basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+	<script type="text/javascript" src="{{ data.basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>   
+	<link rel="stylesheet" href="{{ data.basic_info.static_root }}/share/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
 	<!--ueditor synatx highlight end-->
 	<!--template own-->
-	<link rel="stylesheet" type="text/css" href="{{ basic_info.template_root }}/files/nav.css">
-	<link rel="stylesheet" type="text/css" href="{{ basic_info.template_root }}/files/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ data.basic_info.template_root }}/files/nav.css">
+	<link rel="stylesheet" type="text/css" href="{{ data.basic_info.template_root }}/files/style.css">
 	<!--template own end-->	
 </head>
 
@@ -32,8 +32,8 @@
 		<div class="container">
 			<div class="contactMsg">
 				<p>
-					<a><img class="icon" src="{{ basic_info.template_root }}/img/main/icon/qq_white.png"/>QQ：584532559</a>
-					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ basic_info.template_root }}/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
+					<a><img class="icon" src="{{ data.basic_info.template_root }}/img/main/icon/qq_white.png"/>QQ：584532559</a>
+					<a href="mailto:winkidney@gmail.com"><img class="icon" src="{{ data.basic_info.template_root }}/img/main/icon/mail.png" />邮箱：winkidney@gmail.com</a>
 				</p>
 			</div>
 			<div class="topSocial">
@@ -53,12 +53,12 @@
 		
 		<div class="container">
 			<div id="logo">
-				<a href="{{ basic_info.blog_root_url }}"><p>{{ basic_info.blog_settings.logo_txt1 }}{{ basic_info.blog_settings.logo_txt2 }}</p></a>
+				<a href="{{ data.basic_info.blog_root_url }}"><p>{{ data.basic_info.blog_settings.logo_txt1 }}{{ data.basic_info.blog_settings.logo_txt2 }}</p></a>
 			</div>
             <div id="navBar">
                     <ul>
-                        <li class="link"><a  class="main_menu" href="{{ basic_info.blog_root_url }}">主页</a></li>
-                        {% for menu in header_menu.ttypes_display %}
+                        <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_root_url }}">主页</a></li>
+                        {% for menu in data.header_menu.ttypes_display %}
                         <li>
                             <span class="Darrow"></span>
                             <a class="main_menu" href="{{ menu.link }}">{{ menu.parent.name }}</a>
@@ -69,7 +69,7 @@
                             </ul>
                         </li>
                         {% endfor %}
-                        <li class="link"><a  class="main_menu" href="{{ basic_info.blog_archives_url }}">归档</a></li>
+                        <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_archives_url }}">归档</a></li>
                         <li class="link"><a  class="main_menu" href="#postComments">给我留言</a></li>
                         <li class="link"><a  class="main_menu" href="about/">关于</a></li>
                     </ul>
@@ -115,19 +115,19 @@
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ post_summary.authorname }}</li>
 							<li class="postTags"><span class="icon postTags"></span>
 								{% for tag in post_summary.tags %}
-									<a href="{{ basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+									<a href="{{ data.basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
 								{% endfor %}
 							</li>
 							<li class="commentCount"><span class="icon postComments"></span>{{ post_summary.comment_count }}次吐槽</li>
 							<li class="edit">
-								{% if basic_info.show_edit %}
-									<a href="{{ basic_info.blog_edit_url }}/{{ post_summary.article_id }}/">编辑</a>
+								{% if data.basic_info.show_edit %}
+									<a href="{{ data.basic_info.blog_edit_url }}/{{ post_summary.article_id }}/">编辑</a>
 								{% endif %}
 							</li>
 						</ul>
 						<div class="mainPostContents">
 								<p>{{ post_summary.summary }}</p>
-								<a class="readMore" href="{{ basic_info.blog_root_url }}/articles/{{ post_summary.article_id }}/"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+								<a class="readMore" href="{{ data.basic_info.blog_root_url }}/articles/{{ post_summary.article_id }}/"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
 						</div><!--end mainPostContents-->
 					</div><!--end  postContent-->
 				</article><!--end article-->
@@ -141,14 +141,14 @@
 							{% if btn == pagination.cur_btn %}
 							<span class="current_page ">{{ btn }}</span>
 							{% else %}
-							<a href="{{ basic_info.blog_page_url }}/{{ btn }}/" class="pageBtn">{{ btn }}</a>
+							<a href="{{ data.basic_info.blog_page_url }}/{{ btn }}/" class="pageBtn">{{ btn }}</a>
 							{% endif %}
 						{% endfor %}
 						</div>
 					</div><!--end pagesNumbers-->
 					{% if pagination.next %}
 					<div class="paginationLinks">
-						<a href="{{ basic_info.blog_page_url }}/{{ pagination.next }}/" class="nextPage blackToWhiteBtn" >&gt;</a>
+						<a href="{{ data.basic_info.blog_page_url }}/{{ pagination.next }}/" class="nextPage blackToWhiteBtn" >&gt;</a>
 					</div><!--end PaginationLinks-->
 					{% endif %}
 				</div><!--end mainPagination-->
@@ -157,9 +157,9 @@
 			
 			
 			<div id="rightContent">
-				{% if not user_info.logined %}
+				{% if not data.user_info.logined %}
 				<div id="user_login_div">
-					<form id="login_form" method="post" action="{{ basic_info.login_url }}/">
+					<form id="login_form" method="post" action="{{ data.basic_info.login_url }}/">
 						{% csrf_token %}
 						<input type="text" name="username" id="username" placeholder="用户名"></input>
 						<input type="password" name="password" id="pwd" placeholder="密码"  ></input>
@@ -179,7 +179,7 @@
 				
 				<h4 class="widget">最新作品</h4>
 				<div id="lastRecentPost">
-				{% for post in posts_getter.lastest %}
+				{% for post in data.posts_getter.lastest %}
 					{% if forloop.counter < 3 %}
 					<article class="recentPost">
 						<div class="projectItem">
@@ -189,7 +189,7 @@
 							<div class="projectInfo">
 								<div class="projectInfoData">
 								
-									<a class="ProjectZoom lightBtn btn buttonShadow" href="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" rel="prettyPhoto" title="文学少女图片示例">放大查看</a>
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" rel="prettyPhoto" title="{{ post.title }}">放大查看</a>
 									<a class="prjectMore lightBtn btn buttonShadow" href="{{ post.link }}" >察看详细</a>
 								</div>
 							</div>
@@ -199,7 +199,7 @@
 								<a href="{{ post.link }}">{{ post.title }}</a>
 							</h5><!--end projectTitle-->
 							<div class="projectMeta">
-								<span class="projectDate">{{ post.pub_date.month }}月 {{ post.pub_date.day }} 日,{{ post.pub_date.year }}</span>
+								<span class="projectDate">{{ post.pub_date.month }}月 {{ post.pub_date.day }} 日, {{ post.pub_date.year }}</span>
 								<span class="projectLike"></span>
 							</div><!--end projectMeta-->
 						</div>
@@ -209,7 +209,7 @@
 					
 				</div><!--end lastRecentPost-->
 			{% endblock %}
-				{% block nav_tabs %}
+			{% block nav_tabs %}
 				<div id="navTabs">
 					<ul>
 						<li><a href="#navTabs-1">最热</a></li>
@@ -219,40 +219,17 @@
 					</ul>
 					<div id="navTabs-1" class="navTabsClass tabsPosts">
 						<ul>
+						{% for post in data.posts_getter.lastest %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
 								</div>
 								<div class="tabsPostDetail">
-									<a href="#">最热`示例文章</a>
-									<p>2013年08月31日</p>
+									<a href="{{ post.link }}">{{ post.title }}</a>
+									<p>{{ post.pub_date.year }}年{{ post.pub_date.month }}月{{ post.pub_date.day }}日</p>
 								</div>
 							</li>
-							<li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最热`示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最热`图片示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最热`示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li>
+						{% endfor %}	
 							<li class="clear"></li>
 						</ul>
 						
@@ -261,7 +238,7 @@
 						<ul>
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -270,7 +247,7 @@
 							</li>
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -278,7 +255,7 @@
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -286,7 +263,7 @@
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">最新`示例文章</a>
@@ -300,7 +277,7 @@
 						<ul>
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -309,7 +286,7 @@
 							</li>
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -317,7 +294,7 @@
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -325,7 +302,7 @@
 								</div>
 							</li><li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="#">评论`示例</a>
@@ -361,7 +338,7 @@
 					</div><!--end navTabs-4-->
 					
 				</div><!--end div navTabs-->
-				{% endblock %}
+			{% endblock %}
 			</div><!--end maintContainer  rightContent-->
 			<div class="clear"></div>
 		</div>
@@ -403,14 +380,13 @@
 		<div class="clear"></div>
 		<div id="copyright">
 			<p>GG-Blog Powered by 
-			<a href="http://www.python.org"><img alt="Python" src="{{ basic_info.template_root }}/img/main/icon/logo_python_white.png"></a>
+			<a href="http://www.python.org"><img alt="Python" src="{{ data.basic_info.template_root }}/img/main/icon/logo_python_white.png"></a>
 			&amp;
-			<a href="http://www.djangoproject.com"><img alt="Django" src="{{ basic_info.template_root }}/img/main/icon/logo_django_white.png"></a> winkidney 2013&copy;</p>
+			<a href="http://www.djangoproject.com"><img alt="Django" src="{{ data.basic_info.template_root }}/img/main/icon/logo_django_white.png"></a> winkidney 2013&copy;</p>
 		</div>
 	</div><!--end div footer-->
 </div><!--end div boxed-->
 
-<script type="text/javascript" charset="utf-8" src="{{ basic_info.template_root }}/js/image-better.js"/>
-</script>
+<script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/image-better.js"></script>
 </body>
 </html>
