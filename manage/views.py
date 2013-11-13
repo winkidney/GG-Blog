@@ -14,7 +14,7 @@ from manage.forms import MakePostForm,ModifyPostForm
 from blog.data import UserInfo,BasicInfo
 from blog.data import APost as APost
 
-static_root = settings.GLOBA_STATIC_URL
+
 blog_login_url = settings.BLOG_LOGIN_URL
 
 
@@ -79,8 +79,7 @@ def js_resize_img(text):
     
 @login_required(login_url=blog_login_url)
 def home_view(request, args, data):
-    #static_root = settings.GLOBA_STATIC_URL
-    return render_to_response('manage/base.html',{'static_root':static_root})
+    return render_to_response('manage/base.html',locals())
 
 @login_required(login_url=blog_login_url)
 @transaction.commit_on_success

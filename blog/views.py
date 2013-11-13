@@ -146,11 +146,9 @@ def articles_view(request, args, data):
         else:
             return HttpResponseRedirect(request.path)
         
-def archives_view(request,year=None,month=None):
+def archives_view(request, args, data):
     """generate acchives by year_month or archives index by year or year_month"""
-    user_info = UserInfo(request)
-    basic_info = BasicInfo(request)
-    header_menu = HeaderMenu()
+    year,month = data.get('year',None),data.get('month',None)
     post_summarys = get_time_summarys(year,month)
     archives_index = ArchivesIndex(year,month)
     if post_summarys:
@@ -159,14 +157,14 @@ def archives_view(request,year=None,month=None):
                                   context_instance=RequestContext(request))
     else:
         raise Http404
-def archives_index_view(request):
-    user_info = UserInfo(request)
-    basic_info = BasicInfo(request)
-    header_menu = HeaderMenu()
+def archives_index_view(request, args, data):
     archives_index = ArchivesIndex()
     return render_to_response('blog/archives_index.html',
                               locals(),
                               context_instance=RequestContext(request))
+def tags_view(request, args, data):
+    info = data.get('tagname',None)
+    return HttpResponse(info)
 def test_view(request):
     return HttpResponse('test')
 #登陆要求的包装函数

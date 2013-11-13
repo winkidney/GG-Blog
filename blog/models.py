@@ -1,6 +1,7 @@
 #coding:utf-8
 #blog models
 from django.db import models
+from pycms import settings
 #from tinymce.models import HTMLField
 
 # Create your models here.
@@ -22,6 +23,9 @@ class Status(models.Model):
 #标签
 class Tags(models.Model):
     tagname = models.CharField(max_length=20,verbose_name=u'标签名称')
+    def link(self):
+        link = settings.BLOG_TAGS_URL + '/' + self.tagname
+        return link
     def __unicode__(self):
         return u"%s %s" % (self.id,self.tagname)
     class Meta:
@@ -78,7 +82,7 @@ class Posts(models.Model):
     content = models.TextField(verbose_name=u'文章内容')
     title = models.CharField(max_length=50,verbose_name=u'文章标题')
     short_title = models.CharField(max_length=50,blank=True,verbose_name=u'文章别名')     #文章缩略名
-    cover = models.CharField(max_length=200,verbose_name=u'文章封面图片地址')      #封面图片地址
+    cover = models.CharField(blank=True,max_length=200,verbose_name=u'文章封面图片地址')      #封面图片地址
     introduction = models.CharField(max_length=500,blank=True,verbose_name=u'文章简介')     #文章介绍，将会出现在首页
     status = models.ForeignKey(Status,blank=True,verbose_name=u'文章状态')
     comment_status = models.BooleanField(blank=True,verbose_name=u'不显示评论')
@@ -87,6 +91,7 @@ class Posts(models.Model):
     threadtypeid = models.ForeignKey(ThreadTypes,blank=True,verbose_name=u'分类')
     comment_count = models.IntegerField(verbose_name=u'评论数量')
     comments = models.ManyToManyField(Comments,blank=True,verbose_name=u'评论')
+
     def init(self):
         self.threadtypeid_id = 1
         self.authorid = 1

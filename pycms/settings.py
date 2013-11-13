@@ -22,7 +22,7 @@ BLOG_LOGIN_URL = BLOG_ROOT_URL+'/login'
 BLOG_ARTICLES_URL = BLOG_ROOT_URL+'/articles'
 ARCHIVES_PER_PAGE = 10
 BLOG_PAGE_URL = BLOG_ROOT_URL+'/page'
-BLOG_THREADTYPE_URL = BLOG_ROOT_URL + '/threadtype'
+BLOG_THREADTYPE_URL = BLOG_ROOT_URL + '/threadtypes'
 BLOG_MANAGE_URL = BLOG_ROOT_URL+'/manage'
 BLOG_ARCHIVES_URL = BLOG_ROOT_URL + '/archives'
 BLOG_EDIT_URL = BLOG_MANAGE_URL + '/edit'
@@ -34,7 +34,9 @@ CUR_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates').replace(
 CUR_TEMPLATE_URL = TEMPLATE_ROOT_URL+'/'+CUR_TEMPLATE_NAME
 #稍微有点问题的模板路径设置，后面改
 LOGIN_TEMPLATE = 'blog/login/login_django.html'
-
+#上传文件相关
+FILE_UPLOAD_ALLOW = ('jpg', 'jpeg', 'bmp', 'gif', 'png',"rar" ,"doc" ,"docx","zip","pdf","txt","swf","wmv")
+IMG_FILE_EXT =  ('jpg', 'jpeg', 'bmp', 'gif', 'png')
 ###################全局静态设置完毕##########################
 
 

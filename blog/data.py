@@ -1,6 +1,6 @@
 #coding:utf8
 #classes used in views
-from blog.models import (BasicSettings,Posts,ThreadTypes,Comments)
+from blog.models import (BasicSettings,Posts,ThreadTypes,Comments,Tags)
 from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
@@ -334,11 +334,25 @@ class PostsGetter(object):
 class CommentsGetter(object):
     num = 5
     lastest = []      
-    def __init__(self):
-        pass
+    def __init__(self,num=None):
+        self.get_lastest(num)
     def get_lastest(self,num=None):
         if not num:
             num = self.num
         self.lastest = Comments.objects.order_by("-date")[:num]
-        
+
+class TagsGetter(object):
+    tagnamelist= []
+    general = []
+    def __init__(self):
+        self.get_general()
+    def get_tagnamelist(self):
+        if self.general:
+            for tag in self.general:
+                self.tagnamelist.append(tag.tagname)
+        else:
+            for tag in Tags.objects.all():
+                self.tagnamelist.append(tag.tagname)
+    def get_general(self):
+        self.general = Tags.objects.all()
         

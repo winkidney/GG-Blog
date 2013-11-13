@@ -1,13 +1,13 @@
 #coding:utf-8
 #views of pycms by winkidney
 import Image,os,time,urllib2,uuid,base64
+from django.contrib.auth.decorators import login_required
 #own import
 from pycms import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from pycms.settings import (FILE_UPLOAD_ALLOW, IMG_FILE_EXT,BLOG_LOGIN_URL)
 
-FILE_UPLOAD_ALLOW = ('jpg', 'jpeg', 'bmp', 'gif', 'png',"rar" ,"doc" ,"docx","zip","pdf","txt","swf","wmv")
-IMG_FILE_EXT =  ('jpg', 'jpeg', 'bmp', 'gif', 'png')
 def myuploadfile(file,src_pictitle,src_filename,file_or_img='img'):
     """上传文件处理函数，被具体上传函数调用"""
     response = ''
@@ -39,9 +39,9 @@ def myuploadfile(file,src_pictitle,src_filename,file_or_img='img'):
         file_url = "%s/%s/%s.%s" % (settings.MY_MEDIA_URL,subfolder,new_fname,file_ext)
         response = "{'original':'%s','url':'%s','title':'%s','state':'%s'}" % (src_filename, file_url, src_pictitle, 'SUCCESS')         
         return response
-
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_img_up(request):
+def ueditor_img_up(request, view_args, data):
     """上传图片""" 
     file = request.FILES.get('upfile',None)
     src_pictitle = request.POST.get('pictitle','')
@@ -50,8 +50,9 @@ def ueditor_img_up(request):
     myresponse = myuploadfile(file,src_pictitle,src_filename,'img')
     response.write(myresponse)
     return response
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_file_up(request):
+def ueditor_file_up(request, view_args, data):
     """上传文件"""
     file = request.FILES.get('upfile',None)
     src_pictitle = request.POST.get('pictitle','')
@@ -61,9 +62,9 @@ def ueditor_file_up(request):
     response.write(myresponse)
     return response
 
-
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_scraw_up(request):
+def ueditor_scraw_up(request, view_args, data):
     """涂鸦文件，处理函数"""
     print request
     param = request.POST.get("action",'')
@@ -94,9 +95,9 @@ def ueditor_scraw_up(request):
         response.write("{'url':'%s',state:'%s'}" % (settings.MY_MEDIA_URL + '/' + subfolder + '/' + new_fname + '.' + 'png','SUCCESS'))
         return response
     
-    
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt 
-def ueditor_getRemoteImage(request):
+def ueditor_getRemoteImage(request, view_args, data):
     print request
     """ 把远程的图抓到本地,爬图 """
     file_name = str(uuid.uuid1())
@@ -148,9 +149,9 @@ def listdir(path,filelist):
         else:
             if cfile.endswith('.gif') or cfile.endswith('.png') or cfile.endswith('.jpg') or cfile.endswith('.bmp'):
                 filelist.append(filepath.replace(phisypath,'/static/upload/').replace("//","/"))
-
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_imageManager(request):
+def ueditor_imageManager(request, view_args, data):
     """ 图片在线管理  """
     filelist=[]
     phisypath = settings.MY_MEDIA_ROOT+'/'
@@ -160,8 +161,9 @@ def ueditor_imageManager(request):
     response.write(imgStr)     
     return response
 
+@login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_getMovie(request):
+def ueditor_getMovie(request, view_args, data):
     """ 获取视频数据的地址 """
     content ="";   
     searchkey = request.POST.get("searchKey");

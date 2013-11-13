@@ -220,15 +220,17 @@
 					<div id="navTabs-1" class="navTabsClass tabsPosts">
 						<ul>
 						{% for post in data.posts_getter.lastest %}
+							{% if forloop.counter < 5 %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="{{ post.link }}">{{ post.title }}</a>
 									<p>{{ post.pub_date.year }}年{{ post.pub_date.month }}月{{ post.pub_date.day }}日</p>
 								</div>
 							</li>
+							{% endif %}
 						{% endfor %}	
 							<li class="clear"></li>
 						</ul>
@@ -236,104 +238,45 @@
 					</div><!--end navTabs-1-->
 					<div id="navTabs-2" class="navTabsClass tabsPosts">
 						<ul>
+						{% for post in data.posts_getter.hotest %}
+							{% if forloop.counter < 5 %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
 								</div>
 								<div class="tabsPostDetail">
-									<a href="#">最新`示例文章</a>
-									<p>2013年08月31日</p>
+									<a href="{{ post.link }}">{{ post.title }}</a>
+									<p>{{ post.pub_date.year }}年{{ post.pub_date.month }}月{{ post.pub_date.day }}日</p>
 								</div>
 							</li>
-							<li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最新`示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最新`示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">最新`示例文章</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li>
+							{% endif %}
+						{% endfor %}
 							<li class="clear"></li>
 						</ul>
 					</div><!--end navTabs-2-->
 					<div id="navTabs-3" class="navTabsClass tabsComments">
 						<ul>
+							{% for comment in data.comments_getter.lastest %}
+							{% if forloop.counter < 5 %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/posticon/glassgear.png" /></div>
 								</div>
 								<div class="tabsPostDetail">
-									<a href="#">评论`示例</a>
-									<p>2013年08月31日</p>
+									<a href="#">{{ comment.content }}</a>
+									<p>{{ comment.date }}</p>
 								</div>
 							</li>
-							<li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">评论`示例</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">评论`示例</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li><li>
-								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image" width="75" height="65" alt="edunews-banner" src="{{ data.basic_info.template_root }}/img/main/example/wenxueshaonv.jpg" /></div>
-								</div>
-								<div class="tabsPostDetail">
-									<a href="#">评论`示例</a>
-									<p>2013年08月31日</p>
-								</div>
-							</li>
+							{% endif %}
+							{% endfor %}
 							<li class="clear"></li>
 						</ul>
 					</div><!--end navTabs-3-->
 					<div id="navTabs-4" class="navTabsClass tabsTags">
 						<ul> 
-							<li><a href="#">生活</a></li>
-							<li><a href="#">娱乐</a></li>
-							<li><a href="#">python</a></li>
-							<li><a href="#">web开发的长标签</a></li>
-							<li><a href="#">散文随笔</a></li>
-							<li><a href="#">生活</a></li>
-							<li><a href="#">娱乐</a></li>
-							<li><a href="#">python</a></li>
-							<li><a href="#">web开发的长标签</a></li>
-							<li><a href="#">散文随笔</a></li>
-							<li><a href="#">生活</a></li>
-							<li><a href="#">娱乐</a></li>
-							<li><a href="#">python</a></li>
-							<li><a href="#">web开发的长标签</a></li>
-							<li><a href="#">散文随笔</a></li>
-							<li><a href="#">生活</a></li>
-							<li><a href="#">娱乐</a></li>
-							<li><a href="#">python</a></li>
-							<li><a href="#">web开发的长标签</a></li>
-							<li><a href="#">散文随笔</a></li>
+						{% for tag in data.tags_getter.general %}
+							<li><a href="{{ tag.link }}">{{ tag.tagname }}</a></li>
+						{% endfor %}
 						</ul>
 					</div><!--end navTabs-4-->
 					
