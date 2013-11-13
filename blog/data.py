@@ -109,7 +109,7 @@ class HeaderMenu(object):
                 thread_type = {'parent':pthread_type,'link':link,'children':[]}
                 cthread_types = ThreadTypes.objects.filter(parent_id=pthread_type.id).order_by("display_order")
                 for cthread_type in cthread_types:
-                    clink = link+cthread_type.name+'/'
+                    clink = link+cthread_type.name
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
@@ -358,7 +358,24 @@ class TagsGetter(object):
         return tagnamelist
     def get_general(self):
         self.general = Tags.objects.all()
-def get_posts_byTag(tagname): 
-    return Posts.objects.filter(tags__tagname=tagname)
-    
+        
+def get_summarys_bytag(tagname):
+    post_summarys = [] 
+    posts = Posts.objects.filter(tags__tagname=tagname).order_by("-publish_date")
+    if posts:
+        for post in posts:
+            post_summarys.append(PostSummary(post))
+    return post_summarys
+
+class TTypeGetter(object):
+    def __init__(self):
+        pass
+    def get_ptypes(self):
+        self.ptypes = []
+        for ptype in ThreadTypes.objects.filter(parent_id=0):
+            self.ptypes.append(ptype)
+    def get_ctypes(self):
+        self.ctypes = []
+        for ctype in ThreadTypes.objects.exclude(parent_id=0):
+            self.ctypes.append(ctype)   
             

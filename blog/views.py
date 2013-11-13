@@ -166,9 +166,14 @@ def tags_view(request, args, data):
     tag = data.get('tagname',None)
     tags_getter = data.get('tags_getter',None)
     if tag in tags_getter.tagnamelist: 
-        return HttpResponse("exist")
+        from blog.data import get_summarys_bytag
+        post_summarys = get_summarys_bytag(tag)
+        return render_to_response('blog/read_bytags.html',locals())
     else:
-        return HttpResponse('fuck')
+        raise Http404
+
+def thread_type_view(request, args, data):
+    pass
     
 def test_view(request):
     return HttpResponse('test')
