@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ data.tagname }} | 按标签查看 | {{ data.basic_info.blog_settings.page_title }}{% endblock %}
+{% block archive_nav %}
+	<p>您目前的位置</p><a class="main_menu" href="#">&gt;按标签查看</a>
+	<a class="main_menu" href="{{ data.basic_info.blog_tags_url }}/{{ data.tagname }}/" >&gt;{{ data.tagname }}</a>
+{% endblock %}
+{% block left_content %}
+				{% for post_summary in post_summarys %}
+				<article>
+					<aside class="postSide">
+						<div class="postFormat">
+							<i class="formatIcon webBlog"></i>
+						</div>
+						<div class="postDate">
+							<span class="postMonth">{{ post_summary.pub_date_mixed.month }}</span>
+							<span class="postDay">{{ post_summary.pub_date_mixed.day }}</span>
+							<span class="postYear">{{ post_summary.pub_date_mixed.year }}</span>
+						</div>
+						<div class="like_it">
+							<a id="like-0000" class="likeThis" href="#">
+								<span class="icon heart"></span>
+								<span class="like_count">10</span>
+							</a>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent">
+						<h1>
+							<a href="#">{{ post_summary.title }}{% if post_summary.short_title %}--{{ post_summary.short_title }}{% endif %}</a>
+						</h1>
+						<ul class="postMeta">
+							<li class="postAuthor"><span class="icon postAuthor"></span>{{ post_summary.authorname }}</li>
+							<li class="postTags"><span class="icon postTags"></span>
+								{% for tag in post_summary.tags %}
+									<a href="{{ data.basic_info.blog_tags_url }}/{{ tag.tagname }}/">{{ tag.tagname }}</a>, 
+								{% endfor %}
+							</li>
+							<li class="commentCount"><span class="icon postComments"></span>{{ post_summary.comment_count }}次吐槽</li>
+							<li class="edit">
+								{% if data.basic_info.show_edit %}
+									<a href="{{ data.basic_info.blog_edit_url }}/{{ post_summary.article_id }}/">编辑</a>
+								{% endif %}
+							</li>
+						</ul>
+						<div class="mainPostContents">
+								<p>{{ post_summary.summary }}</p>
+								<a class="readMore" href="{{ post_summary.link }}/"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
+						</div><!--end mainPostContents-->
+					</div><!--end  postContent-->
+				</article><!--end article-->
+				{% endfor %}
+				{% endblock %}
+				{% block main_pagination %}
+				{% endblock %}
