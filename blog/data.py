@@ -243,7 +243,7 @@ class ArchivesIndex(object):
     def by_day(self):
         pass
     
-def get_time_summarys(year,month):
+def get_summarys_bytime(year,month):
     """get articles summarys group by year_month.
     return a list of PostSummary object.if not exist ,return False"""
     if year and month:
@@ -342,17 +342,23 @@ class CommentsGetter(object):
         self.lastest = Comments.objects.order_by("-date")[:num]
 
 class TagsGetter(object):
-    tagnamelist= []
+    
     general = []
     def __init__(self):
         self.get_general()
-    def get_tagnamelist(self):
+    @property
+    def tagnamelist(self):
+        tagnamelist= []
         if self.general:
             for tag in self.general:
-                self.tagnamelist.append(tag.tagname)
+                tagnamelist.append(tag.tagname)
         else:
             for tag in Tags.objects.all():
-                self.tagnamelist.append(tag.tagname)
+                tagnamelist.append(tag.tagname)
+        return tagnamelist
     def get_general(self):
         self.general = Tags.objects.all()
-        
+def get_posts_byTag(tagname): 
+    return Posts.objects.filter(tags__tagname=tagname)
+    
+            

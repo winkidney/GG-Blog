@@ -184,12 +184,12 @@
 					<article class="recentPost">
 						<div class="projectItem">
 							<div class="lastRecentImg">
-								<img title="文学少女" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" />
+								<img title="文学少女" src="{% if post.cover_link %}{{ post.cover_link }}{% else %}{{ data.basic_info.template_root }}/img/main/example/greengear.png{% endif %}" />
 							</div>
 							<div class="projectInfo">
 								<div class="projectInfoData">
 								
-									<a class="ProjectZoom lightBtn btn buttonShadow" href="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" rel="prettyPhoto" title="{{ post.title }}">放大查看</a>
+									<a class="ProjectZoom lightBtn btn buttonShadow" href="{% if post.cover_link %}{{ post.cover_link }}{% else %}{{ data.basic_info.template_root }}/img/main/example/greengear.png{% endif %}" rel="prettyPhoto" title="{{ post.title }}">放大查看</a>
 									<a class="prjectMore lightBtn btn buttonShadow" href="{{ post.link }}" >察看详细</a>
 								</div>
 							</div>
@@ -223,7 +223,7 @@
 							{% if forloop.counter < 5 %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% else %}{{ data.basic_info.template_root }}/img/main/posticon/glassgear.png{% endif %}" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="{{ post.link }}">{{ post.title }}</a>
@@ -242,7 +242,7 @@
 							{% if forloop.counter < 5 %}
 							<li>
 								<div class="tabsPostThumb">
-									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% endif %}" /></div>
+									<div class="ntabImg"><img class="attachment-samll gg-blog-image"  alt="edunews-banner" src="{% if post.cover_link %}{{ post.cover_link }}{% else %}{{ data.basic_info.template_root }}/img/main/posticon/glassgear.png{% endif %}" /></div>
 								</div>
 								<div class="tabsPostDetail">
 									<a href="{{ post.link }}">{{ post.title }}</a>

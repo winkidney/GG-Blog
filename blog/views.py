@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_time_summarys,PostsGetter)
+from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_summarys_bytime,PostsGetter)
 from tools.tools import timeit
 
 blog_login_url = settings.BLOG_LOGIN_URL+'/'
@@ -149,7 +149,7 @@ def articles_view(request, args, data):
 def archives_view(request, args, data):
     """generate acchives by year_month or archives index by year or year_month"""
     year,month = data.get('year',None),data.get('month',None)
-    post_summarys = get_time_summarys(year,month)
+    post_summarys = get_summarys_bytime(year,month)
     archives_index = ArchivesIndex(year,month)
     if post_summarys:
         return render_to_response('blog/archives.html',
@@ -163,8 +163,13 @@ def archives_index_view(request, args, data):
                               locals(),
                               context_instance=RequestContext(request))
 def tags_view(request, args, data):
-    info = data.get('tagname',None)
-    return HttpResponse(info)
+    tag = data.get('tagname',None)
+    tags_getter = data.get('tags_getter',None)
+    if tag in tags_getter.tagnamelist: 
+        return HttpResponse("exist")
+    else:
+        return HttpResponse('fuck')
+    
 def test_view(request):
     return HttpResponse('test')
 #登陆要求的包装函数

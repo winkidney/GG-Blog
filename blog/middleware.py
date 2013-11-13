@@ -2,7 +2,7 @@
 #the middleware to process the blog data
 #by winkidney 2013 11 11
 from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,TagsGetter,
-                       ArchivesIndex,get_time_summarys,PostsGetter,CommentsGetter)
+                       ArchivesIndex,PostsGetter,CommentsGetter)
 
 class data_md(object):
     """pass some kwargs to view to share public data"""
