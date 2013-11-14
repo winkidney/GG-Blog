@@ -13,28 +13,15 @@ from django.contrib.auth.models import User
 from blog.models import *
 #own import 
 from pycms import settings
-from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_summarys_bytime,PostsGetter)
+from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_summarys_bytime,
+                       PostsGetter,get_summarys_byttype,get_summarys_bypage)
 from tools.tools import timeit
 
 blog_login_url = settings.BLOG_LOGIN_URL+'/'
 login_html = settings.LOGIN_TEMPLATE
 
 
-def get_page_summarys(page_num,displayall):
-    """get summarys list by page number.porvide to home page to display 
-    articles summary,every page include 10 articles.costs 0.02s whth 10,000 record"""
-    page_num = int(page_num)
-    post_summarys = []
-    if displayall:
-        posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
-    else:
-        posts = Posts.objects.filter(status=2).order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
-    if posts:
-        for post in posts:
-            post_summarys.append(PostSummary(post))
-        return post_summarys
-    else:
-        return False
+
     
 @timeit
 def get_page_summarysV2(page_num,num_per_page=10):
@@ -65,9 +52,9 @@ def home_view(request, args, data):
 #     basic_info = BasicInfo(request)
 #     header_menu = HeaderMenu()
     if logined(request):
-        post_summarys = get_page_summarys(page,True)
+        post_summarys = get_summarys_bypage(page,True)
     else:
-        post_summarys = get_page_summarys(page,False)
+        post_summarys = get_summarys_bypage(page,False)
     pagination = PageBtnGenerator(page)
     if post_summarys:
         return render_to_response('blog/base.html',
@@ -173,8 +160,17 @@ def tags_view(request, args, data):
         raise Http404
 
 def thread_type_view(request, args, data):
-    pass
-    
+    ttype = data.get('threadtype',None)
+    ttype_getter = data.get('ttype_getter',None)
+    #在父分类中，列出子分类目录
+    if ttype in ttype_getter.ctypes:
+        post_summarys = get_summarys_byttype(ttype)
+        return render_to_response('blog/read_byttype.html',locals())
+    #在子分类中，直接显示内容
+    elif ttype in ttype_getter.ptypes:
+        return render_to_response('blog/ttype_index.html',locals())
+    else:
+        raise Http404
 def test_view(request):
     return HttpResponse('test')
 #登陆要求的包装函数

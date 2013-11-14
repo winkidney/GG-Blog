@@ -23,7 +23,9 @@ class UserInfo(object):
             self.name = request.user.username
         else:
             self.logined = False
-            
+
+
+
 class BasicInfo(object):
     """include basic_settings in database and some other basic settings"""
     def __init__(self,request):
@@ -42,6 +44,7 @@ class BasicInfo(object):
         self.blog_edit_url = settings.BLOG_EDIT_URL
         self.blog_tags_url = settings.BLOG_TAGS_URL
         self.path = request.path
+        self.blog_threadtype_url = settings.BLOG_THREADTYPE_URL
         self.articles_url = settings.BLOG_ARTICLES_URL
         if settings.DEBUG:
             self.show_edit = True
@@ -104,12 +107,12 @@ class HeaderMenu(object):
         self.ttypes_display = []
         pthread_types = ThreadTypes.objects.filter(parent_id=0).order_by("display_order")
         for pthread_type in pthread_types:
-            if pthread_type.name != u'未分类':
+            if pthread_type.name:
                 link = settings.BLOG_THREADTYPE_URL+'/'+pthread_type.name+'/'
                 thread_type = {'parent':pthread_type,'link':link,'children':[]}
                 cthread_types = ThreadTypes.objects.filter(parent_id=pthread_type.id).order_by("display_order")
                 for cthread_type in cthread_types:
-                    clink = link+cthread_type.name
+                    clink = settings.BLOG_THREADTYPE_URL+'/'+cthread_type.name
                     cttype = {'name':cthread_type.name,'link':clink}
                     thread_type['children'].append(cttype)
                 self.ttypes_display.append(thread_type)
@@ -150,7 +153,12 @@ class PostSummary(object):
             return src
         else:
             return None
-    
+def get_summarys(posts):
+    """get posts summarys by posts and return post_summarys"""
+    post_summarys = []
+    for post in posts:
+        post_summarys.append(PostSummary(post))
+    return post_summarys   
 
 class ArchivesIndex(object):
     """Get a index of archives group by publish date.
@@ -249,12 +257,9 @@ def get_summarys_bytime(year,month):
     if year and month:
         year = int(year)
         month = int(month)
-        year_month_archives = [] 
         posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month,)
         if posts:
-            for post in posts:
-                year_month_archives.append(PostSummary(post))
-            return year_month_archives
+            return get_summarys(posts)
         else:
             return False
     else:
@@ -308,9 +313,7 @@ class PostsGetter(object):
         else:
             posts = Posts.objects.order_by("-publish_date")[:num]
         if posts:
-            for post in posts:
-                post_summarys.append(PostSummary(post))
-            self.lastest = post_summarys
+            self.lastest = get_summarys(posts)
 
     def get_hotest(self, num=None, default_days=None, displayall=False):
         """get summarys list by last.porvide to home page to display 
@@ -327,9 +330,7 @@ class PostsGetter(object):
         else:
             posts = Posts.objects.filter(publish_date__range=(date_from, date_to)).order_by("-comment_count")[:num]
         if posts:
-            for post in posts:
-                post_summarys.append(PostSummary(post))
-            self.hotest = post_summarys
+            self.hotest = get_summarys(posts)
 
 class CommentsGetter(object):
     num = 5
@@ -359,23 +360,43 @@ class TagsGetter(object):
     def get_general(self):
         self.general = Tags.objects.all()
         
-def get_summarys_bytag(tagname):
-    post_summarys = [] 
-    posts = Posts.objects.filter(tags__tagname=tagname).order_by("-publish_date")
-    if posts:
-        for post in posts:
-            post_summarys.append(PostSummary(post))
-    return post_summarys
 
 class TTypeGetter(object):
     def __init__(self):
-        pass
+        self.get_ptypes()
+        self.get_ctypes()
     def get_ptypes(self):
         self.ptypes = []
         for ptype in ThreadTypes.objects.filter(parent_id=0):
-            self.ptypes.append(ptype)
+            self.ptypes.append(ptype.name)
     def get_ctypes(self):
         self.ctypes = []
         for ctype in ThreadTypes.objects.exclude(parent_id=0):
-            self.ctypes.append(ctype)   
+            self.ctypes.append(ctype.name)   
+            
+def get_summarys_bypage(page_num,displayall):
+    """get summarys list by page number.porvide to home page to display 
+    articles summary,every page include 10 articles.costs 0.02s whth 10,000 record"""
+    page_num = int(page_num)
+    post_summarys = []
+    if displayall:
+        posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
+    else:
+        posts = Posts.objects.filter(status=2).order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
+    if posts:
+        for post in posts:
+            post_summarys.append(PostSummary(post))
+        return post_summarys
+    else:
+        return False
+        
+def get_summarys_bytag(tagname,displayall=False):
+    post_summarys = [] 
+    posts = Posts.objects.filter(tags__tagname=tagname).order_by("-publish_date")
+    return get_summarys(posts)
+
+def get_summarys_byttype(ttype,displayall=False):
+    posts = Posts.objects.filter(threadtypeid__name=ttype)
+    return get_summarys(posts)
+        
             

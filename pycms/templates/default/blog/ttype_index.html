@@ -1,0 +1,28 @@
+{% extends "blog/read_byttype.html" %}
+{% block title %}按分类查看 | {{ data.basic_info.blog_settings.page_title }}{% endblock %}
+{% block archive_nav %}
+	<p>您目前的位置</p><a class="main_menu" href="{{ data.basic_info.blog_archives_url }}/{{ data.threadtype }}">&gt;分类目录</a>
+{% endblock %}
+{% block left_content %}
+	{% for threadtype in data.header_menu.ttypes_display %}
+		{% if threadtype.parent.name == data.threadtype %}
+				<article>
+					<aside class="postSide">
+						<div class="postFormat archive-year">
+							<p>{{ threadtype.parent.name }}</p>
+						</div>
+					</aside><!--end aside postside-->
+					<div class="postContent archive-index">
+						<ul>
+							
+							{% for child in threadtype.children %}
+							<li><a href="{{ child.link }}/" >{{ child.name }}</a></li>
+							{% endfor %}
+						</ul>
+					</div><!--end  postContent-->
+				</article><!--end article-->
+		{% endif %}
+	{% endfor %}
+{% endblock %}
+{% block main_pagination %}
+{% endblock %}
