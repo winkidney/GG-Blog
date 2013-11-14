@@ -303,18 +303,17 @@
 			</div>
 			<div id="footerSideBar">
 				<div class="aboutMe">
-					<p>关于阿毛</p>
-					<p>阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发</p>
+					<p>关于</p>
+					{% if data.basic_info.blog_settings.short_about %}
+						<p>{{ data.basic_info.blog_settings.short_about }}</p>
+					{% endif %}
 				</div>
 				<div class="friendsLinks">
 					<p>友情链接</p>
 					<ul>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>
-						<li><img class="linkIcon"><a href="#">Python官方网站</a></li>						
+						{% for link in data.link_getter.links %}
+						<li><img class="linkIcon"><a href="{{ link.target_url }}" target="_blank" >{{ link.name }}</a></li>					
+						{% endfor %}
 					</ul>
 				</div>
 			</div>

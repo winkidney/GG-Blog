@@ -66,7 +66,7 @@ class Links(models.Model):
     description = models.TextField(blank=True,verbose_name=u'链接描述')
     visible = models.BooleanField(verbose_name=u'链接可见')
     owner = models.IntegerField(verbose_name=u'链接所有者id') #链接添加者的用户id
-    rating = models.IntegerField(blank=True,verbose_name=u'链接受欢迎度')
+    #rating = models.IntegerField(blank=True,verbose_name=u'链接受欢迎度')
     rss = models.URLField(blank=True,verbose_name=u'rss链接')
     def __unicode__(self):
         return u"%s" % self.owner

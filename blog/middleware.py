@@ -2,7 +2,7 @@
 #the middleware to process the blog data
 #by winkidney 2013 11 11
 from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,TagsGetter,
-                       ArchivesIndex,PostsGetter,CommentsGetter,TTypeGetter)
+                       ArchivesIndex,PostsGetter,CommentsGetter,TTypeGetter,LinkGetter)
 
 class data_md(object):
     """pass some kwargs to view to share public data"""
@@ -15,6 +15,7 @@ class data_md(object):
             view_kwargs['comments_getter'] = CommentsGetter()
             view_kwargs['tags_getter'] = TagsGetter()
             view_kwargs['ttype_getter'] = TTypeGetter()
+            view_kwargs['link_getter'] = LinkGetter()
             return view_func(request, view_args, view_kwargs)
         else:
             return None

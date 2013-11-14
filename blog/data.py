@@ -1,6 +1,6 @@
 #coding:utf8
 #classes used in views
-from blog.models import (BasicSettings,Posts,ThreadTypes,Comments,Tags)
+from blog.models import (BasicSettings,Posts,ThreadTypes,Comments,Tags,Links)
 from pycms import settings
 from django.contrib.auth.models import User
 from blog.forms import ReplyForm
@@ -373,6 +373,12 @@ class TTypeGetter(object):
         self.ctypes = []
         for ctype in ThreadTypes.objects.exclude(parent_id=0):
             self.ctypes.append(ctype.name)   
+
+class LinkGetter(object):
+    def __init__(self):
+        self.get_links()
+    def get_links(self):
+        self.links = Links.objects.filter(visible=True)
             
 def get_summarys_bypage(page_num,displayall):
     """get summarys list by page number.porvide to home page to display 

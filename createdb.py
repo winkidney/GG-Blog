@@ -9,17 +9,20 @@ from pycms import settings
 from django.contrib.auth.models import User
 from django.core import management
 #系统环境设置完毕
+try:
+    from pycms.localsettings import *
+except:
+    #db create settings
+    dbname = ''
+    root_username = ''
+    root_passwd = ''
+    new_username = ''
+    passwd_to_set = ''
+    #super user info
+    su_name = ''
+    su_email = ""
+    su_passwd = ""
 
-#db create settings
-dbname = 'pycms'
-root_username = 'root'
-root_passwd = '19921226'
-new_username = 'pycms'
-passwd_to_set = '19921226'
-#super user info
-su_name = 'winkidney'
-su_email = "winkidney@gmail.com"
-su_passwd = "19921226"
 
 def create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set):
     try:
@@ -53,7 +56,9 @@ def add_info():
                       'logo_url':u'',
                       'comment_on':True,
                       'signin_on':False,
-                      'site_name':'一个新的玻璃齿轮',
+                      'site_name':u'一个新的玻璃齿轮',
+                      'about_article_id':'2',
+                      'short_about':u'阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发',
                       }
     for key in basic_settings:
         bs = BasicSettings()
@@ -70,7 +75,7 @@ def add_info():
     threadtype = ThreadTypes()
     threadtype.display_order = 0 #display order为0首页不显示
     threadtype.name = u'未分类'
-    threadtype.parent_id = 0
+    threadtype.parent_id = 2
     threadtype.save()
     
     print "info added"
@@ -122,7 +127,7 @@ def new_post(year=None,month=None,day=None):
     newpost.authorid = 1
     newpost.title = u'果粉那啥不是这些年的事'
     newpost.name = u'副标题'  #缩略名
-    newpost.cover = u'http://www.baidu.com'
+    newpost.cover = u''
     newpost.introduction = u'文章简介范例'
     newpost.content = test_content
     newpost.status = Status.objects.get(id=2)        #id为2是已发布的文章，默认为已发布，后面再改
@@ -135,13 +140,16 @@ def new_post(year=None,month=None,day=None):
     newpost.threadtypeid = ThreadTypes.objects.get(id=8)
     newpost.comment_status = False
     newpost.save()
+
+def add_link(link,linkname):
+    pass
 def add_posts_bydate():
     for year in xrange(2009,2013):
         for month in xrange(1,11):
             for day in xrange(1,3):
                 new_post(year,month,day)
                 
-def create_db():
+def create_db_main():
     create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
@@ -157,7 +165,8 @@ def add_posts_bynumber(num):
             break
     print 'post added'
 if __name__ == "__main__":
-    add_posts_bynumber(200)
+    create_db_main()
+
 
 
 

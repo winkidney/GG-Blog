@@ -1,6 +1,7 @@
 *.pyc
 *.log
 *~
+localsettings.py
 # C extensions
 *.so
 

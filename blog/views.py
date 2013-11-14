@@ -47,10 +47,6 @@ def logined(request):
 def home_view(request, args, data):
     page = data.get('pagenum',1)
     from blog.data import PageBtnGenerator
-#     posts_getter = PostsGetter()
-#     user_info = UserInfo(request)
-#     basic_info = BasicInfo(request)
-#     header_menu = HeaderMenu()
     if logined(request):
         post_summarys = get_summarys_bypage(page,True)
     else:
