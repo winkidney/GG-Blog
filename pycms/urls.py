@@ -13,9 +13,9 @@ urlpatterns = patterns('',
     # url(r'^pycms/', include('pycms.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     #static files
-    url(r'^djangoadmin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
-    url(r'^djangoadmin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     #my own
     url(r'^blog/', include('blog.urls')),
     #上传文件处理(ueditor)

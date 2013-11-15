@@ -164,9 +164,9 @@ def tags_view(request,*arg,**kwargs):
     else:
         raise Http404
 
-def thread_type_view(request):
+def thread_type_view(request, *arg, **kwargs):
     data = request.extra_data
-    ttype = data.get('threadtype',None)
+    ttype = kwargs.get('threadtype',None)
     ttype_getter = data.get('ttype_getter',None)
     #在父分类中，列出子分类目录
     if ttype in ttype_getter.ctypes:

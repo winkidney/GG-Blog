@@ -125,6 +125,13 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (   
+    "django.contrib.auth.context_processors.auth",   
+    "django.core.context_processors.debug",    
+    "django.core.context_processors.i18n",   
+    "django.core.context_processors.media",   
+    "django.core.context_processors.request"  
+)   
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '2z*m@bhnfs-mgt!iabrsuz3i*5afyiyamd$hs&6&1%nix9h=^l'
 
@@ -134,6 +141,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
