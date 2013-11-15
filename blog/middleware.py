@@ -7,15 +7,13 @@ from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,TagsGette
 class data_md(object):
     """pass some kwargs to view to share public data"""
     def process_view(self, request, view_func, view_args, view_kwargs):
-        if 'djangoadmin' not in request.path:
-            view_kwargs['posts_getter'] =  PostsGetter()
-            view_kwargs['user_info'] = UserInfo(request)
-            view_kwargs['basic_info'] = BasicInfo(request)
-            view_kwargs['header_menu'] = HeaderMenu()
-            view_kwargs['comments_getter'] = CommentsGetter()
-            view_kwargs['tags_getter'] = TagsGetter()
-            view_kwargs['ttype_getter'] = TTypeGetter()
-            view_kwargs['link_getter'] = LinkGetter()
-            return view_func(request, view_args, view_kwargs)
-        else:
+            request.extra_data = {}
+            request.extra_data['posts_getter'] = PostsGetter()
+            request.extra_data['user_info'] = UserInfo(request)
+            request.extra_data['basic_info'] = BasicInfo(request)
+            request.extra_data['header_menu'] = HeaderMenu()
+            request.extra_data['comments_getter'] = CommentsGetter()
+            request.extra_data['tags_getter'] = TagsGetter()
+            request.extra_data['ttype_getter'] = TTypeGetter()
+            request.extra_data['link_getter'] = LinkGetter()
             return None

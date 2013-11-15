@@ -41,7 +41,7 @@ def myuploadfile(file,src_pictitle,src_filename,file_or_img='img'):
         return response
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_img_up(request, view_args, data):
+def ueditor_img_up(request):
     """上传图片""" 
     file = request.FILES.get('upfile',None)
     src_pictitle = request.POST.get('pictitle','')
@@ -52,7 +52,7 @@ def ueditor_img_up(request, view_args, data):
     return response
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_file_up(request, view_args, data):
+def ueditor_file_up(request):
     """上传文件"""
     file = request.FILES.get('upfile',None)
     src_pictitle = request.POST.get('pictitle','')
@@ -64,7 +64,7 @@ def ueditor_file_up(request, view_args, data):
 
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_scraw_up(request, view_args, data):
+def ueditor_scraw_up(request):
     """涂鸦文件，处理函数"""
     print request
     param = request.POST.get("action",'')
@@ -97,7 +97,7 @@ def ueditor_scraw_up(request, view_args, data):
     
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt 
-def ueditor_getRemoteImage(request, view_args, data):
+def ueditor_getRemoteImage(request):
     print request
     """ 把远程的图抓到本地,爬图 """
     file_name = str(uuid.uuid1())
@@ -151,7 +151,7 @@ def listdir(path,filelist):
                 filelist.append(filepath.replace(phisypath,'/static/upload/').replace("//","/"))
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_imageManager(request, view_args, data):
+def ueditor_imageManager(request):
     """ 图片在线管理  """
     filelist=[]
     phisypath = settings.MY_MEDIA_ROOT+'/'
@@ -163,7 +163,7 @@ def ueditor_imageManager(request, view_args, data):
 
 @login_required(login_url=BLOG_LOGIN_URL)
 @csrf_exempt
-def ueditor_getMovie(request, view_args, data):
+def ueditor_getMovie(request):
     """ 获取视频数据的地址 """
     content ="";   
     searchkey = request.POST.get("searchKey");

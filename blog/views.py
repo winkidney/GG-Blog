@@ -44,8 +44,9 @@ def logined(request):
             return False    
         
         
-def home_view(request, args, data):
-    page = data.get('pagenum',1)
+def home_view(request, *args, **kwargs):
+    data = request.extra_data
+    page = kwargs.get('pagenum',1)
     from blog.data import PageBtnGenerator
     if logined(request):
         post_summarys = get_summarys_bypage(page,True)
@@ -61,7 +62,8 @@ def home_view(request, args, data):
     #return HttpResponse("error,check basic_info")
 
     
-def login_view(request, args, data):
+def login_view(request, *args, **kwargs):
+    data = request.extra_data
     remind = {} #提示信息存储字典
     errors = ''
      #若用户已登陆，则跳转到登出页面
@@ -93,7 +95,8 @@ def login_view(request, args, data):
                 errors = "Your username and password didn't match. Please try again."
             return render_to_response(login_html,locals(),context_instance=RequestContext(request)) 
 @login_required(login_url=blog_login_url)
-def logout_view(request, args, data):
+def logout_view(request, *args, **kwargs):
+    data = request.extra_data
     logout(request)
     # Redirect to a success page.
     remind = {'info':u'注销成功，正在为您跳转到主页','url_to':'../'}
@@ -102,10 +105,11 @@ def logout_view(request, args, data):
 
 
 #阅读文章的函数
-def articles_view(request, args, data):
+def articles_view(request,*args,**kwargs):
     """read articles inclued articles reader and 
     comment post function,if articles not found ,it raise a 404 error"""
-    a_post = APost(int(data.get('article_id',0)))
+    data = request.extra_data
+    a_post = APost(int(kwargs.get('article_id',0)))
     if request.method == 'GET':
         if not a_post.exist:
             raise Http404
@@ -129,9 +133,11 @@ def articles_view(request, args, data):
         else:
             return HttpResponseRedirect(request.path)
         
-def archives_view(request, args, data):
+def archives_view(request, *args, **kwargs):
     """generate acchives by year_month or archives index by year or year_month"""
-    year,month = data.get('year',None),data.get('month',None)
+    data = request.extra_data
+    year,month = kwargs.get('year',None),kwargs.get('month',None)
+    data['year'],data['month'] = year,month
     post_summarys = get_summarys_bytime(year,month)
     archives_index = ArchivesIndex(year,month)
     if post_summarys:
@@ -140,13 +146,16 @@ def archives_view(request, args, data):
                                   context_instance=RequestContext(request))
     else:
         raise Http404
-def archives_index_view(request, args, data):
+def archives_index_view(request, *args, **kwargs):
+    data = request.extra_data
     archives_index = ArchivesIndex()
     return render_to_response('blog/archives_index.html',
                               locals(),
                               context_instance=RequestContext(request))
-def tags_view(request, args, data):
-    tag = data.get('tagname',None)
+def tags_view(request,*arg,**kwargs):
+    data = request.extra_data
+    tag = kwargs.get('tagname',None)
+    data['tagname'] = tag
     tags_getter = data.get('tags_getter',None)
     if tag in tags_getter.tagnamelist: 
         from blog.data import get_summarys_bytag
@@ -155,7 +164,8 @@ def tags_view(request, args, data):
     else:
         raise Http404
 
-def thread_type_view(request, args, data):
+def thread_type_view(request):
+    data = request.extra_data
     ttype = data.get('threadtype',None)
     ttype_getter = data.get('ttype_getter',None)
     #在父分类中，列出子分类目录

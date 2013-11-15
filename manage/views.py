@@ -78,15 +78,17 @@ def js_resize_img(text):
     return bold.sub(r'\1 onload="javascript:DrawImage(this,600,600)" />',text)
     
 @login_required(login_url=blog_login_url)
-def home_view(request, args, data):
+def home_view(request):
+    data = request.extra_data
     return render_to_response('manage/base.html',locals())
 
 @login_required(login_url=blog_login_url)
 @transaction.commit_on_success
-def make_post_view(request, args, data):
+def make_post_view(request):
     """make post page.It generate the make_post page and receive 
     data form the page then store them into database."""
     #get方法，显示表单页面
+    data = request.extra_data
     if request.method == 'GET':
         mkp_form = MakePostForm()
         return render_to_response('manage/make_post.html',locals(),context_instance=RequestContext(request))
@@ -97,13 +99,14 @@ def make_post_view(request, args, data):
         if mkp_form.is_valid():
             newpost = new_post(mkp_form,request)
             newpost.save()
-            return HttpResponse('all done')
+            return HttpResponseRedirect(data['basic_info'].blog_edit_url+'/'+str(newpost.id)+'/')
         else:
             return render_to_response('manage/make_post.html',locals(),context_instance=RequestContext(request))
 #修改文章
 @login_required(login_url=blog_login_url) 
 @transaction.commit_on_success       
-def modify_post_view(request, args, data):
+def modify_post_view(request):
+    data = request.extra_data
     article_id = data.get('article_id',0)
     #get方法，显示表单页面
     if request.method == 'GET':
