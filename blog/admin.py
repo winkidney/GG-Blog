@@ -16,13 +16,16 @@ class PostsAdmin(admin.ModelAdmin):
         modelobj.save()
         modelobj.comment_count = len(modelobj.comments.all())
         modelobj.save()
-        print 'f'
-
-
+class LinksAdmin(admin.ModelAdmin):
+    list_display = ('id','name','target_url')
+class ThreadTypesAdmin(admin.ModelAdmin):
+    list_display = ('name','parent_id','id',)
+class TagsAdmin(admin.ModelAdmin):
+    list_display = ('id','tagname',)
 admin.site.register(BasicSettings)
 admin.site.register(Tags)
-admin.site.register(ThreadTypes)
+admin.site.register(ThreadTypes,ThreadTypesAdmin)
 admin.site.register(Posts,PostsAdmin)
 admin.site.register(Comments)
 admin.site.register(Status,StatusAdmin)
-admin.site.register(Links)
+admin.site.register(Links,LinksAdmin)

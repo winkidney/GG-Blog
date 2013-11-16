@@ -12,6 +12,7 @@ class BasicSettings(models.Model):
     def __unicode__(self):
         return u"%s" % (self.variable)
     class Meta:
+        verbose_name_plural = "基础设置（不清楚含义请勿修改）"
         ordering = ['variable']
 #文章状态
 class Status(models.Model):
@@ -19,6 +20,7 @@ class Status(models.Model):
     def __unicode__(self):
         return u"%s %s" % (self.id,self.status_name)
     class Meta:
+        verbose_name_plural = "文章状态（请勿修改）"
         ordering = ['id']
 #标签
 class Tags(models.Model):
@@ -29,6 +31,7 @@ class Tags(models.Model):
     def __unicode__(self):
         return u"%s %s" % (self.id,self.tagname)
     class Meta:
+        verbose_name_plural = "标签管理"
         ordering = ['id']
 #分类    
 class ThreadTypes(models.Model):
@@ -41,6 +44,7 @@ class ThreadTypes(models.Model):
     def __unicode__(self):
         return u"%s ,pid:%s,id:%s" % (self.name,self.parent_id,self.id)
     class Meta:
+        verbose_name_plural = "分类管理"
         ordering = ['parent_id','id','name']
 class Comments(models.Model):
     #整型字段好像不能为空，所以将blank=True去掉。
@@ -58,6 +62,7 @@ class Comments(models.Model):
     def __unicode__(self):
         return u"%s" % self.date
     class Meta:
+        verbose_name_plural = "评论管理"
         ordering = ['id']
 class Links(models.Model):
     name = models.CharField(max_length=20,verbose_name=u'链接名称')
@@ -71,6 +76,7 @@ class Links(models.Model):
     def __unicode__(self):
         return u"%s" % self.owner
     class Meta:
+        verbose_name_plural = "友情链接"
         ordering = ['id']    
     
 #文章
@@ -104,6 +110,7 @@ class Posts(models.Model):
     def __unicode__(self):
         return u"%s %s %s" % (self.id,self.title,self.publish_date)
     class Meta:
+        verbose_name_plural = "文章管理"
         ordering = ['-publish_date']
         
 #class Attachments(models.Modle):

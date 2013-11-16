@@ -177,8 +177,7 @@ def thread_type_view(request, *arg, **kwargs):
         return render_to_response('blog/ttype_index.html',locals())
     else:
         raise Http404
-def test_view(request):
-    return HttpResponse('test')
+
 #登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
 #def my_view(request):
@@ -200,10 +199,10 @@ def test_view(request):
 #@permission_required('polls.can_vote', login_url='/loginpage/')
 #def my_view(request):
 #    ...
-def contact_view(request):
+def contact_view(request, *args, **kwargs):
     return render_to_response('blog/contact.html')
-def about_view(request):
+def about_view(request, *args, **kwargs):
     return render_to_response('blog/about.html')
-def auth_view(request):
+def auth_view(request, *args, **kwargs):
     return HttpResponse("developing!")
 
