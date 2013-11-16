@@ -30,7 +30,30 @@ $(document).ready(function(){
 		SyntaxHighlighter.all();
 });
 
-
+//浮动通菜单栏
+$.fn.smartFloat = function () {
+	var position = function (element) {
+		var top = element.offset().top, pos = element.css("position");
+		$(window).scroll(function () {
+			var scrolls = $(this).scrollTop();
+			if (scrolls > 0) {
+				if (window.XMLHttpRequest) {
+					element.css({ position: "fixed", top: 0 });
+				} else {
+					element.css({ top: scrolls });
+				}
+			} else {
+				//element.css({position: pos,top: top});        
+				element.removeAttr("style");
+			}
+		});
+	};
+	return $(this).each(function () {
+		position($(this));
+	});
+};
+//绑定
+$("#headerSectionFloat").smartFloat();
 
 
 

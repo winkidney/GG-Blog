@@ -200,7 +200,8 @@ div.topSocial{
     }
 /*topBar部分结束*/
 /*headerSection部分*/
-div#headerSection{
+div#headerSection,
+div#headerSectionFloat{
     /*font-family: inherit;*/
     
     padding:20px 0px;
@@ -209,7 +210,20 @@ div#headerSection{
     position: relative;
     z-index:999;
     overflow:visible !important;
+    width:1220px;
     }
+div#headerSectionFloat{
+    /*font-family: inherit;*/
+    position: absolute;
+    z-index:999;
+    overflow:visible !important;
+    width:1220px;
+    top: -200px;
+    }
+div#headerSectionFloat{
+    margin-left: auto;
+    margin-right: auto;
+}
 div#logo{
     color:black;
     font-size:28px;

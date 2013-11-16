@@ -79,6 +79,37 @@
 			<div class="clear"></div>
 		</div><!--end container-->
 	</div><!--end headerSection-->
+	
+	<div id="headerSectionFloat">
+		
+		<div class="container">
+			<div id="logo">
+				<a href="{{ data.basic_info.blog_root_url }}"><p>{{ data.basic_info.blog_settings.logo_txt1 }}{{ data.basic_info.blog_settings.logo_txt2 }}</p></a>
+			</div>
+            <div id="navBar">
+                    <ul>
+                        <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_root_url }}">主页</a></li>
+                        {% for menu in data.header_menu.ttypes_display %}
+                        <li>
+                            <span class="Darrow"></span>
+                            <a class="main_menu" href="{{ menu.link }}">{{ menu.parent.name }}</a>
+                            <ul>
+                                {% for child in menu.children %}
+                                <li class="submenu"><a href="{{ child.link }}">{{ child.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_archives_url }}">归档</a></li>
+                        <li class="link"><a  class="main_menu" href="#postComments">给我留言</a></li>
+                        <li class="link"><a  class="main_menu" href="about/">关于</a></li>
+                    </ul>
+            </div><!--end navBar-->
+			
+			
+			<div class="clear"></div>
+		</div><!--end container-->
+	</div><!--end headerSectionFloat-->
 
 	<div id="mainContent">
 		<div class="cotainer">
@@ -330,5 +361,6 @@
 </div><!--end div boxed-->
 
 <script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/image-better.js"></script>
+
 </body>
 </html>
