@@ -7,7 +7,9 @@ import os
 #多说评论设置
 #DUOSHUO_SECRET = '你的多说secret'
 #DUOSHUO_SHORT_NAME = '你的多说short name'
-
+##########nginx#########
+#FORCE_SCRIPT_NAME = "/"
+###########nginx end#######
 #全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
 #统一了路径和url风格为"/****"，前面有'/'后面不带'/'，和django默认url风格相反
 MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static').replace('\\','/')
@@ -45,11 +47,14 @@ except:
     DUOSHUO_SECRET = ''
     DUOSHUO_SHORT_NAME = ''
 ###################全局静态设置完毕##########################
-
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 try:
-    from localsettings import DEBUG
+    from localsettings import DEBUG,ALLOWED_HOSTS
 except:
     DEBUG = True
+    ALLOWED_HOSTS = []
+###################
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -72,9 +77,8 @@ except:
         }
     }
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -219,14 +223,14 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
                  #my logger settings
-#         'default': {
-#             'level':'DEBUG',
-#             'class':'logging.handlers.RotatingFileHandler',
-#             'filename': os.path.join(MY_STATIC_ROOT+'/logs/','all.log'), #或者直接写路径
-#             'maxBytes': 1024*1024*5, # 5 MB
-#             'backupCount': 5,
-#             #'formatter':'standard',
-#         },
+        'default': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': '/home/wwwlogs/all.log', #或者直接写路径
+            'maxBytes': 1024*1024*5, # 5 MB
+            'backupCount': 5,
+            #'formatter':'standard',
+        },
         'console':{
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -236,7 +240,7 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['console','default'],
             'level': 'DEBUG',
             'propagate': False
         },

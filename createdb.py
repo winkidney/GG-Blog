@@ -2,6 +2,7 @@
 import MySQLdb
 import sys,os
 from datetime import *
+from blog.models import *
 #设置系统环境以便在登记昂哦shell外部引用models功能
 sys.path.append(os.path.join(os.path.dirname(__file__),'').replace('\\','/'),)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pycms.settings")
@@ -48,7 +49,7 @@ def syncdb_with_su(su_name, su_email, su_passwd):
     user.save()
     print "super user added"
 def add_info():
-    from blog.models import *
+    
     basic_settings = {'page_title':u"玻璃齿轮",
                       'logo_txt1':u'Glass',
                       'logo_txt2':u'Gear',
@@ -154,7 +155,7 @@ def create_db_main():
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
     add_info()
-    add_posts_bydate()
+    #add_posts_bydate()
 
 def add_posts_bynumber(num):
     i = 0
