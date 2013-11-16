@@ -46,6 +46,7 @@ class BasicInfo(object):
         self.path = request.path
         self.blog_threadtype_url = settings.BLOG_THREADTYPE_URL
         self.articles_url = settings.BLOG_ARTICLES_URL
+        self.blog_comment_url = settings.BLOG_COMMENT_URL
         if settings.DEBUG:
             self.show_edit = True
 class APost(object):
@@ -405,4 +406,15 @@ def get_summarys_byttype(ttype,displayall=False):
     posts = Posts.objects.filter(threadtypeid__name=ttype)
     return get_summarys(posts)
         
-            
+def make_comment(comment_form):
+    new_comment = Comments()
+    new_comment.author = comment_form.cleaned_data['fusername']
+    new_comment.author_email = comment_form.cleaned_data['femail']
+    new_comment.author_url = comment_form.cleaned_data['fwebsite']
+    new_comment.content = comment_form.cleaned_data['fmessage']
+    new_comment.post_id = 0
+    new_comment.parent_id = 0
+    new_comment.user_id = 0
+    new_comment.author_ip = '192.168.1.1'
+    new_comment.save()
+    

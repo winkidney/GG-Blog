@@ -27,6 +27,7 @@ BLOG_MANAGE_URL = BLOG_ROOT_URL+'/admin'
 BLOG_ARCHIVES_URL = BLOG_ROOT_URL + '/archives'
 BLOG_EDIT_URL = BLOG_MANAGE_URL + '/blog/posts'
 BLOG_TAGS_URL = BLOG_ROOT_URL + '/tags'
+BLOG_COMMENT_URL = BLOG_ROOT_URL + '/makecomment'
 #模板相关
 TEMPLATE_ROOT_URL = BLOG_STATIC_URL+'/blog/front-template'
 CUR_TEMPLATE_NAME = 'default'

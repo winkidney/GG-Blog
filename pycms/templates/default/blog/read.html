@@ -96,21 +96,5 @@
 				</div><!--end mainPagination-->
 {% endblock %}
 {% block main_pagination %}{% endblock %}
-{% block tell_me %}
-				<h2>发表评论</h2>
-				<form method="post" action="" id="postComments">
-				{% csrf_token %}
-					<input type="hidden" name="next" value="{{ data.basic_info.path }}" ></input>
-					{% if comment_form.r_username.errors %}{{ comment_form.r_username.errors }}{% endif %}
-					<input type="text" id="fname" name="r_username" class="text" placeholder="尊姓大名（必填）"/>
-					{% if comment_form.r_email.errors %}{{comment_form.r_email.errors }}{% endif %}
-					<input type="email" id="femail" name="r_email" class="text" placeholder="Email(必填，方便回复通知)"/>
-					{% if comment_form.r_website.errors %}{{ comment_form.r_website.errors }}{% endif %}
-					<input type="text" id="fwebsite" name="r_website" class="text" placeholder="你的主页（选填）"/>
-					{% if comment_form.r_message.errors %}{{ comment_form.r_message.errors }}{% endif %}
-					<textarea type="text" id="fmessage" name="r_message" placeholder="留言内容" rows="8" cols="50"></textarea>
-					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="教练，我要吐槽！" />
-				</form><!--end form comments-->
 
-{% endblock %}
 

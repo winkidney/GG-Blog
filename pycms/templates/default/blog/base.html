@@ -323,9 +323,11 @@
 			<div id="tellMe">
 				{% block tell_me %}
 				<p>给我留言</p>
-				<form method="post" action="#" id="postComments">
-					<input type="text" id="fname" name="fname" class="text" placeholder="尊姓大名（必填）"/>
-					<input type="email" id="femail" name="femail" class="text" placeholder="Email(方便回复通知)"/>
+				<form method="post" action="{{ data.basic_info.blog_comment_url }}/" id="postComments">
+					{% csrf_token %}
+					<input type="hidden" id="fnext" name="fnext" value="{{ data.basic_info.path }}" />
+					<input type="text" id="fname" name="fusername" class="text" placeholder="尊姓大名（必填）"/>
+					<input type="email" id="femail" name="femail" class="text" placeholder="Email(必填)"/>
 					<input type="text" id="fwebsite" name="fwebsite" class="text" placeholder="你的主页（选填）"/>
 					<textarea type="text" id="fmessage" name="fmessage" placeholder="留言内容" rows="8" cols="50"></textarea>
 					<input id="tellMeformSubmit" class="btn darkBtn" type="submit" name="submit" value="发表留言" />

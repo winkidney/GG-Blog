@@ -14,7 +14,7 @@ from blog.models import *
 #own import 
 from pycms import settings
 from blog.data import (UserInfo,BasicInfo,APost,HeaderMenu,PostSummary,ArchivesIndex,get_summarys_bytime,
-                       PostsGetter,get_summarys_byttype,get_summarys_bypage)
+                       PostsGetter,get_summarys_byttype,get_summarys_bypage,make_comment)
 from tools.tools import timeit
 
 blog_login_url = settings.BLOG_LOGIN_URL+'/'
@@ -199,10 +199,43 @@ def thread_type_view(request, *arg, **kwargs):
 #@permission_required('polls.can_vote', login_url='/loginpage/')
 #def my_view(request):
 #    ...
-def contact_view(request, *args, **kwargs):
-    return render_to_response('blog/contact.html')
-def about_view(request, *args, **kwargs):
-    return render_to_response('blog/about.html')
-def auth_view(request, *args, **kwargs):
-    return HttpResponse("developing!")
+def make_comment_view(request, *args, **kwargs):
+    data = request.extra_data
+    if request.method == 'GET':
+        raise Http404
+    elif request.method == 'POST':
+        if data.get('user_info').logined:
+            return HttpResponse(u'你是作者，评论个毛！')
+        comment_form = ReplyForm(request.POST)
+        #根据提交的数据是否合法重新渲染页面或者返回错误信息   
+        if  comment_form.is_valid():
+            make_comment(comment_form)
+            return  HttpResponseRedirect(comment_form.cleaned_data['fnext'])
+        else:
+            remind = {} #提示信息存储字典
+            errors = ''
+            #提示信息，提示表单有误
+            remind = {'info':'表单填写有误，请您确定填写正确哦 ^_^',
+                      'button_name':'返回首页',
+                      'url_to':settings.BLOG_ROOT_URL}
+            return render_to_response('blog/login/remind.html',locals())
+
+def about_view(request,*args,**kwargs):
+    """read articles inclued articles reader and 
+    comment post function,if articles not found ,it raise a 404 error"""
+    data = request.extra_data
+    article_id = data['basic_info'].blog_settings.get('about_article_id',0)
+    a_post = APost(article_id)
+    if request.method == 'GET':
+        if not a_post.exist:
+            raise Http404
+        # 检查文章状态是否为已发布
+        if a_post.post['status'].id == 1:
+            return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
+        elif a_post.post['status'].id == 2 and logined(request):
+            return render_to_response('blog/read.html', locals(),context_instance=RequestContext(request))
+        else:
+            raise Http404
+
+
 
