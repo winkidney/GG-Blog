@@ -60,6 +60,9 @@
 						</h1>
 						
 						<div class="mainPostContents">
+							{% load duoshuo_tags %}
+
+							{% duoshuo_comments %}
 							<ul class="commentsList">
 							{% if a_post.post.comments %}
 								{% for comment in a_post.post.comments %}

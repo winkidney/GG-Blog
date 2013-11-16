@@ -38,6 +38,12 @@ LOGIN_TEMPLATE = 'blog/login/login_django.html'
 #上传文件相关
 FILE_UPLOAD_ALLOW = ('jpg', 'jpeg', 'bmp', 'gif', 'png',"rar" ,"doc" ,"docx","zip","pdf","txt","swf","wmv")
 IMG_FILE_EXT =  ('jpg', 'jpeg', 'bmp', 'gif', 'png')
+#多说
+try:
+    from pycms.localsettings import DUOSHUO_SECRET,DUOSHUO_SHORT_NAME
+except:
+    DUOSHUO_SECRET = ''
+    DUOSHUO_SHORT_NAME = ''
 ###################全局静态设置完毕##########################
 
 
@@ -183,7 +189,7 @@ INSTALLED_APPS = (
     #my own
     'blog',
     #多说评论组件
-    #'duoshuo',
+    'duoshuo',
     #the 富文本编辑器
     #'tinymce',
 )

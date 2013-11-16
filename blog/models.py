@@ -103,7 +103,9 @@ class Posts(models.Model):
     threadtypeid = models.ForeignKey(ThreadTypes,blank=True,verbose_name=u'分类')
     comment_count = models.IntegerField(verbose_name=u'评论数量')
     comments = models.ManyToManyField(Comments,blank=True,verbose_name=u'评论')
-
+    def get_absolute_url(self):
+        url = settings.BLOG_ARTICLES_URL+'/'+str(self.id)+'/'
+        return url
     def init(self):
         self.threadtypeid_id = 1
         self.authorid = 1

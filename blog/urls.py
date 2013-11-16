@@ -3,6 +3,8 @@
 from django.conf.urls import patterns, include, url
 import django.contrib.auth
 import views
+from django.conf.urls.defaults import *
+from blog.feeds import LatestPostsFeed
 from django.contrib import admin
 admin.autodiscover()
 #some private settings
@@ -27,6 +29,8 @@ urlpatterns = patterns('',
     url(r'^archives/(?P<year>\d{4})/(?P<month>\d{1,2})/$',views.archives_view),
     url(r'^tags/(?P<tagname>.{1,20})/$',views.tags_view),
     url(r'^threadtype/(?P<threadtype>.{1,20})/$',views.thread_type_view),
+    #django rss
+    url(r'^feeds/(?P<url>.*)/$', LatestPostsFeed()),
     #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'blog/login/login.html'}),
     #tiny mce
     #url(r'^tinymce/',include('tinymce.urls')),
