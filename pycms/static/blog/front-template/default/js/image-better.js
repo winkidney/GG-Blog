@@ -67,6 +67,8 @@ $("#headerSectionFloat").smartFloat();
 
 
 
+
+
 /*function DrawImage(ImgD,iwidth,iheight){    
     //参数(图片,允许的宽度,允许的高度)    
     var image=new Image();    

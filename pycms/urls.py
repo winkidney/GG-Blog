@@ -1,6 +1,6 @@
 #coding:utf-8
 #urls of pycms
-from pycms import settings
+from pycms import settings,views
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 # Uncomment the next two lines to enable the admin:
@@ -12,10 +12,11 @@ urlpatterns = patterns('',
     # url(r'^$', 'pycms.views.home', name='home'),
     # url(r'^pycms/', include('pycms.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
+    url(r'^$',views.home_view),
     #static files
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^blog/admin/', include(admin.site.urls)),
     #my own
     url(r'^blog/', include('blog.urls')),
     #上传文件处理(ueditor)

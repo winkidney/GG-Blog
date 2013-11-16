@@ -3,6 +3,8 @@
 from django.conf.urls import patterns, include, url
 import django.contrib.auth
 import views
+from django.contrib import admin
+admin.autodiscover()
 #some private settings
 articles_path = r'' 
 
@@ -10,6 +12,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'pycms.views.home', name='home'),
     # url(r'^pycms/', include('pycms.foo.urls')),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$',views.home_view),
     url(r'^page/(?P<pagenum>\d{1,4})/',views.home_view),
     url(r'^login/$',views.login_view),

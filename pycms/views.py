@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from pycms import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-from pycms.settings import (FILE_UPLOAD_ALLOW, IMG_FILE_EXT,BLOG_LOGIN_URL)
+from pycms.settings import (FILE_UPLOAD_ALLOW, IMG_FILE_EXT,BLOG_LOGIN_URL,BLOG_ROOT_URL)
 
 def myuploadfile(file,src_pictitle,src_filename,file_or_img='img'):
     """上传文件处理函数，被具体上传函数调用"""
@@ -176,5 +176,6 @@ def ueditor_getMovie(request):
     response=HttpResponse()  
     response.write(content);
     return response
-
+def home_view(request):
+    return HttpResponseRedirect(BLOG_ROOT_URL)
                     
