@@ -2,8 +2,11 @@
 #seetings of pycms
 # Django settings for pycms project.
 import os
-################全局静态设置by kidney######################
 
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '2z*m@bhnfs-mgt!iabrsuz3i*5afyiyamd$hs&6&1%nix9h=^l'
+
+################全局静态设置by kidney######################
 #多说评论设置
 #DUOSHUO_SECRET = '你的多说secret'
 #DUOSHUO_SHORT_NAME = '你的多说short name'
@@ -147,8 +150,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",   
     "django.core.context_processors.request"  
 )   
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '2z*m@bhnfs-mgt!iabrsuz3i*5afyiyamd$hs&6&1%nix9h=^l'
+
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
