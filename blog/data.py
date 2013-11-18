@@ -65,12 +65,12 @@ class APost(object):
             return False
     def get_next(self):
         try:
-            self.next_post = self.article.get_next_by_publish_date()
+            self.next_post = self.article.get_next_by_publish_date(status__id=2)
         except ObjectDoesNotExist:
             self.next_post = None
     def get_pre(self):
         try:
-            self.pre_post = self.article.get_previous_by_publish_date()
+            self.pre_post = self.article.get_previous_by_publish_date(status__id=2)
         except ObjectDoesNotExist:
             self.pre_post = None
     def init_data(self):
