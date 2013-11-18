@@ -47,7 +47,7 @@ class BasicInfo(object):
         self.blog_threadtype_url = settings.BLOG_THREADTYPE_URL
         self.articles_url = settings.BLOG_ARTICLES_URL
         self.blog_comment_url = settings.BLOG_COMMENT_URL
-        if settings.DEBUG:
+        if request.user.is_authenticated():
             self.show_edit = True
 class APost(object):
     """Get article info(include its content) from its id."""
