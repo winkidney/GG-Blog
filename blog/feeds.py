@@ -9,7 +9,7 @@ class LatestPostsFeed(Feed):
     description = "The latest posts on blog."
 
     def items(self):
-        return Posts.objects.filter(statusid=2).order_by('-publish_date')[:10]
+        return Posts.objects.filter(status__id=2).order_by('-publish_date')[:10]
     def item_title(self, item):
         return item.title
     def item_pubdate(self, item):
