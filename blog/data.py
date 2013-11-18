@@ -258,7 +258,7 @@ def get_summarys_bytime(year,month):
     if year and month:
         year = int(year)
         month = int(month)
-        posts = Posts.objects.filter(publish_date__year=year,publish_date__month=month,)
+        posts = Posts.objects.filter(status__id=2,publish_date__year=year,publish_date__month=month,)
         if posts:
             return get_summarys(posts)
         else:
@@ -327,7 +327,7 @@ class PostsGetter(object):
         date_to = datetime.date.today()
         date_from = date_to - datetime.timedelta(days=default_days)
         if not displayall:
-            posts = Posts.objects.filter(publish_date__range=(date_from, date_to),status=2,).order_by("-comment_count")[:num]
+            posts = Posts.objects.filter(publish_date__range=(date_from, date_to),status__id=2,).order_by("-comment_count")[:num]
         else:
             posts = Posts.objects.filter(publish_date__range=(date_from, date_to)).order_by("-comment_count")[:num]
         if posts:
@@ -389,7 +389,7 @@ def get_summarys_bypage(page_num,displayall):
     if displayall:
         posts = Posts.objects.order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
     else:
-        posts = Posts.objects.filter(status=2).order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
+        posts = Posts.objects.filter(status__id=2).order_by("-publish_date")[((page_num-1)*10):((page_num-1)*10+9)]
     if posts:
         for post in posts:
             post_summarys.append(PostSummary(post))
