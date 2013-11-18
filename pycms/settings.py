@@ -118,7 +118,7 @@ MEDIA_URL = '/static/upload/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 #STATIC_ROOT = '/home/www/static/'
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/wwwroot/static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -208,46 +208,49 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
+if DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'filters': {
+            'require_debug_false': {
+                '()': 'django.utils.log.RequireDebugFalse'
+            }
+        },
+        'handlers': {
+            'mail_admins': {
+                'level': 'ERROR',
+                'filters': ['require_debug_false'],
+                'class': 'django.utils.log.AdminEmailHandler'
+            },
+                     #my logger settings
+            'default': {
+                'level':'DEBUG',
+                'class':'logging.handlers.RotatingFileHandler',
+                'filename': '/home/wwwlogs/all.log', #或者直接写路径
+                'maxBytes': 1024*1024*5, # 5 MB
+                'backupCount': 5,
+                #'formatter':'standard',
+            },
+            'console':{
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                #'formatter': 'standard'
+            },
+                     #my logger ending
+        },
+        'loggers': {
+            'django': {
+                'handlers': ['console','default'],
+                'level': 'DEBUG',
+                'propagate': False
+            },
+            'django.request': {
+                'handlers': ['mail_admins','default'],
+                'level': 'ERROR',
+                'propagate': True,
+            },
         }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-                 #my logger settings
-        'default': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
-            'filename': '/home/wwwlogs/all.log', #或者直接写路径
-            'maxBytes': 1024*1024*5, # 5 MB
-            'backupCount': 5,
-            #'formatter':'standard',
-        },
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            #'formatter': 'standard'
-        },
-                 #my logger ending
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console','default'],
-            'level': 'DEBUG',
-            'propagate': False
-        },
-        'django.request': {
-            'handlers': ['mail_admins','default'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
     }
-}
+else:
+    pass

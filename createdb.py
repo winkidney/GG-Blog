@@ -2,11 +2,12 @@
 import MySQLdb
 import sys,os
 from datetime import *
-from blog.models import *
+
 #设置系统环境以便在登记昂哦shell外部引用models功能
 sys.path.append(os.path.join(os.path.dirname(__file__),'').replace('\\','/'),)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pycms.settings")
 from pycms import settings
+from blog.models import *
 from django.contrib.auth.models import User
 from django.core import management
 #系统环境设置完毕
@@ -81,7 +82,7 @@ def add_info():
     
     print "info added"
 def add_private_info(): #放在add_info之前，否则分类顺序无法正常显示
-    from blog.models import *
+
     threadtypes = (
                     (u'技术',u'娱乐',u'生活'),
                     (
@@ -116,9 +117,8 @@ def add_private_info(): #放在add_info之前，否则分类顺序无法正常�
         newtag = Tags(tagname=tag)
         newtag.save()
     
-def new_post(year=None,month=None,day=None):
+def new_post(title=None,postcontent=None,statusid=None,addtag=False,year=None,month=None,day=None):
     """make a new post form a makepost form in web page,return a Posts object."""
-    from blog.models import *
     from testdata import test_content
     import datetime
     newpost = Posts()
@@ -126,19 +126,30 @@ def new_post(year=None,month=None,day=None):
     if year and month and day:
         newpost.publish_date = datetime.date(year,month,day)
     newpost.authorid = 1
-    newpost.title = u'果粉那啥不是这些年的事'
-    newpost.name = u'副标题'  #缩略名
+    
+    if title:
+        newpost.title = title
+    else:
+        newpost.title = u'果粉那啥不是这些年的事'
+    newpost.name = u''  #缩略名
     newpost.cover = u''
-    newpost.introduction = u'文章简介范例'
-    newpost.content = test_content
-    newpost.status = Status.objects.get(id=2)        #id为2是已发布的文章，默认为已发布，后面再改
-    tagids = [1,2]
-    if len(tagids) != 0:
-        for tagid in tagids:
-            tagid = int(tagid)
-            tag = Tags.objects.get(id=tagid)
-            newpost.tags.add(tag)
-    newpost.threadtypeid = ThreadTypes.objects.get(id=8)
+    newpost.introduction = u''
+    if postcontent:
+        newpost.content = postcontent
+    else:
+        newpost.content = test_content
+    if statusid:
+        newpost.status = Status.objects.get(id=statusid)        #id为2是已发布的文章，默认为已发布，后面再改
+    else:
+        newpost.status = Status.objects.get(id=2)
+    if addtag:
+        tagids = [1,2]
+        if len(tagids) != 0:
+            for tagid in tagids:
+                tagid = int(tagid)
+                tag = Tags.objects.get(id=tagid)
+                newpost.tags.add(tag)
+    newpost.threadtypeid = ThreadTypes.objects.get(id=16)#未分类
     newpost.comment_status = False
     newpost.save()
 
@@ -149,13 +160,6 @@ def add_posts_bydate():
         for month in xrange(1,11):
             for day in xrange(1,3):
                 new_post(year,month,day)
-                
-def create_db_main():
-    create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
-    syncdb_with_su(su_name, su_email, su_passwd)
-    add_private_info()
-    add_info()
-    #add_posts_bydate()
 
 def add_posts_bynumber(num):
     i = 0
@@ -165,8 +169,30 @@ def add_posts_bynumber(num):
         if i>=num:
             break
     print 'post added'
+def add_init_post():
+    new_post('一个新的玻璃齿轮','世界上又多了一个玻璃齿轮（好吧完全是模仿workpress233，简直给跪。你可以删除这个该死的first blood。）',2)
+    new_post('关于','这是一个关于页面，也是第二篇文章，您可以在基础设置里指定关于页面的id，注意，关于页面的状态必须是草稿，这样才能仅在关于页面看到这篇文章。','1')
+       
+def install():
+    create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
+    syncdb_with_su(su_name, su_email, su_passwd)
+    add_private_info()
+    add_info()
+    add_init_post()
+    #add_posts_bydate()
+   
 if __name__ == "__main__":
-    create_db_main()
+    if len(sys.argv) != 2:
+        print "useage: %s [install|add_posts_bydate|add_posts_by_num]" %(sys.argv[0])
+    else:
+        if sys.argv[1]  not in ('install','add_posts_bydate','add_posts_by_num'):
+            print "parament error,useage: %s [install|add_posts_bydate|add_posts_by_num]"
+        if sys.argv[1] == 'install':
+            install()
+        elif sys.argv[1] == 'add_posts_bydate':
+            add_posts_bydate()
+        elif sys.argv[1] == 'add_posts_bynum':
+            add_posts_bynumber(200)
 
 
 

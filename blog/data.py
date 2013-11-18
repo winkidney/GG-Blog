@@ -399,11 +399,11 @@ def get_summarys_bypage(page_num,displayall):
         
 def get_summarys_bytag(tagname,displayall=False):
     post_summarys = [] 
-    posts = Posts.objects.filter(tags__tagname=tagname).order_by("-publish_date")
+    posts = Posts.objects.filter(status__id=2,tags__tagname=tagname).order_by("-publish_date")
     return get_summarys(posts)
 
 def get_summarys_byttype(ttype,displayall=False):
-    posts = Posts.objects.filter(threadtypeid__name=ttype)
+    posts = Posts.objects.filter(status__id=2,threadtypeid__name=ttype)
     return get_summarys(posts)
         
 def make_comment(comment_form):

@@ -96,7 +96,7 @@ class Posts(models.Model):
     short_title = models.CharField(max_length=50,blank=True,verbose_name=u'文章别名')     #文章缩略名
     cover = models.CharField(blank=True,max_length=200,verbose_name=u'文章封面图片地址')      #封面图片地址
     introduction = models.CharField(max_length=500,blank=True,verbose_name=u'文章简介')     #文章介绍，将会出现在首页
-    status = models.ForeignKey(Status,blank=True,verbose_name=u'文章状态')
+    status = models.ForeignKey(Status,blank=False,verbose_name=u'文章状态')
     comment_status = models.BooleanField(blank=True,verbose_name=u'不显示评论')
     password = models.CharField(max_length=20,blank=True,verbose_name=u'文章密码')
     tags = models.ManyToManyField(Tags,blank=True,verbose_name=u'标签')

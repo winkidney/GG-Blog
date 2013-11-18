@@ -38,7 +38,7 @@
 			</div>
 			<div class="topSocial">
 				<p>
-					<a title="Rss尚未开通" href="#" class="socialIcon" id="rssIcon"></a>
+					<a title="订阅最新文章" href="/blog/feeds/lastest/" class="socialIcon" id="rssIcon"></a>
 					<a title="Google+" href="https://plus.google.com/107141107603449735107/posts" target="_blank" class="socialIcon" id="googlePlusIcon"></a>
 					<a title="QQ空间" href="http://user.qzone.qq.com/584532559" target="_blank" class="socialIcon" id="qZoneIcon"></a>
 					<a title="My Github" href="https://github.com/winkidney"  target="_blank" class="socialIcon" id="githubIcon"></a>
@@ -71,7 +71,7 @@
                         {% endfor %}
                         <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_archives_url }}">归档</a></li>
                         <li class="link"><a  class="main_menu" href="#postComments">给我留言</a></li>
-                        <li class="link"><a  class="main_menu" href="about/">关于</a></li>
+                        <li class="link"><a  class="main_menu" href="{{ data.basic_info.blog_root_url }}/about/">关于</a></li>
                     </ul>
             </div><!--end navBar-->
 			
@@ -245,7 +245,7 @@
 					<ul>
 						<li><a href="#navTabs-1">最热</a></li>
 						<li><a href="#navTabs-2">最新</a></li>
-						<li><a href="#navTabs-3">评论</a></li>
+						<li><a href="#navTabs-3">留言</a></li>
 						<li><a href="#navTabs-4">标签</a></li>
 					</ul>
 					<div id="navTabs-1" class="navTabsClass tabsPosts">

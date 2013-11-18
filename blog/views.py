@@ -49,7 +49,7 @@ def home_view(request, *args, **kwargs):
     page = kwargs.get('pagenum',1)
     from blog.data import PageBtnGenerator
     if logined(request):
-        post_summarys = get_summarys_bypage(page,True)
+        post_summarys = get_summarys_bypage(page,False)
     else:
         post_summarys = get_summarys_bypage(page,False)
     pagination = PageBtnGenerator(page)
