@@ -53,12 +53,9 @@ def home_view(request, *args, **kwargs):
     else:
         post_summarys = get_summarys_bypage(page,False)
     pagination = PageBtnGenerator(page)
-    if post_summarys:
-        return render_to_response('blog/base.html',
+    return render_to_response('blog/base.html',
                                     locals(),
                                     context_instance=RequestContext(request))
-    else:
-        raise Http404
     #return HttpResponse("error,check basic_info")
 
     
