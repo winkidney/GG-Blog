@@ -12,13 +12,13 @@ urlpatterns = patterns('',
     # url(r'^$', 'pycms.views.home', name='home'),
     # url(r'^pycms/', include('pycms.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^$',views.home_view),
+    #url(r'^$',views.home_view),
     #static files
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment the next line to enable the admin:
     #url(r'^blog/admin/', include(admin.site.urls)),
     #my own
-    url(r'^blog/', include('blog.urls')),
+    url(r'^$', include('blog.urls')),
     #上传文件处理(ueditor)
     url(r'^ueditor_imgup/$','pycms.views.ueditor_img_up'),
     url(r'^ueditor_fileup/$','pycms.views.ueditor_file_up'),

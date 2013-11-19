@@ -2,7 +2,7 @@
 ### Version:0.1
 ### Lisense:GPLv3 [quick-guide-gplv3](www.gnu.org/licenses/quick-guide-gplv3.html)
 ###Summary: 
-这是一个为了满足wp不能显示文章封面的问题自己做的简单博客系统，目的是发布带有封面和简介的文章。（虽然后来发现直视自己不太了解wp插件的使用方法而已，但还是坚持写完了这个程序）  
+这是一个为了满足wp不能显示文章封面的问题自己做的简单博客系统，目的是发布带有封面和简介的文章。（虽然后来发现只是自己不太了解wp插件的使用方法而已，但还是坚持写完了这个程序）  
 ### Feature：
 1. 一个博客，单用户  
 2. 可以提取每篇文章第一张图作为封面（当然，需要你在模板里面自定义。）
@@ -23,18 +23,20 @@
 然后使用
 ```bash
 cd app_dir/pycms/
-sh createdb.py
+python createdb.py install
 
-```
+```  
+静静的等待完成吧=w=  
 程序会自动创建所需数据库和初始数据。
 
 
 如果您修改了createdb.py文件的配置，也请同时修改settings.py文件的数据库配置。  
 
-然后以你想要的方式部署服务器，静态文件目录在appdir/pycms/static/  
-访问主页：http://path_to_your_server/blog/  
-访问管理:http://path_to_your_server/blog/admin/  
-管理页面中您可以按照您的需求修改各种设置。
+然后以你想要的方式部署服务器，nginx+fcgi,nginx+uwsgi,apache+mod*。
+静态文件目录在appdir/pycms/static/，建议ln -s 到一个别的目录增加安全性。
+访问主页：http://path_to_your_server/  
+访问管理:http://path_to_your_server/admin/  
+管理页面中您可以按照您的需求修改各种设置。  
 
 
 结构：  
@@ -55,4 +57,4 @@ sh createdb.py
  
 [My Blog](http://blog.gg-workshop.com)  
 
-2013.11.18
+2013.11.18 by winkidney
