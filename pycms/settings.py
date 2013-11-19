@@ -23,7 +23,7 @@ MY_STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static').replace('\\',
 MY_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/upload').replace('\\','/')
 MY_MEDIA_URL = '/static/upload'
 #blog_seetings（blog所用到的固定设置，安装相关）
-BLOG_ROOT_URL = '/blog'
+BLOG_ROOT_URL = ''
 GLOBA_STATIC_URL = '/static'
 BLOG_STATIC_URL = GLOBA_STATIC_URL
 BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL+'/share/myadmin'

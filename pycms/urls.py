@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     #url(r'^blog/admin/', include(admin.site.urls)),
     #my own
-    url(r'^$', include('blog.urls')),
+    url(r'^', include('blog.urls')),
     #上传文件处理(ueditor)
     url(r'^ueditor_imgup/$','pycms.views.ueditor_img_up'),
     url(r'^ueditor_fileup/$','pycms.views.ueditor_file_up'),

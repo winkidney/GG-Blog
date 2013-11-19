@@ -164,6 +164,7 @@ def tags_view(request,*arg,**kwargs):
 def thread_type_view(request, *arg, **kwargs):
     data = request.extra_data
     ttype = kwargs.get('threadtype',None)
+    data['threadtype'] = ttype
     ttype_getter = data.get('ttype_getter',None)
     #在父分类中，列出子分类目录
     if ttype in ttype_getter.ctypes:
