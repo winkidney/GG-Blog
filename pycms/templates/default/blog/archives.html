@@ -25,7 +25,7 @@
 					</aside><!--end aside postside-->
 					<div class="postContent">
 						<h1>
-							<a href="#">{{ post_summary.title }}{% if post_summary.short_title %}--{{ post_summary.short_title }}{% endif %}</a>
+							<a href="{{ post_summary.link }}/">{{ post_summary.title }}{% if post_summary.short_title %}--{{ post_summary.short_title }}{% endif %}</a>
 						</h1>
 						<ul class="postMeta">
 							<li class="postAuthor"><span class="icon postAuthor"></span>{{ post_summary.authorname }}</li>
