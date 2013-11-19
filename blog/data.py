@@ -172,7 +172,9 @@ class ArchivesIndex(object):
             self.by_month()
         self.has_next()
         self.has_pre()
+        
     def by_month(self):
+        
         self.bymonth_dict = {}
         months = Posts.objects.dates("publish_date","month")    #return a year_mounth list order by month
         years = Posts.objects.dates("publish_date","year")    #return a year list(datetime object) order by year

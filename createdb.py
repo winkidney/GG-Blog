@@ -172,9 +172,10 @@ def add_posts_bynumber(num):
 def add_init_post():
     new_post('一个新的玻璃齿轮','世界上又多了一个玻璃齿轮（好吧完全是模仿workpress233，简直给跪。你可以删除这个该死的first blood。）',2)
     new_post('关于','这是一个关于页面，也是第二篇文章，您可以在基础设置里指定关于页面的id，注意，关于页面的状态必须是草稿，这样才能仅在关于页面看到这篇文章。','1')
-       
+
+      
 def install():
-    create_db_and_user(dbname,root_username,root_passwd,new_username,passwd_to_set)
+    create_db_and_user(dbname, root_username, root_passwd, new_username, passwd_to_set)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
     add_info()
