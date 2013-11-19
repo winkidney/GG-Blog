@@ -4,7 +4,11 @@
 import os
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '2z*m@bhnfs-mgt!iabrsuz3i*5afyiyamd$hs&6&1%nix9h=^l'
+try:
+    from localsettings import SECRET_KEY
+except:
+    SECRET_KEY = ''
+
 
 ################全局静态设置by kidney######################
 #多说评论设置
