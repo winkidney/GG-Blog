@@ -143,9 +143,9 @@ class PostSummary(object):
         parser.handle_data = result.append
         parser.feed(html)
         parser.close()
-        result = "".join(result)
-        if len(result) > 300:
-            result = result[0:300]
+        result = "<br/>".join(result)
+        if len(result) > 200:
+            result = result[0:200]
         return result
     def get_first_img(self,post_content):
         p = pyquery.PyQuery(post_content)
