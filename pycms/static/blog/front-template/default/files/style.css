@@ -269,6 +269,10 @@ article{
 article p{
 	line-height: 23px;
 }
+div.mainPostContents a{
+    text-decoration:underline;
+    color:#497C57;
+}
 article aside.postSide{
     float: left;
     width: 70px;
