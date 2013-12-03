@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 username = 'username'
 email = "winkidney@hotmail.com"
 password = "passwd"

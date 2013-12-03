@@ -25,8 +25,10 @@ import utils
 
 class DuoshuoAPITest(unittest.TestCase):
     DUOSHUO_SHORT_NAME = 'official'
-    DUOSHUO_SECRET = 'a'*32
-    API = duoshuo.DuoshuoAPI(short_name=DUOSHUO_SHORT_NAME, secret=DUOSHUO_SECRET)
+    DUOSHUO_SECRET = 'a' * 32
+    API = duoshuo.DuoshuoAPI(
+        short_name=DUOSHUO_SHORT_NAME,
+        secret=DUOSHUO_SECRET)
 
     def test_host(self):
         api = self.API
@@ -38,9 +40,9 @@ class DuoshuoAPITest(unittest.TestCase):
         api = self.API
         url = utils.get_url(api, redirect_uri=redirect_uri)
         self.assertEqual(url,
-            'http://%s/oauth2/authorize?client_id=%s&redirect_uri=%s&response_type=code' % 
-            (api.host, self.DUOSHUO_SHORT_NAME, redirect_uri)
-        )
+                         'http://%s/oauth2/authorize?client_id=%s&redirect_uri=%s&response_type=code' %
+                         (api.host, self.DUOSHUO_SHORT_NAME, redirect_uri)
+                         )
 
     def test_user_api(self):
         api = self.API

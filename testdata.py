@@ -1,5 +1,5 @@
-#coding:utf-8
-test_content = u"""<p>                     
+# coding:utf-8
+test_content = u"""<p>
 </p>
 <p>
     <br/>
@@ -46,10 +46,10 @@ Camp来允许苹果用户在mac上安装windows都感到愤怒，认为这是“
     <br/>
 </p>
 <p>
-    
-                    
-                
+
+
+
 </p>
-                                    
+
 
 """

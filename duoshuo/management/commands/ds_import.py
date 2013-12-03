@@ -8,9 +8,9 @@ from django.contrib.sites.models import Site
 from django.db.models.loading import get_model
 from django.forms.models import model_to_dict
 
-import sys 
-reload(sys) 
-sys.setdefaultencoding('utf-8') 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 import json
 import urllib
@@ -23,29 +23,36 @@ DUOSHUO_SECRET = getattr(settings, "DUOSHUO_SECRET", None)
 
 
 class Command(BaseCommand):
+
     def handle(self, *args, **options):
         if not args:
-            raise CommandError('Tell me what\'s data you want synchronization (user/thread/comment)')
+            raise CommandError(
+                'Tell me what\'s data you want synchronization (user/thread/comment)')
         if not DUOSHUO_SHORT_NAME or not DUOSHUO_SECRET:
-            raise CommandError('Before you can sync you need to set DUOSHUO_SHORT_NAME and DUOSHUO_SECRET')
+            raise CommandError(
+                'Before you can sync you need to set DUOSHUO_SHORT_NAME and DUOSHUO_SECRET')
         else:
-            api = duoshuo.DuoshuoAPI(short_name=DUOSHUO_SHORT_NAME, secret=DUOSHUO_SECRET)
+            api = duoshuo.DuoshuoAPI(
+                short_name=DUOSHUO_SHORT_NAME,
+                secret=DUOSHUO_SECRET)
             data = {
-                'secret' : DUOSHUO_SECRET,
-                'short_name' : DUOSHUO_SHORT_NAME,
+                'secret': DUOSHUO_SECRET,
+                'short_name': DUOSHUO_SHORT_NAME,
             }
         if args[0] == 'user':
-            api_url = '%s://%s.duoshuo.com/api/users/import.json' % (api.uri_schema, DUOSHUO_SHORT_NAME)
+            api_url = '%s://%s.duoshuo.com/api/users/import.json' % (api.uri_schema,
+                                                                     DUOSHUO_SHORT_NAME)
             users = User.objects.all()
             users_data = {}
             for user in users:
-                avatar = user.get_profile().avatar and user.get_profile().avatar or ''
+                avatar = user.get_profile(
+                ).avatar and user.get_profile(
+                ).avatar or ''
 
-                data['users[%s][user_key]'% user.id] = user.id
-                data['users[%s][name]'% user.id] = user.username
-                data['users[%s][email]'% user.id] = user.email
-                data['users[%s][avatar]'% user.id] = avatar
-
+                data['users[%s][user_key]' % user.id] = user.id
+                data['users[%s][name]' % user.id] = user.username
+                data['users[%s][email]' % user.id] = user.email
+                data['users[%s][avatar]' % user.id] = avatar
 
             data = urllib.urlencode(data)
             response = urllib2.urlopen(api_url, data).read()
@@ -53,8 +60,8 @@ class Command(BaseCommand):
             print '%d %s is success import to Duoshuo' % (len(users), len(users) > 1 and 'users' or 'user')
 
         elif args[0] == 'comment':
-            # api_url = '%s://%s.duoshuo.com/api/posts/import.json' , (api.uri_schema, DUOSHUO_SHORT_NAME) 
-            
+            # api_url = '%s://%s.duoshuo.com/api/posts/import.json' , (api.uri_schema, DUOSHUO_SHORT_NAME)
+
             # try:
             #     threads = ast.literal_eval(open('duoshuo/threads.json', 'r').read())
             # except IOError:
@@ -76,7 +83,8 @@ class Command(BaseCommand):
             #     else:
             #         data['posts[%s][thread_id]'% comment.id] = thread_id
 
-            # print '%d %s was success sync;' % (len(comments), len(comments) > 1 and 'comments' or 'comment')
+            # print '%d %s was success sync;' % (len(comments), len(comments) >
+            # 1 and 'comments' or 'comment')
 
             raise CommandError('Sorry, now just import user')
 
@@ -87,7 +95,9 @@ class Command(BaseCommand):
             # if current_site.domain == 'example.com':
             #     raise CommandError('I need to know your domain name, it should not be example.com')
             # else:
-            #     print "\033[0;32;40mAll threads will be import to %s, use Ctrl-D/Ctrl+C to break if this domain name is not correct.\033[0m" % current_site.domain
+            # print "\033[0;32;40mAll threads will be import to %s, use
+            # Ctrl-D/Ctrl+C to break if this domain name is not
+            # correct.\033[0m" % current_site.domain
 
             # _s = raw_input('Please input the thread model name such as `threads.thread`:')
             # if len(_s.split('.')) != 2:
@@ -130,11 +140,13 @@ class Command(BaseCommand):
             # _f.write(unicode(response['response']))
             # _f.close()
 
-            # print '%d %s was success sync;' % (len(threads), len(threads) > 1 and 'threads' or 'thread')
+            # print '%d %s was success sync;' % (len(threads), len(threads) > 1
+            # and 'threads' or 'thread')
 
             raise CommandError('Sorry, now just import user')
         else:
-            raise CommandError('Tell me what\'s data you want synchronization (user/thread/comment)')
+            raise CommandError(
+                'Tell me what\'s data you want synchronization (user/thread/comment)')
 
     # def _comment_to_threads(self, comment):
     #     thread = comment.

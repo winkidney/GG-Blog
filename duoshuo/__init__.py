@@ -31,7 +31,8 @@ except ImportError:
 
 HOST = 'api.duoshuo.com'
 URI_SCHEMA = 'http'
-INTERFACES = _parse_json(open(os.path.join(os.path.dirname(__file__), 'interfaces.json'), 'r').read())
+INTERFACES = _parse_json(
+    open(os.path.join(os.path.dirname(__file__), 'interfaces.json'), 'r').read())
 
 try:
     import settings
@@ -44,6 +45,7 @@ else:
 
 
 class APIError(Exception):
+
     def __init__(self, code, message):
         self.code = code
         self.message = message
@@ -53,6 +55,7 @@ class APIError(Exception):
 
 
 class Resource(object):
+
     def __init__(self, api, interface=INTERFACES, node=None, tree=()):
         self.api = api
         self.node = node
@@ -85,7 +88,8 @@ class Resource(object):
         api = self.api
 
         format = kwargs.pop('format', api.format)
-        path = '%s://%s/%s.%s' % (URI_SCHEMA, HOST, '/'.join(self.tree), format)
+        path = '%s://%s/%s.%s' % (URI_SCHEMA, HOST, '/'.join(self.tree),
+                                  format)
 
         if 'secret' not in kwargs and api.secret:
             kwargs['secret'] = api.secret
@@ -115,7 +119,9 @@ class Resource(object):
 
 
 class DuoshuoAPI(Resource):
-    def __init__(self, short_name=DUOSHUO_SHORT_NAME, secret=DUOSHUO_SECRET, format='json', **kwargs):
+
+    def __init__(self, short_name=DUOSHUO_SHORT_NAME, secret=DUOSHUO_SECRET,
+                 format='json', **kwargs):
         self.short_name = short_name
         self.secret = secret
         self.format = format
@@ -138,7 +144,7 @@ class DuoshuoAPI(Resource):
     def get_token(self, code=None):
         if not code:
             raise APIError('01', 'Invalid request: code')
-        #elif not redirect_uri:
+        # elif not redirect_uri:
         #    raise APIError('01', 'Invalid request: redirect_uri')
         else:
             #params = {'client_id': self.client_id, 'secret': self.secret, 'redirect_uri': redirect_uri, 'code': code}
@@ -147,7 +153,9 @@ class DuoshuoAPI(Resource):
             url = '%s://%s/oauth2/access_token' % (URI_SCHEMA, HOST)
             print url
             request = urllib2.Request(url)
-            response = urllib2.build_opener(urllib2.HTTPCookieProcessor()).open(request, data)
+            response = urllib2.build_opener(
+                urllib2.HTTPCookieProcessor()).open(request,
+                                                    data)
 
             return _parse_json(response.read())
 

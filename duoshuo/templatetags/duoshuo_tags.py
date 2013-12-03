@@ -8,7 +8,9 @@ DUOSHUO_SECRET = getattr(settings, "DUOSHUO_SECRET", None)
 
 register = Library()
 
+
 class DuoshuoCommentsNode(Node):
+
     def __init__(self, short_name=DUOSHUO_SHORT_NAME):
         self.short_name = short_name
 
@@ -27,15 +29,17 @@ class DuoshuoCommentsNode(Node):
         </script>
         <!-- Duoshuo Comment END -->''' % self.short_name
         return code
-    
+
+
 def duoshuo_comments(parser, token):
-    short_name = token.contents.split()   
+    short_name = token.contents.split()
     if DUOSHUO_SHORT_NAME:
         return DuoshuoCommentsNode(DUOSHUO_SHORT_NAME)
     elif len(short_name) == 2:
         return DuoshuoCommentsNode(short_name[1])
     else:
-        raise template.TemplateSyntaxError, "duoshuo_comments tag takes SHORT_NAME as exactly one argument"
+        raise template.TemplateSyntaxError(
+            "duoshuo_comments tag takes SHORT_NAME as exactly one argument")
 duoshuo_comments = register.tag(duoshuo_comments)
 
 # 生成remote_auth，使用JWT后弃用
