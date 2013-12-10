@@ -102,12 +102,13 @@ def ajax_login_view(request, *args, **kwargs):
     if request.method == 'POST':
             user = get_user(request)
             res_dict = {'status':'',
-                        'username':user.username,
+                        'username':'',
                         }
             if user is not None:
                 if user.is_active:
                     login(request, user)
                     res_dict['status'] = 'success'
+                    res_dict['username'] = user.username
                 else:
                     res_dict['status'] = 'user not active'
             else:
