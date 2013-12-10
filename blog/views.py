@@ -261,6 +261,24 @@ def make_comment_view(request, *args, **kwargs):
                       'button_name': '返回首页',
                       'url_to': settings.BLOG_ROOT_URL}
             return render_to_response('blog/login/remind.html', locals())
+        
+        
+def ajax_make_comment_view(request, *args, **kwargs):
+    data = request.extra_data
+    res_dict = {'status':''}
+    if request.method == 'GET':
+        return HttpResponse('forbidden')
+    elif request.method == 'POST':
+        comment_form = ReplyForm(request.POST)
+        if comment_form.is_valid():
+            if not data.get('user_info').logined:
+                make_comment(comment_form)
+                res_dict['status'] = 'success'
+            else:
+                res_dict['status'] = u'you are author!'
+        else:
+            res_dict['status'] = comment_form.errors
+        return HttpResponse(json.dumps(res_dict))
 
 
 def about_view(request, *args, **kwargs):

@@ -12,7 +12,6 @@ $('#login-submit').bind('click',function(){
             if (data.status == "success"){
                 $('#user_login_div').hide();
                 $('#user-panel .widget a').html(data.username);
-                
                 $('#user-panel').show();
             }else if (data.status == "user not active"){
                 alert('用户已被禁用');
@@ -23,3 +22,83 @@ $('#login-submit').bind('click',function(){
     );
     return false;
 });
+$('.panel-function a:last').bind('click',function(){
+    $.ajax({type:"get",url:"/logout/"});
+    $('#user_login_div').show();
+    $('#user-panel').hide();
+    return false;
+});
+/*
+$('#tellMeformSubmit').bind('click',function(){
+    var fname_val = $('#fname').val();
+    var fnext_val = $('#fnext').val();
+    var femail_val = $('#femail').val();
+    var fwebsite_val = $('#fwebsite').val();
+    var fmessage_val = $('#fmessage').val();
+    var csrfmiddlewaretoken_val = $('[name=csrfmiddlewaretoken]').val();
+    $.ajax({
+        type:"post",
+        url:"/ajax/makecomment/",
+        data:{'fusername':fname_val,
+            'femail':femail_val,
+            'fnext':fnext_val,
+            'fwebsite':fwebsite_val,
+            'fmessage':fmessage_val,
+            'csrfmiddlewaretoken':csrfmiddlewaretoken_val,
+            },
+        success:function(data){
+                alert(data);
+            }
+        });
+        
+    return false;
+});
+*/
+jQuery.validator.setDefaults({
+    debug: true,
+    success: "valid"
+});
+$("#postComments").validate({
+    onfocusout:true,
+    rules: {
+        fmessage: {
+            required: true
+        },
+        fusername: "required",
+        femail:{
+            required: true,
+            email: true,
+        }
+    }, 
+    submitHandler: function(form){
+        var fname_val = $('#fname').val();
+        var fnext_val = $('#fnext').val();
+        var femail_val = $('#femail').val();
+        var fwebsite_val = $('#fwebsite').val();
+        var fmessage_val = $('#fmessage').val();
+        var csrfmiddlewaretoken_val = $('[name=csrfmiddlewaretoken]').val();
+        $.ajax({
+            type:"post",
+            url:"/ajax/makecomment/",
+            data:{'fusername':fname_val,
+                'femail':femail_val,
+                'fnext':fnext_val,
+                'fwebsite':fwebsite_val,
+                'fmessage':fmessage_val,
+                'csrfmiddlewaretoken':csrfmiddlewaretoken_val,
+                },
+            success:function(data){
+                    alert(data);
+                }
+            }); 
+        return false;
+    },
+    invalidHandler: function(form, validator) {  //不通过回调
+       return false;
+    },
+
+});
+$.validator.messages = {
+        required: "▲ 以上字段是必填的",
+        email:"请输入合法E-mail",
+        };
