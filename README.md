@@ -9,7 +9,9 @@
 3. 集成ueditor和多说评论功能，包含jiathis分享插件。
 4. 内置了替换模板功能，修改settings.py 内的CUR_TEMPLATE_NAME即可，模板存放在pycms/templates/default/下，default即未模板名称，模板目录名和模板名称必须一致。
 5. 没了，该有的基本都有了，需要的以后按照需求添加吧  
-
+### ChangeLog
++ 2013.12.10 添加ajax登录，支持不重新登录刷新边栏，修正一些显示错误
++ 2013.11.x 发布0.1并部署成功
 ###Requirements:
 + python 2.6+  
 + django 1.5+  
