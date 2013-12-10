@@ -33,7 +33,6 @@ class UserInfo(object):
         else:
             self.logined = False
 
-
 class BasicInfo(object):
 
     """include basic_settings in database and some other basic settings"""
@@ -57,6 +56,7 @@ class BasicInfo(object):
         self.blog_threadtype_url = settings.BLOG_THREADTYPE_URL
         self.articles_url = settings.BLOG_ARTICLES_URL
         self.blog_comment_url = settings.BLOG_COMMENT_URL
+        self.shortcut_menu = settings.SHORTCUT_MENU
         if request.user.is_authenticated():
             self.show_edit = True
 

@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.contrib.auth import (authenticate, login, logout)
 from django.template import RequestContext
+import json
 from django.contrib.auth.models import User
 from blog.models import *
 # own import
@@ -20,7 +21,8 @@ from tools.tools import timeit
 
 blog_login_url = settings.BLOG_LOGIN_URL + '/'
 login_html = settings.LOGIN_TEMPLATE
-
+jump_html = settings.JUMP_TEMPLATE
+remind_html = settings.REMIND_TEMPLATE
 
 @timeit
 def get_page_summarysV2(page_num, num_per_page=10):
@@ -41,8 +43,15 @@ def logined(request):
             return True
     else:
             return False
+        
+        
+def get_user(request):
+    """get a request and return a user obj"""
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    return authenticate(username=username, password=password)
 
-
+    
 def home_view(request, *args, **kwargs):
     data = request.extra_data
     page = kwargs.get('pagenum', 1)
@@ -62,42 +71,50 @@ def login_view(request, *args, **kwargs):
     data = request.extra_data
     remind = {}  # 提示信息存储字典
     errors = ''
-     # 若用户已登陆，则跳转到登出页面
+    # 若用户已登陆，则跳转到登出页面
     if logined(request):
         remind = {'info': '您必须先退出登陆 ^_^',
                   'button_name': '退出登陆',
                   'url_to': settings.BLOG_ROOT_URL + '/logout'}
-        return render_to_response('blog/login/remind.html', locals())
+        html = remind_html
     # 用户未登陆，转入登陆页面
     else:
         if request.method == 'GET':
-                # 这里不这么写居然无法登陆，记下来作为教训吧= =(后来查明原因，是因为不使用RequestContext的话，csrf标签不会被正确处理
-            return render_to_response(login_html,
-                                      locals(), context_instance=RequestContext(request))
-        # 用同一个url处理用户的登陆表单
+            html = login_html
         elif request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
+            user = get_user(request)
+            html = login_html
+            if user:
                 if user.is_active:
                     login(request, user)
-                    remind = {'info': '登陆成功，正在为您跳转到主页', 'url_to': '../'}
-                    return (
-                        render_to_response(
-                            'blog/login/auto_jump.html',
-                            locals())
-                    )
+                    remind = {'info': 'logined!jump to home', 'url_to': data['basic_info'].blog_root_url+'/'}
+                    html = jump_html
                 else:
                     errors = 'user is inactive '
             else:
                 errors = "Your username and password didn't match. Please try again."
-            return (
-                render_to_response(
-                    login_html,
+    return render_to_response(
+                    html,
                     locals(),
                     context_instance=RequestContext(request))
-            )
+
+def ajax_login_view(request, *args, **kwargs):
+    if request.method == 'POST':
+            user = get_user(request)
+            res_dict = {'status':'',
+                        'username':user.username,
+                        }
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    res_dict['status'] = 'success'
+                else:
+                    res_dict['status'] = 'user not active'
+            else:
+                res_dict['status'] = 'user not exist'   
+            return HttpResponse(json.dumps(res_dict))
+    else:
+        return HttpResponse('forbidden')
 
 
 @login_required(login_url=blog_login_url)

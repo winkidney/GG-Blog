@@ -45,7 +45,7 @@
 <form action="" method="post" id="login-form">
 	{% csrf_token %}
 	<div class="form-row">
-    
+        <p>{{ errors }}</p>
 		<label for="id_username" class="required">用户名:</label> <input  id="id_username" maxlength="254" name="username" type="text">
 	</div>
 	<div class="form-row">

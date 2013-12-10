@@ -196,7 +196,7 @@
 						{% csrf_token %}
 						<input type="text" name="username" id="username" placeholder="用户名"></input>
 						<input type="password" name="password" id="pwd" placeholder="密码"  ></input>
-						<button class="loginBtn lightBtn btn buttonShadow" name="submit" type="submit">登陆</button>
+						<button id="login-submit" class="loginBtn lightBtn btn buttonShadow" name="submit" type="submit">登陆</button>
 						<label id="remeberme" for="remeberme">
 							<input  type="checkbox" value="forever" checked="" name="remeberme">记住我</input>                                                                                                                                                                                                                                                              
 						</label>
@@ -208,6 +208,18 @@
 					</ul>
 				</div><!--end user_login_div-->
 				{% endif %}
+                
+                <div id='user-panel' {% if data.user_info.logined %}style='display:block;'{% endif %}>
+                    <h5 class="widget">
+                        |欢迎----<a>{{ data.user_info.name }}</a>
+                    </h5>
+                    <ul class='panel-function'>
+                    {% for func in data.basic_info.shortcut_menu %}
+                        <li><a href='{{ func.1 }}' >{{ func.0 }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div><!--end div user-panel-->
+                
 			{% block last_recent_post %}
 				
 				<h4 class="widget">最新作品</h4>
@@ -365,6 +377,7 @@
 </div><!--end div boxed-->
 
 <script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/image-better.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/ajax.js"></script>
 <!-- JiaThis Button BEGIN -->
 <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
 <!-- JiaThis Button END -->

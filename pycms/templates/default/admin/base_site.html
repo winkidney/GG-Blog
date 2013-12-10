@@ -4,7 +4,7 @@
 {% block title %}{{ title }} | {{ request.extra_data.basic_info.blog_settings.site_name }}{% endblock %}
 
 {% block branding %}
-<h1 id="site-name">{{ request.extra_data.basic_info.blog_settings.site_name }} 管理</h1>
+<h1 id="site-name"><a href='/'>回到 {{ request.extra_data.basic_info.blog_settings.site_name }}</a></h1>
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

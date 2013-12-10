@@ -36,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h5{
 	font-size:18px;
+    font-weight:bold;
 }
 /*按钮*/
 .buttonShadow {
@@ -479,6 +480,15 @@ ul#login-links{
 	padding: 8px 0px;
 	display:inline-block;
 }
+    /*已登录用户快捷菜单界面*/
+#user-panel{
+    display:none;
+}
+#user-panel a{
+    font-weight:bold;
+    color:rgb(68, 124, 87);
+}
+    /*已登录用户快捷菜单部分结束*/
 	/*登陆&用户信息部分结束*/
 	/*最新文章部分开始*/
 h4.widget{
@@ -626,6 +636,7 @@ div.tabsPosts li a{
 div.tabsPostDetail{
 	float:left;
 	padding-left:20px;
+    width:200px;
 }
 		/*最热最新文章部分结束*/
 		/*标签云部分开始*/

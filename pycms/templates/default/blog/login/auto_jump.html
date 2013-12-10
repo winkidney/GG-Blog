@@ -44,12 +44,12 @@
 <div id="content-main">
     
     <h1 align="center">{{ remind.info }}
-		<span id="totalSecond">2</span>
+		<span id="totalSecond">1</span>
 	</h1> 
     
 	<script language="javascript" type="text/javascript">
 		var second = document.getElementById('totalSecond').textContent;
-		setInterval("redirect()", 2000);
+		setInterval("redirect()", 1000);
 		function redirect()
 		{
 			document.getElementById('totalSecond').textContent = --second;

@@ -17,6 +17,9 @@ except:
 ##########nginx#########
 #FORCE_SCRIPT_NAME = "/"
 ###########nginx end#######
+
+
+
 # 全局静态文件路径设置（应当跟STATIC_ROOT等价）,值为绝对路径
 # 统一了路径和url风格为"/****"，前面有'/'后面不带'/'，和django默认url风格相反
 MY_STATIC_ROOT = os.path.join(
@@ -34,6 +37,7 @@ GLOBA_STATIC_URL = '/static'
 BLOG_STATIC_URL = GLOBA_STATIC_URL
 BLOG_AMDMIN_STATIC_URL = BLOG_STATIC_URL + '/share/myadmin'
 BLOG_LOGIN_URL = BLOG_ROOT_URL + '/login'
+BLOG_LOGOUT_URL = BLOG_ROOT_URL + '/logout'
 BLOG_ARTICLES_URL = BLOG_ROOT_URL + '/articles'
 ARCHIVES_PER_PAGE = 10
 BLOG_PAGE_URL = BLOG_ROOT_URL + '/page'
@@ -43,6 +47,7 @@ BLOG_ARCHIVES_URL = BLOG_ROOT_URL + '/archives'
 BLOG_EDIT_URL = BLOG_MANAGE_URL + '/blog/posts'
 BLOG_TAGS_URL = BLOG_ROOT_URL + '/tags'
 BLOG_COMMENT_URL = BLOG_ROOT_URL + '/makecomment'
+ADMIN_NEW_POST = BLOG_MANAGE_URL + '/blog/posts/add'
 # 模板相关
 TEMPLATE_ROOT_URL = BLOG_STATIC_URL + '/blog/front-template'
 CUR_TEMPLATE_NAME = 'default'
@@ -51,8 +56,18 @@ CUR_TEMPLATE_DIR = os.path.join(
     'templates').replace('\\',
                          '/') + '/' + CUR_TEMPLATE_NAME
 CUR_TEMPLATE_URL = TEMPLATE_ROOT_URL + '/' + CUR_TEMPLATE_NAME
-# 稍微有点问题的模板路径设置，后面改
+
+# 模板路径，都是相对于CUR_TEMPLATE_DIR的值
 LOGIN_TEMPLATE = 'blog/login/login_django.html'
+JUMP_TEMPLATE = 'blog/login/auto_jump.html'
+REMIND_TEMPLATE = 'blog/login/remind.html'
+#侧边栏快捷功能菜单
+SHORTCUT_MENU = [['后台管理',BLOG_MANAGE_URL],
+                 ['发表新文章',ADMIN_NEW_POST],
+                 ['退出GG-BLOG',BLOG_LOGOUT_URL],
+                 ]
+#快捷功能菜单结束
+
 # 上传文件相关
 FILE_UPLOAD_ALLOW = (
     'jpg',
@@ -76,6 +91,8 @@ except:
     DUOSHUO_SECRET = ''
     DUOSHUO_SHORT_NAME = ''
 ###################全局静态设置完毕##########################
+
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 try:
