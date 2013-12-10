@@ -124,7 +124,6 @@ class Posts(models.Model):
         auto_now_add=True,
         verbose_name=u'发表日期')
     modified_date = models.DateTimeField(auto_now=True, verbose_name=u'最后修改日期')
-    content = models.TextField(verbose_name=u'文章内容')
     title = models.CharField(max_length=50, verbose_name=u'文章标题')
     short_title = models.CharField(
         max_length=50,
@@ -149,7 +148,8 @@ class Posts(models.Model):
         ThreadTypes,
         blank=True,
         verbose_name=u'分类')
-    comment_count = models.IntegerField(verbose_name=u'评论数量')
+    content = models.TextField(verbose_name=u'文章内容')
+    comment_count = models.IntegerField(blank=True,verbose_name=u'评论数量')
     comments = models.ManyToManyField(Comments, blank=True, verbose_name=u'评论')
 
     def get_absolute_url(self):

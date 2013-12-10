@@ -10,13 +10,14 @@ class StatusAdmin(admin.ModelAdmin):
 
 
 class PostsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'status', 'publish_date')
+    list_display = ('title', 'id', 'status', 'publish_date')
     search_fields = ('title',)
     list_filter = ('status', 'threadtypeid', 'tags', 'publish_date',)
     exclude = ('authorid',)
 
     def save_model(self, request, modelobj, form, change):
         modelobj.authorid = request.user.id
+        modelobj.comment_count = 0
         modelobj.save()
         modelobj.comment_count = len(modelobj.comments.all())
         modelobj.save()
