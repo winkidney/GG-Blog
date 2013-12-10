@@ -3,15 +3,19 @@
 ### Lisense:GPLv3 [quick-guide-gplv3](www.gnu.org/licenses/quick-guide-gplv3.html)
 ###Summary: 
 这是一个为了满足wp不能显示文章封面的问题自己做的简单博客系统，目的是发布带有封面和简介的文章。（虽然后来发现只是自己不太了解wp插件的使用方法而已，但还是坚持写完了这个程序）  
-### Feature：
+
+###Feature：
 1. 一个博客，单用户  
 2. 可以提取每篇文章第一张图作为封面（当然，需要你在模板里面自定义。）
 3. 集成ueditor和多说评论功能，包含jiathis分享插件。
 4. 内置了替换模板功能，修改settings.py 内的CUR_TEMPLATE_NAME即可，模板存放在pycms/templates/default/下，default即未模板名称，模板目录名和模板名称必须一致。
 5. 没了，该有的基本都有了，需要的以后按照需求添加吧  
-### ChangeLog
+6. 模板使用了html5标准，[DEMO](http://blog.gg-workshop.com)
+
+###ChangeLog
 + 2013.12.10 添加ajax登录，支持不重新登录刷新边栏，修正一些显示错误
 + 2013.11.x 发布0.1并部署成功
+
 ###Requirements:
 + python 2.6+  
 + django 1.5+  
