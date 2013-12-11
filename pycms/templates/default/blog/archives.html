@@ -42,7 +42,9 @@
 							</li>
 						</ul>
 						<div class="mainPostContents">
+                                {% autoescape off%}
 								<p>{{ post_summary.summary }}</p>
+                                {% endautoescape %}
 								<a class="readMore" href="{{ post_summary.link }}/"><span class="postMore btn darkBtn buttonShadow">阅读更多</a>
 						</div><!--end mainPostContents-->
 					</div><!--end  postContent-->
