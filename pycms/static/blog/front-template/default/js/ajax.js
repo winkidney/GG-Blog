@@ -12,7 +12,7 @@ $('#login-submit').bind('click',function(){
             if (data.status == "success"){
                 $('#user_login_div').hide();
                 $('#user-panel .widget a').html(data.username);
-                $('#user-panel').show();
+                $('#user-panel').fadeIn(1000);;
             }else if (data.status == "user not active"){
                 alert('用户已被禁用');
             }else{
@@ -24,8 +24,8 @@ $('#login-submit').bind('click',function(){
 });
 $('.panel-function a:last').bind('click',function(){
     $.ajax({type:"get",url:"/logout/"});
-    $('#user_login_div').show();
     $('#user-panel').hide();
+    $('#user_login_div').fadeIn(1000);
     return false;
 });
 /*
