@@ -437,6 +437,9 @@ a.nextPage:hover,a.previousPage:hover{
 /*maincontent部分结束*/   
 /*侧边栏rightcontent部分开始*/
 	/*登陆&用户信息部分开始*/
+#user_login_div{
+    display:none;
+}
 #username,#pwd {
 	position:relative;
 	padding:10px;

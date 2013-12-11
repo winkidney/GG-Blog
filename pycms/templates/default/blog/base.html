@@ -194,8 +194,8 @@
 			
 			
 			<div id="rightContent">
-				{% if not data.user_info.logined %}
-				<div id="user_login_div">
+				
+				<div id="user_login_div" {% if not data.user_info.logined %}style='display:block;'{% endif %}>
 					<form id="login_form" method="post" action="{{ data.basic_info.login_url }}/">
 						{% csrf_token %}
 						<input type="text" name="username" id="username" placeholder="用户名"></input>
@@ -211,7 +211,7 @@
 						<li class="clear"></li>
 					</ul>
 				</div><!--end user_login_div-->
-				{% endif %}
+				
                 
                 <div id='user-panel' {% if data.user_info.logined %}style='display:block;'{% endif %}>
                     <h5 class="widget">
