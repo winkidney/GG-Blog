@@ -198,7 +198,7 @@ def tags_view(request, *arg, **kwargs):
     if tag in tags_getter.tagnamelist:
         from blog.data import get_summarys_bytag
         post_summarys = get_summarys_bytag(tag)
-        return render_to_response('blog/read_bytags.html', locals())
+        return render_to_response('blog/read_bytags.html', locals(),context_instance=RequestContext(request))
     else:
         raise Http404
 
@@ -211,12 +211,13 @@ def thread_type_view(request, *arg, **kwargs):
     # 在父分类中，列出子分类目录
     if ttype in ttype_getter.ctypes:
         post_summarys = get_summarys_byttype(ttype)
-        return render_to_response('blog/read_byttype.html', locals())
+        html = 'blog/read_byttype.html'
     # 在子分类中，直接显示内容
     elif ttype in ttype_getter.ptypes:
-        return render_to_response('blog/ttype_index.html', locals())
+        html = 'blog/ttype_index.html'
     else:
         raise Http404
+    return render_to_response(html, locals(),context_instance=RequestContext(request))
 
 # 登陆要求的包装函数
 #@login_required(login_url='/accounts/login/')
@@ -291,19 +292,25 @@ def about_view(request, *args, **kwargs):
         if not a_post.exist:
             raise Http404
         # 检查文章状态是否为已发布
+        html = 'blog/read.html'
         if a_post.post['status'].id == 1:
-            return (
-                render_to_response(
-                    'blog/read.html',
-                    locals(),
-                    context_instance=RequestContext(request))
-            )
+            pass
         elif a_post.post['status'].id == 2 and logined(request):
-            return (
-                render_to_response(
-                    'blog/read.html',
-                    locals(),
-                    context_instance=RequestContext(request))
-            )
+            pass
         else:
             raise Http404
+        return (
+                render_to_response(
+                    html,
+                    locals(),
+                    context_instance=RequestContext(request))
+            )
+
+def musicmode_view(request, *args, **kwargs):
+    data = request.extra_data
+    return (
+                render_to_response(
+                    "blog/music.html",
+                    locals(),
+                    context_instance=RequestContext(request))
+            )

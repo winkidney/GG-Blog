@@ -39,4 +39,5 @@ urlpatterns = patterns('',
                        # url(r'^tinymce/',include('tinymce.urls')),
                        url(r'^ajax/login/$',views.ajax_login_view),
                        url(r'^ajax/makecomment/$',views.ajax_make_comment_view),
+                       url(r'^musicmode/$',views.musicmode_view),
                        )

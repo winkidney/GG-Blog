@@ -1,0 +1,59 @@
+<!doctype html>
+<html  lang="zh-CN">
+    <head>
+	<title>
+		播放器测试
+	</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+        <style type="text/css">
+            #musicmain {
+                boder:0;
+                padding:0;
+                margin: 0px;
+                }
+            #blog-explorer {
+                width: 100%;
+                boder: 0;
+                height: 2000px;
+            }
+            #xiamiplayerbox{
+                position: fixed;
+                width: 525px;
+                hgight: 510px;
+                left:-490px;
+                bottom:0;
+                z-index:99999;
+                overflow: hidden;
+                background: url("{{ data.basic_info.template_root }}/img/main/musicmode/musicbutton.png") no-repeat scroll 0 65px transparent;
+            }
+            #xiamiplayer {
+                margin: -35px 0 0 -11px;
+                boder-radius:5px;
+                width: 491px;
+                height: 510px;
+            }
+        </style>
+    </head>
+    <body id="musicmain">
+        <iframe id="blog-explorer" frameborder="0" noresize="noresize" name="preview-frame" src="/" >
+        </iframe>
+        <div id="xiamiplayerbox">
+            <iframe id="xiamiplayer" src="http://www.xiami.com/res/player/xiamiMusicPlayer_ld.swf?dataUrl=/song/playlist/id/15945203/type/3" >
+            </iframe>
+        </div>
+     <script type="text/javascript">
+         $('#xiamiplayerbox').bind("click",function(){
+            if ($('#xiamiplayerbox').attr("class") == 'active'){
+                $('#xiamiplayerbox').animate({left:0},{ease:'swing'},100);
+                $('#xiamiplayerbox').attr("class",'');
+            }
+            else{
+                $('#xiamiplayerbox').animate({left:-490},{ease:'swing'},100);
+                $('#xiamiplayerbox').attr("class",'active');
+            }
+         });
+     </script>
+
+    </body>
+</html>
