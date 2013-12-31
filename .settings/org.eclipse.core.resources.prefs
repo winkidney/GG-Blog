@@ -13,6 +13,7 @@ encoding//pycms/localsettings.py=utf-8
 encoding//pycms/settings.py=utf-8
 encoding//pycms/urls.py=utf-8
 encoding//pycms/views.py=utf-8
+encoding//support-file/example-localsettings.py=utf-8
 encoding//tools/tools.py=utf-8
 encoding/cleardb_initdb.py=utf-8
 encoding/createdb.py=utf-8
