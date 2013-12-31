@@ -333,18 +333,21 @@ def get_summarys_bytime(year, month):
 class PageBtnGenerator(object):
 
     """generate page buttons from the given current page number for home page"""
-
+    exist = False
     def __init__(self, current_page):
         self.cur_btn = int(current_page)
         self.cur_btns = []
         page_nums = []
-        count = Posts.objects.count()
+        count = Posts.objects.filter(status__id=2).count()
         quotient = count / settings.ARCHIVES_PER_PAGE
         out_ranger = count % settings.ARCHIVES_PER_PAGE
         if out_ranger:
             quotient = quotient + 1
         for number in xrange(1, quotient + 1):
             page_nums.append(number)
+        #若当前页码存在则令exist=True.否则exist为False，交给父view处理
+        if self.cur_btn in page_nums:
+            self.exist = True
         if quotient < 15:
                 self.cur_btns = page_nums
         elif quotient > 14:
@@ -359,7 +362,6 @@ class PageBtnGenerator(object):
             self.next = cur_page + 1
         else:
             self.next = None
-
 
 class PostsGetter(object):
     days = 30
@@ -479,10 +481,10 @@ def get_summarys_bypage(page_num, displayall):
     post_summarys = []
     if displayall:
         posts = Posts.objects.order_by(
-            "-publish_date")[((page_num - 1) * 10):((page_num - 1) * 10 + 9)]
+            "-publish_date")[((page_num - 1) * settings.ARCHIVES_PER_PAGE):((page_num - 1) * settings.ARCHIVES_PER_PAGE + settings.ARCHIVES_PER_PAGE)]
     else:
         posts = Posts.objects.filter(status__id=2).order_by(
-            "-publish_date")[((page_num - 1) * 10):((page_num - 1) * 10 + 9)]
+            "-publish_date")[((page_num - 1) * settings.ARCHIVES_PER_PAGE):((page_num - 1) * settings.ARCHIVES_PER_PAGE + settings.ARCHIVES_PER_PAGE)]
     if posts:
         for post in posts:
             post_summarys.append(PostSummary(post))

@@ -56,11 +56,14 @@ def home_view(request, *args, **kwargs):
     data = request.extra_data
     page = kwargs.get('pagenum', 1)
     from blog.data import PageBtnGenerator
+    pagination = PageBtnGenerator(page)
+    if not pagination.exist:
+        raise Http404
     if logined(request):
         post_summarys = get_summarys_bypage(page, False)
     else:
         post_summarys = get_summarys_bypage(page, False)
-    pagination = PageBtnGenerator(page)
+    
     return render_to_response('blog/base.html',
                               locals(),
                               context_instance=RequestContext(request))

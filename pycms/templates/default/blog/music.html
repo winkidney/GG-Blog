@@ -2,7 +2,7 @@
 <html  lang="zh-CN">
     <head>
 	<title>
-		播放器测试
+		玻璃齿轮-音乐模式
 	</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
@@ -15,7 +15,7 @@
             #blog-explorer {
                 width: 100%;
                 boder: 0;
-                height: 2000px;
+                height: 99999px;
             }
             #xiamiplayerbox{
                 position: fixed;
@@ -39,11 +39,14 @@
         <iframe id="blog-explorer" frameborder="0" noresize="noresize" name="preview-frame" src="/" >
         </iframe>
         <div id="xiamiplayerbox">
+            <div>
             <iframe id="xiamiplayer" src="http://www.xiami.com/res/player/xiamiMusicPlayer_ld.swf?dataUrl=/song/playlist/id/15945203/type/3" >
             </iframe>
+            </div>
         </div>
      <script type="text/javascript">
-         $('#xiamiplayerbox').bind("click",function(){
+     $(document).ready(function(){
+         $('#xiamiplayerbox').click(function(){
             if ($('#xiamiplayerbox').attr("class") == 'active'){
                 $('#xiamiplayerbox').animate({left:0},{ease:'swing'},100);
                 $('#xiamiplayerbox').attr("class",'');
@@ -53,6 +56,7 @@
                 $('#xiamiplayerbox').attr("class",'active');
             }
          });
+     });
      </script>
 
     </body>
