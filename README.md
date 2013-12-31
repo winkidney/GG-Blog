@@ -29,8 +29,8 @@
 如果是简单的使用，配置数据库就可以正常使用,不过您需要先安装好依赖 
 使用
 ```bash
-cd support-files
-cp example-localsettings.py appdir/pycms/localsettings.py
+cd support-file
+cp example-localsettings.py appdir/pycms/pycms/localsettings.py
 ```  
 将配置文件复制到appdir/pycms/pycms中（settings文件所在目录）
 打开配置文件，配置数据库信息,博客超级用户信息，注意上面的数据库配置要跟下面的数据库创建配置一致
