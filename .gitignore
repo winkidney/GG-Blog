@@ -2,7 +2,8 @@
 *.pyc
 *.log
 *~
-localsettings.py
+localsettings*
+*.db
 # C extensions
 *.so
 

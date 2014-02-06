@@ -26,12 +26,13 @@ DUOSHUO_SHORT_NAME = 'ggblog'
 #########################used by createdb.py##############################
 # db create settings
 dbname = 'pycms'
+#下面的数据在sqlite数据库时不需要设置
 root_username = 'root'
-root_passwd = '19921226'
-new_username = 'pycms'
-passwd_to_set = '19921226'
+root_passwd = 'pwd'
+new_username = 'dbuser'
+passwd_to_set = 'pwd'
 # super user info
-su_name = 'winkidney'
-su_email = "winkidney@gmail.com"
-su_passwd = "19921226"
+su_name = 'your super username'
+su_email = "xxx@gmail.com"
+su_passwd = "your password"
 ##########################ebd of createdb.py used#########################
