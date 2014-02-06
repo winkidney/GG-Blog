@@ -2,7 +2,7 @@
 # localsettings to protect my info
 # in folder pycms
 ####
-SECRET_KEY = ''
+SECRET_KEY = '_c@$un4*ihb4(&hf&556485qi@)yc-x=rw17h05jhe!h#fg^3r'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 DATABASES = {

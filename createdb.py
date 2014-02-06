@@ -1,3 +1,4 @@
+#!usr/bin/python
 # coding:utf-8
 import MySQLdb
 import sys
@@ -12,6 +13,7 @@ from pycms import settings
 from blog.models import *
 from django.contrib.auth.models import User
 from django.core import management
+import sqlite3
 # 系统环境设置完毕
 try:
     from pycms.localsettings import *
@@ -27,7 +29,14 @@ except:
     su_email = ""
     su_passwd = ""
 
-
+def create_sqlite_db(dbname):
+    try:
+        cx = sqlite3.connect("pycms"+dbname)
+        cx.close()
+        print "sqlite3_db created"
+    except Exception as e:
+        print e
+    
 def create_db_and_user(dbname, root_username, root_passwd,
                        new_username, passwd_to_set):
     try:
@@ -75,7 +84,7 @@ def add_info():
                       'site_name': u'一个新的玻璃齿轮',
                       'about_article_id': '2',
                       'short_about':
-                      u'阿毛目前是数字媒体专业在校学生，会用linux，喜欢python，努力的方向是web开发和web前端开发',
+                      u'这里是一个简短的关于字段，您可以自行修改',
                       }
     for key in basic_settings:
         bs = BasicSettings()
@@ -206,27 +215,31 @@ def add_init_post():
         '1')
 
 
-def install():
-    create_db_and_user(
-        dbname,
-        root_username,
-        root_passwd,
-        new_username,
-        passwd_to_set)
+def install(mysql_db=False):
+    if mysql_db:
+        create_db_and_user(
+                           dbname,
+                           root_username,
+                           root_passwd,
+                           new_username,
+                           passwd_to_set)
+    else:
+        create_sqlite_db(dbname)
     syncdb_with_su(su_name, su_email, su_passwd)
     add_private_info()
     add_info()
     add_init_post()
     # add_posts_bydate()
-
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print "useage: %s [install|add_posts_bydate|add_posts_by_num]" % (sys.argv[0])
     else:
         if sys.argv[1] not in ('install', 'add_posts_bydate', 'add_posts_by_num'):
-            print "parament error,useage: %s [install|add_posts_bydate|add_posts_by_num]"
+            print "parament error,useage: %s [install|install_mysql|add_posts_bydate|add_posts_by_num]" % (sys.argv[0])
         if sys.argv[1] == 'install':
             install()
+        if sys.argv[1] == 'install_mysql':
+            install(True)
         elif sys.argv[1] == 'add_posts_bydate':
             add_posts_bydate()
         elif sys.argv[1] == 'add_posts_bynum':

@@ -7,7 +7,7 @@ import os
 try:
     from localsettings import SECRET_KEY
 except:
-    SECRET_KEY = ''
+    SECRET_KEY = '_c@$un4*ihb4(&hf&556485qi@)yc-x=rw17h05jhe!h#fg^3r'
 
 
 ################全局静态设置by kidney######################
