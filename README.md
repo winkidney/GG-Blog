@@ -1,5 +1,5 @@
 ## 说明：
-### Version:0.1
+### Version:0.1.1
 ### Lisense:GPLv3 [quick-guide-gplv3](www.gnu.org/licenses/quick-guide-gplv3.html)
 ###Summary: 
 这是一个为了满足wp不能显示文章封面的问题自己做的简单博客系统，目的是发布带有封面和简介的文章。（虽然后来发现只是自己不太了解wp插件的使用方法而已，且觉得wp太臃肿，运行太慢，感觉作为博客有点overweight，所以还是自己写完了这个博客）  
@@ -13,6 +13,7 @@
 6. 模板使用了html5标准，需要<blod>现代浏览器</bold>才能正确显示 [DEMO](http://blog.gg-workshop.com)
 
 ###ChangeLog
++ 2014-03-11 新建分支release-0.1.1,删除一些未使用的js文件和图片文件，修正一个数据库新建脚本的  错误
 + 06.02.2014 将数据库迁移到sqlite3，并将安装脚本修改为可选择数据库（默认sqlite，可以mysql）；增加support files->example-localsettings-sqlite.py
 + 2013.12.29 增加support files，包含nginx配置文件（fcgi），重启服务和启动服务的脚本，增加localsettings配置文件范例
 + 2013.12.29 修复了一个分页显示错误，增加音乐模式/musicmode/，优化博客后台显示
