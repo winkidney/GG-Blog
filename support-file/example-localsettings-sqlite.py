@@ -20,8 +20,8 @@ DATABASES = {
     }
 }
 ######多说########
-DUOSHUO_SECRET = '578c296aae128ca54179e847cda351f4'
-DUOSHUO_SHORT_NAME = 'ggblog'
+DUOSHUO_SECRET = 'your duoshuo secret key'
+DUOSHUO_SHORT_NAME = 'your duoshuo short name'
 
 #########################used by createdb.py##############################
 # db create settings
