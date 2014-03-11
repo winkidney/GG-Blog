@@ -31,7 +31,7 @@ except:
 
 def create_sqlite_db(dbname):
     try:
-        cx = sqlite3.connect("pycms"+dbname)
+        cx = sqlite3.connect("pycms/"+dbname)
         cx.close()
         print "sqlite3_db created"
     except Exception as e:
