@@ -4,6 +4,8 @@
 	<title>
 		{% block title %}{{ data.basic_info.blog_settings.page_title }}{% endblock %}
 	</title>
+    {% block seo %}
+    {% endblock %}
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<!--jquery-ui-->
 		<link href="{{ data.basic_info.static_root }}/blog/share/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
@@ -136,7 +138,7 @@
 						<div class="like_it">
 							<a id="like-0000" class="likeThis" href="#">
 								<span class="icon heart"></span>
-								<span class="like_count">10</span>
+								<span class="like_count">0</span>
 							</a>
 						</div>
 					</aside><!--end aside postside-->

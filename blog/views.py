@@ -64,7 +64,7 @@ def home_view(request, *args, **kwargs):
     else:
         post_summarys = get_summarys_bypage(page, False)
     
-    return render_to_response('blog/base.html',
+    return render_to_response('blog/home.html',
                               locals(),
                               context_instance=RequestContext(request))
     # return HttpResponse("error,check basic_info")

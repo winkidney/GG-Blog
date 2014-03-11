@@ -1,0 +1,5 @@
+{% extends "blog/base.html" %}
+{% block seo %}
+    <meta name="keywords" content="{% for post_summary in post_summarys %}{{ post_summary.title }}{% endfor %}" />
+    <meta name="description" content="{% for post_summary in post_summarys %}{{ post_summary.summary }}{% endfor %}" />
+{% endblock %}

@@ -1,5 +1,9 @@
 {% extends "blog/archives.html" %}
 {% block title %}{{ data.tagname }} | 按标签查看 | {{ data.basic_info.blog_settings.page_title }}{% endblock %}
+{% block seo %}
+    <meta name="keywords" content="按标签查看 | {% for post_summary in post_summarys %}{{ post_summary.title }}{% endfor %}" />
+    <meta name="description" content="{% for post_summary in post_summarys %}{{ post_summary.summary }}{% endfor %}" />
+{% endblock %}
 {% block archive_nav %}
 	<p>您目前的位置</p><a class="main_menu" href="#">&gt;按标签查看</a>
 	<a class="main_menu" href="{{ data.basic_info.blog_tags_url }}/{{ data.tagname }}/" >&gt;{{ data.tagname }}</a>

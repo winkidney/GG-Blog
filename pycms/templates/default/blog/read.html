@@ -1,5 +1,9 @@
 {% extends "blog/base.html" %}
 {% block title %}{{ a_post.post.title }} | 阅读页面 | {{ data.basic_info.blog_settings.site_name }}{% endblock %}
+{% block seo %}
+        <meta name="keywords" content="{{ a_post.post.title }},{% for tag in a_post.post.tags %}{{ tag.tagname }}{% endfor %}" />
+        <meta name="description" content="{{ a_post.post.content }}" />
+{% endblock %}
 {% block js %}
 <script type="text/javascript" charset="utf-8" src="{{ data.basic_info.template_root }}/js/resize-img.js"></script>
 {% endblock %}
