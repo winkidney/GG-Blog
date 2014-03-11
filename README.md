@@ -13,6 +13,7 @@
 6. 模板使用了html5标准，需要<blod>现代浏览器</bold>才能正确显示 [DEMO](http://blog.gg-workshop.com)
 
 ###ChangeLog
++ 2014-03-11 模板中的seo优化（虽然好像没啥实际意义，我自己的域名简直惨不忍睹= =）
 + 2014-03-11 新建分支release-0.1.1,删除一些未使用的js文件和图片文件，修正一个数据库新建脚本的  错误
 + 06.02.2014 将数据库迁移到sqlite3，并将安装脚本修改为可选择数据库（默认sqlite，可以mysql）；增加support files->example-localsettings-sqlite.py
 + 2013.12.29 增加support files，包含nginx配置文件（fcgi），重启服务和启动服务的脚本，增加localsettings配置文件范例
@@ -130,7 +131,7 @@ su_passwd = "blog super user name"
 ##########################ebd of createdb.py used#########################
 
 ```
-最后一部，运行安装脚本,在终端中键入    
+最后一步，运行安装脚本,在终端中键入    
 如果您是sqlite数据库
 ```bash
 cd appdir/pycms/
@@ -166,7 +167,11 @@ python createdb.py install_mysql
 	---------page_title（char：页面标题）  
 	---------short_about（char：短自我介绍，会显示在首页页脚）  
 	---------seite_name（char：站点名称）  
-
+###To Do List:
+1. 设计一套新模板
+2. 定制多说的评论界面，将多说留言板集成到我的主页或者一个单独的留言页
+3. 删除某些无用的数据库项，去掉自带的留言功能（只做了回复，没做渲染，只有主页有渲染）
+4. 自行设计管理界面，不再依赖django自带管理页面
 
 
 如果有任何需求或者bug，也请提交给我^_^    
@@ -174,4 +179,4 @@ python createdb.py install_mysql
  
 [My Blog](http://blog.gg-workshop.com)  
 
-2013.11.18 by winkidney
+2014-03-11 by winkidney
