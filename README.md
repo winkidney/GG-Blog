@@ -78,9 +78,9 @@ DUOSHUO_SHORT_NAME = 'ggblog'
 dbname = 'pycms'
 #数据库未sqlite时如下数据库数据不需要设置
 root_username = ''
-root_passwd = '19921226'
+root_passwd = 'db_root_pwd'
 new_username = 'pycms'
-passwd_to_set = '19921226'
+passwd_to_set = 'db_root_pwd'
 # super user info超级用户信息，需要设置
 su_name = 'blog super user'
 su_email = "w@gmail.com"
