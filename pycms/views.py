@@ -1,6 +1,6 @@
 # coding:utf-8
 # views of pycms by winkidney
-import Image
+from PIL import Image
 import os
 import time
 import urllib2
